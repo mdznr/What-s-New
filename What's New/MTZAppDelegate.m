@@ -8,6 +8,8 @@
 
 #import "MTZAppDelegate.h"
 
+#import "MTMigration.h"
+
 @implementation MTZAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

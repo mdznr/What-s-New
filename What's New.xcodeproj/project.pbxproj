@@ -22,6 +22,8 @@
 		C927693E1926C3240016A0F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C927691D1926C3240016A0F1 /* UIKit.framework */; };
 		C92769461926C3240016A0F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C92769441926C3240016A0F1 /* InfoPlist.strings */; };
 		C92769481926C3240016A0F1 /* What_s_NewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C92769471926C3240016A0F1 /* What_s_NewTests.m */; };
+		C92769581926C7E30016A0F1 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = C92769551926C7E30016A0F1 /* LICENSE.txt */; };
+		C92769591926C7E30016A0F1 /* MTMigration.m in Sources */ = {isa = PBXBuildFile; fileRef = C92769571926C7E30016A0F1 /* MTMigration.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,9 @@
 		C92769431926C3240016A0F1 /* What's NewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "What's NewTests-Info.plist"; sourceTree = "<group>"; };
 		C92769451926C3240016A0F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C92769471926C3240016A0F1 /* What_s_NewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = What_s_NewTests.m; sourceTree = "<group>"; };
+		C92769551926C7E30016A0F1 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		C92769561926C7E30016A0F1 /* MTMigration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTMigration.h; sourceTree = "<group>"; };
+		C92769571926C7E30016A0F1 /* MTMigration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTMigration.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +125,7 @@
 				C927692E1926C3240016A0F1 /* Main_iPad.storyboard */,
 				C92769311926C3240016A0F1 /* MTZViewController.h */,
 				C92769321926C3240016A0F1 /* MTZViewController.m */,
+				C92769541926C7E30016A0F1 /* MTMigration */,
 				C92769341926C3240016A0F1 /* Images.xcassets */,
 				C92769201926C3240016A0F1 /* Supporting Files */,
 			);
@@ -153,6 +159,16 @@
 				C92769441926C3240016A0F1 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C92769541926C7E30016A0F1 /* MTMigration */ = {
+			isa = PBXGroup;
+			children = (
+				C92769551926C7E30016A0F1 /* LICENSE.txt */,
+				C92769561926C7E30016A0F1 /* MTMigration.h */,
+				C92769571926C7E30016A0F1 /* MTMigration.m */,
+			);
+			path = MTMigration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +251,7 @@
 				C92769301926C3240016A0F1 /* Main_iPad.storyboard in Resources */,
 				C92769351926C3240016A0F1 /* Images.xcassets in Resources */,
 				C927692D1926C3240016A0F1 /* Main_iPhone.storyboard in Resources */,
+				C92769581926C7E30016A0F1 /* LICENSE.txt in Resources */,
 				C92769241926C3240016A0F1 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,6 +274,7 @@
 				C927692A1926C3240016A0F1 /* MTZAppDelegate.m in Sources */,
 				C92769261926C3240016A0F1 /* main.m in Sources */,
 				C92769331926C3240016A0F1 /* MTZViewController.m in Sources */,
+				C92769591926C7E30016A0F1 /* MTMigration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
