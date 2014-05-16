@@ -38,7 +38,7 @@ static NSString * const MTMigrationLastAppVersionKey   = @"MTMigration.lastAppVe
 		return;
 	}
 	
-    if ( ![[self lastAppVersion] isEqualToString:[self appVersion]] ) {
+    if ( [[self lastAppVersion] compare:[self appVersion] options:NSNumericSearch] == NSOrderedAscending ) {
         updateBlock();
 		#if DEBUG
 		NSLog(@"MTMigration: Running update Block");
