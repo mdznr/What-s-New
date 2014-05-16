@@ -15,6 +15,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+	
+	[MTMigration applicationUpdateBlock:^{
+		NSLog(@"Updated");
+	}];
+	
     return YES;
 }
 							

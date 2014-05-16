@@ -30,6 +30,14 @@ static NSString * const MTMigrationLastAppVersionKey   = @"MTMigration.lastAppVe
 
 + (void)applicationUpdateBlock:(MTExecutionBlock)updateBlock
 {
+	if ( ![self lastAppVersion] ) {
+		#if DEBUG
+		NSLog(@"MTMigration: Running app for first time");
+		#endif
+		[self setLastAppVersion:[self appVersion]];
+		return;
+	}
+	
     if ( ![[self lastAppVersion] isEqualToString:[self appVersion]] ) {
         updateBlock();
 		#if DEBUG
@@ -61,8 +69,7 @@ static NSString * const MTMigrationLastAppVersionKey   = @"MTMigration.lastAppVe
 
 + (NSString *)lastMigrationVersion
 {
-    NSString *res = [[NSUserDefaults standardUserDefaults] valueForKey:MTMigrationLastVersionKey];
-    return (res ? res : @"");
+	return [[NSUserDefaults standardUserDefaults] valueForKey:MTMigrationLastVersionKey];
 }
 
 + (void)setLastAppVersion:(NSString *)version
@@ -73,8 +80,7 @@ static NSString * const MTMigrationLastAppVersionKey   = @"MTMigration.lastAppVe
 
 + (NSString *)lastAppVersion
 {
-    NSString *res = [[NSUserDefaults standardUserDefaults] valueForKey:MTMigrationLastAppVersionKey];
-    return (res ? res : @"");
+	return [[NSUserDefaults standardUserDefaults] valueForKey:MTMigrationLastAppVersionKey];
 }
 
 @end
