@@ -12,7 +12,7 @@ typedef void (^MTExecutionBlock)(void);
 
 @interface MTMigration : NSObject
 
-///	 Executes a block of code for a specific version number and remembers this version as the latest migration done by MTMigration.
+///	Executes a block of code for a specific version number and remembers this version as the latest migration done by MTMigration.
 /// @param version A string with a specific version number.
 /// @param migrationBlock A block object to be executed when the application version matches the string 'version'. This parameter can't be nil.
 + (void)migrateToVersion:(NSString *)version block:(MTExecutionBlock)migrationBlock;
