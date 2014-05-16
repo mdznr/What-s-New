@@ -24,6 +24,7 @@
 		C92769481926C3240016A0F1 /* What_s_NewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C92769471926C3240016A0F1 /* What_s_NewTests.m */; };
 		C92769581926C7E30016A0F1 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = C92769551926C7E30016A0F1 /* LICENSE.txt */; };
 		C92769591926C7E30016A0F1 /* MTMigration.m in Sources */ = {isa = PBXBuildFile; fileRef = C92769571926C7E30016A0F1 /* MTMigration.m */; };
+		C927695B1926CE690016A0F1 /* What's New.plist in Resources */ = {isa = PBXBuildFile; fileRef = C927695A1926CE690016A0F1 /* What's New.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		C92769551926C7E30016A0F1 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		C92769561926C7E30016A0F1 /* MTMigration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTMigration.h; sourceTree = "<group>"; };
 		C92769571926C7E30016A0F1 /* MTMigration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTMigration.m; sourceTree = "<group>"; };
+		C927695A1926CE690016A0F1 /* What's New.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "What's New.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 		C92769201926C3240016A0F1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C927695A1926CE690016A0F1 /* What's New.plist */,
 				C92769211926C3240016A0F1 /* What's New-Info.plist */,
 				C92769221926C3240016A0F1 /* InfoPlist.strings */,
 				C92769251926C3240016A0F1 /* main.m */,
@@ -252,6 +255,7 @@
 				C92769351926C3240016A0F1 /* Images.xcassets in Resources */,
 				C927692D1926C3240016A0F1 /* Main_iPhone.storyboard in Resources */,
 				C92769581926C7E30016A0F1 /* LICENSE.txt in Resources */,
+				C927695B1926CE690016A0F1 /* What's New.plist in Resources */,
 				C92769241926C3240016A0F1 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

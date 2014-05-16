@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>2.0</key>
+	<array>
+		<string>No application is complete without it&apos;s own todo list!</string>
+	</array>
+	<key>1.2</key>
+	<array>
+		<string>Added calendar support.</string>
+	</array>
+	<key>1.1</key>
+	<array>
+		<string>Added iCloud Support</string>
+		<string>Added weather feature.</string>
+	</array>
+	<key>1.0</key>
+	<array>
+		<string>Launched</string>
+		<string>Submitted to App Store</string>
+		<string>One Point Oh!</string>
+	</array>
+</dict>
+</plist>
