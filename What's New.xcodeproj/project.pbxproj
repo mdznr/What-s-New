@@ -13,8 +13,6 @@
 		C92769241926C3240016A0F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C92769221926C3240016A0F1 /* InfoPlist.strings */; };
 		C92769261926C3240016A0F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C92769251926C3240016A0F1 /* main.m */; };
 		C927692A1926C3240016A0F1 /* MTZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C92769291926C3240016A0F1 /* MTZAppDelegate.m */; };
-		C927692D1926C3240016A0F1 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C927692B1926C3240016A0F1 /* Main_iPhone.storyboard */; };
-		C92769301926C3240016A0F1 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C927692E1926C3240016A0F1 /* Main_iPad.storyboard */; };
 		C92769331926C3240016A0F1 /* MTZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92769321926C3240016A0F1 /* MTZViewController.m */; };
 		C92769351926C3240016A0F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C92769341926C3240016A0F1 /* Images.xcassets */; };
 		C927693C1926C3240016A0F1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C927693B1926C3240016A0F1 /* XCTest.framework */; };
@@ -24,6 +22,7 @@
 		C92769481926C3240016A0F1 /* What_s_NewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C92769471926C3240016A0F1 /* What_s_NewTests.m */; };
 		C92769591926C7E30016A0F1 /* MTZWhatsNew.m in Sources */ = {isa = PBXBuildFile; fileRef = C92769571926C7E30016A0F1 /* MTZWhatsNew.m */; };
 		C927695B1926CE690016A0F1 /* What's New.plist in Resources */ = {isa = PBXBuildFile; fileRef = C927695A1926CE690016A0F1 /* What's New.plist */; };
+		C927695E192726D40016A0F1 /* MTZWhatsNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C927695D192726D40016A0F1 /* MTZWhatsNewViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +46,6 @@
 		C92769271926C3240016A0F1 /* What's New-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "What's New-Prefix.pch"; sourceTree = "<group>"; };
 		C92769281926C3240016A0F1 /* MTZAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTZAppDelegate.h; sourceTree = "<group>"; };
 		C92769291926C3240016A0F1 /* MTZAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTZAppDelegate.m; sourceTree = "<group>"; };
-		C927692C1926C3240016A0F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		C927692F1926C3240016A0F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		C92769311926C3240016A0F1 /* MTZViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTZViewController.h; sourceTree = "<group>"; };
 		C92769321926C3240016A0F1 /* MTZViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTZViewController.m; sourceTree = "<group>"; };
 		C92769341926C3240016A0F1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -60,6 +57,8 @@
 		C92769561926C7E30016A0F1 /* MTZWhatsNew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZWhatsNew.h; sourceTree = "<group>"; };
 		C92769571926C7E30016A0F1 /* MTZWhatsNew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZWhatsNew.m; sourceTree = "<group>"; };
 		C927695A1926CE690016A0F1 /* What's New.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "What's New.plist"; sourceTree = "<group>"; };
+		C927695C192726D40016A0F1 /* MTZWhatsNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZWhatsNewViewController.h; sourceTree = "<group>"; };
+		C927695D192726D40016A0F1 /* MTZWhatsNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZWhatsNewViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,10 +120,10 @@
 			children = (
 				C92769281926C3240016A0F1 /* MTZAppDelegate.h */,
 				C92769291926C3240016A0F1 /* MTZAppDelegate.m */,
-				C927692B1926C3240016A0F1 /* Main_iPhone.storyboard */,
-				C927692E1926C3240016A0F1 /* Main_iPad.storyboard */,
 				C92769311926C3240016A0F1 /* MTZViewController.h */,
 				C92769321926C3240016A0F1 /* MTZViewController.m */,
+				C927695C192726D40016A0F1 /* MTZWhatsNewViewController.h */,
+				C927695D192726D40016A0F1 /* MTZWhatsNewViewController.m */,
 				C92769541926C7E30016A0F1 /* MTZWhatsNew */,
 				C92769341926C3240016A0F1 /* Images.xcassets */,
 				C92769201926C3240016A0F1 /* Supporting Files */,
@@ -249,9 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C92769301926C3240016A0F1 /* Main_iPad.storyboard in Resources */,
 				C92769351926C3240016A0F1 /* Images.xcassets in Resources */,
-				C927692D1926C3240016A0F1 /* Main_iPhone.storyboard in Resources */,
 				C927695B1926CE690016A0F1 /* What's New.plist in Resources */,
 				C92769241926C3240016A0F1 /* InfoPlist.strings in Resources */,
 			);
@@ -276,6 +273,7 @@
 				C92769261926C3240016A0F1 /* main.m in Sources */,
 				C92769331926C3240016A0F1 /* MTZViewController.m in Sources */,
 				C92769591926C7E30016A0F1 /* MTZWhatsNew.m in Sources */,
+				C927695E192726D40016A0F1 /* MTZWhatsNewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,22 +302,6 @@
 				C92769231926C3240016A0F1 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		C927692B1926C3240016A0F1 /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C927692C1926C3240016A0F1 /* Base */,
-			);
-			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		C927692E1926C3240016A0F1 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C927692F1926C3240016A0F1 /* Base */,
-			);
-			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		C92769441926C3240016A0F1 /* InfoPlist.strings */ = {
@@ -490,6 +472,7 @@
 				C927694D1926C3240016A0F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C927694E1926C3240016A0F1 /* Build configuration list for PBXNativeTarget "What's NewTests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +481,7 @@
 				C92769501926C3240016A0F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
