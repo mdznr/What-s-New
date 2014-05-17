@@ -2,24 +2,65 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>3.0</key>
+	<array>
+		<dict>
+			<key>Title</key>
+			<string>Unplayed Episodes</string>
+			<key>Description</key>
+			<string>Quickly find episodes you haven&apos;t played yet.</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Browse the Feed</string>
+			<key>Description</key>
+			<string>Stream available episodes or download them to play later.</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Saved Episodes</string>
+			<key>Description</key>
+			<string>Save your favorite episodes to ensure you&apos;ll always have them.</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Delete Played Episodes</string>
+			<key>Description</key>
+			<string>Episodes can be automatically deleted after they are played.</string>
+		</dict>
+	</array>
 	<key>2.0</key>
 	<array>
-		<string>No application is complete without it&apos;s own todo list!</string>
+		<dict>
+			<key>Title</key>
+			<string>Designed for iOS 7</string>
+			<key>Description</key>
+			<string>Podcasts has a beautiful new look and feel that fits right in with iOS 7.</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Stay up to date</string>
+			<key>Description</key>
+			<string>Podcasts now automatically updates with new episodes—even while the app is not open.</string>
+		</dict>
 	</array>
 	<key>1.2</key>
 	<array>
-		<string>Added calendar support.</string>
+		<dict>
+			<key>Title</key>
+			<string>Custom Stations</string>
+			<key>Description</key>
+			<string>Create custom stations of your favorite podcasts that update automatically with new episodes.</string>
+		</dict>
 	</array>
 	<key>1.1</key>
 	<array>
-		<string>Added iCloud Support</string>
-		<string>Added weather feature.</string>
-	</array>
-	<key>1.0</key>
-	<array>
-		<string>Launched</string>
-		<string>Submitted to App Store</string>
-		<string>One Point Oh!</string>
+		<dict>
+			<key>Title</key>
+			<string>Pull to Refresh</string>
+			<key>Description</key>
+			<string>More easily pull to refresh a subscription or playlist.</string>
+		</dict>
 	</array>
 </dict>
 </plist>
