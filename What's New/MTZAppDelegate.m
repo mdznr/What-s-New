@@ -28,6 +28,9 @@
 		[self.window.rootViewController presentViewController:vc animated:YES completion:nil];
 	}];
 	
+	MTZWhatsNewViewController *vc = [[MTZWhatsNewViewController alloc] init];
+	[self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+	
     return YES;
 }
 
