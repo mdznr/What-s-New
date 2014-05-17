@@ -1,7 +1,7 @@
 //
 //  MTZWhatsNew.m
 //
-//  MTZWhatsNew created by Matt Zanchelli on 5/16/14.
+//  Created by Matt Zanchelli on 5/16/14.
 //  Copyright (c) 2014 Matt Zanchelli. All rights reserved.
 //
 
@@ -93,8 +93,8 @@ static NSString * const MTZWhatsNewLastAppVersionKey = @"MTZWhatsNew.lastAppVers
 	NSMutableDictionary *whatsNew = [[NSMutableDictionary alloc] init];
 	NSDictionary *allFeatures = [self allFeatures];
 	for ( NSString *version in [allFeatures allKeys] ) {
-		if ( [version compare:[self appVersion] options:NSNumericSearch] != NSOrderedDescending &&
-			 [version compare:[self lastAppVersion] options:NSNumericSearch] == NSOrderedDescending ) {
+		if ( [version compare:[self lastAppVersion] options:NSNumericSearch] == NSOrderedDescending &&
+			 [version compare:[self appVersion]     options:NSNumericSearch] != NSOrderedDescending ) {
 			[whatsNew setObject:allFeatures[version] forKey:version];
 		}
 	}
