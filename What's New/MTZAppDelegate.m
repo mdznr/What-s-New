@@ -8,7 +8,7 @@
 
 #import "MTZAppDelegate.h"
 
-#import "MTMigration.h"
+#import "MTZWhatsNew.h"
 
 @implementation MTZAppDelegate
 
@@ -16,7 +16,7 @@
 {
     // Override point for customization after application launch.
 	
-	[MTMigration handleWhatsNewWithBlock:^(NSDictionary *whatsNew) {
+	[MTZWhatsNew handleWhatsNewWithBlock:^(NSDictionary *whatsNew) {
 		NSLog(@"%@", whatsNew);
 	}];
 	
