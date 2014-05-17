@@ -16,8 +16,8 @@
 {
     // Override point for customization after application launch.
 	
-	[MTMigration applicationUpdateBlock:^{
-		NSLog(@"Updated");
+	[MTMigration handleWhatsNewWithBlock:^(NSDictionary *whatsNew) {
+		NSLog(@"%@", whatsNew);
 	}];
 	
     return YES;

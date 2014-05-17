@@ -8,48 +8,25 @@
 
 #import "MTMigration.h"
 
-static NSString * const MTMigrationLastVersionKey      = @"MTMigration.lastMigrationVersion";
-static NSString * const MTMigrationLastAppVersionKey   = @"MTMigration.lastAppVersion";
+static NSString * const MTMigrationLastAppVersionKey = @"MTMigration.lastAppVersion";
 
 @implementation MTMigration
 
 #pragma mark - Public API
 
-+ (void)migrateToVersion:(NSString *)version block:(MTExecutionBlock)migrationBlock
++ (void)handleWhatsNewWithBlock:(MTZWhatsNewBlock)whatsNewBlock
 {
-	// version > lastMigrationVersion && version <= appVersion
-    if ( [version compare:[self lastMigrationVersion] options:NSNumericSearch] == NSOrderedDescending &&
-         [version compare:[self appVersion] options:NSNumericSearch]           != NSOrderedDescending ) {
-            migrationBlock();
-			#if DEBUG
-			NSLog(@"MTMigration: Running migration for version %@", version);
-			#endif
-            [self setLastMigrationVersion:version];
-	}
-}
-
-+ (void)applicationUpdateBlock:(MTExecutionBlock)updateBlock
-{
-	if ( ![self lastAppVersion] ) {
-		#if DEBUG
-		NSLog(@"MTMigration: Running app for first time");
-		#endif
-		[self setLastAppVersion:[self appVersion]];
-		return;
+	NSDictionary *newFeatures = [self whatsNew];
+	
+	if ( [newFeatures count] ) {
+		whatsNewBlock(newFeatures);
 	}
 	
-    if ( [[self lastAppVersion] compare:[self appVersion] options:NSNumericSearch] == NSOrderedAscending ) {
-        updateBlock();
-		#if DEBUG
-		NSLog(@"MTMigration: Running update Block");
-		#endif
-        [self setLastAppVersion:[self appVersion]];
-    }
+	[self updateLastAppVersion];
 }
 
 + (void)reset
 {
-    [self setLastMigrationVersion:nil];
     [self setLastAppVersion:nil];
 }
 
@@ -61,15 +38,9 @@ static NSString * const MTMigrationLastAppVersionKey   = @"MTMigration.lastAppVe
     return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
 }
 
-+ (void)setLastMigrationVersion:(NSString *)version
++ (void)updateLastAppVersion
 {
-    [[NSUserDefaults standardUserDefaults] setValue:version forKey:MTMigrationLastVersionKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-+ (NSString *)lastMigrationVersion
-{
-	return [[NSUserDefaults standardUserDefaults] valueForKey:MTMigrationLastVersionKey];
+	[self setLastAppVersion:[self appVersion]];
 }
 
 + (void)setLastAppVersion:(NSString *)version
@@ -81,6 +52,31 @@ static NSString * const MTMigrationLastAppVersionKey   = @"MTMigration.lastAppVe
 + (NSString *)lastAppVersion
 {
 	return [[NSUserDefaults standardUserDefaults] valueForKey:MTMigrationLastAppVersionKey];
+}
+
++ (NSDictionary *)whatsNew
+{
+	// Nothing's new if this hasn't been registered before. (Shouldn't work on first launch).
+	if ( ![self lastAppVersion] ) {
+		return nil;
+	}
+	
+	NSMutableDictionary *whatsNew = [[NSMutableDictionary alloc] init];
+	NSDictionary *allFeatures = [self allFeatures];
+	for ( NSString *version in [allFeatures allKeys] ) {
+		if ( [version compare:[self appVersion] options:NSNumericSearch] != NSOrderedDescending &&
+			 [version compare:[self lastAppVersion] options:NSNumericSearch] == NSOrderedDescending ) {
+			[whatsNew setObject:allFeatures[version] forKey:version];
+		}
+	}
+	
+	return whatsNew;
+}
+
++ (NSDictionary *)allFeatures
+{
+	NSString *path = [[NSBundle mainBundle] pathForResource:@"What's New" ofType:@"plist"];
+	return [[NSDictionary alloc] initWithContentsOfFile:path];
 }
 
 @end
