@@ -34,6 +34,8 @@
 	self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 50, 0);
 	self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	self.tableView.backgroundColor = [UIColor clearColor];
+	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+	self.tableView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
 	[self.view addSubview:self.tableView];
 	
 	// What's New.
