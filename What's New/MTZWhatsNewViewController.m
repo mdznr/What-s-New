@@ -59,35 +59,6 @@
 	[button setTitleColor:[[UIColor whiteColor] colorWithAlphaComponent:0.5f] forState:UIControlStateHighlighted];
 	[button addTarget:self action:@selector(didTapContinueButton:) forControlEvents:UIControlEventTouchUpInside];
 	[self.view addSubview:button];
-	
-	/*
-	NSArray *titleLabels = @[self.title1, self.title2, self.title3, self.title4];
-	NSArray *descriptionLabels = @[self.description1, self.description2, self.description3, self.description4];
-	NSArray *imageViews = @[self.icon1, self.icon2, self.icon3, self.icon4];
-	for ( NSUInteger i=0; i<[titleLabels count]; ++i ) {
-		UILabel *titleLabel = titleLabels[i];
-		UILabel *descriptionLabel = descriptionLabels[i];
-		UIImageView *imageView = imageViews[i];
-		
-		titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 88, 194, 21)];
-		titleLabel.numberOfLines = 1;
-		titleLabel.textColor = [UIColor whiteColor];
-		titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Regular" size:18.0f];
-		[self.view addSubview:titleLabel];
-		
-		descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 108, 194, 34)];
-		descriptionLabel.numberOfLines = 0;
-		descriptionLabel.textColor = [UIColor whiteColor];
-		descriptionLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:14.0f];
-		[self.view addSubview:descriptionLabel];
-		
-		imageView = [[UIImageView alloc] initWithFrame:CGRectMake(26, 82, 60, 60)];
-		[self.view addSubview:imageView];
-	}
-	
-	self.title1.text = @"Unplayed Episodes";
-	self.description1.text = @"Quickly find episodes you haven’t played yet.";
-	 */
 }
 
 - (IBAction)didTapContinueButton:(id)sender
