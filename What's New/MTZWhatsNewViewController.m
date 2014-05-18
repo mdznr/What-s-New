@@ -8,6 +8,8 @@
 
 #import "MTZWhatsNewViewController.h"
 
+#import "MTZWhatsNewFeatureTableViewCell.h"
+
 @interface MTZWhatsNewViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) UITableView *tableView;
@@ -22,6 +24,17 @@
 	
 	// Background.
 	self.view.backgroundColor = [UIColor colorWithRed:133.0f/255.0f green:44.0f/255.0f blue:194.0f/255.0f alpha:1.0f];
+	
+	// Feature table view.
+	self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+	self.tableView.delegate = self;
+	self.tableView.dataSource = self;
+	[self.tableView registerClass:[MTZWhatsNewFeatureTableViewCell class] forCellReuseIdentifier:@"feature"];
+	self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 50, 0);
+	self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 50, 0);
+	self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+	self.tableView.backgroundColor = [UIColor clearColor];
+	[self.view addSubview:self.tableView];
 	
 	// What's New.
 	UILabel *whatsNewLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 22, self.view.bounds.size.width, 33)];
@@ -45,13 +58,6 @@
 	[button setTitleColor:[[UIColor whiteColor] colorWithAlphaComponent:0.5f] forState:UIControlStateHighlighted];
 	[button addTarget:self action:@selector(didTapContinueButton:) forControlEvents:UIControlEventTouchUpInside];
 	[self.view addSubview:button];
-	
-	self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-	self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 50, 0);
-	self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 50, 0);
-	self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-	self.tableView.delegate = self;
-	self.tableView.dataSource = self;
 	
 	/*
 	NSArray *titleLabels = @[self.title1, self.title2, self.title3, self.title4];
@@ -102,7 +108,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	return nil;
+	MTZWhatsNewFeatureTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"feature" forIndexPath:indexPath];
+	if ( !cell ) {
+		cell = [[MTZWhatsNewFeatureTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"feature"];
+	}
+	
+	cell.textLabel.text = @"abc";
+	cell.detailTextLabel.text = @"def";
+	
+	return cell;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

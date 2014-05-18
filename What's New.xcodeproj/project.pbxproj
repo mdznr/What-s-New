@@ -23,6 +23,7 @@
 		C92769591926C7E30016A0F1 /* MTZWhatsNew.m in Sources */ = {isa = PBXBuildFile; fileRef = C92769571926C7E30016A0F1 /* MTZWhatsNew.m */; };
 		C927695B1926CE690016A0F1 /* What's New.plist in Resources */ = {isa = PBXBuildFile; fileRef = C927695A1926CE690016A0F1 /* What's New.plist */; };
 		C927695E192726D40016A0F1 /* MTZWhatsNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C927695D192726D40016A0F1 /* MTZWhatsNewViewController.m */; };
+		C95B8D2F19296A3400D0A887 /* MTZWhatsNewFeatureTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C95B8D2E19296A3400D0A887 /* MTZWhatsNewFeatureTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		C927695A1926CE690016A0F1 /* What's New.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "What's New.plist"; sourceTree = "<group>"; };
 		C927695C192726D40016A0F1 /* MTZWhatsNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZWhatsNewViewController.h; sourceTree = "<group>"; };
 		C927695D192726D40016A0F1 /* MTZWhatsNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZWhatsNewViewController.m; sourceTree = "<group>"; };
+		C95B8D2D19296A3400D0A887 /* MTZWhatsNewFeatureTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZWhatsNewFeatureTableViewCell.h; sourceTree = "<group>"; };
+		C95B8D2E19296A3400D0A887 /* MTZWhatsNewFeatureTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZWhatsNewFeatureTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +127,8 @@
 				C92769321926C3240016A0F1 /* MTZViewController.m */,
 				C927695C192726D40016A0F1 /* MTZWhatsNewViewController.h */,
 				C927695D192726D40016A0F1 /* MTZWhatsNewViewController.m */,
+				C95B8D2D19296A3400D0A887 /* MTZWhatsNewFeatureTableViewCell.h */,
+				C95B8D2E19296A3400D0A887 /* MTZWhatsNewFeatureTableViewCell.m */,
 				C92769541926C7E30016A0F1 /* MTZWhatsNew */,
 				C92769341926C3240016A0F1 /* Images.xcassets */,
 				C92769201926C3240016A0F1 /* Supporting Files */,
@@ -270,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C927692A1926C3240016A0F1 /* MTZAppDelegate.m in Sources */,
+				C95B8D2F19296A3400D0A887 /* MTZWhatsNewFeatureTableViewCell.m in Sources */,
 				C92769261926C3240016A0F1 /* main.m in Sources */,
 				C92769331926C3240016A0F1 /* MTZViewController.m in Sources */,
 				C92769591926C7E30016A0F1 /* MTZWhatsNew.m in Sources */,
