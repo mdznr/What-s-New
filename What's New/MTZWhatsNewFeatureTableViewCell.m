@@ -29,11 +29,37 @@
     return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+#pragma mark - Properties
+
+- (void)setTitle:(NSString *)title
+{
+	self.textLabel.text = title;
+}
+
+- (NSString *)title
+{
+	return self.textLabel.text;
+}
+
+- (void)setDetail:(NSString *)detail
+{
+	self.detailTextLabel.text = detail;
+}
+
+- (NSString *)detail
+{
+	return self.detailTextLabel.text;
+}
+
+- (void)setIcon:(UIImage *)icon
+{
+	self.imageView.image = icon;
+}
+
+- (UIImage *)icon
+{
+	return self.imageView.image;
 }
 
 @end

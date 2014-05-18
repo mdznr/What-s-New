@@ -85,8 +85,9 @@
 		cell = [[MTZWhatsNewFeatureTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"feature"];
 	}
 	
-	cell.textLabel.text = @"abc";
-	cell.detailTextLabel.text = @"def";
+	cell.title = @"Unplayed Episodes";
+	cell.detail = @"Quickly find episodes you haven’t played yet.";
+	cell.icon = [UIImage imageNamed:@"Feed"];
 	
 	return cell;
 }
