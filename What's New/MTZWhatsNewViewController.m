@@ -37,15 +37,6 @@
 	self.tableView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
 	[self.view addSubview:self.tableView];
 	
-	// What's New.
-	UILabel *whatsNewLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 22, self.view.bounds.size.width, 33)];
-	whatsNewLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
-	whatsNewLabel.text = NSLocalizedString(@"What's New", nil);
-	whatsNewLabel.textAlignment = NSTextAlignmentCenter;
-	whatsNewLabel.textColor = [UIColor whiteColor];
-	whatsNewLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:30.0f];
-	[self.view addSubview:whatsNewLabel];
-	
 	// Get Started.
 	CGRect frame = CGRectMake(0, self.view.bounds.size.height-50, self.view.bounds.size.width, 50);
 	UIView *buttonBackground = [[UIView alloc] initWithFrame:frame];
@@ -73,6 +64,18 @@
 
 
 #pragma mark - UITableViewDelegate
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+	UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 70)];
+	label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+	label.textAlignment = NSTextAlignmentCenter;
+	label.textColor = [UIColor whiteColor];
+	label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:30.0f];
+	label.text = NSLocalizedString(@"What's New", nil);
+	
+	return label;
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
