@@ -8,23 +8,9 @@
 
 #import "MTZWhatsNewViewController.h"
 
-@interface MTZWhatsNewViewController ()
+@interface MTZWhatsNewViewController () <UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) UILabel *title1;
-@property (strong, nonatomic) UILabel *description1;
-@property (strong, nonatomic) UIImageView *icon1;
-
-@property (strong, nonatomic) UILabel *title2;
-@property (strong, nonatomic) UILabel *description2;
-@property (strong, nonatomic) UIImageView *icon2;
-
-@property (strong, nonatomic) UILabel *title3;
-@property (strong, nonatomic) UILabel *description3;
-@property (strong, nonatomic) UIImageView *icon3;
-
-@property (strong, nonatomic) UILabel *title4;
-@property (strong, nonatomic) UILabel *description4;
-@property (strong, nonatomic) UIImageView *icon4;
+@property (strong, nonatomic) UITableView *tableView;
 
 @end
 
@@ -60,6 +46,14 @@
 	[button addTarget:self action:@selector(didTapContinueButton:) forControlEvents:UIControlEventTouchUpInside];
 	[self.view addSubview:button];
 	
+	self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+	self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 50, 0);
+	self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 50, 0);
+	self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+	self.tableView.delegate = self;
+	self.tableView.dataSource = self;
+	
+	/*
 	NSArray *titleLabels = @[self.title1, self.title2, self.title3, self.title4];
 	NSArray *descriptionLabels = @[self.description1, self.description2, self.description3, self.description4];
 	NSArray *imageViews = @[self.icon1, self.icon2, self.icon3, self.icon4];
@@ -86,6 +80,7 @@
 	
 	self.title1.text = @"Unplayed Episodes";
 	self.description1.text = @"Quickly find episodes you haven’t played yet.";
+	 */
 }
 
 - (IBAction)didTapContinueButton:(id)sender
@@ -97,5 +92,48 @@
 {
 	return YES;
 }
+
+
+#pragma mark - UITableViewDelegate
+
+
+
+#pragma mark - UITableViewDataSource
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return nil;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+	return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+	return 1;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+	return NSLocalizedString(@"What's New", nil);
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+{
+	return nil;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return NO;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return NO;
+}
+
 
 @end
