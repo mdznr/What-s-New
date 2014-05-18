@@ -12,6 +12,8 @@
 
 @interface MTZWhatsNewViewController () <UITableViewDelegate, UITableViewDataSource>
 
+@property (strong, nonatomic) NSArray *orderedKeys;
+
 @property (strong, nonatomic) UITableView *tableView;
 
 @end
@@ -63,6 +65,25 @@
 }
 
 
+#pragma mark - Properties
+
+- (void)setFeatures:(NSDictionary *)features
+{
+	_features = features;
+	_orderedKeys = [[_features allKeys] sortedArrayUsingSelector:@selector(compare:)];
+	
+	// Reload the table view's data.
+	[self.tableView reloadData];
+	
+	// Enable or disable scrolling depending on how much content is shown.
+	if (self.tableView.contentSize.height < self.tableView.frame.size.height) {
+		self.tableView.scrollEnabled = NO;
+	} else {
+		self.tableView.scrollEnabled = YES;
+	}
+}
+
+
 #pragma mark - UITableViewDelegate
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -92,6 +113,7 @@
 	return NO;
 }
 
+
 #pragma mark - UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -101,31 +123,27 @@
 		cell = [[MTZWhatsNewFeatureTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"feature"];
 	}
 	
-	cell.title = @"Unplayed Episodes";
-	cell.detail = @"Quickly find episodes you haven’t played yet.";
-	cell.icon = [UIImage imageNamed:@"Feed"];
+	NSDictionary *feature = self.features[self.orderedKeys[indexPath.section]][indexPath.row];
+	
+	cell.title = feature[@"Title"];
+//	cell.title = @"Unplayed Episodes";
+	cell.detail = feature[@"Detail"];
+//	cell.detail = @"Quickly find episodes you haven’t played yet.";
+	cell.icon = [UIImage imageNamed:feature[@"Icon"]];
+//	cell.icon = [UIImage imageNamed:@"Feed"];
 	
 	return cell;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-	return 1;
+	return [self.features count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return 4;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-	return NSLocalizedString(@"What's New", nil);
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
-{
-	return nil;
+	NSString *key = self.orderedKeys[section];
+	return [self.features[key] count];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

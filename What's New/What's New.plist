@@ -7,26 +7,34 @@
 		<dict>
 			<key>Title</key>
 			<string>Unplayed Episodes</string>
-			<key>Description</key>
+			<key>Detail</key>
 			<string>Quickly find episodes you haven&apos;t played yet.</string>
+			<key>Icon</key>
+			<string>Podcast</string>
 		</dict>
 		<dict>
 			<key>Title</key>
 			<string>Browse the Feed</string>
-			<key>Description</key>
+			<key>Detail</key>
 			<string>Stream available episodes or download them to play later.</string>
+			<key>Icon</key>
+			<string>Feed</string>
 		</dict>
 		<dict>
 			<key>Title</key>
 			<string>Saved Episodes</string>
-			<key>Description</key>
+			<key>Detail</key>
 			<string>Save your favorite episodes to ensure you&apos;ll always have them.</string>
+			<key>Icon</key>
+			<string>Saved</string>
 		</dict>
 		<dict>
 			<key>Title</key>
 			<string>Delete Played Episodes</string>
-			<key>Description</key>
+			<key>Detail</key>
 			<string>Episodes can be automatically deleted after they are played.</string>
+			<key>Icon</key>
+			<string>Delete</string>
 		</dict>
 	</array>
 	<key>2.0</key>
@@ -34,13 +42,13 @@
 		<dict>
 			<key>Title</key>
 			<string>Designed for iOS 7</string>
-			<key>Description</key>
+			<key>Detail</key>
 			<string>Podcasts has a beautiful new look and feel that fits right in with iOS 7.</string>
 		</dict>
 		<dict>
 			<key>Title</key>
 			<string>Stay up to date</string>
-			<key>Description</key>
+			<key>Detail</key>
 			<string>Podcasts now automatically updates with new episodes—even while the app is not open.</string>
 		</dict>
 	</array>
@@ -49,7 +57,7 @@
 		<dict>
 			<key>Title</key>
 			<string>Custom Stations</string>
-			<key>Description</key>
+			<key>Detail</key>
 			<string>Create custom stations of your favorite podcasts that update automatically with new episodes.</string>
 		</dict>
 	</array>
@@ -58,7 +66,7 @@
 		<dict>
 			<key>Title</key>
 			<string>Pull to Refresh</string>
-			<key>Description</key>
+			<key>Detail</key>
 			<string>More easily pull to refresh a subscription or playlist.</string>
 		</dict>
 	</array>

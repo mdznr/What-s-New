@@ -10,4 +10,7 @@
 
 @interface MTZWhatsNewViewController : UIViewController
 
+///	<#Description#>
+@property (nonatomic, copy) NSDictionary *features;
+
 @end
