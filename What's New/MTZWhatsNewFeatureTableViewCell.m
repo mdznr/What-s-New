@@ -19,6 +19,12 @@
 		
 		self.textLabel.textColor = [UIColor whiteColor];
 		self.detailTextLabel.textColor = [UIColor whiteColor];
+		
+		self.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Regular" size:20.0f];
+		self.detailTextLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:14.0f];
+		self.detailTextLabel.numberOfLines = 2;
+		
+//		self.frame.size.height = 112;
     }
     return self;
 }
