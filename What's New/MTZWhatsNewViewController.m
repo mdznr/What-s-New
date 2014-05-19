@@ -132,11 +132,11 @@
 	NSDictionary *feature = self.features[self.orderedKeys[indexPath.section]][indexPath.row];
 	
 	cell.title = feature[@"Title"];
-//	cell.title = @"Unplayed Episodes";
 	cell.detail = feature[@"Detail"];
-//	cell.detail = @"Quickly find episodes you haven’t played yet.";
-	cell.icon = [UIImage imageNamed:feature[@"Icon"]];
-//	cell.icon = [UIImage imageNamed:@"Feed"];
+	NSString *iconName = feature[@"Icon"];
+	if ( iconName ) {
+		cell.icon = [UIImage imageNamed:iconName];
+	}
 	
 	return cell;
 }
