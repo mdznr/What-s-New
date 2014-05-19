@@ -9,12 +9,13 @@
 #import "MTZWhatsNewViewController.h"
 
 #import "MTZWhatsNewFeatureTableViewCell.h"
+#import "MTZTableView.h"
 
 @interface MTZWhatsNewViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) NSArray *orderedKeys;
 
-@property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) MTZTableView *tableView;
 
 @end
 
@@ -28,7 +29,7 @@
 	self.view.backgroundColor = [UIColor colorWithRed:133.0f/255.0f green:44.0f/255.0f blue:194.0f/255.0f alpha:1.0f];
 	
 	// Feature table view.
-	self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+	self.tableView = [[MTZTableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
 	self.tableView.delegate = self;
 	self.tableView.dataSource = self;
 	[self.tableView registerClass:[MTZWhatsNewFeatureTableViewCell class] forCellReuseIdentifier:@"feature"];
@@ -38,7 +39,6 @@
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 	self.tableView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
 	[self.view addSubview:self.tableView];
-	[self determineScrollAbility];
 	
 	// Get Started.
 	CGRect frame = CGRectMake(0, self.view.bounds.size.height-50, self.view.bounds.size.width, 50);
@@ -65,16 +65,6 @@
 	return YES;
 }
 
-- (void)determineScrollAbility
-{
-	// Enable or disable scrolling depending on how much content is shown.
-	if (self.tableView.contentSize.height < self.tableView.frame.size.height) {
-		self.tableView.scrollEnabled = NO;
-	} else {
-		self.tableView.scrollEnabled = YES;
-	}
-}
-
 
 #pragma mark - Properties
 
@@ -85,8 +75,6 @@
 	
 	// Reload the table view's data.
 	[self.tableView reloadData];
-	
-	[self determineScrollAbility];
 }
 
 
