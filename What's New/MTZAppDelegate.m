@@ -13,6 +13,12 @@
 #import "MTZWhatsNew.h"
 #import "MTZWhatsNewViewController.h"
 
+#ifdef DEBUG
+@interface MTZWhatsNew ()
++ (void)setLastAppVersion:(NSString *)version;
+@end
+#endif
+
 @implementation MTZAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -22,8 +28,11 @@
     [self.window makeKeyAndVisible];
 	self.window.rootViewController = [[MTZViewController alloc] init];
 	
+#ifdef DEBUG
+	[MTZWhatsNew setLastAppVersion:@"2.0"];
+#endif
+	
 	[MTZWhatsNew handleWhatsNewWithBlock:^(NSDictionary *whatsNew) {
-		NSLog(@"%@", whatsNew);
 		MTZWhatsNewViewController *vc = [[MTZWhatsNewViewController alloc] init];
 		vc.features = whatsNew;
 		[self.window.rootViewController presentViewController:vc animated:YES completion:nil];
