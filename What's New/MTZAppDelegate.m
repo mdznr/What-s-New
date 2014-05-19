@@ -35,7 +35,7 @@
 	[MTZWhatsNew handleWhatsNewWithBlock:^(NSDictionary *whatsNew) {
 		MTZWhatsNewViewController *vc = [[MTZWhatsNewViewController alloc] init];
 		vc.features = whatsNew;
-		[self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+		[self.window.rootViewController presentViewController:vc animated:NO completion:nil];
 	}];
 	
     return YES;
