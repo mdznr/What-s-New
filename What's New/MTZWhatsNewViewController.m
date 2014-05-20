@@ -33,8 +33,9 @@
 	self.tableView.delegate = self;
 	self.tableView.dataSource = self;
 	[self.tableView registerClass:[MTZWhatsNewFeatureTableViewCell class] forCellReuseIdentifier:@"feature"];
-	self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 50, 0);
-	self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 50, 0);
+	UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 0, 50, 0);
+	self.tableView.scrollIndicatorInsets = edgeInsets;
+	self.tableView.contentInset = edgeInsets;
 	self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	self.tableView.backgroundColor = [UIColor clearColor];
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
