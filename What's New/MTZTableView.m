@@ -13,9 +13,19 @@
 - (void)setContentSize:(CGSize)contentSize
 {
 	[super setContentSize:contentSize];
-	
-#warning call thsi when frame or contentSize changes?
-	if (self.contentSize.height < self.frame.size.height) {
+	[self determineScrollingAbility];
+}
+
+- (void)setFrame:(CGRect)frame
+{
+	[super setFrame:frame];
+	[self determineScrollingAbility];
+}
+
+- (void)determineScrollingAbility
+{
+	if (self.contentSize.height <= self.frame.size.height &&
+		self.contentSize.width <= self.frame.size.width) {
 		self.scrollEnabled = NO;
 	} else {
 		self.scrollEnabled = YES;
