@@ -74,7 +74,7 @@
 {
 	_features = features;
 	_orderedKeys = [[_features allKeys] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-		return [obj1 compare:obj2 options:NSNumericSearch];
+		return [obj2 compare:obj1 options:NSNumericSearch];
 	}];
 	
 	// Reload the table view's data.
