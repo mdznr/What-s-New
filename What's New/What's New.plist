@@ -52,6 +52,8 @@
 			<string>Stay up to date</string>
 			<key>Detail</key>
 			<string>Podcasts now automatically updates with new episodes—even while the app is not open.</string>
+			<key>Icon</key>
+			<string>Up To Date</string>
 		</dict>
 	</array>
 	<key>1.2</key>
