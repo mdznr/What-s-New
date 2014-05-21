@@ -73,7 +73,7 @@
 - (void)setFeatures:(NSDictionary *)features
 {
 	_features = features;
-	_orderedKeys = [[_features allKeys] sortedArrayUsingSelector:@selector(compare:)];
+	_orderedKeys = [[[[_features allKeys] sortedArrayUsingSelector:@selector(compare:)] reverseObjectEnumerator] allObjects];
 	
 	// Reload the table view's data.
 	[self.tableView reloadData];
