@@ -84,26 +84,16 @@
 
 #pragma mark - UITableViewDelegate
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-	UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 70)];
-	label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-	label.textAlignment = NSTextAlignmentCenter;
-	label.textColor = [UIColor whiteColor];
-	label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:30.0f];
-	label.text = NSLocalizedString(@"What's New", nil);
-	
-	return label;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-	return 70;
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	return 112.0f;
+	// What's New.
+	if ( indexPath.section == 0 ) {
+		return 70.0f;
+	}
+	// Everything else.
+	else {
+		return 112.0f;
+	}
 }
 
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
@@ -116,12 +106,26 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+	// What's New.
+	if ( indexPath.section == 0 ) {
+		UITableViewCell *cell = [[UITableViewCell alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 70)];
+		cell.backgroundColor = [UIColor clearColor];
+		UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 70)];
+		label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+		label.textAlignment = NSTextAlignmentCenter;
+		label.textColor = [UIColor whiteColor];
+		label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:30.0f];
+		label.text = NSLocalizedString(@"What's New", nil);
+		[cell.contentView addSubview:label];
+		return cell;
+	}
+	
 	MTZWhatsNewFeatureTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"feature" forIndexPath:indexPath];
 	if ( !cell ) {
 		cell = [[MTZWhatsNewFeatureTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"feature"];
 	}
 	
-	NSDictionary *feature = self.features[self.orderedKeys[indexPath.section]][indexPath.row];
+	NSDictionary *feature = self.features[self.orderedKeys[indexPath.section-1]][indexPath.row];
 	
 	cell.title = feature[@"Title"];
 	cell.detail = feature[@"Detail"];
@@ -137,13 +141,21 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-	return [self.features count];
+	// What's New + everything else.
+	return 1 + [self.features count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	NSString *key = self.orderedKeys[section];
-	return [self.features[key] count];
+	// What's New.
+	if ( section == 0 ) {
+		return 1;
+	}
+	// Everything else.
+	else {
+		NSString *key = self.orderedKeys[section-1];
+		return [self.features[key] count];
+	}
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
