@@ -89,9 +89,10 @@
 	[self.view addSubview:button];
 }
 
-- (void)viewDidLoad
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidLoad];
+	[super viewDidAppear:animated];
+	[self.tableView flashScrollIndicators];
 }
 
 - (IBAction)didTapContinueButton:(id)sender

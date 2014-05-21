@@ -60,10 +60,10 @@
 		C92769561926C7E30016A0F1 /* MTZWhatsNew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZWhatsNew.h; sourceTree = "<group>"; };
 		C92769571926C7E30016A0F1 /* MTZWhatsNew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZWhatsNew.m; sourceTree = "<group>"; };
 		C927695A1926CE690016A0F1 /* What's New.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "What's New.plist"; sourceTree = "<group>"; };
-		C927695C192726D40016A0F1 /* MTZWhatsNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZWhatsNewViewController.h; sourceTree = "<group>"; };
-		C927695D192726D40016A0F1 /* MTZWhatsNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZWhatsNewViewController.m; sourceTree = "<group>"; };
-		C95B8D2D19296A3400D0A887 /* MTZWhatsNewFeatureTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZWhatsNewFeatureTableViewCell.h; sourceTree = "<group>"; };
-		C95B8D2E19296A3400D0A887 /* MTZWhatsNewFeatureTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZWhatsNewFeatureTableViewCell.m; sourceTree = "<group>"; };
+		C927695C192726D40016A0F1 /* MTZWhatsNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTZWhatsNewViewController.h; path = ../MTZWhatsNewViewController.h; sourceTree = "<group>"; };
+		C927695D192726D40016A0F1 /* MTZWhatsNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTZWhatsNewViewController.m; path = ../MTZWhatsNewViewController.m; sourceTree = "<group>"; };
+		C95B8D2D19296A3400D0A887 /* MTZWhatsNewFeatureTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTZWhatsNewFeatureTableViewCell.h; path = ../MTZWhatsNewFeatureTableViewCell.h; sourceTree = "<group>"; };
+		C95B8D2E19296A3400D0A887 /* MTZWhatsNewFeatureTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTZWhatsNewFeatureTableViewCell.m; path = ../MTZWhatsNewFeatureTableViewCell.m; sourceTree = "<group>"; };
 		C95B8D30192AAD3900D0A887 /* MTZTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZTableView.h; sourceTree = "<group>"; };
 		C95B8D31192AAD3900D0A887 /* MTZTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZTableView.m; sourceTree = "<group>"; };
 		C95B8D34192D195C00D0A887 /* SAMGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMGradientView.h; sourceTree = "<group>"; };
@@ -131,10 +131,6 @@
 				C92769291926C3240016A0F1 /* MTZAppDelegate.m */,
 				C92769311926C3240016A0F1 /* MTZViewController.h */,
 				C92769321926C3240016A0F1 /* MTZViewController.m */,
-				C927695C192726D40016A0F1 /* MTZWhatsNewViewController.h */,
-				C927695D192726D40016A0F1 /* MTZWhatsNewViewController.m */,
-				C95B8D2D19296A3400D0A887 /* MTZWhatsNewFeatureTableViewCell.h */,
-				C95B8D2E19296A3400D0A887 /* MTZWhatsNewFeatureTableViewCell.m */,
 				C95B8D30192AAD3900D0A887 /* MTZTableView.h */,
 				C95B8D31192AAD3900D0A887 /* MTZTableView.m */,
 				C95B8D33192D195C00D0A887 /* SAMGradientView */,
@@ -180,6 +176,10 @@
 			children = (
 				C92769561926C7E30016A0F1 /* MTZWhatsNew.h */,
 				C92769571926C7E30016A0F1 /* MTZWhatsNew.m */,
+				C927695C192726D40016A0F1 /* MTZWhatsNewViewController.h */,
+				C927695D192726D40016A0F1 /* MTZWhatsNewViewController.m */,
+				C95B8D2D19296A3400D0A887 /* MTZWhatsNewFeatureTableViewCell.h */,
+				C95B8D2E19296A3400D0A887 /* MTZWhatsNewFeatureTableViewCell.m */,
 			);
 			name = MTZWhatsNew;
 			path = MTMigration;
