@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/*
+ A @c UITableView subclass that automatically enables and disables scrolling depending on whether or not the content fits within the scrollview's frame.
+ */
 @interface MTZTableView : UITableView
 
 @end
