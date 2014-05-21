@@ -24,17 +24,40 @@
 
 @implementation MTZWhatsNewViewController
 
-- (void)viewDidLoad
+- (id)init
 {
-    [super viewDidLoad];
-	
+	self = [super init];
+	if (self) {
+		[self commonInit];
+	}
+	return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+	self = [super initWithCoder:aDecoder];
+	if (self) {
+		[self commonInit];
+	}
+	return self;
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+	if (self) {
+		[self commonInit];
+	}
+	return self;
+}
+
+- (void)commonInit
+{
 	// Background.
 	self.backgroundGradientView = [[SAMGradientView alloc] initWithFrame:self.view.bounds];
 	self.backgroundGradientView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	[self.view addSubview:self.backgroundGradientView];
-	// Default gradient colors (Podcasts.app purple)
-	self.backgroundGradientView.gradientColors = @[[UIColor colorWithHue:0.77 saturation:0.77 brightness:0.76 alpha:1],
-												   [UIColor colorWithHue:0.78 saturation:0.6 brightness:0.95 alpha:1]];
+	self.backgroundGradientView.gradientColors = @[[UIColor clearColor], [UIColor clearColor]];
 	self.backgroundGradientView.gradientLocations = @[@0.0, @1.0];
 	
 	// Feature table view.
@@ -66,6 +89,11 @@
 	[self.view addSubview:button];
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+}
+
 - (IBAction)didTapContinueButton:(id)sender
 {
 	[self dismissViewControllerAnimated:YES completion:nil];
@@ -92,14 +120,14 @@
 
 - (void)setTopColor:(UIColor *)topColor
 {
-	_topColor = topColor;
-	self.backgroundGradientView.gradientColors = @[topColor, self.backgroundGradientView.gradientColors[1]];
+	_topColor = [topColor copy];
+	self.backgroundGradientView.gradientColors = @[_topColor, self.backgroundGradientView.gradientColors[1]];
 }
 
 - (void)setBottomColor:(UIColor *)bottomColor
 {
-	_bottomColor = bottomColor;
-	self.backgroundGradientView.gradientColors = @[self.backgroundGradientView.gradientColors[0], bottomColor];
+	_bottomColor = [bottomColor copy];
+	self.backgroundGradientView.gradientColors = @[self.backgroundGradientView.gradientColors[0], _bottomColor];
 }
 
 

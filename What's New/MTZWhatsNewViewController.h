@@ -8,15 +8,32 @@
 
 #import <UIKit/UIKit.h>
 
+///	Describes the style of the view controller.
+typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerStyle) {
+	///	Describes a view controller with light text and content.
+	MTZWhatsNewViewControllerStyleLightContent,
+	///	Describes a view controller with dark text and content.
+	MTZWhatsNewViewControllerStyleDarkContent
+};
+
 @interface MTZWhatsNewViewController : UIViewController
 
-///	<#Description#>
+///	All the features to display in the view controller.
 @property (nonatomic, copy) NSDictionary *features;
 
-///	<#Description#>
+
+#pragma mark - Appearance Customization
+
+#warning Option for  scrollview or wordcloud?
+
+///	The style of what's new view controller.
+/// Default is @c MTZWhatsNewViewControllerStyleLightContent.
+@property (nonatomic) MTZWhatsNewViewControllerStyle style;
+
+///	The color to display on the top of the background gradient.
 @property (nonatomic, copy) UIColor *topColor;
 
-///	<#Description#>
+///	The color to display on the top of the background gradient.
 @property (nonatomic, copy) UIColor *bottomColor;
 
 @end
