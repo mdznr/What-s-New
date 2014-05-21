@@ -126,6 +126,8 @@
 	NSString *iconName = feature[@"Icon"];
 	if ( iconName ) {
 		cell.icon = [UIImage imageNamed:iconName];
+	} else {
+		cell.icon = nil;
 	}
 	
 	return cell;
