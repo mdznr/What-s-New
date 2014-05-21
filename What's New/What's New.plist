@@ -51,7 +51,7 @@
 			<key>Title</key>
 			<string>Stay up to date</string>
 			<key>Detail</key>
-			<string>Podcasts now automatically updates with new episodes—even while the app is not open.</string>
+			<string>Podcasts now automatically updates with new episodes.</string>
 			<key>Icon</key>
 			<string>Up To Date</string>
 		</dict>
@@ -62,7 +62,9 @@
 			<key>Title</key>
 			<string>Custom Stations</string>
 			<key>Detail</key>
-			<string>Create custom stations of your favorite podcasts that update automatically with new episodes.</string>
+			<string>Create custom stations of your favorite podcasts.</string>
+			<key>Icon</key>
+			<string>Stations</string>
 		</dict>
 	</array>
 	<key>1.1</key>
@@ -71,7 +73,7 @@
 			<key>Title</key>
 			<string>Pull to Refresh</string>
 			<key>Detail</key>
-			<string>More easily pull to refresh a subscription or playlist.</string>
+			<string>More easily refresh a subscription or playlist.</string>
 		</dict>
 	</array>
 </dict>
