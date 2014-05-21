@@ -36,14 +36,6 @@
 			<key>Icon</key>
 			<string>Delete</string>
 		</dict>
-		<dict>
-			<key>Title</key>
-			<string>Delete Played Episodes</string>
-			<key>Detail</key>
-			<string>Episodes can be automatically deleted after they are played.</string>
-			<key>Icon</key>
-			<string>Delete</string>
-		</dict>
 	</array>
 	<key>2.0</key>
 	<array>
