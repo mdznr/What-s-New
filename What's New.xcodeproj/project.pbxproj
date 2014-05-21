@@ -25,6 +25,7 @@
 		C927695E192726D40016A0F1 /* MTZWhatsNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C927695D192726D40016A0F1 /* MTZWhatsNewViewController.m */; };
 		C95B8D2F19296A3400D0A887 /* MTZWhatsNewFeatureTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C95B8D2E19296A3400D0A887 /* MTZWhatsNewFeatureTableViewCell.m */; };
 		C95B8D32192AAD3900D0A887 /* MTZTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C95B8D31192AAD3900D0A887 /* MTZTableView.m */; };
+		C95B8D36192D195C00D0A887 /* SAMGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = C95B8D35192D195C00D0A887 /* SAMGradientView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		C95B8D2E19296A3400D0A887 /* MTZWhatsNewFeatureTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZWhatsNewFeatureTableViewCell.m; sourceTree = "<group>"; };
 		C95B8D30192AAD3900D0A887 /* MTZTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZTableView.h; sourceTree = "<group>"; };
 		C95B8D31192AAD3900D0A887 /* MTZTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZTableView.m; sourceTree = "<group>"; };
+		C95B8D34192D195C00D0A887 /* SAMGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMGradientView.h; sourceTree = "<group>"; };
+		C95B8D35192D195C00D0A887 /* SAMGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMGradientView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +137,7 @@
 				C95B8D2E19296A3400D0A887 /* MTZWhatsNewFeatureTableViewCell.m */,
 				C95B8D30192AAD3900D0A887 /* MTZTableView.h */,
 				C95B8D31192AAD3900D0A887 /* MTZTableView.m */,
+				C95B8D33192D195C00D0A887 /* SAMGradientView */,
 				C92769541926C7E30016A0F1 /* MTZWhatsNew */,
 				C92769341926C3240016A0F1 /* Images.xcassets */,
 				C92769201926C3240016A0F1 /* Supporting Files */,
@@ -179,6 +183,15 @@
 			);
 			name = MTZWhatsNew;
 			path = MTMigration;
+			sourceTree = "<group>";
+		};
+		C95B8D33192D195C00D0A887 /* SAMGradientView */ = {
+			isa = PBXGroup;
+			children = (
+				C95B8D34192D195C00D0A887 /* SAMGradientView.h */,
+				C95B8D35192D195C00D0A887 /* SAMGradientView.m */,
+			);
+			path = SAMGradientView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +298,7 @@
 				C92769331926C3240016A0F1 /* MTZViewController.m in Sources */,
 				C95B8D32192AAD3900D0A887 /* MTZTableView.m in Sources */,
 				C92769591926C7E30016A0F1 /* MTZWhatsNew.m in Sources */,
+				C95B8D36192D195C00D0A887 /* SAMGradientView.m in Sources */,
 				C927695E192726D40016A0F1 /* MTZWhatsNewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,4 +13,10 @@
 ///	<#Description#>
 @property (nonatomic, copy) NSDictionary *features;
 
+///	<#Description#>
+@property (nonatomic, copy) UIColor *topColor;
+
+///	<#Description#>
+@property (nonatomic, copy) UIColor *bottomColor;
+
 @end

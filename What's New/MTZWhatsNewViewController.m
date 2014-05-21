@@ -10,12 +10,15 @@
 
 #import "MTZWhatsNewFeatureTableViewCell.h"
 #import "MTZTableView.h"
+#import "SAMGradientView.h"
 
 @interface MTZWhatsNewViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) NSArray *orderedKeys;
 
 @property (strong, nonatomic) MTZTableView *tableView;
+
+@property (strong, nonatomic) SAMGradientView *backgroundGradientView;
 
 @end
 
@@ -26,7 +29,13 @@
     [super viewDidLoad];
 	
 	// Background.
-	self.view.backgroundColor = [UIColor colorWithRed:133.0f/255.0f green:44.0f/255.0f blue:194.0f/255.0f alpha:1.0f];
+	self.backgroundGradientView = [[SAMGradientView alloc] initWithFrame:self.view.bounds];
+	self.backgroundGradientView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+	[self.view addSubview:self.backgroundGradientView];
+	// Default gradient colors (Podcasts.app purple)
+	self.backgroundGradientView.gradientColors = @[[UIColor colorWithHue:0.77 saturation:0.77 brightness:0.76 alpha:1],
+												   [UIColor colorWithHue:0.78 saturation:0.6 brightness:0.95 alpha:1]];
+	self.backgroundGradientView.gradientLocations = @[@0.0, @1.0];
 	
 	// Feature table view.
 	self.tableView = [[MTZTableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
@@ -79,6 +88,18 @@
 	
 	// Reload the table view's data.
 	[self.tableView reloadData];
+}
+
+- (void)setTopColor:(UIColor *)topColor
+{
+	_topColor = topColor;
+	self.backgroundGradientView.gradientColors = @[topColor, self.backgroundGradientView.gradientColors[1]];
+}
+
+- (void)setBottomColor:(UIColor *)bottomColor
+{
+	_bottomColor = bottomColor;
+	self.backgroundGradientView.gradientColors = @[self.backgroundGradientView.gradientColors[0], bottomColor];
 }
 
 
