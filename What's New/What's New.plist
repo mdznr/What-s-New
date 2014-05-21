@@ -52,6 +52,8 @@
 			<string>Designed for iOS 7</string>
 			<key>Detail</key>
 			<string>Podcasts has a beautiful new look and feel that fits right in with iOS 7.</string>
+			<key>Icon</key>
+			<string>iOS 7</string>
 		</dict>
 		<dict>
 			<key>Title</key>
