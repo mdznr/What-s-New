@@ -109,7 +109,7 @@
 
 - (void)setFeatures:(NSDictionary *)features
 {
-	_features = features;
+	_features = [features copy];
 	_orderedKeys = [[_features allKeys] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
 		return [obj2 compare:obj1 options:NSNumericSearch];
 	}];

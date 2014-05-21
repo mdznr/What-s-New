@@ -32,7 +32,7 @@
 
 - (void)setTitle:(NSString *)title
 {
-	self.textLabel.text = title;
+	self.textLabel.text = [title copy];
 }
 
 - (NSString *)title
@@ -42,7 +42,7 @@
 
 - (void)setDetail:(NSString *)detail
 {
-	self.detailTextLabel.text = detail;
+	self.detailTextLabel.text = [detail copy];
 }
 
 - (NSString *)detail
@@ -52,7 +52,7 @@
 
 - (void)setIcon:(UIImage *)icon
 {
-	self.imageView.image = icon;
+	self.imageView.image = [icon copy];
 }
 
 - (UIImage *)icon
