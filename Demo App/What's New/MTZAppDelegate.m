@@ -29,7 +29,7 @@
 	self.window.rootViewController = [[MTZViewController alloc] init];
 	
 #ifdef DEBUG
-	[MTZWhatsNew setLastAppVersion:@"0.0"];
+	[MTZWhatsNew setLastAppVersion:@"2.0"];
 #endif
 	
 	[MTZWhatsNew handleWhatsNewWithBlock:^(NSDictionary *whatsNew) {
