@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>05202794-57C0-49F9-87A8-A06CB0599456</string>
+	<string>3EEDD743-9D7A-4A94-80CF-500DA739380A</string>
 	<key>IDESourceControlProjectName</key>
 	<string>What's New</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -14,11 +14,11 @@
 		<string>https://github.com/mdznr/What-s-New.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>What's New.xcodeproj/project.xcworkspace</string>
+	<string>Demo App/What's New.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>287B7611-66DF-4F8A-88D8-9C833802E1CF</key>
-		<string>../..</string>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/mdznr/What-s-New.git</string>
