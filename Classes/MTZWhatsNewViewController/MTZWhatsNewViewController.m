@@ -14,10 +14,13 @@
 
 @interface MTZWhatsNewViewController () <UITableViewDelegate, UITableViewDataSource>
 
+///	An ordered list of the versions from newest to oldest.
 @property (strong, nonatomic) NSArray *orderedKeys;
 
+///	The table view to display all the new features.
 @property (strong, nonatomic) MTZTableView *tableView;
 
+///	The gradient presented as the background.
 @property (strong, nonatomic) SAMGradientView *backgroundGradientView;
 
 @end
@@ -99,14 +102,17 @@
 	[self.tableView flashScrollIndicators];
 }
 
-- (IBAction)didTapContinueButton:(id)sender
-{
-	[self dismissViewControllerAnimated:YES completion:nil];
-}
-
 - (BOOL)prefersStatusBarHidden
 {
 	return YES;
+}
+
+
+#pragma mark - Actions
+
+- (IBAction)didTapContinueButton:(id)sender
+{
+	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -220,6 +226,16 @@
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	return NO;
+}
+
+
+#pragma mark - Helpers
+
+- (BOOL)useAlternateLayout
+{
+	// iPhone width = 320
+	// iPad's UIModalPresentationFormSheet width = 540
+	return self.view.frame.size.width >= 512;
 }
 
 
