@@ -164,7 +164,7 @@
 	if ( indexPath.section == 0 ) {
 		UITableViewCell *cell = [[UITableViewCell alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 70)];
 		cell.backgroundColor = [UIColor clearColor];
-		UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 70)];
+		UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, 70)];
 		label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 		label.textAlignment = NSTextAlignmentCenter;
 		label.textColor = [UIColor whiteColor];
