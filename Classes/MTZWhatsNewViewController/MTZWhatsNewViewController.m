@@ -53,6 +53,10 @@
 
 - (void)commonInit
 {
+	// Default modal transition and presentation styles.
+	self.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+	self.modalPresentationStyle = UIModalPresentationFormSheet;
+	
 	// Background.
 	self.backgroundGradientView = [[SAMGradientView alloc] initWithFrame:self.view.bounds];
 	self.backgroundGradientView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
