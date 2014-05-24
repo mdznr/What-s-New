@@ -27,6 +27,8 @@
 		C95B8DBB192FB0D000D0A887 /* MTZWhatsNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C95B8DB3192FB0D000D0A887 /* MTZWhatsNewViewController.m */; };
 		C95B8DBC192FB0D000D0A887 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = C95B8DB5192FB0D000D0A887 /* LICENSE.txt */; };
 		C95B8DBD192FB0D000D0A887 /* SAMGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = C95B8DB7192FB0D000D0A887 /* SAMGradientView.m */; };
+		C9AC3B61192FBE2400797F24 /* MTZCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AC3B60192FBE2400797F24 /* MTZCollectionView.m */; };
+		C9AC3B67192FBF9800797F24 /* MTZWhatsNewFeatureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AC3B66192FBF9800797F24 /* MTZWhatsNewFeatureCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,10 @@
 		C95B8DB5192FB0D000D0A887 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		C95B8DB6192FB0D000D0A887 /* SAMGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMGradientView.h; sourceTree = "<group>"; };
 		C95B8DB7192FB0D000D0A887 /* SAMGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMGradientView.m; sourceTree = "<group>"; };
+		C9AC3B5F192FBE2400797F24 /* MTZCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZCollectionView.h; sourceTree = "<group>"; };
+		C9AC3B60192FBE2400797F24 /* MTZCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZCollectionView.m; sourceTree = "<group>"; };
+		C9AC3B65192FBF9800797F24 /* MTZWhatsNewFeatureCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZWhatsNewFeatureCollectionViewCell.h; sourceTree = "<group>"; };
+		C9AC3B66192FBF9800797F24 /* MTZWhatsNewFeatureCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZWhatsNewFeatureCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +196,10 @@
 				C95B8DAF192FB0D000D0A887 /* MTZTableView.m */,
 				C95B8DB0192FB0D000D0A887 /* MTZWhatsNewFeatureTableViewCell.h */,
 				C95B8DB1192FB0D000D0A887 /* MTZWhatsNewFeatureTableViewCell.m */,
+				C9AC3B5F192FBE2400797F24 /* MTZCollectionView.h */,
+				C9AC3B60192FBE2400797F24 /* MTZCollectionView.m */,
+				C9AC3B65192FBF9800797F24 /* MTZWhatsNewFeatureCollectionViewCell.h */,
+				C9AC3B66192FBF9800797F24 /* MTZWhatsNewFeatureCollectionViewCell.m */,
 				C95B8DB4192FB0D000D0A887 /* SAMGradientView */,
 			);
 			path = MTZWhatsNewViewController;
@@ -310,7 +320,9 @@
 				C927692A1926C3240016A0F1 /* MTZAppDelegate.m in Sources */,
 				C92769261926C3240016A0F1 /* main.m in Sources */,
 				C92769331926C3240016A0F1 /* MTZViewController.m in Sources */,
+				C9AC3B67192FBF9800797F24 /* MTZWhatsNewFeatureCollectionViewCell.m in Sources */,
 				C95B8DBD192FB0D000D0A887 /* SAMGradientView.m in Sources */,
+				C9AC3B61192FBE2400797F24 /* MTZCollectionView.m in Sources */,
 				C95B8DB9192FB0D000D0A887 /* MTZTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,17 +8,21 @@
 
 #import "MTZWhatsNewViewController.h"
 
-#import "MTZWhatsNewFeatureTableViewCell.h"
 #import "MTZTableView.h"
+#import "MTZWhatsNewFeatureTableViewCell.h"
+
+#import "MTZCollectionView.h"
+#import "MTZWhatsNewFeatureCollectionViewCell.h"
+
 #import "SAMGradientView.h"
 
-@interface MTZWhatsNewViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface MTZWhatsNewViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
 ///	An ordered list of the versions from newest to oldest.
 @property (strong, nonatomic) NSArray *orderedKeys;
 
-///	The table view to display all the new features.
-@property (strong, nonatomic) MTZTableView *tableView;
+///	The collection view to display all the new features.
+@property (strong, nonatomic) MTZCollectionView *collectionView;
 
 ///	The gradient presented as the background.
 @property (strong, nonatomic) SAMGradientView *backgroundGradientView;
@@ -67,19 +71,18 @@
 	self.backgroundGradientView.gradientColors = @[[UIColor clearColor], [UIColor clearColor]];
 	self.backgroundGradientView.gradientLocations = @[@0.0, @1.0];
 	
-	// Feature table view.
-	self.tableView = [[MTZTableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-	self.tableView.delegate = self;
-	self.tableView.dataSource = self;
-	[self.tableView registerClass:[MTZWhatsNewFeatureTableViewCell class] forCellReuseIdentifier:@"feature"];
+	// Feature collection view.
+	self.collectionView = [[MTZCollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:<#(UICollectionViewLayout *)#>];
+	self.collectionView.delegate = self;
+	self.collectionView.dataSource = self;
+	[self.collectionView registerClass:[MTZWhatsNewFeatureCollectionViewCell class] forCellWithReuseIdentifier:@"feature"];
 	UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 0, 50, 0);
-	self.tableView.scrollIndicatorInsets = edgeInsets;
-	self.tableView.contentInset = edgeInsets;
-	self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-	self.tableView.backgroundColor = [UIColor clearColor];
-	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-	self.tableView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
-	[self.view addSubview:self.tableView];
+	self.collectionView.scrollIndicatorInsets = edgeInsets;
+	self.collectionView.contentInset = edgeInsets;
+	self.collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+	self.collectionView.backgroundColor = [UIColor clearColor];
+	self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+	[self.view addSubview:self.collectionView];
 	
 	// Get Started.
 	CGRect frame = CGRectMake(0, self.view.bounds.size.height-50, self.view.bounds.size.width, 50);
@@ -99,7 +102,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];
-	[self.tableView flashScrollIndicators];
+	[self.collectionView flashScrollIndicators];
 }
 
 - (BOOL)prefersStatusBarHidden
@@ -125,8 +128,8 @@
 		return [obj2 compare:obj1 options:NSNumericSearch];
 	}];
 	
-	// Reload the table view's data.
-	[self.tableView reloadData];
+	// Reload the collection view's data.
+	[self.collectionView reloadData];
 }
 
 - (void)setTopColor:(UIColor *)topColor
