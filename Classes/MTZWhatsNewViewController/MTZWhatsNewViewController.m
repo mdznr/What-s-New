@@ -8,9 +8,6 @@
 
 #import "MTZWhatsNewViewController.h"
 
-#import "MTZTableView.h"
-#import "MTZWhatsNewFeatureTableViewCell.h"
-
 #import "MTZCollectionView.h"
 #import "MTZWhatsNewFeatureCollectionViewCell.h"
 
