@@ -8,7 +8,7 @@
 			<key>Title</key>
 			<string>Unplayed Episodes</string>
 			<key>Detail</key>
-			<string>Quickly find episodes you haven&apos;t played yet.</string>
+			<string>Quickly find episodes you haven’t played yet.</string>
 			<key>Icon</key>
 			<string>Podcast</string>
 		</dict>
@@ -24,7 +24,7 @@
 			<key>Title</key>
 			<string>Saved Episodes</string>
 			<key>Detail</key>
-			<string>Save your favorite episodes to ensure you&apos;ll always have them.</string>
+			<string>Save your favorite episodes to ensure you’ll always have them.</string>
 			<key>Icon</key>
 			<string>Saved</string>
 		</dict>
