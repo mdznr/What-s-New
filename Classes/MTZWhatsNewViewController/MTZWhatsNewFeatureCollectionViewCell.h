@@ -10,4 +10,13 @@
 
 @interface MTZWhatsNewFeatureCollectionViewCell : UICollectionViewCell
 
+///	The title of the feature.
+@property (nonatomic, copy) NSString *title;
+
+///	A short description of the feature.
+@property (nonatomic, copy) NSString *detail;
+
+/// An image represeting the feature.
+@property (nonatomic, copy) UIImage *icon;
+
 @end
