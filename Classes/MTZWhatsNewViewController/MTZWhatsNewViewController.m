@@ -238,8 +238,6 @@
 	NSString *iconName = feature[@"Icon"];
 	if ( iconName ) {
 		cell.icon = [UIImage imageNamed:iconName];
-	} else {
-		cell.icon = nil;
 	}
 	
 	cell.layoutStyle = [self shouldUseGridLayout] ? MTZWhatsNewFeatureCollectionViewCellLayoutStyleGrid : MTZWhatsNewFeatureCollectionViewCellLayoutStyleList;
