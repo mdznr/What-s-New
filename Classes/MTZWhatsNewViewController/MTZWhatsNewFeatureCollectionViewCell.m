@@ -106,6 +106,13 @@
 	self.detailTextLabel.textAlignment = NSTextAlignmentCenter;
 }
 
+- (void)prepareForReuse
+{
+	self.textLabel.text = nil;
+	self.detailTextLabel.text = nil;
+	self.imageView.image = nil;
+}
+
 
 #pragma mark - Properties
 
