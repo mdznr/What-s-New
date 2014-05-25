@@ -155,17 +155,19 @@
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
+	// "What's New"
 	if ( section == 0 ) {
 		if ( [self shouldUseGridLayout] ) {
 			return CGSizeMake(self.view.bounds.size.width, 115);
 		} else {
 			return CGSizeMake(self.view.bounds.size.width, 70);
 		}
-	} else {
-		return CGSizeZero;
 	}
+	
+	// No header for section.
+	return CGSizeZero;
 }
 
 
@@ -201,6 +203,7 @@
 {
 	UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"whatsnew" forIndexPath:indexPath];
 	
+	// Create label for "What's New" title.
 	UILabel *label = [[UILabel alloc] initWithFrame:view.bounds];
 	label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 	label.textAlignment = NSTextAlignmentCenter;
@@ -208,8 +211,10 @@
 	label.text = NSLocalizedString(@"What’s New", nil);
 	[view addSubview:label];
 	
+	// Larger font and divider.
 	if ( [self shouldUseGridLayout] ) {
 		label.font = [UIFont fontWithName:@"HelveticaNeue-Ultralight" size:60];
+		
 		// Divider
 		UIView *divider = [[UIView alloc] initWithFrame:CGRectMake(122, 103, 296, 0.5)];
 		divider.backgroundColor = [UIColor colorWithWhite:1.0f alpha:0.9f];
