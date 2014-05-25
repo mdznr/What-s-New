@@ -108,9 +108,9 @@
 
 - (void)prepareForReuse
 {
-	self.textLabel.text = nil;
-	self.detailTextLabel.text = nil;
-	self.imageView.image = nil;
+	self.title = nil;
+	self.detail = nil;
+	self.icon = nil;
 }
 
 
