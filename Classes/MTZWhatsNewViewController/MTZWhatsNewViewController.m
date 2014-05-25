@@ -75,8 +75,11 @@
 	UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
 	flowLayout.minimumLineSpacing = 2;
 	flowLayout.minimumInteritemSpacing = 0;
-#warning This should be CGSizeMake(320, 108) when displayed in a line.
-	flowLayout.itemSize = CGSizeMake(270, 187);
+	if ( [self shouldUseGridLayout] ) {
+		flowLayout.itemSize = CGSizeMake(270, 187);
+	} else {
+		flowLayout.itemSize = CGSizeMake(320, 108);
+	}
 	flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
 	flowLayout.headerReferenceSize = flowLayout.footerReferenceSize = CGSizeZero;
 	self.collectionView = [[MTZCollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
@@ -158,8 +161,11 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
 	if ( section == 0 ) {
-#warning This should be CGSizeMake(self.view.bounds.size.width, 70) when displayed in a line;
-		return CGSizeMake(self.view.bounds.size.width, 115);
+		if ( [self shouldUseGridLayout] ) {
+			return CGSizeMake(self.view.bounds.size.width, 115);
+		} else {
+			return CGSizeMake(self.view.bounds.size.width, 70);
+		}
 	} else {
 		return CGSizeZero;
 	}
@@ -205,9 +211,10 @@
 	label.text = NSLocalizedString(@"What's New", nil);
 	[view addSubview:label];
 	
-	if ( [self useAlternateLayout] ) {
+	if ( [self shouldUseGridLayout] ) {
 		label.font = [UIFont fontWithName:@"HelveticaNeue-Ultralight" size:60];
-		UIView *divider = [[UIView alloc] initWithFrame:CGRectMake(122, 103, 296, 1)];
+		// Divider
+		UIView *divider = [[UIView alloc] initWithFrame:CGRectMake(122, 103, 296, 0.5)];
 		divider.backgroundColor = [UIColor colorWithWhite:1.0f alpha:0.9f];
 		[view addSubview:divider];
 	} else {
@@ -233,13 +240,15 @@
 		cell.icon = nil;
 	}
 	
+	cell.layoutStyle = [self shouldUseGridLayout] ? MTZWhatsNewFeatureCollectionViewCellLayoutStyleGrid : MTZWhatsNewFeatureCollectionViewCellLayoutStyleList;
+	
 	return cell;
 }
 
 
 #pragma mark - Helpers
 
-- (BOOL)useAlternateLayout
+- (BOOL)shouldUseGridLayout
 {
 	// iPhone width = 320
 	// iPad's UIModalPresentationFormSheet width = 540
