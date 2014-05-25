@@ -208,7 +208,7 @@
 	label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 	label.textAlignment = NSTextAlignmentCenter;
 	label.textColor = [UIColor whiteColor];
-	label.text = NSLocalizedString(@"What's New", nil);
+	label.text = NSLocalizedString(@"What’s New", nil);
 	[view addSubview:label];
 	
 	if ( [self shouldUseGridLayout] ) {
