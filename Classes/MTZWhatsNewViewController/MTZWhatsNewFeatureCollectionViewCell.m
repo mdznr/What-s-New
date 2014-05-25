@@ -82,14 +82,14 @@
 
 - (void)layoutForGrid
 {
-	self.frame = CGRectMake(0, 0, 540/2, 374/2);
+	self.frame = CGRectMake(0, 0, 270, 187);
 	
-	self.imageView.frame = CGRectMake(103, 55/2, 64, 64);
+	self.imageView.frame = CGRectMake(103, 28, 64, 64);
 	
-	self.textLabel.frame = CGRectMake(32, 101, 412/2, 20);
+	self.textLabel.frame = CGRectMake(24, 101, 222, 20);
 	self.textLabel.textAlignment = NSTextAlignmentCenter;
 	
-	self.detailTextLabel.frame = CGRectMake(32, 125, 412/2, 34);
+	self.detailTextLabel.frame = CGRectMake(24, 125, 222, 34);
 	self.detailTextLabel.textAlignment = NSTextAlignmentCenter;
 }
 

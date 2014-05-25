@@ -82,7 +82,7 @@
 	self.collectionView = [[MTZCollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
 	self.collectionView.delegate = self;
 	self.collectionView.dataSource = self;
-	[self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"whatsnew"];
+	[self.collectionView registerClass:[UICollectionViewCell class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"whatsnew"];
 	[self.collectionView registerClass:[MTZWhatsNewFeatureCollectionViewCell class] forCellWithReuseIdentifier:@"feature"];
 	UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 0, 50, 0);
 	self.collectionView.scrollIndicatorInsets = edgeInsets;
@@ -153,6 +153,19 @@
 }
 
 
+#pragma mark - UICollectionViewDelegateFlowLayout
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+{
+	if ( section == 0 ) {
+#warning This should be CGSizeMake(self.view.bounds.size.width, 70) when displayed in a line;
+		return CGSizeMake(self.view.bounds.size.width, 115);
+	} else {
+		return CGSizeZero;
+	}
+}
+
+
 #pragma mark - UICollectionViewDelegate
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -179,6 +192,31 @@
 	return [self.features[key] count];
 }
 
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
+		   viewForSupplementaryElementOfKind:(NSString *)kind
+								 atIndexPath:(NSIndexPath *)indexPath
+{
+	UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"whatsnew" forIndexPath:indexPath];
+	
+	UILabel *label = [[UILabel alloc] initWithFrame:view.bounds];
+	label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+	label.textAlignment = NSTextAlignmentCenter;
+	label.textColor = [UIColor whiteColor];
+	label.text = NSLocalizedString(@"What's New", nil);
+	[view addSubview:label];
+	
+	if ( [self useAlternateLayout] ) {
+		label.font = [UIFont fontWithName:@"HelveticaNeue-Ultralight" size:60];
+		UIView *divider = [[UIView alloc] initWithFrame:CGRectMake(122, 103, 296, 1)];
+		divider.backgroundColor = [UIColor colorWithWhite:1.0f alpha:0.9f];
+		[view addSubview:divider];
+	} else {
+		label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:30];
+	}
+	
+	return view;
+}
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
 				  cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -196,19 +234,6 @@
 	}
 	
 	return cell;
-	
-	// What's New.
-	{
-		UICollectionViewCell *whatsNewCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"whatsnew" forIndexPath:indexPath];
-		whatsNewCell.frame = CGRectMake(whatsNewCell.frame.origin.x, whatsNewCell.frame.origin.y, collectionView.frame.size.width, 70);
-		UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, whatsNewCell.frame.size.width, 70)];
-		label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-		label.textAlignment = NSTextAlignmentCenter;
-		label.textColor = [UIColor whiteColor];
-		label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:30.0f];
-		label.text = NSLocalizedString(@"What's New", nil);
-		[whatsNewCell.contentView addSubview:label];
-	}
 }
 
 
