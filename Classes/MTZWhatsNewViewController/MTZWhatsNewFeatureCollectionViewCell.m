@@ -64,12 +64,25 @@
 	self.imageView = [[UIImageView alloc] init];
 	[self.contentView addSubview:self.imageView];
 	
-	[self layoutForGrid];
+	[self setLayoutStyle:MTZWhatsNewFeatureCollectionViewCellLayoutStyleList];
+}
+
+- (void)setLayoutStyle:(MTZWhatsNewFeatureCollectionViewCellLayoutStyle)layoutStyle
+{
+	_layoutStyle = layoutStyle;
+	switch (_layoutStyle) {
+		case MTZWhatsNewFeatureCollectionViewCellLayoutStyleList:
+			[self layoutForList];
+			break;
+		case MTZWhatsNewFeatureCollectionViewCellLayoutStyleGrid:
+			[self layoutForGrid];
+			break;
+	}
 }
 
 - (void)layoutForList
 {
-	self.frame = CGRectMake(0, 0, 320, 112);
+	self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, 320, 112);
 	
 	self.imageView.frame = CGRectMake(26, 24, 64, 64);
 	
@@ -82,7 +95,7 @@
 
 - (void)layoutForGrid
 {
-	self.frame = CGRectMake(0, 0, 270, 187);
+	self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, 270, 187);
 	
 	self.imageView.frame = CGRectMake(103, 28, 64, 64);
 	
