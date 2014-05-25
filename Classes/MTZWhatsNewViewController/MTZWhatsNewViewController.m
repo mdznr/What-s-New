@@ -82,7 +82,7 @@
 	self.collectionView = [[MTZCollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
 	self.collectionView.delegate = self;
 	self.collectionView.dataSource = self;
-	[self.collectionView registerClass:[UICollectionViewCell class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"whatsnew"];
+	[self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"whatsnew"];
 	[self.collectionView registerClass:[MTZWhatsNewFeatureCollectionViewCell class] forCellWithReuseIdentifier:@"feature"];
 	UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 0, 50, 0);
 	self.collectionView.scrollIndicatorInsets = edgeInsets;
