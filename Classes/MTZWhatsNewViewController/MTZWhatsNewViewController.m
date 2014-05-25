@@ -213,7 +213,8 @@
 	
 	// Larger font and divider.
 	if ( [self shouldUseGridLayout] ) {
-		label.font = [UIFont fontWithName:@"HelveticaNeue-Ultralight" size:60];
+		label.font = [UIFont fontWithName:@"HelveticaNeue-Ultralight" size:62];
+		label.frame = CGRectMake(0, 0, view.bounds.size.width, 103);
 		
 		// Divider
 		UIView *divider = [[UIView alloc] initWithFrame:CGRectMake(122, 103, 296, 0.5)];
