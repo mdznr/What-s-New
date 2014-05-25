@@ -72,9 +72,17 @@
 	self.backgroundGradientView.gradientLocations = @[@0.0, @1.0];
 	
 	// Feature collection view.
-	self.collectionView = [[MTZCollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:<#(UICollectionViewLayout *)#>];
+	UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+	flowLayout.minimumLineSpacing = 2;
+	flowLayout.minimumInteritemSpacing = 0;
+#warning This should be CGSizeMake(320, 108) when displayed in a line.
+	flowLayout.itemSize = CGSizeMake(270, 187);
+	flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+	flowLayout.headerReferenceSize = flowLayout.footerReferenceSize = CGSizeZero;
+	self.collectionView = [[MTZCollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
 	self.collectionView.delegate = self;
 	self.collectionView.dataSource = self;
+	[self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"whatsnew"];
 	[self.collectionView registerClass:[MTZWhatsNewFeatureCollectionViewCell class] forCellWithReuseIdentifier:@"feature"];
 	UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 0, 50, 0);
 	self.collectionView.scrollIndicatorInsets = edgeInsets;
@@ -145,50 +153,38 @@
 }
 
 
-#pragma mark - UITableViewDelegate
+#pragma mark - UICollectionViewDelegate
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-	// What's New.
-	if ( indexPath.section == 0 ) {
-		return 70.0f;
-	}
-	// Everything else.
-	else {
-		return 112.0f;
-	}
+	return NO;
 }
 
-- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath
 {
 	return NO;
 }
 
 
-#pragma mark - UITableViewDataSource
+#pragma mark - UICollectionViewDataSource
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-	// What's New.
-	if ( indexPath.section == 0 ) {
-		UITableViewCell *cell = [[UITableViewCell alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 70)];
-		cell.backgroundColor = [UIColor clearColor];
-		UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, 70)];
-		label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-		label.textAlignment = NSTextAlignmentCenter;
-		label.textColor = [UIColor whiteColor];
-		label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:30.0f];
-		label.text = NSLocalizedString(@"What's New", nil);
-		[cell.contentView addSubview:label];
-		return cell;
-	}
+	return [self.features count];
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+	NSString *key = self.orderedKeys[section];
+	return [self.features[key] count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
+				  cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+	MTZWhatsNewFeatureCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"feature" forIndexPath:indexPath];
 	
-	MTZWhatsNewFeatureTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"feature" forIndexPath:indexPath];
-	if ( !cell ) {
-		cell = [[MTZWhatsNewFeatureTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"feature"];
-	}
-	
-	NSDictionary *feature = self.features[self.orderedKeys[indexPath.section-1]][indexPath.row];
+	NSDictionary *feature = self.features[self.orderedKeys[indexPath.section]][indexPath.row];
 	
 	cell.title = feature[@"Title"];
 	cell.detail = feature[@"Detail"];
@@ -200,35 +196,19 @@
 	}
 	
 	return cell;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-	// What's New + everything else.
-	return 1 + [self.features count];
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+	
 	// What's New.
-	if ( section == 0 ) {
-		return 1;
+	{
+		UICollectionViewCell *whatsNewCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"whatsnew" forIndexPath:indexPath];
+		whatsNewCell.frame = CGRectMake(whatsNewCell.frame.origin.x, whatsNewCell.frame.origin.y, collectionView.frame.size.width, 70);
+		UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, whatsNewCell.frame.size.width, 70)];
+		label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+		label.textAlignment = NSTextAlignmentCenter;
+		label.textColor = [UIColor whiteColor];
+		label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:30.0f];
+		label.text = NSLocalizedString(@"What's New", nil);
+		[whatsNewCell.contentView addSubview:label];
 	}
-	// Everything else.
-	else {
-		NSString *key = self.orderedKeys[section-1];
-		return [self.features[key] count];
-	}
-}
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-	return NO;
-}
-
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-	return NO;
 }
 
 
