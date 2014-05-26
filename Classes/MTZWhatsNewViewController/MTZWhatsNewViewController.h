@@ -99,4 +99,8 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerStyle) {
 /// @discussion The default is @c @"Get Started".
 @property (nonatomic, copy) NSString *dismissButtonText;
 
+///	Whether or not the icons should be treated as templates.
+/// @discussion The default is @c YES.
+@property (nonatomic) BOOL templatedIcons;
+
 @end

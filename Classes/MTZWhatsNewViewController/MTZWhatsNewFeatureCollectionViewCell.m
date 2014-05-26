@@ -165,8 +165,7 @@
 
 - (void)setIcon:(UIImage *)icon
 {
-#warning Should this always be template? What if the icon isn't meant for template?
-	self.imageView.image = [icon imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+	self.imageView.image = [icon copy];
 }
 
 - (UIImage *)icon

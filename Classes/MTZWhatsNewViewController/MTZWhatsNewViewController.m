@@ -141,6 +141,7 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerEffectiveStyle) {
 	[self.dismissButton addTarget:self action:@selector(didTapContinueButton:) forControlEvents:UIControlEventTouchUpInside];
 	
 	// Defaults.
+	self.templatedIcons = YES;
 	self.backgroundGradientTopColor = [UIColor whiteColor];
 	self.backgroundGradientBottomColor = [UIColor whiteColor];
 	self.style = MTZWhatsNewViewControllerStyleAutomatic;
@@ -218,6 +219,12 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerEffectiveStyle) {
 {
 	_dismissButtonText = dismissButtonText;
 	[self.dismissButton setTitle:_dismissButtonText forState:UIControlStateNormal];
+}
+
+- (void)setTemplatedIcons:(BOOL)templatedIcons
+{
+	_templatedIcons = templatedIcons;
+	// TODO: reload icons.
 }
 
 
@@ -367,7 +374,11 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerEffectiveStyle) {
 	cell.detail = feature[kDetail];
 	NSString *iconName = feature[kIconName];
 	if ( iconName ) {
-		cell.icon = [UIImage imageNamed:iconName];
+		if ( self.templatedIcons ) {
+			cell.icon = [[UIImage imageNamed:iconName] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+		} else {
+			cell.icon = [[UIImage imageNamed:iconName] imageWithRenderingMode:UIImageRenderingModeAutomatic];
+		}
 	}
 	cell.contentColor = [self contentColor];
 	cell.layoutStyle = [self shouldUseGridLayout] ? MTZWhatsNewFeatureCollectionViewCellLayoutStyleGrid : MTZWhatsNewFeatureCollectionViewCellLayoutStyleList;
