@@ -101,16 +101,14 @@
 	UIView *buttonBackground = [[UIView alloc] init];
 	[self.view addSubview:buttonBackground];
 	buttonBackground.translatesAutoresizingMaskIntoConstraints = NO;
-	[self.view addConstraints:[NSLayoutConstraint constraintsToStretchHorizontallyToSuperview:buttonBackground]];
-	[self.view addConstraints:[NSLayoutConstraint constraintsToStickView:buttonBackground toEdges:UIRectEdgeBottom]];
+	[self.view addConstraints:[NSLayoutConstraint constraintsToStickView:buttonBackground toEdges:UIRectEdgeLeft|UIRectEdgeBottom|UIRectEdgeRight]];
 	[buttonBackground addConstraint:[NSLayoutConstraint constraintWithItem:buttonBackground attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1.0f constant:50.0f]];
 	buttonBackground.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.2f];
 	
 	UIButton *button = [[UIButton alloc] init];
 	[self.view addSubview:button];
 	button.translatesAutoresizingMaskIntoConstraints = NO;
-	[self.view addConstraints:[NSLayoutConstraint constraintsToStretchHorizontallyToSuperview:button]];
-	[self.view addConstraints:[NSLayoutConstraint constraintsToStickView:button toEdges:UIRectEdgeBottom]];
+	[self.view addConstraints:[NSLayoutConstraint constraintsToStickView:button toEdges:UIRectEdgeLeft|UIRectEdgeBottom|UIRectEdgeRight]];
 	[button addConstraint:[NSLayoutConstraint constraintWithItem:button attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1.0f constant:50.0f]];
 	[button setTitle:NSLocalizedString(@"Get Started", nil) forState:UIControlStateNormal];
 	[button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
