@@ -8,6 +8,8 @@
 
 #import "MTZViewController.h"
 
+#import "NSLayoutConstraint+Common.h"
+
 @interface MTZViewController ()
 
 @end
@@ -18,6 +20,34 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+	
+	UITabBar *tabBar = [[UITabBar alloc] init];
+	[self.view addSubview:tabBar];
+	tabBar.translatesAutoresizingMaskIntoConstraints = NO;
+	[self.view addConstraints:[NSLayoutConstraint constraintsToStickView:tabBar toEdges:UIRectEdgeLeft|UIRectEdgeBottom|UIRectEdgeRight]];
+	
+	UINavigationBar *navBar = [[UINavigationBar alloc] init];
+	[self.view addSubview:navBar];
+	navBar.translatesAutoresizingMaskIntoConstraints = NO;
+	[navBar addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:60 toView:navBar]];
+	[self.view addConstraints:[NSLayoutConstraint constraintsToStickView:navBar toEdges:UIRectEdgeLeft|UIRectEdgeTop|UIRectEdgeRight]];
+	
+	UILabel *label = [[UILabel alloc] init];
+	[self.view addSubview:label];
+	label.translatesAutoresizingMaskIntoConstraints = NO;
+	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(>=20)-[label(<=400)]-(>=20)-|" options:NSLayoutFormatDirectionLeadingToTrailing metrics:nil views:@{@"label": label}]];
+	[label.superview addConstraint:[NSLayoutConstraint constraintWithItem:label
+																attribute:NSLayoutAttributeCenterX
+																relatedBy:NSLayoutRelationEqual
+																   toItem:label.superview
+																attribute:NSLayoutAttributeCenterX
+															   multiplier:1
+																 constant:0]];
+	[self.view addConstraints:[NSLayoutConstraint constraintsToStretchVerticallyToSuperview:label]];
+	label.text = NSLocalizedString(@"This is just a demo application showing off the \"Whats New View Controller\". Nothing else.", nil);
+	label.numberOfLines = 0;
+	label.textAlignment = NSTextAlignmentCenter;
+	label.textColor = [UIColor grayColor];
 }
 
 - (void)didReceiveMemoryWarning
