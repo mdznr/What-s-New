@@ -33,7 +33,7 @@
 	[MTZWhatsNew setLastAppVersion:@"2.0"];
 #endif
 	
-	[MTZWhatsNew handleWhatsNewWithBlock:^(NSDictionary *whatsNew) {
+	[MTZWhatsNew handleWhatsNew:^(NSDictionary *whatsNew) {
 		MTZWhatsNewViewController *vc = [[MTZWhatsNewViewController alloc] initWithFeatures:whatsNew];
 		vc.topColor = [UIColor colorWithHue:0.77 saturation:0.77 brightness:0.76 alpha:1];
 		vc.bottomColor = [UIColor colorWithHue:0.78 saturation:0.6 brightness:0.95 alpha:1];

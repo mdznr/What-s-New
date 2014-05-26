@@ -42,7 +42,7 @@ typedef void (^MTZWhatsNewBlock)(NSDictionary *whatsNew);
 @interface MTZWhatsNew : NSObject
 
 ///	Show what's new in this update, if anything.
-+ (void)handleWhatsNewWithBlock:(MTZWhatsNewBlock)whatsNewBlock;
++ (void)handleWhatsNew:(MTZWhatsNewBlock)whatsNewBlock;
 
 ///	Clears the last migration remembered by @c MTZWhatsNew. Causes all migration to run from the beginning.
 + (void)reset;
