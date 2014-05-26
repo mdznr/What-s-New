@@ -35,9 +35,8 @@
 	
 	[MTZWhatsNew handleWhatsNew:^(NSDictionary *whatsNew) {
 		MTZWhatsNewViewController *vc = [[MTZWhatsNewViewController alloc] initWithFeatures:whatsNew];
-//		vc.backgroundGradientTopColor = [UIColor colorWithHue:0.77 saturation:0.77 brightness:0.76 alpha:1];
-//		vc.backgroundGradientBottomColor = [UIColor colorWithHue:0.78 saturation:0.6 brightness:0.95 alpha:1];
-		vc.templatedIcons = NO;
+		vc.backgroundGradientTopColor = [UIColor colorWithHue:0.77 saturation:0.77 brightness:0.76 alpha:1];
+		vc.backgroundGradientBottomColor = [UIColor colorWithHue:0.78 saturation:0.6 brightness:0.95 alpha:1];
 		[self.window.rootViewController presentViewController:vc animated:NO completion:nil];
 	}];
 	
