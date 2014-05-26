@@ -16,6 +16,10 @@
 #import "UICollectionView+initWithCollectionViewLayout.h"
 #import "NSLayoutConstraint+Common.h"
 
+static const NSString *kTitle = @"title";
+static const NSString *kDetail = @"detail";
+static const NSString *kIconName = @"icon";
+
 @interface MTZWhatsNewViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
 ///	An ordered list of the versions from newest to oldest.
@@ -260,9 +264,9 @@
 	
 	NSDictionary *feature = self.features[self.orderedKeys[indexPath.section]][indexPath.row];
 	
-	cell.title = feature[@"Title"];
-	cell.detail = feature[@"Detail"];
-	NSString *iconName = feature[@"Icon"];
+	cell.title = feature[kTitle];
+	cell.detail = feature[kDetail];
+	NSString *iconName = feature[kIconName];
 	if ( iconName ) {
 		cell.icon = [UIImage imageNamed:iconName];
 	}
