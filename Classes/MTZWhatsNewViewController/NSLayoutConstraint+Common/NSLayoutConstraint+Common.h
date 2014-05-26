@@ -29,6 +29,19 @@
 + (NSArray *)constraintsToStretchVerticallyToSuperview:(UIView *)view;
 
 
+#pragma mark - Centering
+
+///	Create a constraint to horizontally center a particular view to its superview.
+///	@param view The subview to horizontally center to its superview.
+///	@return A constraint to add to the superview to center @c view horizontally.
++ (NSLayoutConstraint *)constraintToCenterViewHorizontallyToSuperview:(UIView *)view;
+
+///	Create a constraint to vertically center a particular view to its superview.
+///	@param view The subview to vertically center to its superview.
+///	@return A constraint to add to the superview to center @c view vertically.
++ (NSLayoutConstraint *)constraintToCenterViewVerticallyToSuperview:(UIView *)view;
+
+
 #pragma mark - Sticking to edges
 
 ///	Create constraints to stick a particular view to edges of its superview.

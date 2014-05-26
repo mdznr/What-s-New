@@ -66,6 +66,31 @@
 }
 
 
+#pragma mark - Centering
+
++ (NSLayoutConstraint *)constraintToCenterViewHorizontallyToSuperview:(UIView *)view
+{
+	return [NSLayoutConstraint constraintWithItem:view
+										attribute:NSLayoutAttributeCenterX
+										relatedBy:NSLayoutRelationEqual
+										   toItem:view.superview
+										attribute:NSLayoutAttributeCenterX
+									   multiplier:1
+										 constant:0];
+}
+
++ (NSLayoutConstraint *)constraintToCenterViewVerticallyToSuperview:(UIView *)view
+{
+	return [NSLayoutConstraint constraintWithItem:view
+										attribute:NSLayoutAttributeCenterY
+										relatedBy:NSLayoutRelationEqual
+										   toItem:view.superview
+										attribute:NSLayoutAttributeCenterY
+									   multiplier:1
+										 constant:0];
+}
+
+
 #pragma mark - Setting size
 
 + (NSLayoutConstraint *)constraintToSetStaticHeight:(CGFloat)height toView:(UIView *)view
