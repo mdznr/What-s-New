@@ -91,28 +91,26 @@
 	
 	// Image View Size
 	[self.imageView removeConstraints:self.imageView.constraints];
-	[self.imageView addConstraint:[NSLayoutConstraint constraintToSetStaticWidth:64 toView:self.imageView]];
-	[self.imageView addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:64 toView:self.imageView]];
 	
 	[self.textLabel removeConstraints:self.textLabel.constraints];
-	[self.textLabel addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:20 toView:self.textLabel]];
 	self.textLabel.textAlignment = NSTextAlignmentLeft;
 	
 	[self.detailTextLabel removeConstraints:self.textLabel.constraints];
-	[self.detailTextLabel addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:34 toView:self.detailTextLabel]];
 	self.detailTextLabel.textAlignment = NSTextAlignmentLeft;
 	
 	// Remove all constraints. Start from a clean state.
 	[self removeConstraints:self.constraints];
 	
+	NSDictionary *views = @{@"icon": self.imageView, @"title": self.textLabel, @"detail": self.detailTextLabel};
+	
 	// Vertically center image view.
 	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.imageView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0]];
 	
 	// Horizontally space icon and labels.
-	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(26)-[icon]-(10)-[label]-(26)-|" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:@{@"icon": self.imageView, @"label": self.textLabel}]];
-	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(26)-[icon]-(10)-[label]-(26)-|" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:@{@"icon": self.imageView, @"label": self.detailTextLabel}]];
+	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(26)-[icon(64)]-(10)-[title]-(26)-|" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:views]];
+	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(26)-[icon(64)]-(10)-[detail]-(26)-|" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:views]];
 	// Vertically align labels.
-	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=0)-[title]-(0)-[detail]-(>=32)-|" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:@{@"title": self.textLabel, @"detail": self.detailTextLabel}]];
+	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=0)-[title(20)]-(0)-[detail(34)]-(>=32)-|" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:views]];
 }
 
 - (void)layoutForGrid
@@ -120,24 +118,23 @@
 	self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, 270, 187);
 	
 	[self.imageView removeConstraints:self.imageView.constraints];
-//	self.imageView.frame = CGRectMake(103, 28, 64, 64);
 	
 	[self.textLabel removeConstraints:self.textLabel.constraints];
-//	self.textLabel.frame = CGRectMake(24, 101, 222, 20);
 	self.textLabel.textAlignment = NSTextAlignmentCenter;
 	
 	[self.detailTextLabel removeConstraints:self.detailTextLabel.constraints];
-//	self.detailTextLabel.frame = CGRectMake(24, 125, 222, 34);
 	self.detailTextLabel.textAlignment = NSTextAlignmentCenter;
 	
 	[self removeConstraints:self.constraints];
 	
+	NSDictionary *views = @{@"icon": self.imageView, @"title": self.textLabel, @"detail": self.detailTextLabel};
+	
 	// Horizontal alignment.
-	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(>=0)-[icon(64)]-(>=0)-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:@{@"icon": self.imageView}]];
-	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(32)-[title]-(32)-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:@{@"title": self.textLabel}]];
-	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(32)-[detail]-(32)-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:@{@"detail": self.detailTextLabel}]];
+	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(>=0)-[icon(64)]-(>=0)-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
+	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(32)-[title]-(32)-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
+	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(32)-[detail]-(32)-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
 	// Vertical alignment.
-	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=0)-[icon(64)]-10-[title(20)]-8-[detail(34)]-(>=0)-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:@{@"icon": self.imageView, @"title": self.textLabel, @"detail": self.detailTextLabel}]];
+	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=0)-[icon(64)]-10-[title(20)]-8-[detail(34)]-(>=0)-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
 }
 
 - (void)prepareForReuse
