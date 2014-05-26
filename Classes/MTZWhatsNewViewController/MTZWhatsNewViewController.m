@@ -235,7 +235,7 @@
 		[divider addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:0.5 toView:divider]];
 		[view addConstraint:[NSLayoutConstraint constraintWithItem:divider attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:label attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0]];
 		[view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[label][divider]" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:@{@"label": label, @"divider": divider}]];
-		divider.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.5];
+		divider.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.75];
 	} else {
 		label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:30];
 	}
