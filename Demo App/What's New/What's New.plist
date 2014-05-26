@@ -74,6 +74,8 @@
 			<string>Pull to Refresh</string>
 			<key>detail</key>
 			<string>More easily refresh a subscription or playlist.</string>
+			<key>icon</key>
+			<string>Pull to Refresh</string>
 		</dict>
 	</array>
 </dict>
