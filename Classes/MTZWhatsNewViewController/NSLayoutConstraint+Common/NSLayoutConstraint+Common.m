@@ -66,7 +66,7 @@
 }
 
 
-#pragma mark - Centering
+#pragma mark - Centering to superview
 
 + (NSLayoutConstraint *)constraintToCenterViewHorizontallyToSuperview:(UIView *)view
 {
