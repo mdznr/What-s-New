@@ -10,10 +10,6 @@
 
 #import "NSLayoutConstraint+Common.h"
 
-@interface MTZViewController ()
-
-@end
-
 @implementation MTZViewController
 
 - (void)viewDidLoad
@@ -21,17 +17,20 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	
+	// Add a tab bar.
 	UITabBar *tabBar = [[UITabBar alloc] init];
 	[self.view addSubview:tabBar];
 	tabBar.translatesAutoresizingMaskIntoConstraints = NO;
 	[self.view addConstraints:[NSLayoutConstraint constraintsToStickView:tabBar toEdges:UIRectEdgeLeft|UIRectEdgeBottom|UIRectEdgeRight]];
 	
+	// Add a navigation bar.
 	UINavigationBar *navBar = [[UINavigationBar alloc] init];
 	[self.view addSubview:navBar];
 	navBar.translatesAutoresizingMaskIntoConstraints = NO;
 	[navBar addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:60 toView:navBar]];
 	[self.view addConstraints:[NSLayoutConstraint constraintsToStickView:navBar toEdges:UIRectEdgeLeft|UIRectEdgeTop|UIRectEdgeRight]];
 	
+	// Add a label explaining the nature of the demo app.
 	UILabel *label = [[UILabel alloc] init];
 	[self.view addSubview:label];
 	label.translatesAutoresizingMaskIntoConstraints = NO;
@@ -42,12 +41,6 @@
 	label.numberOfLines = 0;
 	label.textAlignment = NSTextAlignmentCenter;
 	label.textColor = [UIColor grayColor];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
