@@ -28,6 +28,7 @@
 		C9AC3B61192FBE2400797F24 /* MTZCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AC3B60192FBE2400797F24 /* MTZCollectionView.m */; };
 		C9AC3B67192FBF9800797F24 /* MTZWhatsNewFeatureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AC3B66192FBF9800797F24 /* MTZWhatsNewFeatureCollectionViewCell.m */; };
 		C9AC3B6A1932D4EB00797F24 /* NSLayoutConstraint+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AC3B691932D4EB00797F24 /* NSLayoutConstraint+Common.m */; };
+		C9AC3B6E1932ECC700797F24 /* UICollectionView+initWithCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AC3B6D1932ECC700797F24 /* UICollectionView+initWithCollectionViewLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,8 @@
 		C9AC3B66192FBF9800797F24 /* MTZWhatsNewFeatureCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZWhatsNewFeatureCollectionViewCell.m; sourceTree = "<group>"; };
 		C9AC3B681932D4EB00797F24 /* NSLayoutConstraint+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+Common.h"; path = "../Classes/MTZWhatsNewViewController/NSLayoutConstraint+Common/NSLayoutConstraint+Common.h"; sourceTree = "<group>"; };
 		C9AC3B691932D4EB00797F24 /* NSLayoutConstraint+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+Common.m"; path = "../Classes/MTZWhatsNewViewController/NSLayoutConstraint+Common/NSLayoutConstraint+Common.m"; sourceTree = "<group>"; };
+		C9AC3B6C1932ECC700797F24 /* UICollectionView+initWithCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UICollectionView+initWithCollectionViewLayout.h"; path = "UICollectionView+initWithCollectionViewLayout/UICollectionView+initWithCollectionViewLayout.h"; sourceTree = "<group>"; };
+		C9AC3B6D1932ECC700797F24 /* UICollectionView+initWithCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UICollectionView+initWithCollectionViewLayout.m"; path = "UICollectionView+initWithCollectionViewLayout/UICollectionView+initWithCollectionViewLayout.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +192,8 @@
 			children = (
 				C95B8DB2192FB0D000D0A887 /* MTZWhatsNewViewController.h */,
 				C95B8DB3192FB0D000D0A887 /* MTZWhatsNewViewController.m */,
+				C9AC3B6C1932ECC700797F24 /* UICollectionView+initWithCollectionViewLayout.h */,
+				C9AC3B6D1932ECC700797F24 /* UICollectionView+initWithCollectionViewLayout.m */,
 				C9AC3B5F192FBE2400797F24 /* MTZCollectionView.h */,
 				C9AC3B60192FBE2400797F24 /* MTZCollectionView.m */,
 				C9AC3B65192FBF9800797F24 /* MTZWhatsNewFeatureCollectionViewCell.h */,
@@ -323,6 +328,7 @@
 				C927692A1926C3240016A0F1 /* MTZAppDelegate.m in Sources */,
 				C92769261926C3240016A0F1 /* main.m in Sources */,
 				C92769331926C3240016A0F1 /* MTZViewController.m in Sources */,
+				C9AC3B6E1932ECC700797F24 /* UICollectionView+initWithCollectionViewLayout.m in Sources */,
 				C9AC3B67192FBF9800797F24 /* MTZWhatsNewFeatureCollectionViewCell.m in Sources */,
 				C95B8DBD192FB0D000D0A887 /* SAMGradientView.m in Sources */,
 				C9AC3B61192FBE2400797F24 /* MTZCollectionView.m in Sources */,

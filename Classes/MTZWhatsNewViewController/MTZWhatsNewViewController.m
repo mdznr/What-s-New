@@ -13,6 +13,7 @@
 
 #import "SAMGradientView.h"
 
+#import "UICollectionView+initWithCollectionViewLayout.h"
 #import "NSLayoutConstraint+Common.h"
 
 @interface MTZWhatsNewViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
@@ -83,7 +84,7 @@
 	flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
 	flowLayout.headerReferenceSize = flowLayout.footerReferenceSize = CGSizeZero;
 	
-	self.collectionView = [[MTZCollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
+	self.collectionView = [[MTZCollectionView alloc] initWithCollectionViewLayout:flowLayout];
 	[self.view addSubview:self.collectionView];
 	self.collectionView.translatesAutoresizingMaskIntoConstraints = NO;
 	[self.view addConstraints:[NSLayoutConstraint constraintsToFillToSuperview:self.collectionView]];
