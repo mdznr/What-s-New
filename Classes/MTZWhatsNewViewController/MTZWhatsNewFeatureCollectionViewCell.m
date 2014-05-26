@@ -130,7 +130,7 @@
 	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(32)-[title]-(32)-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
 	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(32)-[detail]-(32)-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
 	// Vertical alignment.
-	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=0)-[icon(64)]-10-[title(20)]-4-[detail(34)]-(>=0)-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
+	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=0)-[icon(64)]-10-[title(20)]-4-[detail(34)]-(>=28)-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
 }
 
 - (void)prepareForReuse
