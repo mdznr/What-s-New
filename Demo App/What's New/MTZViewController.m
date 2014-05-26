@@ -38,7 +38,7 @@
 	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(>=20)-[label(<=400)]-(>=20)-|" options:NSLayoutFormatDirectionLeadingToTrailing metrics:nil views:@{@"label": label}]];
 	[label.superview addConstraint:[NSLayoutConstraint constraintToCenterViewHorizontallyToSuperview:label]];
 	[self.view addConstraints:[NSLayoutConstraint constraintsToStretchVerticallyToSuperview:label]];
-	label.text = NSLocalizedString(@"This is just a demo application showing off the \"Whats New View Controller\". Nothing else.", nil);
+	label.text = NSLocalizedString(@"This is just a demo application showing off the “Whats New View Controller”. Nothing else.", nil);
 	label.numberOfLines = 0;
 	label.textAlignment = NSTextAlignmentCenter;
 	label.textColor = [UIColor grayColor];
