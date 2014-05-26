@@ -10,10 +10,12 @@
 
 ///	Describes the style of the view controller.
 typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerStyle) {
+	///	Describes a view controller that automatically determines whether to use light or dark text.
+	MTZWhatsNewViewControllerStyleAutomatic,
 	///	Describes a view controller with light text and content.
 	MTZWhatsNewViewControllerStyleLightContent,
 	///	Describes a view controller with dark text and content.
-	MTZWhatsNewViewControllerStyleDarkContent
+	MTZWhatsNewViewControllerStyleDarkContent,
 };
 
 @interface MTZWhatsNewViewController : UIViewController
@@ -83,10 +85,8 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerStyle) {
 
 #pragma mark - Appearance Customization
 
-#warning Option for  scrollview or wordcloud?
-
 ///	The style of what's new view controller.
-/// Default is @c MTZWhatsNewViewControllerStyleLightContent.
+/// Default is @c MTZWhatsNewViewControllerStyleAutomatic.
 @property (nonatomic) MTZWhatsNewViewControllerStyle style;
 
 ///	The color to display on the top of the background gradient.

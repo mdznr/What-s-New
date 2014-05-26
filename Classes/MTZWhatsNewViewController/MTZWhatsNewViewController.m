@@ -20,6 +20,14 @@ static const NSString *kTitle = @"title";
 static const NSString *kDetail = @"detail";
 static const NSString *kIconName = @"icon";
 
+///	Describes the effective style of the view controller.
+typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerEffectiveStyle) {
+	///	Describes a view controller with light text and content.
+	MTZWhatsNewViewControllerEffectiveStyleLightContent,
+	///	Describes a view controller with dark text and content.
+	MTZWhatsNewViewControllerEffectiveStyleDarkContent,
+};
+
 @interface MTZWhatsNewViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
 ///	An ordered list of the versions from newest to oldest.
@@ -33,6 +41,9 @@ static const NSString *kIconName = @"icon";
 
 ///	The button to dismiss the view controller.
 @property (strong, nonatomic) UIButton *dismissButton;
+
+///	The effective style to use when @c style is @c MTZWhatsNewViewControllerStyleAutomatic.
+@property (nonatomic) MTZWhatsNewViewControllerEffectiveStyle effectiveStyle;
 
 @end
 
@@ -113,7 +124,6 @@ static const NSString *kIconName = @"icon";
 	self.collectionView.contentInset = edgeInsets;
 	self.collectionView.backgroundColor = [UIColor clearColor];
 	self.collectionView.scrollIndicatorInsets = edgeInsets;
-	self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
 	
 	// Get Started.
 	UIToolbar *buttonBackground = [[UIToolbar alloc] init];
@@ -130,6 +140,10 @@ static const NSString *kIconName = @"icon";
 	self.dismissButton.titleLabel.font = buttonFont;
 	[self.dismissButton addTarget:self action:@selector(didTapContinueButton:) forControlEvents:UIControlEventTouchUpInside];
 	
+	// Defaults.
+	self.backgroundGradientTopColor = [UIColor blackColor];
+	self.backgroundGradientBottomColor = [UIColor blackColor];
+	self.style = MTZWhatsNewViewControllerStyleAutomatic;
 	self.dismissButtonText = NSLocalizedString(@"Get Started", nil);
 }
 
@@ -166,6 +180,36 @@ static const NSString *kIconName = @"icon";
 	[self.collectionView reloadData];
 }
 
+- (void)setStyle:(MTZWhatsNewViewControllerStyle)style
+{
+	_style = style;
+	
+	switch (_style) {
+		case MTZWhatsNewViewControllerStyleLightContent:
+			_effectiveStyle = MTZWhatsNewViewControllerEffectiveStyleDarkContent;
+			break;
+		case MTZWhatsNewViewControllerStyleDarkContent:
+			_effectiveStyle = MTZWhatsNewViewControllerEffectiveStyleLightContent;
+			break;
+		case MTZWhatsNewViewControllerStyleAutomatic:
+		default:
+			_effectiveStyle = [self appropriateStyleForBackgroundColor:[self backgroundGradientTopColor]];
+			break;
+	}
+	
+	// Reload collection view to change styles.
+	[self.collectionView reloadData];
+	
+	switch (_effectiveStyle) {
+		case MTZWhatsNewViewControllerEffectiveStyleDarkContent:
+			self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleBlack;
+			break;
+		case MTZWhatsNewViewControllerEffectiveStyleLightContent:
+			self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+			break;
+	}
+}
+
 - (void)setBackgroundGradientTopColor:(UIColor *)topColor
 {
 	_backgroundGradientTopColor = [topColor copy];
@@ -182,6 +226,32 @@ static const NSString *kIconName = @"icon";
 {
 	_dismissButtonText = dismissButtonText;
 	[self.dismissButton setTitle:_dismissButtonText forState:UIControlStateNormal];
+}
+
+
+#pragma mark - Style
+
+- (MTZWhatsNewViewControllerEffectiveStyle)appropriateStyleForBackgroundColor:(UIColor *)backgroundColor
+{
+	CGFloat r, g, b, a;
+	[backgroundColor getRed:&r green:&g blue:&b alpha:&a];
+	
+	// Equation from http://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color/596243#596243
+    CGFloat perception = 1.0f - ((0.299f * r) + (0.587f * g) + (0.114f * b));
+	
+    if ( perception < 0.5 ) {
+		return MTZWhatsNewViewControllerEffectiveStyleDarkContent;
+	} else {
+		return MTZWhatsNewViewControllerEffectiveStyleLightContent;
+	}
+}
+
+- (UIColor *)contentColor
+{
+	switch (_effectiveStyle) {
+		case MTZWhatsNewViewControllerEffectiveStyleLightContent: return [UIColor whiteColor];
+		case MTZWhatsNewViewControllerEffectiveStyleDarkContent:  return [UIColor blackColor];
+	}
 }
 
 
@@ -241,7 +311,7 @@ static const NSString *kIconName = @"icon";
 	label.translatesAutoresizingMaskIntoConstraints = NO;
 	[view addConstraints:[NSLayoutConstraint constraintsToStretchHorizontallyToSuperview:label]];
 	label.text = NSLocalizedString(@"What’s New", nil);
-	label.textColor = [UIColor whiteColor];
+	label.textColor = [self contentColor];
 	label.textAlignment = NSTextAlignmentCenter;
 	
 	// Larger font and divider.
@@ -259,7 +329,7 @@ static const NSString *kIconName = @"icon";
 		[divider addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:0.5 toView:divider]];
 		[view addConstraint:[NSLayoutConstraint constraintWithItem:divider attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:label attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0]];
 		[view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[label][divider]" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:@{@"label": label, @"divider": divider}]];
-		divider.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.75];
+		divider.backgroundColor = [[self contentColor] colorWithAlphaComponent:0.75f];
 	} else {
 		label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:30];
 	}
@@ -280,7 +350,7 @@ static const NSString *kIconName = @"icon";
 	if ( iconName ) {
 		cell.icon = [UIImage imageNamed:iconName];
 	}
-	
+	cell.contentColor = [self contentColor];
 	cell.layoutStyle = [self shouldUseGridLayout] ? MTZWhatsNewFeatureCollectionViewCellLayoutStyleGrid : MTZWhatsNewFeatureCollectionViewCellLayoutStyleList;
 	
 	return cell;

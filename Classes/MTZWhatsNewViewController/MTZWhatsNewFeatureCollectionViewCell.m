@@ -165,12 +165,22 @@
 
 - (void)setIcon:(UIImage *)icon
 {
-	self.imageView.image = [icon copy];
+#warning Should this always be template? What if the icon isn't meant for template?
+	self.imageView.image = [icon imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
 }
 
 - (UIImage *)icon
 {
 	return self.imageView.image;
+}
+
+- (void)setContentColor:(UIColor *)contentColor
+{
+	_contentColor = contentColor;
+	
+	self.textLabel.textColor = _contentColor;
+	self.detailTextLabel.textColor = _contentColor;
+	self.imageView.tintColor = _contentColor;
 }
 
 @end

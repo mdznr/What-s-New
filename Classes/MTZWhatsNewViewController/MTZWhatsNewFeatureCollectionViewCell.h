@@ -27,6 +27,9 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewFeatureCollectionViewCellLayoutStyle){
 /// An image represeting the feature.
 @property (nonatomic, copy) UIImage *icon;
 
+///	The color to use for the content.
+@property (nonatomic, copy) UIColor *contentColor;
+
 ///	The style of the layout.
 @property (nonatomic) MTZWhatsNewFeatureCollectionViewCellLayoutStyle layoutStyle;
 
