@@ -37,4 +37,19 @@
 ///	@return An array of constraints to add to the superview to stick @c view to its edges.
 + (NSArray *)constraintsToStickView:(UIView *)view toEdges:(UIRectEdge)edges;
 
+
+#pragma mark - Setting Size
+
+///	Create constraints to set the height of a particular view.
+///	@param height The desired height of the view.
+///	@param view The view to set the height of.
+///	@return An array of constraints to add to @c view to create a fixed height.
++ (NSLayoutConstraint *)constraintToSetStaticHeight:(CGFloat)height toView:(UIView *)view;
+
+///	Create constraints to set the width of a particular view.
+///	@param height The desired width of the view.
+///	@param view The view to set the width of.
+///	@return An array of constraints to add to @c view to create a fixed width.
++ (NSLayoutConstraint *)constraintToSetStaticWidth:(CGFloat)width toView:(UIView *)view;
+
 @end

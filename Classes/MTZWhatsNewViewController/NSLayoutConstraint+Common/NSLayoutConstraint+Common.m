@@ -65,4 +65,17 @@
 	return constraints;
 }
 
+
+#pragma mark - Setting size
+
++ (NSLayoutConstraint *)constraintToSetStaticHeight:(CGFloat)height toView:(UIView *)view
+{
+	return [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1.0f constant:height];
+}
+
++ (NSLayoutConstraint *)constraintToSetStaticWidth:(CGFloat)width toView:(UIView *)view
+{
+	return [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1.0f constant:width];
+}
+
 @end
