@@ -27,6 +27,7 @@
 		C95B8DBD192FB0D000D0A887 /* SAMGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = C95B8DB7192FB0D000D0A887 /* SAMGradientView.m */; };
 		C9AC3B61192FBE2400797F24 /* MTZCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AC3B60192FBE2400797F24 /* MTZCollectionView.m */; };
 		C9AC3B67192FBF9800797F24 /* MTZWhatsNewFeatureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AC3B66192FBF9800797F24 /* MTZWhatsNewFeatureCollectionViewCell.m */; };
+		C9AC3B6A1932D4EB00797F24 /* NSLayoutConstraint+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AC3B691932D4EB00797F24 /* NSLayoutConstraint+Common.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,8 @@
 		C9AC3B60192FBE2400797F24 /* MTZCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZCollectionView.m; sourceTree = "<group>"; };
 		C9AC3B65192FBF9800797F24 /* MTZWhatsNewFeatureCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZWhatsNewFeatureCollectionViewCell.h; sourceTree = "<group>"; };
 		C9AC3B66192FBF9800797F24 /* MTZWhatsNewFeatureCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZWhatsNewFeatureCollectionViewCell.m; sourceTree = "<group>"; };
+		C9AC3B681932D4EB00797F24 /* NSLayoutConstraint+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+Common.h"; path = "../Classes/MTZWhatsNewViewController/NSLayoutConstraint+Common/NSLayoutConstraint+Common.h"; sourceTree = "<group>"; };
+		C9AC3B691932D4EB00797F24 /* NSLayoutConstraint+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+Common.m"; path = "../Classes/MTZWhatsNewViewController/NSLayoutConstraint+Common/NSLayoutConstraint+Common.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +193,7 @@
 				C9AC3B60192FBE2400797F24 /* MTZCollectionView.m */,
 				C9AC3B65192FBF9800797F24 /* MTZWhatsNewFeatureCollectionViewCell.h */,
 				C9AC3B66192FBF9800797F24 /* MTZWhatsNewFeatureCollectionViewCell.m */,
+				C9AC3B6B1932D4EF00797F24 /* NSLayoutConstraint+Common */,
 				C95B8DB4192FB0D000D0A887 /* SAMGradientView */,
 			);
 			path = MTZWhatsNewViewController;
@@ -203,6 +207,16 @@
 				C95B8DB7192FB0D000D0A887 /* SAMGradientView.m */,
 			);
 			path = SAMGradientView;
+			sourceTree = "<group>";
+		};
+		C9AC3B6B1932D4EF00797F24 /* NSLayoutConstraint+Common */ = {
+			isa = PBXGroup;
+			children = (
+				C9AC3B681932D4EB00797F24 /* NSLayoutConstraint+Common.h */,
+				C9AC3B691932D4EB00797F24 /* NSLayoutConstraint+Common.m */,
+			);
+			name = "NSLayoutConstraint+Common";
+			path = "../../Demo App";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,6 +326,7 @@
 				C9AC3B67192FBF9800797F24 /* MTZWhatsNewFeatureCollectionViewCell.m in Sources */,
 				C95B8DBD192FB0D000D0A887 /* SAMGradientView.m in Sources */,
 				C9AC3B61192FBE2400797F24 /* MTZCollectionView.m in Sources */,
+				C9AC3B6A1932D4EB00797F24 /* NSLayoutConstraint+Common.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

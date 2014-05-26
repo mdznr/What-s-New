@@ -13,6 +13,8 @@
 
 #import "SAMGradientView.h"
 
+#import "NSLayoutConstraint+Common.h"
+
 @interface MTZWhatsNewViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
 ///	An ordered list of the versions from newest to oldest.
@@ -63,8 +65,9 @@
 	
 	// Background.
 	self.backgroundGradientView = [[SAMGradientView alloc] initWithFrame:self.view.bounds];
-	self.backgroundGradientView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	[self.view addSubview:self.backgroundGradientView];
+	self.backgroundGradientView.translatesAutoresizingMaskIntoConstraints = NO;
+	[self.view addConstraints:[NSLayoutConstraint constraintsToFillToSuperview:self.backgroundGradientView]];
 	self.backgroundGradientView.gradientColors = @[[UIColor clearColor], [UIColor clearColor]];
 	self.backgroundGradientView.gradientLocations = @[@0.0, @1.0];
 	
@@ -79,32 +82,40 @@
 	}
 	flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
 	flowLayout.headerReferenceSize = flowLayout.footerReferenceSize = CGSizeZero;
+	
 	self.collectionView = [[MTZCollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
+	[self.view addSubview:self.collectionView];
+	self.collectionView.translatesAutoresizingMaskIntoConstraints = NO;
+	[self.view addConstraints:[NSLayoutConstraint constraintsToFillToSuperview:self.collectionView]];
 	self.collectionView.delegate = self;
 	self.collectionView.dataSource = self;
 	[self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"whatsnew"];
 	[self.collectionView registerClass:[MTZWhatsNewFeatureCollectionViewCell class] forCellWithReuseIdentifier:@"feature"];
 	UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 0, 50, 0);
-	self.collectionView.scrollIndicatorInsets = edgeInsets;
 	self.collectionView.contentInset = edgeInsets;
-	self.collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	self.collectionView.backgroundColor = [UIColor clearColor];
+	self.collectionView.scrollIndicatorInsets = edgeInsets;
 	self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
-	[self.view addSubview:self.collectionView];
 	
 	// Get Started.
-	CGRect frame = CGRectMake(0, self.view.bounds.size.height-50, self.view.bounds.size.width, 50);
-	UIView *buttonBackground = [[UIView alloc] initWithFrame:frame];
-	buttonBackground.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.2f];
-	buttonBackground.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+	UIView *buttonBackground = [[UIView alloc] init];
 	[self.view addSubview:buttonBackground];
-	UIButton *button = [[UIButton alloc] initWithFrame:frame];
+	buttonBackground.translatesAutoresizingMaskIntoConstraints = NO;
+	[self.view addConstraints:[NSLayoutConstraint constraintsToStretchHorizontallyToSuperview:buttonBackground]];
+	[self.view addConstraints:[NSLayoutConstraint constraintsToStickView:buttonBackground toEdges:UIRectEdgeBottom]];
+	[buttonBackground addConstraint:[NSLayoutConstraint constraintWithItem:buttonBackground attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1.0f constant:50.0f]];
+	buttonBackground.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.2f];
+	
+	UIButton *button = [[UIButton alloc] init];
+	[self.view addSubview:button];
+	button.translatesAutoresizingMaskIntoConstraints = NO;
+	[self.view addConstraints:[NSLayoutConstraint constraintsToStretchHorizontallyToSuperview:button]];
+	[self.view addConstraints:[NSLayoutConstraint constraintsToStickView:button toEdges:UIRectEdgeBottom]];
+	[button addConstraint:[NSLayoutConstraint constraintWithItem:button attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1.0f constant:50.0f]];
 	[button setTitle:NSLocalizedString(@"Get Started", nil) forState:UIControlStateNormal];
-	button.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
 	[button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 	[button setTitleColor:[[UIColor whiteColor] colorWithAlphaComponent:0.5f] forState:UIControlStateHighlighted];
 	[button addTarget:self action:@selector(didTapContinueButton:) forControlEvents:UIControlEventTouchUpInside];
-	[self.view addSubview:button];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -205,11 +216,12 @@
 	
 	// Create label for "What's New" title.
 	UILabel *label = [[UILabel alloc] initWithFrame:view.bounds];
-	label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-	label.textAlignment = NSTextAlignmentCenter;
-	label.textColor = [UIColor whiteColor];
-	label.text = NSLocalizedString(@"What’s New", nil);
 	[view addSubview:label];
+	label.translatesAutoresizingMaskIntoConstraints = NO;
+	[view addConstraints:[NSLayoutConstraint constraintsToStretchHorizontallyToSuperview:label]];
+	label.text = NSLocalizedString(@"What’s New", nil);
+	label.textColor = [UIColor whiteColor];
+	label.textAlignment = NSTextAlignmentCenter;
 	
 	// Larger font and divider.
 	if ( [self shouldUseGridLayout] ) {

@@ -1,0 +1,40 @@
+//
+//  NSLayoutConstraint+Common.h
+//  What's New
+//
+//  Created by Matt Zanchelli on 5/25/14.
+//  Copyright (c) 2014 Matt Zanchelli. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface NSLayoutConstraint (Common)
+
+
+#pragma mark - Stretching to fill dimensions
+
+///	Create constraints to fill a particular view to its superview.
+///	@param view The subview to fill to its superview.
+///	@return An array of constraints to add to the superview to fill @c view to itself.
++ (NSArray *)constraintsToFillToSuperview:(UIView *)view;
+
+///	Create constraints to horizontally stretch a particular view to its superview.
+///	@param view The subview to fill to its superview.
+///	@return An array of constraints to add to the superview to stretch @c view horizontally to itself.
++ (NSArray *)constraintsToStretchHorizontallyToSuperview:(UIView *)view;
+
+///	Create constraints to vertically stretch a particular view to its superview.
+///	@param view The subview to fill to its superview.
+///	@return An array of constraints to add to the superview to stretch @c view vertically to itself.
++ (NSArray *)constraintsToStretchVerticallyToSuperview:(UIView *)view;
+
+
+#pragma mark - Sticking to edges
+
+///	Create constraints to stick a particular view to edges of its superview.
+///	@param view The subview to stick to its superview.
+///	@param edges The edges to stick the subview to.
+///	@return An array of constraints to add to the superview to stick @c view to its edges.
++ (NSArray *)constraintsToStickView:(UIView *)view toEdges:(UIRectEdge)edges;
+
+@end
