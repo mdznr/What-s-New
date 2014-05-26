@@ -106,10 +106,9 @@
 	buttonBackground.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.2f];
 	
 	UIButton *button = [[UIButton alloc] init];
-	[self.view addSubview:button];
+	[buttonBackground addSubview:button];
 	button.translatesAutoresizingMaskIntoConstraints = NO;
-	[self.view addConstraints:[NSLayoutConstraint constraintsToStickView:button toEdges:UIRectEdgeLeft|UIRectEdgeBottom|UIRectEdgeRight]];
-	[button addConstraint:[NSLayoutConstraint constraintWithItem:button attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1.0f constant:50.0f]];
+	[button.superview addConstraints:[NSLayoutConstraint constraintsToFillToSuperview:button]];
 	[button setTitle:NSLocalizedString(@"Get Started", nil) forState:UIControlStateNormal];
 	[button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 	[button setTitleColor:[[UIColor whiteColor] colorWithAlphaComponent:0.5f] forState:UIControlStateHighlighted];
