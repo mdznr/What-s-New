@@ -27,7 +27,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 	self.window.rootViewController = [[MTZViewController alloc] init];
-	self.window.tintColor = [UIColor colorWithRed:0.52 green:0.17 blue:0.76 alpha:1];
+	self.window.tintColor = [UIColor colorWithHue:0.77 saturation:0.77 brightness:0.76 alpha:1];
 	
 #ifdef DEBUG
 	[MTZWhatsNew setLastAppVersion:@"2.0"];
