@@ -80,7 +80,7 @@ static const NSString *kIconName = @"icon";
 	
 	CGFloat buttonHeight = [self shouldUseGridLayout] ? 82.0f : 50.0f;
 	CGSize itemSize = [self shouldUseGridLayout] ? CGSizeMake(270, 187) : CGSizeMake(320, 108);
-	UIFont *buttonFont = [self shouldUseGridLayout] ? [UIFont fontWithName:@"HelveticaNeue-Light" size:29.0f] : [UIFont fontWithName:@"HelveticaNeue-Light" size:18.0f];
+	UIFont *buttonFont = [self shouldUseGridLayout] ? [UIFont fontWithName:@"HelveticaNeue-Light" size:29.0f] : [UIFont fontWithName:@"HelveticaNeue" size:18.0f];
 	
 	// Background.
 	self.backgroundGradientView = [[SAMGradientView alloc] init];
