@@ -102,7 +102,7 @@
 	[self.view addSubview:buttonBackground];
 	buttonBackground.translatesAutoresizingMaskIntoConstraints = NO;
 	[self.view addConstraints:[NSLayoutConstraint constraintsToStickView:buttonBackground toEdges:UIRectEdgeLeft|UIRectEdgeBottom|UIRectEdgeRight]];
-	[buttonBackground addConstraint:[NSLayoutConstraint constraintWithItem:buttonBackground attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1.0f constant:50.0f]];
+	[buttonBackground addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:50.0f toView:buttonBackground]];
 	buttonBackground.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.2f];
 	
 	UIButton *button = [[UIButton alloc] init];
