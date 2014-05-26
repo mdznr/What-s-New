@@ -90,10 +90,10 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerStyle) {
 @property (nonatomic) MTZWhatsNewViewControllerStyle style;
 
 ///	The color to display on the top of the background gradient.
-@property (nonatomic, copy) UIColor *topColor;
+@property (nonatomic, copy) UIColor *backgroundGradientTopColor;
 
 ///	The color to display on the top of the background gradient.
-@property (nonatomic, copy) UIColor *bottomColor;
+@property (nonatomic, copy) UIColor *backgroundGradientBottomColor;
 
 ///	The text to display on the dismiss button.
 /// @discussion The default is @c @"Get Started".

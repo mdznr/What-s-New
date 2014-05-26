@@ -166,16 +166,16 @@ static const NSString *kIconName = @"icon";
 	[self.collectionView reloadData];
 }
 
-- (void)setTopColor:(UIColor *)topColor
+- (void)setBackgroundGradientTopColor:(UIColor *)topColor
 {
-	_topColor = [topColor copy];
-	self.backgroundGradientView.gradientColors = @[_topColor, self.backgroundGradientView.gradientColors[1]];
+	_backgroundGradientTopColor = [topColor copy];
+	self.backgroundGradientView.gradientColors = @[_backgroundGradientTopColor, self.backgroundGradientView.gradientColors[1]];
 }
 
-- (void)setBottomColor:(UIColor *)bottomColor
+- (void)setBackgroundGradientBottomColor:(UIColor *)bottomColor
 {
-	_bottomColor = [bottomColor copy];
-	self.backgroundGradientView.gradientColors = @[self.backgroundGradientView.gradientColors[0], _bottomColor];
+	_backgroundGradientBottomColor = [bottomColor copy];
+	self.backgroundGradientView.gradientColors = @[self.backgroundGradientView.gradientColors[0], _backgroundGradientBottomColor];
 }
 
 - (void)setDismissButtonText:(NSString *)dismissButtonText
