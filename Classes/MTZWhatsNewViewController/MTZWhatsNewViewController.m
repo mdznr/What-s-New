@@ -141,8 +141,8 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerEffectiveStyle) {
 	[self.dismissButton addTarget:self action:@selector(didTapContinueButton:) forControlEvents:UIControlEventTouchUpInside];
 	
 	// Defaults.
-	self.backgroundGradientTopColor = [UIColor blackColor];
-	self.backgroundGradientBottomColor = [UIColor blackColor];
+	self.backgroundGradientTopColor = [UIColor whiteColor];
+	self.backgroundGradientBottomColor = [UIColor whiteColor];
 	self.style = MTZWhatsNewViewControllerStyleAutomatic;
 	self.dismissButtonText = NSLocalizedString(@"Get Started", nil);
 }
@@ -186,26 +186,14 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerEffectiveStyle) {
 	
 	switch (_style) {
 		case MTZWhatsNewViewControllerStyleLightContent:
-			_effectiveStyle = MTZWhatsNewViewControllerEffectiveStyleDarkContent;
+			self.effectiveStyle = MTZWhatsNewViewControllerEffectiveStyleDarkContent;
 			break;
 		case MTZWhatsNewViewControllerStyleDarkContent:
-			_effectiveStyle = MTZWhatsNewViewControllerEffectiveStyleLightContent;
+			self.effectiveStyle = MTZWhatsNewViewControllerEffectiveStyleLightContent;
 			break;
 		case MTZWhatsNewViewControllerStyleAutomatic:
 		default:
-			_effectiveStyle = [self appropriateStyleForBackgroundColor:[self backgroundGradientTopColor]];
-			break;
-	}
-	
-	// Reload collection view to change styles.
-	[self.collectionView reloadData];
-	
-	switch (_effectiveStyle) {
-		case MTZWhatsNewViewControllerEffectiveStyleDarkContent:
-			self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleBlack;
-			break;
-		case MTZWhatsNewViewControllerEffectiveStyleLightContent:
-			self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+			self.effectiveStyle = [self appropriateStyleForBackgroundColor:[self backgroundGradientTopColor]];
 			break;
 	}
 }
@@ -214,12 +202,16 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerEffectiveStyle) {
 {
 	_backgroundGradientTopColor = [topColor copy];
 	self.backgroundGradientView.gradientColors = @[_backgroundGradientTopColor, self.backgroundGradientView.gradientColors[1]];
+	
+	[self reloadStyle];
 }
 
 - (void)setBackgroundGradientBottomColor:(UIColor *)bottomColor
 {
 	_backgroundGradientBottomColor = [bottomColor copy];
 	self.backgroundGradientView.gradientColors = @[self.backgroundGradientView.gradientColors[0], _backgroundGradientBottomColor];
+	
+	[self reloadStyle];
 }
 
 - (void)setDismissButtonText:(NSString *)dismissButtonText
@@ -230,6 +222,16 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerEffectiveStyle) {
 
 
 #pragma mark - Style
+
+- (void)reloadStyle
+{
+	if ( _style == MTZWhatsNewViewControllerStyleAutomatic ) {
+		MTZWhatsNewViewControllerEffectiveStyle newStyle = [self appropriateStyleForBackgroundColor:[self backgroundGradientTopColor]];
+		if ( self.effectiveStyle != newStyle ) {
+			self.effectiveStyle = newStyle;
+		}
+	}
+}
 
 - (MTZWhatsNewViewControllerEffectiveStyle)appropriateStyleForBackgroundColor:(UIColor *)backgroundColor
 {
@@ -251,6 +253,23 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerEffectiveStyle) {
 	switch (_effectiveStyle) {
 		case MTZWhatsNewViewControllerEffectiveStyleLightContent: return [UIColor whiteColor];
 		case MTZWhatsNewViewControllerEffectiveStyleDarkContent:  return [UIColor blackColor];
+	}
+}
+
+- (void)setEffectiveStyle:(MTZWhatsNewViewControllerEffectiveStyle)effectiveStyle
+{
+	_effectiveStyle = effectiveStyle;
+	
+	// Reload collection view to change styles.
+	[self.collectionView reloadData];
+	
+	switch (_effectiveStyle) {
+		case MTZWhatsNewViewControllerEffectiveStyleDarkContent:
+			self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleBlack;
+			break;
+		case MTZWhatsNewViewControllerEffectiveStyleLightContent:
+			self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+			break;
 	}
 }
 
