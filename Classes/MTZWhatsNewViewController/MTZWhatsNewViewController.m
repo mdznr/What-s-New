@@ -31,6 +31,9 @@ static const NSString *kIconName = @"icon";
 ///	The gradient presented as the background.
 @property (strong, nonatomic) SAMGradientView *backgroundGradientView;
 
+///	The button to dismiss the view controller.
+@property (strong, nonatomic) UIButton *dismissButton;
+
 @end
 
 @implementation MTZWhatsNewViewController
@@ -119,14 +122,15 @@ static const NSString *kIconName = @"icon";
 	[self.view addConstraints:[NSLayoutConstraint constraintsToStickView:buttonBackground toEdges:UIRectEdgeLeft|UIRectEdgeBottom|UIRectEdgeRight]];
 	[buttonBackground addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:buttonHeight toView:buttonBackground]];
 	
-	UIButton *button = [[UIButton alloc] init];
-	button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-	[buttonBackground addSubview:button];
-	button.translatesAutoresizingMaskIntoConstraints = NO;
-	[button.superview addConstraints:[NSLayoutConstraint constraintsToFillToSuperview:button]];
-	[button setTitle:NSLocalizedString(@"Get Started", nil) forState:UIControlStateNormal];
-	button.titleLabel.font = buttonFont;
-	[button addTarget:self action:@selector(didTapContinueButton:) forControlEvents:UIControlEventTouchUpInside];
+	self.dismissButton = [[UIButton alloc] init];
+	self.dismissButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+	[buttonBackground addSubview:self.dismissButton];
+	self.dismissButton.translatesAutoresizingMaskIntoConstraints = NO;
+	[self.dismissButton.superview addConstraints:[NSLayoutConstraint constraintsToFillToSuperview:self.dismissButton]];
+	self.dismissButton.titleLabel.font = buttonFont;
+	[self.dismissButton addTarget:self action:@selector(didTapContinueButton:) forControlEvents:UIControlEventTouchUpInside];
+	
+	self.dismissButtonText = NSLocalizedString(@"Get Started", nil);
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -172,6 +176,12 @@ static const NSString *kIconName = @"icon";
 {
 	_bottomColor = [bottomColor copy];
 	self.backgroundGradientView.gradientColors = @[self.backgroundGradientView.gradientColors[0], _bottomColor];
+}
+
+- (void)setDismissButtonText:(NSString *)dismissButtonText
+{
+	_dismissButtonText = dismissButtonText;
+	[self.dismissButton setTitle:_dismissButtonText forState:UIControlStateNormal];
 }
 
 
