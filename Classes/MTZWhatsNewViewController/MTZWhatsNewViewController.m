@@ -63,6 +63,10 @@
 	self.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
 	self.modalPresentationStyle = UIModalPresentationFormSheet;
 	
+	CGFloat buttonHeight = [self shouldUseGridLayout] ? 82.0f : 50.0f;
+	CGSize itemSize = [self shouldUseGridLayout] ? CGSizeMake(270, 187) : CGSizeMake(320, 108);
+	UIFont *buttonFont = [self shouldUseGridLayout] ? [UIFont fontWithName:@"HelveticaNeue-Light" size:29.0f] : [UIFont fontWithName:@"HelveticaNeue-Light" size:18.0f];
+	
 	// Background.
 	self.backgroundGradientView = [[SAMGradientView alloc] initWithFrame:self.view.bounds];
 	[self.view addSubview:self.backgroundGradientView];
@@ -75,11 +79,7 @@
 	UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
 	flowLayout.minimumLineSpacing = 2;
 	flowLayout.minimumInteritemSpacing = 0;
-	if ( [self shouldUseGridLayout] ) {
-		flowLayout.itemSize = CGSizeMake(270, 187);
-	} else {
-		flowLayout.itemSize = CGSizeMake(320, 108);
-	}
+	flowLayout.itemSize = itemSize;
 	flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
 	flowLayout.headerReferenceSize = flowLayout.footerReferenceSize = CGSizeZero;
 	
@@ -91,27 +91,26 @@
 	self.collectionView.dataSource = self;
 	[self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"whatsnew"];
 	[self.collectionView registerClass:[MTZWhatsNewFeatureCollectionViewCell class] forCellWithReuseIdentifier:@"feature"];
-	UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 0, 50, 0);
+	UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 0, buttonHeight, 0);
 	self.collectionView.contentInset = edgeInsets;
 	self.collectionView.backgroundColor = [UIColor clearColor];
 	self.collectionView.scrollIndicatorInsets = edgeInsets;
 	self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
 	
 	// Get Started.
-	UIView *buttonBackground = [[UIView alloc] init];
+	UIToolbar *buttonBackground = [[UIToolbar alloc] init];
 	[self.view addSubview:buttonBackground];
 	buttonBackground.translatesAutoresizingMaskIntoConstraints = NO;
 	[self.view addConstraints:[NSLayoutConstraint constraintsToStickView:buttonBackground toEdges:UIRectEdgeLeft|UIRectEdgeBottom|UIRectEdgeRight]];
-	[buttonBackground addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:50.0f toView:buttonBackground]];
-	buttonBackground.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.2f];
+	[buttonBackground addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:buttonHeight toView:buttonBackground]];
 	
 	UIButton *button = [[UIButton alloc] init];
+	button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 	[buttonBackground addSubview:button];
 	button.translatesAutoresizingMaskIntoConstraints = NO;
 	[button.superview addConstraints:[NSLayoutConstraint constraintsToFillToSuperview:button]];
 	[button setTitle:NSLocalizedString(@"Get Started", nil) forState:UIControlStateNormal];
-	[button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-	[button setTitleColor:[[UIColor whiteColor] colorWithAlphaComponent:0.5f] forState:UIControlStateHighlighted];
+	button.titleLabel.font = buttonFont;
 	[button addTarget:self action:@selector(didTapContinueButton:) forControlEvents:UIControlEventTouchUpInside];
 }
 
