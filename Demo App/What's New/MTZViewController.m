@@ -36,13 +36,7 @@
 	[self.view addSubview:label];
 	label.translatesAutoresizingMaskIntoConstraints = NO;
 	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(>=20)-[label(<=400)]-(>=20)-|" options:NSLayoutFormatDirectionLeadingToTrailing metrics:nil views:@{@"label": label}]];
-	[label.superview addConstraint:[NSLayoutConstraint constraintWithItem:label
-																attribute:NSLayoutAttributeCenterX
-																relatedBy:NSLayoutRelationEqual
-																   toItem:label.superview
-																attribute:NSLayoutAttributeCenterX
-															   multiplier:1
-																 constant:0]];
+	[label.superview addConstraint:[NSLayoutConstraint constraintToCenterViewHorizontallyToSuperview:label]];
 	[self.view addConstraints:[NSLayoutConstraint constraintsToStretchVerticallyToSuperview:label]];
 	label.text = NSLocalizedString(@"This is just a demo application showing off the \"Whats New View Controller\". Nothing else.", nil);
 	label.numberOfLines = 0;
