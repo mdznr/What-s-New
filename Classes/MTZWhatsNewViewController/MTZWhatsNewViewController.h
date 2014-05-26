@@ -18,6 +18,8 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerStyle) {
 
 @interface MTZWhatsNewViewController : UIViewController
 
+- (instancetype)initWithFeatures:(NSDictionary *)features;
+
 ///	All the features to display in the view controller.
 @property (nonatomic, copy) NSDictionary *features;
 

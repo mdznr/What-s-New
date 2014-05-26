@@ -31,6 +31,16 @@
 
 @implementation MTZWhatsNewViewController
 
+- (instancetype)initWithFeatures:(NSDictionary *)features
+{
+	self = [super init];
+	if (self) {
+		[self commonInit];
+		self.features = features;
+	}
+	return self;
+}
+
 - (id)init
 {
 	self = [super init];
