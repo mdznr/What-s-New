@@ -105,7 +105,7 @@
 	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(26)-[icon(64)]-(10)-[title]-(26)-|" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:views]];
 	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(26)-[icon(64)]-(10)-[detail]-(26)-|" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:views]];
 	// Vertically align labels.
-	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=0)-[title(20)]-(0)-[detail(34)]-(>=32)-|" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:views]];
+	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=0)-[title(20)]-(0)-[detail(34)]-(>=29)-|" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:views]];
 }
 
 - (void)layoutForGrid
@@ -126,7 +126,7 @@
 	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(32)-[title]-(32)-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
 	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(32)-[detail]-(32)-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
 	// Vertical alignment.
-	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=0)-[icon(64)]-10-[title(20)]-8-[detail(34)]-(>=0)-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
+	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=0)-[icon(64)]-10-[title(20)]-4-[detail(34)]-(>=0)-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
 }
 
 - (void)prepareForReuse
