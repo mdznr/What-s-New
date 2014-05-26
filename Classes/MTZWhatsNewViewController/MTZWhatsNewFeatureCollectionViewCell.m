@@ -69,11 +69,15 @@
 	[self.contentView addSubview:self.imageView];
 	self.imageView.translatesAutoresizingMaskIntoConstraints = NO;
 	
-	[self setLayoutStyle:MTZWhatsNewFeatureCollectionViewCellLayoutStyleList];
+	// Default of no style.
+	_layoutStyle = -1;
 }
 
 - (void)setLayoutStyle:(MTZWhatsNewFeatureCollectionViewCellLayoutStyle)layoutStyle
 {
+	// Avoid reapplying layout, if not necessary..
+	if ( layoutStyle == _layoutStyle ) return;
+		
 	_layoutStyle = layoutStyle;
 	switch (_layoutStyle) {
 		case MTZWhatsNewFeatureCollectionViewCellLayoutStyleList:
