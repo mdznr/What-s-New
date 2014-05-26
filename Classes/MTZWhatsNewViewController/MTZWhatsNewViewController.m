@@ -69,7 +69,7 @@
 	UIFont *buttonFont = [self shouldUseGridLayout] ? [UIFont fontWithName:@"HelveticaNeue-Light" size:29.0f] : [UIFont fontWithName:@"HelveticaNeue-Light" size:18.0f];
 	
 	// Background.
-	self.backgroundGradientView = [[SAMGradientView alloc] initWithFrame:self.view.bounds];
+	self.backgroundGradientView = [[SAMGradientView alloc] init];
 	[self.view addSubview:self.backgroundGradientView];
 	self.backgroundGradientView.translatesAutoresizingMaskIntoConstraints = NO;
 	[self.view addConstraints:[NSLayoutConstraint constraintsToFillToSuperview:self.backgroundGradientView]];
@@ -81,7 +81,7 @@
 	flowLayout.minimumLineSpacing = 2;
 	flowLayout.minimumInteritemSpacing = 0;
 	flowLayout.itemSize = itemSize;
-	flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+	flowLayout.sectionInset = UIEdgeInsetsZero;
 	flowLayout.headerReferenceSize = flowLayout.footerReferenceSize = CGSizeZero;
 	
 	self.collectionView = [[MTZCollectionView alloc] initWithCollectionViewLayout:flowLayout];
@@ -223,12 +223,19 @@
 	// Larger font and divider.
 	if ( [self shouldUseGridLayout] ) {
 		label.font = [UIFont fontWithName:@"HelveticaNeue-Ultralight" size:62];
-		label.frame = CGRectMake(0, 0, view.bounds.size.width, 103);
+		label.translatesAutoresizingMaskIntoConstraints = NO;
+		[label addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:103 toView:label]];
+		[view addConstraints:[NSLayoutConstraint constraintsToStickView:label toEdges:UIRectEdgeLeft|UIRectEdgeTop|UIRectEdgeRight]];
 		
-		// Divider
-		UIView *divider = [[UIView alloc] initWithFrame:CGRectMake(122, 103, 296, 0.5)];
-		divider.backgroundColor = [UIColor colorWithWhite:1.0f alpha:0.9f];
+		// Add a visual divider.
+		UIView *divider = [[UIView alloc] init];
 		[view addSubview:divider];
+		divider.translatesAutoresizingMaskIntoConstraints = NO;
+		[divider addConstraint:[NSLayoutConstraint constraintToSetStaticWidth:296 toView:divider]];
+		[divider addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:0.5 toView:divider]];
+		[view addConstraint:[NSLayoutConstraint constraintWithItem:divider attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:label attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0]];
+		[view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[label][divider]" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:@{@"label": label, @"divider": divider}]];
+		divider.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.5];
 	} else {
 		label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:30];
 	}
