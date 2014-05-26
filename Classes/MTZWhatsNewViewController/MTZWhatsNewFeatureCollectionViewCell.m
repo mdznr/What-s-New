@@ -89,18 +89,13 @@
 {
 	self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, 320, 112);
 	
-	// Image View Size
-	[self.imageView removeConstraints:self.imageView.constraints];
-	
-	[self.textLabel removeConstraints:self.textLabel.constraints];
 	self.textLabel.textAlignment = NSTextAlignmentLeft;
-	
-	[self.detailTextLabel removeConstraints:self.textLabel.constraints];
 	self.detailTextLabel.textAlignment = NSTextAlignmentLeft;
 	
 	// Remove all constraints. Start from a clean state.
 	[self removeConstraints:self.constraints];
 	
+	// Thew views to be referencing in visual format.
 	NSDictionary *views = @{@"icon": self.imageView, @"title": self.textLabel, @"detail": self.detailTextLabel};
 	
 	// Vertically center image view.
@@ -117,16 +112,13 @@
 {
 	self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, 270, 187);
 	
-	[self.imageView removeConstraints:self.imageView.constraints];
-	
-	[self.textLabel removeConstraints:self.textLabel.constraints];
 	self.textLabel.textAlignment = NSTextAlignmentCenter;
-	
-	[self.detailTextLabel removeConstraints:self.detailTextLabel.constraints];
 	self.detailTextLabel.textAlignment = NSTextAlignmentCenter;
 	
+	// Remove all constraints. Start from a clean state.
 	[self removeConstraints:self.constraints];
 	
+	// Thew views to be referencing in visual format.
 	NSDictionary *views = @{@"icon": self.imageView, @"title": self.textLabel, @"detail": self.detailTextLabel};
 	
 	// Horizontal alignment.
