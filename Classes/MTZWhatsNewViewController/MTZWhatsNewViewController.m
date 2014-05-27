@@ -93,7 +93,6 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerEffectiveStyle) {
 	self.modalPresentationStyle = UIModalPresentationFormSheet;
 	
 	CGFloat buttonHeight = [self shouldUseGridLayout] ? 82.0f : 50.0f;
-	CGSize itemSize = [self shouldUseGridLayout] ? CGSizeMake(270, 187) : CGSizeMake(320, 108);
 	UIFont *buttonFont = [self shouldUseGridLayout] ? [UIFont fontWithName:@"HelveticaNeue-Light" size:29.0f] : [UIFont fontWithName:@"HelveticaNeue" size:18.0f];
 	
 	// Background.
@@ -108,7 +107,6 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerEffectiveStyle) {
 	UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
 	flowLayout.minimumLineSpacing = 2;
 	flowLayout.minimumInteritemSpacing = 0;
-	flowLayout.itemSize = itemSize;
 	flowLayout.sectionInset = UIEdgeInsetsZero;
 	flowLayout.headerReferenceSize = flowLayout.footerReferenceSize = CGSizeZero;
 	
@@ -298,6 +296,15 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerEffectiveStyle) {
 	return CGSizeZero;
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+	if ( [self shouldUseGridLayout] ) {
+		return CGSizeMake(270, 187);
+	} else {
+		return CGSizeMake(320, 108);
+	}
+}
+
 
 #pragma mark - UICollectionViewDelegate
 
@@ -393,7 +400,7 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerEffectiveStyle) {
 {
 	// iPhone width = 320
 	// iPad's UIModalPresentationFormSheet width = 540
-	return self.view.frame.size.width >= 512;
+	return self.collectionView.frame.size.width >= 540;
 }
 
 
