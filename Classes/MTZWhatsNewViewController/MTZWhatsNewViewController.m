@@ -106,7 +106,6 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerEffectiveStyle) {
 	UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
 	flowLayout.minimumLineSpacing = 2;
 	flowLayout.minimumInteritemSpacing = 0;
-	flowLayout.sectionInset = UIEdgeInsetsZero;
 	flowLayout.headerReferenceSize = flowLayout.footerReferenceSize = CGSizeZero;
 	
 	self.collectionView = [[MTZCollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
@@ -117,9 +116,9 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerEffectiveStyle) {
 	self.collectionView.dataSource = self;
 	[self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"whatsnew"];
 	[self.collectionView registerClass:[MTZWhatsNewFeatureCollectionViewCell class] forCellWithReuseIdentifier:@"feature"];
+	self.collectionView.backgroundColor = [UIColor clearColor];
 	UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 0, buttonHeight, 0);
 	self.collectionView.contentInset = edgeInsets;
-	self.collectionView.backgroundColor = [UIColor clearColor];
 	self.collectionView.scrollIndicatorInsets = edgeInsets;
 	
 	// Get Started.
@@ -302,6 +301,17 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerEffectiveStyle) {
 	} else {
 		return CGSizeMake(320, 108);
 	}
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView
+						layout:(UICollectionViewLayout *)collectionViewLayout
+		insetForSectionAtIndex:(NSInteger)section
+{
+	if ( section == 0 && [collectionView numberOfSections] <= 1 && [collectionView numberOfItemsInSection:section] <= 4 ) {
+		return UIEdgeInsetsMake(16, 0, 0, 0);
+	}
+	
+	return UIEdgeInsetsZero;
 }
 
 
