@@ -37,6 +37,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "MTZWhatsNewViewController.h"
+
 typedef void (^MTZWhatsNewHandler)(NSDictionary *whatsNew);
 
 @interface MTZWhatsNew : NSObject

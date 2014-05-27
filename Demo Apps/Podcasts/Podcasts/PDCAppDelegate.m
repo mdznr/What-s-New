@@ -11,7 +11,6 @@
 #import "PDCViewController.h"
 
 #import "MTZWhatsNew.h"
-#import "MTZWhatsNewViewController.h"
 
 #ifdef DEBUG
 // For the sake of debugging, unhide private method for setting the last version of the app used.
