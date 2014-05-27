@@ -30,7 +30,7 @@ All changes made since the user last opened the app can be displayed, even if th
 
 It's simple to get the changes and display them. In `application:didFinishLaunchingWithOptions:` add:
 
-```
+```objc
 [MTZWhatsNew handleWhatsNew:^(NSDictionary *whatsNew) {
 	MTZWhatsNewViewController *vc = [[MTZWhatsNewViewController alloc] initWithFeatures:whatsNew];
 	[self.window.rootViewController presentViewController:vc animated:NO completion:nil];
