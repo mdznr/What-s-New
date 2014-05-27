@@ -44,6 +44,7 @@ typedef void (^MTZWhatsNewHandler)(NSDictionary *whatsNew);
 @interface MTZWhatsNew : NSObject
 
 ///	Show what's new in this update, if anything.
+/// @discussion Call this on every app launch to keep track of used versions.
 + (void)handleWhatsNew:(MTZWhatsNewHandler)whatsNewBlock;
 
 ///	Clears the last migration remembered by @c MTZWhatsNew. Causes all migration to run from the beginning.
