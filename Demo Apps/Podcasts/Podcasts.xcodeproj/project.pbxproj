@@ -190,12 +190,12 @@
 		C978612E19341BDB005BE797 /* MTZWhatsNewViewController */ = {
 			isa = PBXGroup;
 			children = (
-				C978612F19341BDB005BE797 /* MTZCollectionView.h */,
-				C978613019341BDB005BE797 /* MTZCollectionView.m */,
-				C978613119341BDB005BE797 /* MTZWhatsNewFeatureCollectionViewCell.h */,
-				C978613219341BDB005BE797 /* MTZWhatsNewFeatureCollectionViewCell.m */,
 				C978613319341BDB005BE797 /* MTZWhatsNewViewController.h */,
 				C978613419341BDB005BE797 /* MTZWhatsNewViewController.m */,
+				C978613119341BDB005BE797 /* MTZWhatsNewFeatureCollectionViewCell.h */,
+				C978613219341BDB005BE797 /* MTZWhatsNewFeatureCollectionViewCell.m */,
+				C978612F19341BDB005BE797 /* MTZCollectionView.h */,
+				C978613019341BDB005BE797 /* MTZCollectionView.m */,
 				C978613519341BDB005BE797 /* NSLayoutConstraint+Common */,
 				C978613819341BDB005BE797 /* SAMGradientView */,
 				C978613C19341BDB005BE797 /* UICollectionView+initWithCollectionViewLayout */,
@@ -538,6 +538,7 @@
 				C978612519341B1E005BE797 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C978612619341B1E005BE797 /* Build configuration list for PBXNativeTarget "PodcastsTests" */ = {
 			isa = XCConfigurationList;
@@ -546,6 +547,7 @@
 				C978612819341B1E005BE797 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
