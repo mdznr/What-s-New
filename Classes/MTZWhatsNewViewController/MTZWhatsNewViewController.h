@@ -10,8 +10,6 @@
 
 ///	Describes the style of the view controller.
 typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerStyle) {
-	///	Describes a view controller that automatically determines whether to use light or dark text.
-	MTZWhatsNewViewControllerStyleAutomatic,
 	///	Describes a view controller with light text and content.
 	MTZWhatsNewViewControllerStyleLightContent,
 	///	Describes a view controller with dark text and content.
@@ -20,74 +18,41 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerStyle) {
 
 @interface MTZWhatsNewViewController : UIViewController
 
+#pragma mark - Initialization
+
 ///	Initializes and returns a What's new view controller object having the given features.
 ///	@param features The features to display.
 ///	@return Returns an initialized @c MTZWhatsNewViewController object or @c nil if the object could not be successfully initialized.
 /// @discussion See the documentation for @c features to see the expected format.
 - (instancetype)initWithFeatures:(NSDictionary *)features;
 
+
+#pragma mark - Managing the Content
+
 ///	All the features to display in the view controller.
-/// @discussion At the root of the dictionary should be the version strings. Corresponding to each version string should be an array of features. Each feature should be a dictionary containing string values for any and all of the following: "title", "detail", and "icon". The value of "title" will be displayed in larger/bolder type. The value of "detail" will be displayed below title. The value of "icon" will be used to find an image resource in the app's bundle to use as a representation of the feature.
-/*
- Example:
- {
-	 "1.1" = (
-		 {
-			 detail = "More easily refresh a subscription or playlist.";
-			 title = "Pull to Refresh";
-		 }
-	 );
-	 "1.2" = (
-		 {
-			 detail = "Create custom stations of your favorite podcasts.";
-			 icon = Stations;
-			 title = "Custom Stations";
-		 }
-	 );
-	 "2.0" = (
-		 {
-			 detail = "Podcasts has a beautiful new look and feel that fits right in with iOS 7.";
-			 icon = "iOS 7";
-			 title = "Designed for iOS 7";
-		 },
-		 {
-			 detail = "Podcasts now automatically updates with new episodes.";
-			 icon = "Up To Date";
-			 title = "Stay up to date";
-		 }
-	 );
-	 "3.0" = (
-		 {
-			 detail = "Quickly find episodes you haven\U2019t played yet.";
-			 icon = Podcast;
-			 title = "Unplayed Episodes";
-		 },
-		 {
-			 detail = "Stream available episodes or download them to play later.";
-			 icon = Feed;
-			 title = "Browse the Feed";
-		 },
-		 {
-			 detail = "Save your favorite episodes to ensure you\U2019ll always have them.";
-			 icon = Saved;
-			 title = "Saved Episodes";
-		 },
-		 {
-			 detail = "Episodes can be automatically deleted after they are played.";
-			 icon = Delete;
-			 title = "Delete Played Episodes";
-		 }
-	 );
- }
- */
 @property (nonatomic, copy) NSDictionary *features;
+
+
+#pragma mark - Accessing Views
+
+///	Returns the content view of view controller. (read-only)
+/// @discussion The content view of a @c MTZWhatsNewViewController object is the default superview for content displayed by the controller. If you want to customize it by simply adding additional views, you should add them to the content view so they will be positioned appropriately.
+@property (nonatomic, readonly, retain) UIView *contentView;
+
+///	The view used as the background of the view controller.
+/// @discussion @c MTZWhatsNewViewController adds the background view as a subview behind all other views and uses its current frame location.
+@property (nonatomic, retain) UIView *backgroundView;
 
 
 #pragma mark - Appearance Customization
 
 ///	The style of what's new view controller.
-/// Default is @c MTZWhatsNewViewControllerStyleAutomatic.
+/// @discussion Setting this turns @c automaticallySetStyle to @c NO . When @c automaticallySetStyle is set to @c YES , do not expect this value to be constant.
 @property (nonatomic) MTZWhatsNewViewControllerStyle style;
+
+///	Whether or not the style should be set automatically.
+/// Default is @c YES. When @c automaticallySetStyle is set to @c YES , do not expect the value of @c style to be constant.
+@property (nonatomic, getter = automaticallySetsStyle) BOOL automaticallySetStyle;
 
 ///	The color to display on the top of the background gradient.
 @property (nonatomic, copy) UIColor *backgroundGradientTopColor;
@@ -95,12 +60,15 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerStyle) {
 ///	The color to display on the top of the background gradient.
 @property (nonatomic, copy) UIColor *backgroundGradientBottomColor;
 
-///	The text to display on the dismiss button.
-/// @discussion The default is @c @"Get Started".
-@property (nonatomic, copy) NSString *dismissButtonText;
+///	The title of the dismiss button.
+/// @discussion The default is @c NSLocalizedString(@"Get Started", nil).
+@property (nonatomic, copy) NSString *dismissButtonTitle;
 
-///	Whether or not the icons should be treated as templates.
-/// @discussion The default is @c YES.
-@property (nonatomic) BOOL templatedIcons;
+
+#pragma mark - Responding to Style Change
+
+///	Notifies the view controller that the effective style has been changed.
+/// @discussion This method is called when the style has been changed. You should override this method to perform custom tasks associated with changing the style. If you override this method, you must call super at some point in your implementation. Note that this can be called when the receiver's @c automaticallySetStyle is set to @c YES and not only after changes are made directly to the @c style property.
+- (void)styleDidChange;
 
 @end

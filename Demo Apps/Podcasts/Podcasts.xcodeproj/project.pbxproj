@@ -28,6 +28,7 @@
 		C978614319341BDB005BE797 /* NSLayoutConstraint+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = C978613719341BDB005BE797 /* NSLayoutConstraint+Common.m */; };
 		C978614419341BDB005BE797 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = C978613919341BDB005BE797 /* LICENSE.txt */; };
 		C978614519341BDB005BE797 /* SAMGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = C978613B19341BDB005BE797 /* SAMGradientView.m */; };
+		C97861491934FEFF005BE797 /* MTZWhatsNewGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C97861481934FEFF005BE797 /* MTZWhatsNewGridViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,8 @@
 		C978613919341BDB005BE797 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		C978613A19341BDB005BE797 /* SAMGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMGradientView.h; sourceTree = "<group>"; };
 		C978613B19341BDB005BE797 /* SAMGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMGradientView.m; sourceTree = "<group>"; };
+		C97861471934FEFF005BE797 /* MTZWhatsNewGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZWhatsNewGridViewController.h; sourceTree = "<group>"; };
+		C97861481934FEFF005BE797 /* MTZWhatsNewGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZWhatsNewGridViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +192,8 @@
 			children = (
 				C978613319341BDB005BE797 /* MTZWhatsNewViewController.h */,
 				C978613419341BDB005BE797 /* MTZWhatsNewViewController.m */,
+				C97861471934FEFF005BE797 /* MTZWhatsNewGridViewController.h */,
+				C97861481934FEFF005BE797 /* MTZWhatsNewGridViewController.m */,
 				C978613119341BDB005BE797 /* MTZWhatsNewFeatureCollectionViewCell.h */,
 				C978613219341BDB005BE797 /* MTZWhatsNewFeatureCollectionViewCell.m */,
 				C978612F19341BDB005BE797 /* MTZCollectionView.h */,
@@ -322,6 +327,7 @@
 				C978614219341BDB005BE797 /* MTZWhatsNewViewController.m in Sources */,
 				C978613F19341BDB005BE797 /* MTZWhatsNew.m in Sources */,
 				C978610219341B1E005BE797 /* PDCAppDelegate.m in Sources */,
+				C97861491934FEFF005BE797 /* MTZWhatsNewGridViewController.m in Sources */,
 				C978610B19341B1E005BE797 /* PDCViewController.m in Sources */,
 				C978614319341BDB005BE797 /* NSLayoutConstraint+Common.m in Sources */,
 				C97860FE19341B1E005BE797 /* main.m in Sources */,

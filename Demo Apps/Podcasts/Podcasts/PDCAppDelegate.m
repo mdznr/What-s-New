@@ -11,6 +11,7 @@
 #import "PDCViewController.h"
 
 #import "MTZWhatsNew.h"
+#import "MTZWhatsNewGridViewController.h"
 
 #ifdef DEBUG
 // For the sake of debugging, unhide private method for setting the last version of the app used.
@@ -36,7 +37,7 @@
 	
 	[MTZWhatsNew handleWhatsNew:^(NSDictionary *whatsNew) {
 		// Creating the view controller with features.
-		MTZWhatsNewViewController *vc = [[MTZWhatsNewViewController alloc] initWithFeatures:whatsNew];
+		MTZWhatsNewGridViewController *vc = [[MTZWhatsNewGridViewController alloc] initWithFeatures:whatsNew];
 		// Customizing the background gradient.
 		vc.backgroundGradientTopColor = [UIColor colorWithHue:0.77 saturation:0.77 brightness:0.76 alpha:1];
 		vc.backgroundGradientBottomColor = [UIColor colorWithHue:0.78 saturation:0.6 brightness:0.95 alpha:1];
