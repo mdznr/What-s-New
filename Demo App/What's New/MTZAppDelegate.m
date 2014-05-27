@@ -14,6 +14,7 @@
 #import "MTZWhatsNewViewController.h"
 
 #ifdef DEBUG
+// For the sake of debugging, unhide private method for setting the last version of the app used.
 @interface MTZWhatsNew ()
 + (void)setLastAppVersion:(NSString *)version;
 @end
@@ -30,6 +31,7 @@
 	self.window.tintColor = [UIColor colorWithHue:0.77 saturation:0.77 brightness:0.76 alpha:1];
 	
 #ifdef DEBUG
+	// For the sake of debugging, manually set the last version of the app used to 0.
 	[MTZWhatsNew setLastAppVersion:@"0.0"];
 #endif
 	
