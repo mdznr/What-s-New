@@ -307,7 +307,7 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerEffectiveStyle) {
 						layout:(UICollectionViewLayout *)collectionViewLayout
 		insetForSectionAtIndex:(NSInteger)section
 {
-	if ( section == 0 && [collectionView numberOfSections] <= 1 && [collectionView numberOfItemsInSection:section] <= 4 ) {
+	if ( section == 0 && [self shouldUseGridLayout] && [collectionView numberOfSections] <= 1 && [collectionView numberOfItemsInSection:section] <= 4 ) {
 		return UIEdgeInsetsMake(16, 0, 0, 0);
 	}
 	
