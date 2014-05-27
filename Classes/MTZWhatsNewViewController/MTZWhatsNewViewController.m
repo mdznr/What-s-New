@@ -13,7 +13,6 @@
 
 #import "SAMGradientView.h"
 
-#import "UICollectionView+initWithCollectionViewLayout.h"
 #import "NSLayoutConstraint+Common.h"
 
 static const NSString *kTitle = @"title";
@@ -110,7 +109,7 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerEffectiveStyle) {
 	flowLayout.sectionInset = UIEdgeInsetsZero;
 	flowLayout.headerReferenceSize = flowLayout.footerReferenceSize = CGSizeZero;
 	
-	self.collectionView = [[MTZCollectionView alloc] initWithCollectionViewLayout:flowLayout];
+	self.collectionView = [[MTZCollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
 	[self.view addSubview:self.collectionView];
 	self.collectionView.translatesAutoresizingMaskIntoConstraints = NO;
 	[self.view addConstraints:[NSLayoutConstraint constraintsToFillToSuperview:self.collectionView]];
