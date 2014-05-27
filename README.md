@@ -23,7 +23,9 @@ All changes made since the user last opened the app can be displayed, even if th
 
 ## Just Look At It.
 
-![Screenshot on iPhone](Screenshots/SS-iPhone~thumb.png "Presenting what's new on an iPhone app") ![Screenshot on iPad](Screenshots/SS-iPad~thumb.png "Presenting what's new on an iPad app")
+iPhone:  | iPad:
+-------- | --------
+![Screenshot on iPhone](Screenshots/SS-iPhone~thumb.png "Presenting what's new on an iPhone app") | ![Screenshot on iPad](Screenshots/SS-iPad~thumb.png "Presenting what's new on an iPad app")
 
 
 ## Display It.
@@ -42,6 +44,8 @@ It's simple to get the changes and display them. In `application:didFinishLaunch
 
 It's easy to customize. In just a few lines, you can display it like this:
 
-![Screenshot on iPhone](Screenshots/SS2-iPhone~thumb.png "Presenting what's new on an iPhone app") ![Screenshot on iPad](Screenshots/SS2-iPad~thumb.png "Presenting what's new on an iPad app")
+iPhone:  | iPad:
+-------- | --------
+![Screenshot on iPhone](Screenshots/SS2-iPhone~thumb.png "Presenting what's new on an iPhone app") | ![Screenshot on iPad](Screenshots/SS2-iPad~thumb.png "Presenting what's new on an iPad app")
 
 On app launch, ```MTZWhatsNew``` provides you with the changes needed to be displayed, if any. You can do whatever you'd like with this. However, included is a cusomizable view controller to display what's new. The background colors (a gradient), the style (light or dark content), and the button title are all configurable. By default, everything looks and works great on all iOS 7 devices.
