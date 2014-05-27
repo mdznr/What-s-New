@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:What&apos;s New.xcodeproj">
+      location = "self:Podcasts.xcodeproj">
    </FileRef>
 </Workspace>

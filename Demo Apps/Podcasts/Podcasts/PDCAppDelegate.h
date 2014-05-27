@@ -1,14 +1,14 @@
 //
-//  MTZAppDelegate.h
-//  What's New
+//  PDCAppDelegate.h
+//  Podcasts
 //
-//  Created by Matt Zanchelli on 5/16/14.
+//  Created by Matt Zanchelli on 5/26/14.
 //  Copyright (c) 2014 Matt Zanchelli. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface MTZAppDelegate : UIResponder <UIApplicationDelegate>
+@interface PDCAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

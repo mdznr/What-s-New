@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>What's New.xcscheme</key>
+		<key>Podcasts.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,12 +12,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>C92769151926C3240016A0F1</key>
+		<key>C97860ED19341B1E005BE797</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C92769391926C3240016A0F1</key>
+		<key>C978611119341B1E005BE797</key>
 		<dict>
 			<key>primary</key>
 			<true/>

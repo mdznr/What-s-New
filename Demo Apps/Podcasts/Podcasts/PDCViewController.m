@@ -1,16 +1,16 @@
 //
-//  MTZViewController.m
-//  What's New
+//  PDCViewController.m
+//  Podcasts
 //
-//  Created by Matt Zanchelli on 5/16/14.
+//  Created by Matt Zanchelli on 5/26/14.
 //  Copyright (c) 2014 Matt Zanchelli. All rights reserved.
 //
 
-#import "MTZViewController.h"
+#import "PDCViewController.h"
 
 #import "NSLayoutConstraint+Common.h"
 
-@implementation MTZViewController
+@implementation PDCViewController
 
 - (void)viewDidLoad
 {

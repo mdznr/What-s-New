@@ -1,14 +1,14 @@
 //
-//  MTZAppDelegate.m
-//  What's New
+//  PDCAppDelegate.m
+//  Podcasts
 //
-//  Created by Matt Zanchelli on 5/16/14.
+//  Created by Matt Zanchelli on 5/26/14.
 //  Copyright (c) 2014 Matt Zanchelli. All rights reserved.
 //
 
-#import "MTZAppDelegate.h"
+#import "PDCAppDelegate.h"
 
-#import "MTZViewController.h"
+#import "PDCViewController.h"
 
 #import "MTZWhatsNew.h"
 #import "MTZWhatsNewViewController.h"
@@ -20,14 +20,14 @@
 @end
 #endif
 
-@implementation MTZAppDelegate
+@implementation PDCAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-	self.window.rootViewController = [[MTZViewController alloc] init];
+	self.window.rootViewController = [[PDCViewController alloc] init];
 	self.window.tintColor = [UIColor colorWithHue:0.77 saturation:0.77 brightness:0.76 alpha:1];
 	
 #ifdef DEBUG

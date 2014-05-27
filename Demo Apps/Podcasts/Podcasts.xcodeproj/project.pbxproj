@@ -1,0 +1,553 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C97860F219341B1E005BE797 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97860F119341B1E005BE797 /* Foundation.framework */; };
+		C97860F419341B1E005BE797 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97860F319341B1E005BE797 /* CoreGraphics.framework */; };
+		C97860F619341B1E005BE797 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97860F519341B1E005BE797 /* UIKit.framework */; };
+		C97860FC19341B1E005BE797 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C97860FA19341B1E005BE797 /* InfoPlist.strings */; };
+		C97860FE19341B1E005BE797 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C97860FD19341B1E005BE797 /* main.m */; };
+		C978610219341B1E005BE797 /* PDCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C978610119341B1E005BE797 /* PDCAppDelegate.m */; };
+		C978610B19341B1E005BE797 /* PDCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C978610A19341B1E005BE797 /* PDCViewController.m */; };
+		C978610D19341B1E005BE797 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C978610C19341B1E005BE797 /* Images.xcassets */; };
+		C978611419341B1E005BE797 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C978611319341B1E005BE797 /* XCTest.framework */; };
+		C978611519341B1E005BE797 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97860F119341B1E005BE797 /* Foundation.framework */; };
+		C978611619341B1E005BE797 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97860F519341B1E005BE797 /* UIKit.framework */; };
+		C978611E19341B1E005BE797 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C978611C19341B1E005BE797 /* InfoPlist.strings */; };
+		C978612019341B1E005BE797 /* PodcastsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C978611F19341B1E005BE797 /* PodcastsTests.m */; };
+		C978612A19341BCA005BE797 /* What's New.plist in Resources */ = {isa = PBXBuildFile; fileRef = C978612919341BCA005BE797 /* What's New.plist */; };
+		C978613F19341BDB005BE797 /* MTZWhatsNew.m in Sources */ = {isa = PBXBuildFile; fileRef = C978612D19341BDB005BE797 /* MTZWhatsNew.m */; };
+		C978614019341BDB005BE797 /* MTZCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C978613019341BDB005BE797 /* MTZCollectionView.m */; };
+		C978614119341BDB005BE797 /* MTZWhatsNewFeatureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C978613219341BDB005BE797 /* MTZWhatsNewFeatureCollectionViewCell.m */; };
+		C978614219341BDB005BE797 /* MTZWhatsNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C978613419341BDB005BE797 /* MTZWhatsNewViewController.m */; };
+		C978614319341BDB005BE797 /* NSLayoutConstraint+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = C978613719341BDB005BE797 /* NSLayoutConstraint+Common.m */; };
+		C978614419341BDB005BE797 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = C978613919341BDB005BE797 /* LICENSE.txt */; };
+		C978614519341BDB005BE797 /* SAMGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = C978613B19341BDB005BE797 /* SAMGradientView.m */; };
+		C978614619341BDB005BE797 /* UICollectionView+initWithCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C978613E19341BDB005BE797 /* UICollectionView+initWithCollectionViewLayout.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C978611719341B1E005BE797 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C97860E619341B1E005BE797 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C97860ED19341B1E005BE797;
+			remoteInfo = Podcasts;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C97860EE19341B1E005BE797 /* Podcasts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podcasts.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C97860F119341B1E005BE797 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C97860F319341B1E005BE797 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C97860F519341B1E005BE797 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C97860F919341B1E005BE797 /* Podcasts-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Podcasts-Info.plist"; sourceTree = "<group>"; };
+		C97860FB19341B1E005BE797 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C97860FD19341B1E005BE797 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C97860FF19341B1E005BE797 /* Podcasts-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Podcasts-Prefix.pch"; sourceTree = "<group>"; };
+		C978610019341B1E005BE797 /* PDCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDCAppDelegate.h; sourceTree = "<group>"; };
+		C978610119341B1E005BE797 /* PDCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDCAppDelegate.m; sourceTree = "<group>"; };
+		C978610919341B1E005BE797 /* PDCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDCViewController.h; sourceTree = "<group>"; };
+		C978610A19341B1E005BE797 /* PDCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDCViewController.m; sourceTree = "<group>"; };
+		C978610C19341B1E005BE797 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C978611219341B1E005BE797 /* PodcastsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PodcastsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C978611319341B1E005BE797 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		C978611B19341B1E005BE797 /* PodcastsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PodcastsTests-Info.plist"; sourceTree = "<group>"; };
+		C978611D19341B1E005BE797 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C978611F19341B1E005BE797 /* PodcastsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PodcastsTests.m; sourceTree = "<group>"; };
+		C978612919341BCA005BE797 /* What's New.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "What's New.plist"; sourceTree = "<group>"; };
+		C978612C19341BDB005BE797 /* MTZWhatsNew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZWhatsNew.h; sourceTree = "<group>"; };
+		C978612D19341BDB005BE797 /* MTZWhatsNew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZWhatsNew.m; sourceTree = "<group>"; };
+		C978612F19341BDB005BE797 /* MTZCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZCollectionView.h; sourceTree = "<group>"; };
+		C978613019341BDB005BE797 /* MTZCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZCollectionView.m; sourceTree = "<group>"; };
+		C978613119341BDB005BE797 /* MTZWhatsNewFeatureCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZWhatsNewFeatureCollectionViewCell.h; sourceTree = "<group>"; };
+		C978613219341BDB005BE797 /* MTZWhatsNewFeatureCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZWhatsNewFeatureCollectionViewCell.m; sourceTree = "<group>"; };
+		C978613319341BDB005BE797 /* MTZWhatsNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZWhatsNewViewController.h; sourceTree = "<group>"; };
+		C978613419341BDB005BE797 /* MTZWhatsNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZWhatsNewViewController.m; sourceTree = "<group>"; };
+		C978613619341BDB005BE797 /* NSLayoutConstraint+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+Common.h"; sourceTree = "<group>"; };
+		C978613719341BDB005BE797 /* NSLayoutConstraint+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+Common.m"; sourceTree = "<group>"; };
+		C978613919341BDB005BE797 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		C978613A19341BDB005BE797 /* SAMGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMGradientView.h; sourceTree = "<group>"; };
+		C978613B19341BDB005BE797 /* SAMGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMGradientView.m; sourceTree = "<group>"; };
+		C978613D19341BDB005BE797 /* UICollectionView+initWithCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+initWithCollectionViewLayout.h"; sourceTree = "<group>"; };
+		C978613E19341BDB005BE797 /* UICollectionView+initWithCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+initWithCollectionViewLayout.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C97860EB19341B1E005BE797 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C97860F419341B1E005BE797 /* CoreGraphics.framework in Frameworks */,
+				C97860F619341B1E005BE797 /* UIKit.framework in Frameworks */,
+				C97860F219341B1E005BE797 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C978610F19341B1E005BE797 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C978611419341B1E005BE797 /* XCTest.framework in Frameworks */,
+				C978611619341B1E005BE797 /* UIKit.framework in Frameworks */,
+				C978611519341B1E005BE797 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C97860E519341B1E005BE797 = {
+			isa = PBXGroup;
+			children = (
+				C97860F719341B1E005BE797 /* Podcasts */,
+				C978611919341B1E005BE797 /* PodcastsTests */,
+				C97860F019341B1E005BE797 /* Frameworks */,
+				C97860EF19341B1E005BE797 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C97860EF19341B1E005BE797 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C97860EE19341B1E005BE797 /* Podcasts.app */,
+				C978611219341B1E005BE797 /* PodcastsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C97860F019341B1E005BE797 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C97860F119341B1E005BE797 /* Foundation.framework */,
+				C97860F319341B1E005BE797 /* CoreGraphics.framework */,
+				C97860F519341B1E005BE797 /* UIKit.framework */,
+				C978611319341B1E005BE797 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C97860F719341B1E005BE797 /* Podcasts */ = {
+			isa = PBXGroup;
+			children = (
+				C978610019341B1E005BE797 /* PDCAppDelegate.h */,
+				C978610119341B1E005BE797 /* PDCAppDelegate.m */,
+				C978610919341B1E005BE797 /* PDCViewController.h */,
+				C978610A19341B1E005BE797 /* PDCViewController.m */,
+				C978612B19341BDB005BE797 /* What's New */,
+				C978610C19341B1E005BE797 /* Images.xcassets */,
+				C97860F819341B1E005BE797 /* Supporting Files */,
+			);
+			path = Podcasts;
+			sourceTree = "<group>";
+		};
+		C97860F819341B1E005BE797 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C978612919341BCA005BE797 /* What's New.plist */,
+				C97860F919341B1E005BE797 /* Podcasts-Info.plist */,
+				C97860FA19341B1E005BE797 /* InfoPlist.strings */,
+				C97860FD19341B1E005BE797 /* main.m */,
+				C97860FF19341B1E005BE797 /* Podcasts-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C978611919341B1E005BE797 /* PodcastsTests */ = {
+			isa = PBXGroup;
+			children = (
+				C978611F19341B1E005BE797 /* PodcastsTests.m */,
+				C978611A19341B1E005BE797 /* Supporting Files */,
+			);
+			path = PodcastsTests;
+			sourceTree = "<group>";
+		};
+		C978611A19341B1E005BE797 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C978611B19341B1E005BE797 /* PodcastsTests-Info.plist */,
+				C978611C19341B1E005BE797 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C978612B19341BDB005BE797 /* What's New */ = {
+			isa = PBXGroup;
+			children = (
+				C978612C19341BDB005BE797 /* MTZWhatsNew.h */,
+				C978612D19341BDB005BE797 /* MTZWhatsNew.m */,
+				C978612E19341BDB005BE797 /* MTZWhatsNewViewController */,
+			);
+			name = "What's New";
+			path = ../../../Classes;
+			sourceTree = "<group>";
+		};
+		C978612E19341BDB005BE797 /* MTZWhatsNewViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C978612F19341BDB005BE797 /* MTZCollectionView.h */,
+				C978613019341BDB005BE797 /* MTZCollectionView.m */,
+				C978613119341BDB005BE797 /* MTZWhatsNewFeatureCollectionViewCell.h */,
+				C978613219341BDB005BE797 /* MTZWhatsNewFeatureCollectionViewCell.m */,
+				C978613319341BDB005BE797 /* MTZWhatsNewViewController.h */,
+				C978613419341BDB005BE797 /* MTZWhatsNewViewController.m */,
+				C978613519341BDB005BE797 /* NSLayoutConstraint+Common */,
+				C978613819341BDB005BE797 /* SAMGradientView */,
+				C978613C19341BDB005BE797 /* UICollectionView+initWithCollectionViewLayout */,
+			);
+			path = MTZWhatsNewViewController;
+			sourceTree = "<group>";
+		};
+		C978613519341BDB005BE797 /* NSLayoutConstraint+Common */ = {
+			isa = PBXGroup;
+			children = (
+				C978613619341BDB005BE797 /* NSLayoutConstraint+Common.h */,
+				C978613719341BDB005BE797 /* NSLayoutConstraint+Common.m */,
+			);
+			path = "NSLayoutConstraint+Common";
+			sourceTree = "<group>";
+		};
+		C978613819341BDB005BE797 /* SAMGradientView */ = {
+			isa = PBXGroup;
+			children = (
+				C978613919341BDB005BE797 /* LICENSE.txt */,
+				C978613A19341BDB005BE797 /* SAMGradientView.h */,
+				C978613B19341BDB005BE797 /* SAMGradientView.m */,
+			);
+			path = SAMGradientView;
+			sourceTree = "<group>";
+		};
+		C978613C19341BDB005BE797 /* UICollectionView+initWithCollectionViewLayout */ = {
+			isa = PBXGroup;
+			children = (
+				C978613D19341BDB005BE797 /* UICollectionView+initWithCollectionViewLayout.h */,
+				C978613E19341BDB005BE797 /* UICollectionView+initWithCollectionViewLayout.m */,
+			);
+			path = "UICollectionView+initWithCollectionViewLayout";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C97860ED19341B1E005BE797 /* Podcasts */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C978612319341B1E005BE797 /* Build configuration list for PBXNativeTarget "Podcasts" */;
+			buildPhases = (
+				C97860EA19341B1E005BE797 /* Sources */,
+				C97860EB19341B1E005BE797 /* Frameworks */,
+				C97860EC19341B1E005BE797 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Podcasts;
+			productName = Podcasts;
+			productReference = C97860EE19341B1E005BE797 /* Podcasts.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C978611119341B1E005BE797 /* PodcastsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C978612619341B1E005BE797 /* Build configuration list for PBXNativeTarget "PodcastsTests" */;
+			buildPhases = (
+				C978610E19341B1E005BE797 /* Sources */,
+				C978610F19341B1E005BE797 /* Frameworks */,
+				C978611019341B1E005BE797 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C978611819341B1E005BE797 /* PBXTargetDependency */,
+			);
+			name = PodcastsTests;
+			productName = PodcastsTests;
+			productReference = C978611219341B1E005BE797 /* PodcastsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C97860E619341B1E005BE797 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = PDC;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Matt Zanchelli";
+				TargetAttributes = {
+					C978611119341B1E005BE797 = {
+						TestTargetID = C97860ED19341B1E005BE797;
+					};
+				};
+			};
+			buildConfigurationList = C97860E919341B1E005BE797 /* Build configuration list for PBXProject "Podcasts" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C97860E519341B1E005BE797;
+			productRefGroup = C97860EF19341B1E005BE797 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C97860ED19341B1E005BE797 /* Podcasts */,
+				C978611119341B1E005BE797 /* PodcastsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C97860EC19341B1E005BE797 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C978614419341BDB005BE797 /* LICENSE.txt in Resources */,
+				C978610D19341B1E005BE797 /* Images.xcassets in Resources */,
+				C978612A19341BCA005BE797 /* What's New.plist in Resources */,
+				C97860FC19341B1E005BE797 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C978611019341B1E005BE797 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C978611E19341B1E005BE797 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C97860EA19341B1E005BE797 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C978614119341BDB005BE797 /* MTZWhatsNewFeatureCollectionViewCell.m in Sources */,
+				C978614019341BDB005BE797 /* MTZCollectionView.m in Sources */,
+				C978614219341BDB005BE797 /* MTZWhatsNewViewController.m in Sources */,
+				C978613F19341BDB005BE797 /* MTZWhatsNew.m in Sources */,
+				C978610219341B1E005BE797 /* PDCAppDelegate.m in Sources */,
+				C978614619341BDB005BE797 /* UICollectionView+initWithCollectionViewLayout.m in Sources */,
+				C978610B19341B1E005BE797 /* PDCViewController.m in Sources */,
+				C978614319341BDB005BE797 /* NSLayoutConstraint+Common.m in Sources */,
+				C97860FE19341B1E005BE797 /* main.m in Sources */,
+				C978614519341BDB005BE797 /* SAMGradientView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C978610E19341B1E005BE797 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C978612019341B1E005BE797 /* PodcastsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C978611819341B1E005BE797 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C97860ED19341B1E005BE797 /* Podcasts */;
+			targetProxy = C978611719341B1E005BE797 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C97860FA19341B1E005BE797 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C97860FB19341B1E005BE797 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C978611C19341B1E005BE797 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C978611D19341B1E005BE797 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C978612119341B1E005BE797 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C978612219341B1E005BE797 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C978612419341B1E005BE797 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Podcasts/Podcasts-Prefix.pch";
+				INFOPLIST_FILE = "Podcasts/Podcasts-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C978612519341B1E005BE797 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Podcasts/Podcasts-Prefix.pch";
+				INFOPLIST_FILE = "Podcasts/Podcasts-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C978612719341B1E005BE797 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Podcasts.app/Podcasts";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Podcasts/Podcasts-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PodcastsTests/PodcastsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		C978612819341B1E005BE797 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Podcasts.app/Podcasts";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Podcasts/Podcasts-Prefix.pch";
+				INFOPLIST_FILE = "PodcastsTests/PodcastsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C97860E919341B1E005BE797 /* Build configuration list for PBXProject "Podcasts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C978612119341B1E005BE797 /* Debug */,
+				C978612219341B1E005BE797 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C978612319341B1E005BE797 /* Build configuration list for PBXNativeTarget "Podcasts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C978612419341B1E005BE797 /* Debug */,
+				C978612519341B1E005BE797 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C978612619341B1E005BE797 /* Build configuration list for PBXNativeTarget "PodcastsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C978612719341B1E005BE797 /* Debug */,
+				C978612819341B1E005BE797 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C97860E619341B1E005BE797 /* Project object */;
+}

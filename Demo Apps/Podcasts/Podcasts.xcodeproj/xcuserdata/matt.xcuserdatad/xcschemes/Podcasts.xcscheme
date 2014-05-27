@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C92769151926C3240016A0F1"
-               BuildableName = "What&apos;s New.app"
-               BlueprintName = "What&apos;s New"
-               ReferencedContainer = "container:What&apos;s New.xcodeproj">
+               BlueprintIdentifier = "C97860ED19341B1E005BE797"
+               BuildableName = "Podcasts.app"
+               BlueprintName = "Podcasts"
+               ReferencedContainer = "container:Podcasts.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,20 +32,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C92769391926C3240016A0F1"
-               BuildableName = "What&apos;s NewTests.xctest"
-               BlueprintName = "What&apos;s NewTests"
-               ReferencedContainer = "container:What&apos;s New.xcodeproj">
+               BlueprintIdentifier = "C978611119341B1E005BE797"
+               BuildableName = "PodcastsTests.xctest"
+               BlueprintName = "PodcastsTests"
+               ReferencedContainer = "container:Podcasts.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C92769151926C3240016A0F1"
-            BuildableName = "What&apos;s New.app"
-            BlueprintName = "What&apos;s New"
-            ReferencedContainer = "container:What&apos;s New.xcodeproj">
+            BlueprintIdentifier = "C97860ED19341B1E005BE797"
+            BuildableName = "Podcasts.app"
+            BlueprintName = "Podcasts"
+            ReferencedContainer = "container:Podcasts.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -61,10 +61,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C92769151926C3240016A0F1"
-            BuildableName = "What&apos;s New.app"
-            BlueprintName = "What&apos;s New"
-            ReferencedContainer = "container:What&apos;s New.xcodeproj">
+            BlueprintIdentifier = "C97860ED19341B1E005BE797"
+            BuildableName = "Podcasts.app"
+            BlueprintName = "Podcasts"
+            ReferencedContainer = "container:Podcasts.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -79,10 +79,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C92769151926C3240016A0F1"
-            BuildableName = "What&apos;s New.app"
-            BlueprintName = "What&apos;s New"
-            ReferencedContainer = "container:What&apos;s New.xcodeproj">
+            BlueprintIdentifier = "C97860ED19341B1E005BE797"
+            BuildableName = "Podcasts.app"
+            BlueprintName = "Podcasts"
+            ReferencedContainer = "container:Podcasts.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

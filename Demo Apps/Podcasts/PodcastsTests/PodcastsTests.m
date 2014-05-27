@@ -1,18 +1,18 @@
 //
-//  What_s_NewTests.m
-//  What's NewTests
+//  PodcastsTests.m
+//  PodcastsTests
 //
-//  Created by Matt Zanchelli on 5/16/14.
+//  Created by Matt Zanchelli on 5/26/14.
 //  Copyright (c) 2014 Matt Zanchelli. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface What_s_NewTests : XCTestCase
+@interface PodcastsTests : XCTestCase
 
 @end
 
-@implementation What_s_NewTests
+@implementation PodcastsTests
 
 - (void)setUp
 {
