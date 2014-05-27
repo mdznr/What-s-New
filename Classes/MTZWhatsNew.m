@@ -43,12 +43,12 @@ static NSString * const MTZWhatsNewLastAppVersionKey = @"MTZWhatsNew.lastAppVers
 
 #pragma mark - Public API
 
-+ (void)handleWhatsNew:(MTZWhatsNewBlock)whatsNewBlock
++ (void)handleWhatsNew:(MTZWhatsNewHandler)whatsNewHandler
 {
 	NSDictionary *newFeatures = [self whatsNew];
 	
 	if ( [newFeatures count] ) {
-		whatsNewBlock(newFeatures);
+		whatsNewHandler(newFeatures);
 	}
 	
 	[self updateLastAppVersion];
