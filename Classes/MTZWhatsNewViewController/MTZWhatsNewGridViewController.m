@@ -85,9 +85,8 @@ static const NSString *kIconName = @"icon";
 	[self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"whatsnew"];
 	[self.collectionView registerClass:[MTZWhatsNewFeatureCollectionViewCell class] forCellWithReuseIdentifier:@"feature"];
 	self.collectionView.backgroundColor = [UIColor clearColor];
-//	UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 0, buttonHeight, 0);
-//	self.collectionView.contentInset = edgeInsets;
-//	self.collectionView.scrollIndicatorInsets = edgeInsets;
+	self.collectionView.contentInset = self.contentInsets;
+	self.collectionView.scrollIndicatorInsets = self.contentInsets;
 	
 	// Defaults.
 	self.templatedIcons = YES;
@@ -101,6 +100,8 @@ static const NSString *kIconName = @"icon";
 
 - (void)styleDidChange
 {
+	[super styleDidChange];
+	
 	// Reload collection view to change styles.
 	[self.collectionView reloadData];
 	
@@ -110,8 +111,6 @@ static const NSString *kIconName = @"icon";
 			break;
 		case MTZWhatsNewViewControllerStyleLightContent:
 			self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
-			break;
-		default:
 			break;
 	}
 }

@@ -69,6 +69,9 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerStyle) {
 
 ///	Notifies the view controller that the effective style has been changed.
 /// @discussion This method is called when the style has been changed. You should override this method to perform custom tasks associated with changing the style. If you override this method, you must call super at some point in your implementation. Note that this can be called when the receiver's @c automaticallySetStyle is set to @c YES and not only after changes are made directly to the @c style property.
-- (void)styleDidChange;
+- (void)styleDidChange __attribute__((objc_requires_super));
+
+///	The content insets to use in a subclss.
+@property (nonatomic, readonly) UIEdgeInsets contentInsets;
 
 @end

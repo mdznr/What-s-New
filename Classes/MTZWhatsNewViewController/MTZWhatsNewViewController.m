@@ -14,8 +14,11 @@
 
 @interface MTZWhatsNewViewController ()
 
-///	A private read/write propert of the `contentView`.
+///	A private read/write property of `contentView`.
 @property (readwrite) UIView *contentView;
+
+///	A private read/write property of `contentInsets`.
+@property (readwrite) UIEdgeInsets contentInsets;
 
 ///	The button to dismiss the view controller.
 @property (strong, nonatomic) UIButton *dismissButton;
@@ -68,11 +71,9 @@
 	self.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
 	self.modalPresentationStyle = UIModalPresentationFormSheet;
 	
-//	CGFloat buttonHeight = [self shouldUseGridLayout] ? 82.0f : 50.0f;
-//	UIFont *buttonFont = [self shouldUseGridLayout] ? [UIFont fontWithName:@"HelveticaNeue-Light" size:29.0f] : [UIFont fontWithName:@"HelveticaNeue" size:18.0f];
-	
-	CGFloat buttonHeight = 50.0f;
-	UIFont *buttonFont = [UIFont fontWithName:@"HelveticaNeue" size:18.0f];
+	CGFloat buttonHeight = [self shouldUseLargeButton] ? 82.0f : 50.0f;
+	UIFont *buttonFont = [self shouldUseLargeButton] ? [UIFont fontWithName:@"HelveticaNeue-Light" size:29.0f] : [UIFont fontWithName:@"HelveticaNeue" size:18.0f];
+	self.contentInsets = UIEdgeInsetsMake(0, 0, buttonHeight, 0);
 	
 	// Background View.
 	SAMGradientView *gradientView = [[SAMGradientView alloc] init];
@@ -203,6 +204,11 @@
 - (void)styleDidChange
 {
 	// An empty implementation.
+}
+
+- (BOOL)shouldUseLargeButton
+{
+	return self.view.frame.size.height >= 620 && self.view.frame.size.width >= 540;
 }
 
 @end
