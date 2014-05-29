@@ -163,9 +163,9 @@ static const NSString *kIconName = @"icon";
 	// "What's New"
 	if ( section == 0 ) {
 		if ( [self shouldUseGridLayout] ) {
-			return CGSizeMake(self.view.bounds.size.width, 115);
+			return CGSizeMake(collectionView.bounds.size.width, 115);
 		} else {
-			return CGSizeMake(self.view.bounds.size.width, 70);
+			return CGSizeMake(collectionView.bounds.size.width, 70);
 		}
 	}
 	
