@@ -15,7 +15,7 @@ Only major changes should be displayed, otherwise they're just getting in the wa
 With `MTZWhatsNew` and `MTZWhatsNewViewController`, you can easily do the same. On app launch, any changes made to the app since the previous launch can be displayed to the user.
 
 **How do I do?**
-Simply provide a list of changes (and optionally artwork) associated with each version of the app and that's it. You'll be asked to present them to ths user and you can do so however you'd like.
+Simply provide a list of changes (and optionally artwork) associated with each version of the app and that's it. You'll be asked to present them. You can do so however you'd like. However, pre-built view controllers are given to you as an option, though.
 
 **What's new for you.**
 All changes made since the user last opened the app can be displayed, even if those changes span multiple versions.
