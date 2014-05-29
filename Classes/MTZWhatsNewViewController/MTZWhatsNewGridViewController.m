@@ -85,8 +85,8 @@ static const NSString *kIconName = @"icon";
 	[self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"whatsnew"];
 	[self.collectionView registerClass:[MTZWhatsNewFeatureCollectionViewCell class] forCellWithReuseIdentifier:@"feature"];
 	self.collectionView.backgroundColor = [UIColor clearColor];
-	self.collectionView.contentInset = self.contentInsets;
-	self.collectionView.scrollIndicatorInsets = self.contentInsets;
+	self.collectionView.contentInset = self.contentInset;
+	self.collectionView.scrollIndicatorInsets = self.contentInset;
 	
 	// Defaults.
 	self.templatedIcons = YES;
@@ -95,7 +95,7 @@ static const NSString *kIconName = @"icon";
 - (void)viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];
-	[self.collectionView flashScrollIndicators];
+	[self.collectionView performSelector:@selector(flashScrollIndicators) withObject:nil afterDelay:0];
 }
 
 - (void)styleDidChange
@@ -137,6 +137,13 @@ static const NSString *kIconName = @"icon";
 	
 	// Reload the collection view's data.
 	[self.collectionView reloadData];
+}
+
+- (void)contentInsetDidChange
+{
+	[super contentInsetDidChange];
+	self.collectionView.contentInset = self.contentInset;
+	self.collectionView.scrollIndicatorInsets = self.contentInset;
 }
 
 - (void)setTemplatedIcons:(BOOL)templatedIcons

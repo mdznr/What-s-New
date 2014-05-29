@@ -17,11 +17,14 @@
 ///	A private read/write property of `contentView`.
 @property (readwrite) UIView *contentView;
 
-///	A private read/write property of `contentInsets`.
-@property (readwrite) UIEdgeInsets contentInsets;
+///	A private read/write property of `contentInset`.
+@property (readwrite) UIEdgeInsets contentInset;
 
 ///	The button to dismiss the view controller.
 @property (strong, nonatomic) UIButton *dismissButton;
+
+///	The background behind the dismiss button.
+@property (strong, nonatomic) UIToolbar *buttonBackground;
 
 @end
 
@@ -71,10 +74,6 @@
 	self.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
 	self.modalPresentationStyle = UIModalPresentationFormSheet;
 	
-	CGFloat buttonHeight = [self shouldUseLargeButton] ? 82.0f : 50.0f;
-	UIFont *buttonFont = [self shouldUseLargeButton] ? [UIFont fontWithName:@"HelveticaNeue-Light" size:29.0f] : [UIFont fontWithName:@"HelveticaNeue" size:18.0f];
-	self.contentInsets = UIEdgeInsetsMake(0, 0, buttonHeight, 0);
-	
 	// Background View.
 	SAMGradientView *gradientView = [[SAMGradientView alloc] init];
 	self.backgroundView = gradientView;
@@ -91,19 +90,18 @@
 	[self.view addConstraints:[NSLayoutConstraint constraintsToFillToSuperview:self.contentView]];
 	
 	// Dismiss Button.
-	UIToolbar *buttonBackground = [[UIToolbar alloc] init];
-	[self.view addSubview:buttonBackground];
-	buttonBackground.translatesAutoresizingMaskIntoConstraints = NO;
-	[self.view addConstraints:[NSLayoutConstraint constraintsToStickView:buttonBackground toEdges:UIRectEdgeLeft|UIRectEdgeBottom|UIRectEdgeRight]];
-	[buttonBackground addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:buttonHeight toView:buttonBackground]];
+	self.buttonBackground = [[UIToolbar alloc] init];
+	[self.view addSubview:self.buttonBackground];
+	self.buttonBackground.translatesAutoresizingMaskIntoConstraints = NO;
+	[self.view addConstraints:[NSLayoutConstraint constraintsToStickView:self.buttonBackground toEdges:UIRectEdgeLeft|UIRectEdgeBottom|UIRectEdgeRight]];
 	
 	self.dismissButton = [[UIButton alloc] init];
 	self.dismissButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-	[buttonBackground addSubview:self.dismissButton];
+	[self.buttonBackground addSubview:self.dismissButton];
 	self.dismissButton.translatesAutoresizingMaskIntoConstraints = NO;
-	[self.dismissButton.superview addConstraints:[NSLayoutConstraint constraintsToFillToSuperview:self.dismissButton]];
-	self.dismissButton.titleLabel.font = buttonFont;
 	[self.dismissButton addTarget:self action:@selector(didTapContinueButton:) forControlEvents:UIControlEventTouchUpInside];
+	
+	[self reloadButtonHeight];
 	
 	// Defaults.
 	self.backgroundGradientTopColor = [UIColor whiteColor];
@@ -113,9 +111,28 @@
 	self.dismissButtonTitle = NSLocalizedString(@"Get Started", nil);
 }
 
+- (void)reloadButtonHeight
+{
+	UIFont *buttonFont = [self shouldUseLargeButton] ? [UIFont fontWithName:@"HelveticaNeue-Light" size:29.0f] : [UIFont fontWithName:@"HelveticaNeue" size:18.0f];
+	self.dismissButton.titleLabel.font = buttonFont;
+	
+	CGFloat buttonHeight = [self shouldUseLargeButton] ? 82.0f : 50.0f;
+	[self.buttonBackground removeConstraints:self.buttonBackground.constraints];
+	[self.buttonBackground addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:buttonHeight toView:self.buttonBackground]];
+	[self.buttonBackground addConstraints:[NSLayoutConstraint constraintsToFillToSuperview:self.dismissButton]];
+	
+	self.contentInset = UIEdgeInsetsMake(self.topLayoutGuide.length, 0, self.bottomLayoutGuide.length+buttonHeight, 0);
+}
+
 - (BOOL)prefersStatusBarHidden
 {
 	return YES;
+}
+
+- (void)viewWillLayoutSubviews
+{
+	[super viewWillLayoutSubviews];
+	[self reloadButtonHeight];
 }
 
 
@@ -172,6 +189,12 @@
 	[self.dismissButton setTitle:_dismissButtonTitle forState:UIControlStateNormal];
 }
 
+- (void)setContentInset:(UIEdgeInsets)contentInset
+{
+	_contentInset = contentInset;
+	[self contentInsetDidChange];
+}
+
 
 #pragma mark - Style
 
@@ -199,6 +222,11 @@
 	} else {
 		return MTZWhatsNewViewControllerStyleLightContent;
 	}
+}
+
+- (void)contentInsetDidChange
+{
+	// An empty implementation.
 }
 
 - (void)styleDidChange
