@@ -25,6 +25,9 @@ static const NSString *kIconName = @"icon";
 ///	The collection view to display all the new features.
 @property (strong, nonatomic) MTZCollectionView *collectionView;
 
+///	The layout for the collection view.
+@property (strong, nonatomic) UICollectionViewFlowLayout *flowLayout;
+
 @end
 
 
@@ -71,12 +74,12 @@ static const NSString *kIconName = @"icon";
 - (void)__MTZWhatsNewGridViewController_Setup
 {
 	// Feature collection view.
-	UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-	flowLayout.minimumLineSpacing = 2;
-	flowLayout.minimumInteritemSpacing = 0;
-	flowLayout.headerReferenceSize = flowLayout.footerReferenceSize = CGSizeZero;
+	self.flowLayout = [[UICollectionViewFlowLayout alloc] init];
+	self.flowLayout.minimumLineSpacing = 2;
+	self.flowLayout.minimumInteritemSpacing = 0;
+	self.flowLayout.headerReferenceSize = self.flowLayout.footerReferenceSize = CGSizeZero;
 	
-	self.collectionView = [[MTZCollectionView alloc] initWithFrame:self.contentView.bounds collectionViewLayout:flowLayout];
+	self.collectionView = [[MTZCollectionView alloc] initWithFrame:self.contentView.bounds collectionViewLayout:self.flowLayout];
 	[self.contentView addSubview:self.collectionView];
 	self.collectionView.translatesAutoresizingMaskIntoConstraints = NO;
 	[self.contentView addConstraints:[NSLayoutConstraint constraintsToFillToSuperview:self.collectionView]];
@@ -115,6 +118,13 @@ static const NSString *kIconName = @"icon";
 	}
 }
 
+- (void)contentInsetDidChange
+{
+	[super contentInsetDidChange];
+	self.collectionView.contentInset = self.contentInset;
+	self.collectionView.scrollIndicatorInsets = self.contentInset;
+}
+
 - (UIColor *)contentColor
 {
 	switch ( self.style ) {
@@ -137,13 +147,6 @@ static const NSString *kIconName = @"icon";
 	
 	// Reload the collection view's data.
 	[self.collectionView reloadData];
-}
-
-- (void)contentInsetDidChange
-{
-	[super contentInsetDidChange];
-	self.collectionView.contentInset = self.contentInset;
-	self.collectionView.scrollIndicatorInsets = self.contentInset;
 }
 
 - (void)setTemplatedIcons:(BOOL)templatedIcons
