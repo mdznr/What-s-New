@@ -35,6 +35,12 @@
 	
 	// Collection view and layout.
 	self.layout = [[MTZCollectionViewFlowLayout alloc] init];
+	self.layout.itemSize = CGSizeMake(CELL_SIZE, CELL_SIZE);
+	self.layout.sectionInset = UIEdgeInsetsZero;
+	self.layout.minimumLineSpacing = 0;
+	self.layout.minimumInteritemSpacing = 0;
+	self.layout.headerReferenceSize = self.layout.footerReferenceSize = CGSizeZero;
+	
 	self.cv = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:self.layout];
 	[self.cv registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
 	self.cv.delegate = self;
@@ -106,42 +112,6 @@
 								 atIndexPath:(NSIndexPath *)indexPath
 {
 	return nil;
-}
-
-
-#pragma mark - UICollectionViewDelegateFlowLayout
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-	CGFloat numberOfItems = floor(collectionView.bounds.size.width / CELL_SIZE);
-	CGFloat width = MAX(CELL_SIZE, collectionView.bounds.size.width / numberOfItems);
-//	CGFloat width = CELL_SIZE;
-	return CGSizeMake(width, 200);
-}
-
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
-	return UIEdgeInsetsZero;
-}
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
-{
-	return 0;
-}
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
-{
-	return 0;
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
-{
-	return CGSizeZero;
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
-{
-	return CGSizeZero;
 }
 
 @end
