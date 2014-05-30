@@ -37,6 +37,9 @@
 	self.cv.delegate = self;
 	self.cv.dataSource = self;
 	self.cv.backgroundColor = [UIColor redColor];
+	UIEdgeInsets edgeInset = UIEdgeInsetsMake(0, 0, 44, 0);
+	self.cv.contentInset = edgeInset;
+	self.cv.scrollIndicatorInsets = edgeInset;
 	[self.view addSubview:self.cv];
 	
 	// Control the width of the collection view for testing.
