@@ -45,3 +45,8 @@ It's easy to customize. In just a few lines, you can instead display it like thi
 ![Screenshot of What's New](Screenshots/SS2.png "Presenting What's New")
 
 On app launch, ```MTZWhatsNew``` provides you with the changes needed to be displayed, if any. You can do whatever you'd like with this. However, included is a cusomizable view controller to display what's new. The background colors (a gradient), the style (light or dark content), and the button title are all configurable. By default, everything looks and works great on all iOS 7 devices.
+
+#### License
+
+This project is under the [MIT license](https://github.com/mdznr/What-s-New/blob/master/LICENSE.md).
+It also uses [SAMGradientView](https://github.com/soffes/SAMGradientView/blob/master/LICENSE) and part of [MTMigration](https://github.com/mysterioustrousers/MTMigration/blob/master/LICENSE).
