@@ -6,6 +6,27 @@
 //  Copyright (c) 2014 Matt Zanchelli. All rights reserved.
 //
 
+// With some left alignment help: https://github.com/mokagio/UICollectionViewLeftAlignedLayout
+//
+// Copyright (c) 2014 Giovanni Lodi
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy of
+// this software and associated documentation files (the "Software"), to deal in
+// the Software without restriction, including without limitation the rights to
+// use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+// the Software, and to permit persons to whom the Software is furnished to do so,
+// subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+// FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+// COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+// IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+// CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
 #import "MTZCollectionViewFlowLayout.h"
 
 @implementation MTZCollectionViewFlowLayout
@@ -59,54 +80,73 @@
 {
 	UICollectionViewLayoutAttributes *attributes = [super layoutAttributesForItemAtIndexPath:indexPath];
 	
-	if ( self.treatsSizeAsMinimumSize ) {
-		// Get some basic measurements.
-		UIEdgeInsets sectionInset;
-		if ( [self.collectionView.delegate respondsToSelector:@selector(collectionView:layout:insetForSectionAtIndex:)] ) {
-			[((id<UICollectionViewDelegateFlowLayout>)self.collectionView.delegate) collectionView:self.collectionView layout:self insetForSectionAtIndex:indexPath.section];
+	// Return early if not treating as minimum size.
+	if ( !self.treatsSizeAsMinimumSize ) return attributes;
+	
+	// Get some basic measurements.
+	UIEdgeInsets sectionInset;
+	if ( [self.collectionView.delegate respondsToSelector:@selector(collectionView:layout:insetForSectionAtIndex:)] ) {
+		[((id<UICollectionViewDelegateFlowLayout>)self.collectionView.delegate) collectionView:self.collectionView layout:self insetForSectionAtIndex:indexPath.section];
+	} else {
+		sectionInset = self.sectionInset;
+	}
+	
+	CGFloat interItemSpacing;
+	if ( [self.collectionView.delegate respondsToSelector:@selector(collectionView:layout:minimumInteritemSpacingForSectionAtIndex:)] ) {
+		interItemSpacing = [((id<UICollectionViewDelegateFlowLayout>)self.collectionView.delegate) collectionView:self.collectionView layout:self minimumInteritemSpacingForSectionAtIndex:indexPath.section];
+	} else {
+		interItemSpacing = self.minimumInteritemSpacing;
+	}
+	
+	// Measurements dependent on scroll direction.
+	CGFloat totalDimension, totalSectionInset, minimumItemDimension;
+	switch (self.scrollDirection) {
+		case UICollectionViewScrollDirectionVertical:
+			totalDimension = self.collectionView.bounds.size.width;
+			totalSectionInset = sectionInset.left + sectionInset.right;
+			minimumItemDimension = self.itemSize.width;
+			break;
+		case UICollectionViewScrollDirectionHorizontal:
+			totalDimension = self.collectionView.bounds.size.height;
+			totalSectionInset = sectionInset.top + sectionInset.bottom;
+			minimumItemDimension = self.itemSize.height;
+			break;
+	}
+	
+	// Calculate the new dimension based on working dimension and number of items in a line.
+	CGFloat workingDimension = totalDimension - totalSectionInset;
+	CGFloat numberOfItemsInLine = floor((workingDimension - interItemSpacing) / (minimumItemDimension + interItemSpacing));
+	CGFloat newDimension = MAX(minimumItemDimension, workingDimension / numberOfItemsInLine);
+	
+	// Set the new size.
+	switch (self.scrollDirection) {
+		case UICollectionViewScrollDirectionVertical:
+			attributes.size = CGSizeMake(newDimension, attributes.size.height);
+			break;
+		case UICollectionViewScrollDirectionHorizontal:
+			attributes.size = CGSizeMake(attributes.size.width, newDimension);
+			break;
+	}
+	
+	// Align to the left.
+	if ( indexPath.item == 0 ) {
+		CGRect frame = attributes.frame;
+		frame.origin.x = 0;
+		attributes.frame = frame;
+	} else {
+		NSIndexPath *previousIndexPath = [NSIndexPath indexPathForItem:indexPath.item-1 inSection:indexPath.section];
+		CGRect previousFrame = [self layoutAttributesForItemAtIndexPath:previousIndexPath].frame;
+		CGRect strecthedCurrentFrame = CGRectMake(0, attributes.frame.origin.y, workingDimension, attributes.frame.size.height);
+		
+		// If the current frame, once aligned to the left and stretched to the full collection view width, intersects the previous frame, then they are on the same line.
+		if ( !CGRectIntersectsRect(previousFrame, strecthedCurrentFrame) ) {
+			// Make sure the first item on a line is left aligned.
+			CGRect frame = attributes.frame;
+			frame.origin.x = 0;
+			attributes.frame = frame;
 		} else {
-			sectionInset = self.sectionInset;
+			attributes.frame = CGRectMake(CGRectGetMaxX(previousFrame) + interItemSpacing, attributes.frame.origin.y, attributes.frame.size.width, attributes.frame.size.height);
 		}
-		
-		CGFloat interItemSpacing;
-		if ( [self.collectionView.delegate respondsToSelector:@selector(collectionView:layout:minimumInteritemSpacingForSectionAtIndex:)] ) {
-			interItemSpacing = [((id<UICollectionViewDelegateFlowLayout>)self.collectionView.delegate) collectionView:self.collectionView layout:self minimumInteritemSpacingForSectionAtIndex:indexPath.section];
-		} else {
-			interItemSpacing = self.minimumInteritemSpacing;
-		}
-		
-		// Measurements dependent on scroll direction.
-		CGFloat totalDimension, totalSectionInset, minimumItemDimension;
-		
-		switch (self.scrollDirection) {
-			case UICollectionViewScrollDirectionVertical:
-				totalDimension = self.collectionView.bounds.size.width;
-				totalSectionInset = sectionInset.left + sectionInset.right;
-				minimumItemDimension = self.itemSize.width;
-				break;
-			case UICollectionViewScrollDirectionHorizontal:
-				totalDimension = self.collectionView.bounds.size.height;
-				totalSectionInset = sectionInset.top + sectionInset.bottom;
-				minimumItemDimension = self.itemSize.height;
-				break;
-		}
-		
-		// Calculate the new dimension based on working dimension and number of items in a line.
-		CGFloat workingDimension = totalDimension - totalSectionInset;
-		CGFloat numberOfItemsInLine = floor((workingDimension - interItemSpacing) / (minimumItemDimension + interItemSpacing));
-		CGFloat newDimension = MAX(minimumItemDimension, workingDimension / numberOfItemsInLine);
-		
-		// Set the new size and set back the center.
-		CGPoint originalCenter = attributes.center;
-		switch (self.scrollDirection) {
-			case UICollectionViewScrollDirectionVertical:
-				attributes.size = CGSizeMake(newDimension, attributes.size.height);
-				break;
-			case UICollectionViewScrollDirectionHorizontal:
-				attributes.size = CGSizeMake(attributes.size.width, newDimension);
-				break;
-		}
-		attributes.center = originalCenter;
 	}
 	
 	return attributes;
