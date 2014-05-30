@@ -8,6 +8,8 @@
 
 #import "MTZViewController.h"
 
+#import "MTZCollectionViewFlowLayout.h"
+
 #define CELL_SIZE 100
 
 @interface MTZViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
@@ -32,7 +34,7 @@
 	srand48(time(0));
 	
 	// Collection view and layout.
-	self.layout = [[UICollectionViewFlowLayout alloc] init];
+	self.layout = [[MTZCollectionViewFlowLayout alloc] init];
 	self.cv = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:self.layout];
 	[self.cv registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
 	self.cv.delegate = self;
@@ -63,10 +65,6 @@
 {
 	CGFloat width = MAX(CELL_SIZE, sender.value * self.view.bounds.size.width);
 	self.cv.frame = CGRectMake(0, 0, width, self.view.bounds.size.height);
-	
-	UICollectionViewFlowLayoutInvalidationContext *ctx = [[UICollectionViewFlowLayoutInvalidationContext alloc] init];
-	ctx.invalidateFlowLayoutDelegateMetrics = YES;
-	[self.layout invalidateLayoutWithContext:ctx];
 }
 
 
@@ -115,12 +113,9 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-	CGFloat interitemSpacing = [self collectionView:collectionView layout:collectionViewLayout minimumInteritemSpacingForSectionAtIndex:indexPath.section];
-	UIEdgeInsets insets = [self collectionView:collectionView layout:collectionViewLayout insetForSectionAtIndex:indexPath.section];
-	((UICollectionViewFlowLayout *)collectionViewLayout).scrollDirection;
-	
 	CGFloat numberOfItems = floor(collectionView.bounds.size.width / CELL_SIZE);
 	CGFloat width = MAX(CELL_SIZE, collectionView.bounds.size.width / numberOfItems);
+//	CGFloat width = CELL_SIZE;
 	return CGSizeMake(width, 200);
 }
 
