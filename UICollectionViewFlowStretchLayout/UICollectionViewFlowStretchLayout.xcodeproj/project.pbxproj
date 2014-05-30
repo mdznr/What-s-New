@@ -22,7 +22,7 @@
 		C9E264991938304300B85E9F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E264781938304300B85E9F /* UIKit.framework */; };
 		C9E264A11938304300B85E9F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9E2649F1938304300B85E9F /* InfoPlist.strings */; };
 		C9E264A31938304300B85E9F /* UICollectionViewFlowStretchLayoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E264A21938304300B85E9F /* UICollectionViewFlowStretchLayoutTests.m */; };
-		C9E264B11938382100B85E9F /* MTZCollectionViewFlowStretchLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E264B01938382100B85E9F /* MTZCollectionViewFlowStretchLayout.m */; };
+		C9E264B11938382100B85E9F /* MTZCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E264B01938382100B85E9F /* MTZCollectionViewFlowLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,8 +56,8 @@
 		C9E2649E1938304300B85E9F /* UICollectionViewFlowStretchLayoutTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UICollectionViewFlowStretchLayoutTests-Info.plist"; sourceTree = "<group>"; };
 		C9E264A01938304300B85E9F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C9E264A21938304300B85E9F /* UICollectionViewFlowStretchLayoutTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewFlowStretchLayoutTests.m; sourceTree = "<group>"; };
-		C9E264AF1938382100B85E9F /* MTZCollectionViewFlowStretchLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZCollectionViewFlowStretchLayout.h; sourceTree = "<group>"; };
-		C9E264B01938382100B85E9F /* MTZCollectionViewFlowStretchLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZCollectionViewFlowStretchLayout.m; sourceTree = "<group>"; };
+		C9E264AF1938382100B85E9F /* MTZCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		C9E264B01938382100B85E9F /* MTZCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,8 +123,8 @@
 				C9E264891938304300B85E9F /* Main_iPad.storyboard */,
 				C9E2648C1938304300B85E9F /* MTZViewController.h */,
 				C9E2648D1938304300B85E9F /* MTZViewController.m */,
-				C9E264AF1938382100B85E9F /* MTZCollectionViewFlowStretchLayout.h */,
-				C9E264B01938382100B85E9F /* MTZCollectionViewFlowStretchLayout.m */,
+				C9E264AF1938382100B85E9F /* MTZCollectionViewFlowLayout.h */,
+				C9E264B01938382100B85E9F /* MTZCollectionViewFlowLayout.m */,
 				C9E2648F1938304300B85E9F /* Images.xcassets */,
 				C9E2647B1938304300B85E9F /* Supporting Files */,
 			);
@@ -259,7 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9E264B11938382100B85E9F /* MTZCollectionViewFlowStretchLayout.m in Sources */,
+				C9E264B11938382100B85E9F /* MTZCollectionViewFlowLayout.m in Sources */,
 				C9E264851938304300B85E9F /* MTZAppDelegate.m in Sources */,
 				C9E264811938304300B85E9F /* main.m in Sources */,
 				C9E2648E1938304300B85E9F /* MTZViewController.m in Sources */,
