@@ -26,6 +26,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+	self.view.backgroundColor = [UIColor blackColor];
 	
 	// Seed RNG.
 	srand48(time(0));
@@ -36,7 +37,7 @@
 	[self.cv registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
 	self.cv.delegate = self;
 	self.cv.dataSource = self;
-	self.cv.backgroundColor = [UIColor redColor];
+	self.cv.backgroundColor = [UIColor whiteColor];
 	UIEdgeInsets edgeInset = UIEdgeInsetsMake(0, 0, 44, 0);
 	self.cv.contentInset = edgeInset;
 	self.cv.scrollIndicatorInsets = edgeInset;
@@ -53,10 +54,19 @@
 	widthSlider.value = 1.0f;
 }
 
+- (BOOL)prefersStatusBarHidden
+{
+	return YES;
+}
+
 - (IBAction)sliderDidChange:(UISlider *)sender
 {
 	CGFloat width = MAX(CELL_SIZE, sender.value * self.view.bounds.size.width);
 	self.cv.frame = CGRectMake(0, 0, width, self.view.bounds.size.height);
+	
+	UICollectionViewFlowLayoutInvalidationContext *ctx = [[UICollectionViewFlowLayoutInvalidationContext alloc] init];
+	ctx.invalidateFlowLayoutDelegateMetrics = YES;
+	[self.layout invalidateLayoutWithContext:ctx];
 }
 
 
@@ -105,7 +115,13 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-	return CGSizeMake(CELL_SIZE, CELL_SIZE);
+	CGFloat interitemSpacing = [self collectionView:collectionView layout:collectionViewLayout minimumInteritemSpacingForSectionAtIndex:indexPath.section];
+	UIEdgeInsets insets = [self collectionView:collectionView layout:collectionViewLayout insetForSectionAtIndex:indexPath.section];
+	((UICollectionViewFlowLayout *)collectionViewLayout).scrollDirection;
+	
+	CGFloat numberOfItems = floor(collectionView.bounds.size.width / CELL_SIZE);
+	CGFloat width = MAX(CELL_SIZE, collectionView.bounds.size.width / numberOfItems);
+	return CGSizeMake(width, 200);
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
