@@ -43,15 +43,37 @@
 
 #pragma mark - Providing Layout Attributes
 
+- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
+{
+	NSArray *allAttributes = [super layoutAttributesForElementsInRect:rect];
+    for ( UICollectionViewLayoutAttributes *attributes in allAttributes ) {
+        if ( !attributes.representedElementKind ) {
+            NSIndexPath *indexPath = attributes.indexPath;
+            attributes.frame = [self layoutAttributesForItemAtIndexPath:indexPath].frame;
+        }
+    }
+    return allAttributes;
+}
+
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
 {
 	UICollectionViewLayoutAttributes *attributes = [super layoutAttributesForItemAtIndexPath:indexPath];
 	
 	if ( self.treatsSizeAsMinimumSize ) {
 		// Get some basic measurements.
-		UIEdgeInsets edgeInsets = [((id<UICollectionViewDelegateFlowLayout>)self.collectionView.delegate) collectionView:self.collectionView layout:self insetForSectionAtIndex:indexPath.section];
-		CGFloat interItemSpacing = [((id<UICollectionViewDelegateFlowLayout>)self.collectionView.delegate) collectionView:self.collectionView layout:self minimumInteritemSpacingForSectionAtIndex:indexPath.section];
-		CGSize minimumItemSize = [((id<UICollectionViewDelegateFlowLayout>)self.collectionView.delegate) collectionView:self.collectionView layout:self sizeForItemAtIndexPath:indexPath];
+		UIEdgeInsets sectionInset;
+		if ( [self.collectionView.delegate respondsToSelector:@selector(collectionView:layout:insetForSectionAtIndex:)] ) {
+			[((id<UICollectionViewDelegateFlowLayout>)self.collectionView.delegate) collectionView:self.collectionView layout:self insetForSectionAtIndex:indexPath.section];
+		} else {
+			sectionInset = self.sectionInset;
+		}
+		
+		CGFloat interItemSpacing;
+		if ( [self.collectionView.delegate respondsToSelector:@selector(collectionView:layout:minimumInteritemSpacingForSectionAtIndex:)] ) {
+			interItemSpacing = [((id<UICollectionViewDelegateFlowLayout>)self.collectionView.delegate) collectionView:self.collectionView layout:self minimumInteritemSpacingForSectionAtIndex:indexPath.section];
+		} else {
+			interItemSpacing = self.minimumInteritemSpacing;
+		}
 		
 		// Measurements dependent on scroll direction.
 		CGFloat totalDimension, totalSectionInset, minimumItemDimension;
@@ -59,13 +81,13 @@
 		switch (self.scrollDirection) {
 			case UICollectionViewScrollDirectionVertical:
 				totalDimension = self.collectionView.bounds.size.width;
-				totalSectionInset = edgeInsets.left + edgeInsets.right;
-				minimumItemDimension = minimumItemSize.width;
+				totalSectionInset = sectionInset.left + sectionInset.right;
+				minimumItemDimension = self.itemSize.width;
 				break;
 			case UICollectionViewScrollDirectionHorizontal:
 				totalDimension = self.collectionView.bounds.size.height;
-				totalSectionInset = edgeInsets.top + edgeInsets.bottom;
-				minimumItemDimension = minimumItemSize.height;
+				totalSectionInset = sectionInset.top + sectionInset.bottom;
+				minimumItemDimension = self.itemSize.height;
 				break;
 		}
 		
