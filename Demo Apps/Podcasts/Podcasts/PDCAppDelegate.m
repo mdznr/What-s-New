@@ -13,13 +13,6 @@
 #import "MTZWhatsNew.h"
 #import "MTZWhatsNewGridViewController.h"
 
-#ifdef DEBUG
-// For the sake of debugging, unhide private method for setting the last version of the app used.
-@interface MTZWhatsNew ()
-+ (void)setLastAppVersion:(NSString *)version;
-@end
-#endif
-
 @implementation PDCAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -30,10 +23,18 @@
 	self.window.rootViewController = [[PDCViewController alloc] init];
 	self.window.tintColor = [UIColor colorWithHue:0.77 saturation:0.77 brightness:0.76 alpha:1];
 	
+	
 #ifdef DEBUG
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+	
 	// For the sake of debugging, manually set the last version of the app used to 0.
-	[MTZWhatsNew setLastAppVersion:@"0.0"];
+	// Do not include this in shipping code.
+	[MTZWhatsNew performSelector:@selector(setLastAppVersion:) withObject:@"0.0"];
+	
+#pragma clang diagnostic pop
 #endif
+	
 	
 	[MTZWhatsNew handleWhatsNew:^(NSDictionary *whatsNew) {
 		// Creating the view controller with features.
