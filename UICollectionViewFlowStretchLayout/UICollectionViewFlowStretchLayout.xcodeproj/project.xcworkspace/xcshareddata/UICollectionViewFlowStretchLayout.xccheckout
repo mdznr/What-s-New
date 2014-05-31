@@ -5,20 +5,20 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>A59064AA-35FA-42FA-97BD-33B6A3DF5D69</string>
+	<string>7F6BFA03-AFB6-460A-B33B-C6F1CB11C28C</string>
 	<key>IDESourceControlProjectName</key>
-	<string>Podcasts</string>
+	<string>UICollectionViewFlowStretchLayout</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>09CB178F-6959-4963-9563-7CE426CE8BD3</key>
 		<string>https://github.com/mdznr/What-s-New.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Demo Apps/Podcasts/Podcasts.xcodeproj/project.xcworkspace</string>
+	<string>UICollectionViewFlowStretchLayout/UICollectionViewFlowStretchLayout.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>09CB178F-6959-4963-9563-7CE426CE8BD3</key>
-		<string>../../../..</string>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/mdznr/What-s-New.git</string>

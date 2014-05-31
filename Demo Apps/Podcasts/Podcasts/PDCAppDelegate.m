@@ -44,6 +44,7 @@
 		vc.backgroundGradientBottomColor = [UIColor colorWithHue:0.78 saturation:0.6 brightness:0.95 alpha:1];
 		// Presenting the what's new view controller.
 		[self.window.rootViewController presentViewController:vc animated:NO completion:nil];
+//		vc.view.superview.frame = CGRectMake(40, 40, 320, 568);
 	}];
 	
     return YES;

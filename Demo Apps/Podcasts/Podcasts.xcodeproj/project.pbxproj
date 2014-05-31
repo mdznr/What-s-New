@@ -29,6 +29,7 @@
 		C978614419341BDB005BE797 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = C978613919341BDB005BE797 /* LICENSE.txt */; };
 		C978614519341BDB005BE797 /* SAMGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = C978613B19341BDB005BE797 /* SAMGradientView.m */; };
 		C97861491934FEFF005BE797 /* MTZWhatsNewGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C97861481934FEFF005BE797 /* MTZWhatsNewGridViewController.m */; };
+		C9E264B41938F11E00B85E9F /* MTZCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E264B31938F11E00B85E9F /* MTZCollectionViewFlowLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,8 @@
 		C978613B19341BDB005BE797 /* SAMGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMGradientView.m; sourceTree = "<group>"; };
 		C97861471934FEFF005BE797 /* MTZWhatsNewGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZWhatsNewGridViewController.h; sourceTree = "<group>"; };
 		C97861481934FEFF005BE797 /* MTZWhatsNewGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZWhatsNewGridViewController.m; sourceTree = "<group>"; };
+		C9E264B21938F11E00B85E9F /* MTZCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		C9E264B31938F11E00B85E9F /* MTZCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +201,8 @@
 				C978613219341BDB005BE797 /* MTZWhatsNewFeatureCollectionViewCell.m */,
 				C978612F19341BDB005BE797 /* MTZCollectionView.h */,
 				C978613019341BDB005BE797 /* MTZCollectionView.m */,
+				C9E264B21938F11E00B85E9F /* MTZCollectionViewFlowLayout.h */,
+				C9E264B31938F11E00B85E9F /* MTZCollectionViewFlowLayout.m */,
 				C978613519341BDB005BE797 /* NSLayoutConstraint+Common */,
 				C978613819341BDB005BE797 /* SAMGradientView */,
 			);
@@ -322,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9E264B41938F11E00B85E9F /* MTZCollectionViewFlowLayout.m in Sources */,
 				C978614119341BDB005BE797 /* MTZWhatsNewFeatureCollectionViewCell.m in Sources */,
 				C978614019341BDB005BE797 /* MTZCollectionView.m in Sources */,
 				C978614219341BDB005BE797 /* MTZWhatsNewViewController.m in Sources */,

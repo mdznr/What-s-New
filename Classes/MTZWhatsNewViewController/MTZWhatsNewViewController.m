@@ -35,7 +35,7 @@
 {
 	self = [super init];
 	if (self) {
-		[self commonInit];
+		[self __MTZWhatsNewViewController_SetUp];
 		self.features = features;
 	}
 	return self;
@@ -45,7 +45,7 @@
 {
 	self = [super init];
 	if (self) {
-		[self commonInit];
+		[self __MTZWhatsNewViewController_SetUp];
 	}
 	return self;
 }
@@ -54,21 +54,12 @@
 {
 	self = [super initWithCoder:aDecoder];
 	if (self) {
-		[self commonInit];
+		[self __MTZWhatsNewViewController_SetUp];
 	}
 	return self;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-	if (self) {
-		[self commonInit];
-	}
-	return self;
-}
-
-- (void)commonInit
+- (void)__MTZWhatsNewViewController_SetUp
 {
 	// Default modal transition and presentation styles.
 	self.modalTransitionStyle = UIModalTransitionStyleCoverVertical;

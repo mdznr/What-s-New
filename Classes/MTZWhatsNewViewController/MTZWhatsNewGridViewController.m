@@ -10,6 +10,7 @@
 
 #import "MTZCollectionView.h"
 #import "MTZWhatsNewFeatureCollectionViewCell.h"
+#import "MTZCollectionViewFlowLayout.h"
 
 #import "NSLayoutConstraint+Common.h"
 
@@ -26,7 +27,7 @@ static const NSString *kIconName = @"icon";
 @property (strong, nonatomic) MTZCollectionView *collectionView;
 
 ///	The layout for the collection view.
-@property (strong, nonatomic) UICollectionViewFlowLayout *flowLayout;
+@property (strong, nonatomic) MTZCollectionViewFlowLayout *flowLayout;
 
 @end
 
@@ -62,19 +63,10 @@ static const NSString *kIconName = @"icon";
 	return self;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-	if (self) {
-		[self __MTZWhatsNewGridViewController_Setup];
-	}
-	return self;
-}
-
 - (void)__MTZWhatsNewGridViewController_Setup
 {
 	// Feature collection view.
-	self.flowLayout = [[UICollectionViewFlowLayout alloc] init];
+	self.flowLayout = [[MTZCollectionViewFlowLayout alloc] init];
 	self.flowLayout.minimumLineSpacing = 2;
 	self.flowLayout.minimumInteritemSpacing = 0;
 	self.flowLayout.headerReferenceSize = self.flowLayout.footerReferenceSize = CGSizeZero;
@@ -90,6 +82,7 @@ static const NSString *kIconName = @"icon";
 	self.collectionView.backgroundColor = [UIColor clearColor];
 	self.collectionView.contentInset = self.contentInset;
 	self.collectionView.scrollIndicatorInsets = self.contentInset;
+	[self calculateLayoutItemSize];
 	
 	// Defaults.
 	self.templatedIcons = YES;
@@ -99,6 +92,26 @@ static const NSString *kIconName = @"icon";
 {
 	[super viewDidAppear:animated];
 	[self.collectionView performSelector:@selector(flashScrollIndicators) withObject:nil afterDelay:0];
+}
+
+- (void)viewDidLayoutSubviews
+{
+	[super viewDidLayoutSubviews];
+	[self calculateLayoutItemSize];
+}
+
+- (void)calculateLayoutItemSize
+{
+	CGSize itemSize = [self shouldUseGridLayout] ? CGSizeMake(270, 187) : CGSizeMake(320, 108);
+	
+	if ( CGSizeEqualToSize(self.flowLayout.itemSize, itemSize) ) return;
+	
+	self.flowLayout.itemSize = itemSize;
+	
+	UICollectionViewFlowLayoutInvalidationContext *ctx = [[UICollectionViewFlowLayoutInvalidationContext alloc] init];
+	ctx.invalidateFlowLayoutAttributes = YES;
+	ctx.invalidateFlowLayoutDelegateMetrics = YES;
+	[self.flowLayout invalidateLayoutWithContext:ctx];
 }
 
 - (void)styleDidChange
@@ -171,15 +184,6 @@ static const NSString *kIconName = @"icon";
 	
 	// No header for section.
 	return CGSizeZero;
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-	if ( [self shouldUseGridLayout] ) {
-		return CGSizeMake(270, 187);
-	} else {
-		return CGSizeMake(320, 108);
-	}
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView
@@ -288,7 +292,7 @@ static const NSString *kIconName = @"icon";
 {
 	// iPhone width = 320
 	// iPad's UIModalPresentationFormSheet width = 540
-	return self.collectionView.frame.size.width >= 540;
+	return self.collectionView.bounds.size.width >= 540;
 }
 
 @end
