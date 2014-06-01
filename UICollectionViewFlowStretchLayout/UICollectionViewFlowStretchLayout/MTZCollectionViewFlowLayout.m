@@ -122,31 +122,54 @@
 	switch (self.scrollDirection) {
 		case UICollectionViewScrollDirectionVertical:
 			attributes.size = CGSizeMake(newDimension, attributes.size.height);
+			
+			// Align to the left.
+			if ( indexPath.item == 0 ) {
+				CGRect frame = attributes.frame;
+				frame.origin.x = 0;
+				attributes.frame = frame;
+			} else {
+				NSIndexPath *previousIndexPath = [NSIndexPath indexPathForItem:indexPath.item-1 inSection:indexPath.section];
+				CGRect previousFrame = [self layoutAttributesForItemAtIndexPath:previousIndexPath].frame;
+				CGRect strecthedCurrentFrame = CGRectMake(0, attributes.frame.origin.y, workingDimension, attributes.frame.size.height);
+				
+				// If the current frame, once aligned to the left and stretched to the full collection view width, intersects the previous frame, then they are on the same line.
+				if ( !CGRectIntersectsRect(previousFrame, strecthedCurrentFrame) ) {
+					// Make sure the first item on a line is left aligned.
+					CGRect frame = attributes.frame;
+					frame.origin.x = 0;
+					attributes.frame = frame;
+				} else {
+					attributes.frame = CGRectMake(CGRectGetMaxX(previousFrame) + interItemSpacing, attributes.frame.origin.y, attributes.frame.size.width, attributes.frame.size.height);
+				}
+			}
+			
 			break;
 		case UICollectionViewScrollDirectionHorizontal:
 			attributes.size = CGSizeMake(attributes.size.width, newDimension);
+			
+			// Align to the top.
+			if ( indexPath.item == 0 ) {
+				CGRect frame = attributes.frame;
+				frame.origin.y = 0;
+				attributes.frame = frame;
+			} else {
+				NSIndexPath *previousIndexPath = [NSIndexPath indexPathForItem:indexPath.item-1 inSection:indexPath.section];
+				CGRect previousFrame = [self layoutAttributesForItemAtIndexPath:previousIndexPath].frame;
+				CGRect strecthedCurrentFrame = CGRectMake(attributes.frame.origin.x, 0, attributes.frame.size.width, workingDimension);
+				
+				// If the current frame, once aligned to the top and stretched to the full collection view height, intersects the previous frame, then they are on the same line.
+				if ( !CGRectIntersectsRect(previousFrame, strecthedCurrentFrame) ) {
+					// Make sure the first item on a line is top aligned.
+					CGRect frame = attributes.frame;
+					frame.origin.y = 0;
+					attributes.frame = frame;
+				} else {
+					attributes.frame = CGRectMake(attributes.frame.origin.x, CGRectGetMaxY(previousFrame) + interItemSpacing, attributes.frame.size.width, attributes.frame.size.height);
+				}
+			}
+			
 			break;
-	}
-	
-	// Align to the left.
-	if ( indexPath.item == 0 ) {
-		CGRect frame = attributes.frame;
-		frame.origin.x = 0;
-		attributes.frame = frame;
-	} else {
-		NSIndexPath *previousIndexPath = [NSIndexPath indexPathForItem:indexPath.item-1 inSection:indexPath.section];
-		CGRect previousFrame = [self layoutAttributesForItemAtIndexPath:previousIndexPath].frame;
-		CGRect strecthedCurrentFrame = CGRectMake(0, attributes.frame.origin.y, workingDimension, attributes.frame.size.height);
-		
-		// If the current frame, once aligned to the left and stretched to the full collection view width, intersects the previous frame, then they are on the same line.
-		if ( !CGRectIntersectsRect(previousFrame, strecthedCurrentFrame) ) {
-			// Make sure the first item on a line is left aligned.
-			CGRect frame = attributes.frame;
-			frame.origin.x = 0;
-			attributes.frame = frame;
-		} else {
-			attributes.frame = CGRectMake(CGRectGetMaxX(previousFrame) + interItemSpacing, attributes.frame.origin.y, attributes.frame.size.width, attributes.frame.size.height);
-		}
 	}
 	
 	return attributes;
