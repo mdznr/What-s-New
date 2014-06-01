@@ -102,12 +102,12 @@
 	CGFloat totalDimension, totalSectionInset, minimumItemDimension;
 	switch (self.scrollDirection) {
 		case UICollectionViewScrollDirectionVertical:
-			totalDimension = self.collectionView.bounds.size.width;
+			totalDimension = self.collectionView.bounds.size.width - self.collectionView.contentInset.left - self.collectionView.contentInset.right;
 			totalSectionInset = sectionInset.left + sectionInset.right;
 			minimumItemDimension = self.itemSize.width;
 			break;
 		case UICollectionViewScrollDirectionHorizontal:
-			totalDimension = self.collectionView.bounds.size.height;
+			totalDimension = self.collectionView.bounds.size.height - self.collectionView.contentInset.top - self.collectionView.contentInset.bottom;
 			totalSectionInset = sectionInset.top + sectionInset.bottom;
 			minimumItemDimension = self.itemSize.height;
 			break;
@@ -131,10 +131,10 @@
 			} else {
 				NSIndexPath *previousIndexPath = [NSIndexPath indexPathForItem:indexPath.item-1 inSection:indexPath.section];
 				CGRect previousFrame = [self layoutAttributesForItemAtIndexPath:previousIndexPath].frame;
-				CGRect strecthedCurrentFrame = CGRectMake(0, attributes.frame.origin.y, workingDimension, attributes.frame.size.height);
+				CGRect stretchedCurrentFrame = CGRectMake(0, attributes.frame.origin.y, workingDimension, attributes.frame.size.height);
 				
 				// If the current frame, once aligned to the left and stretched to the full collection view width, intersects the previous frame, then they are on the same line.
-				if ( !CGRectIntersectsRect(previousFrame, strecthedCurrentFrame) ) {
+				if ( !CGRectIntersectsRect(previousFrame, stretchedCurrentFrame) ) {
 					// Make sure the first item on a line is left aligned.
 					CGRect frame = attributes.frame;
 					frame.origin.x = 0;
@@ -156,10 +156,10 @@
 			} else {
 				NSIndexPath *previousIndexPath = [NSIndexPath indexPathForItem:indexPath.item-1 inSection:indexPath.section];
 				CGRect previousFrame = [self layoutAttributesForItemAtIndexPath:previousIndexPath].frame;
-				CGRect strecthedCurrentFrame = CGRectMake(attributes.frame.origin.x, 0, attributes.frame.size.width, workingDimension);
+				CGRect stretchedCurrentFrame = CGRectMake(attributes.frame.origin.x, 0, attributes.frame.size.width, workingDimension);
 				
 				// If the current frame, once aligned to the top and stretched to the full collection view height, intersects the previous frame, then they are on the same line.
-				if ( !CGRectIntersectsRect(previousFrame, strecthedCurrentFrame) ) {
+				if ( !CGRectIntersectsRect(previousFrame, stretchedCurrentFrame) ) {
 					// Make sure the first item on a line is top aligned.
 					CGRect frame = attributes.frame;
 					frame.origin.y = 0;
