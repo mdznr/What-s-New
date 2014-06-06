@@ -20,8 +20,8 @@ static const NSString *kIconName = @"icon";
 
 @interface MTZWhatsNewGridViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
-///	An ordered list of the versions from newest to oldest.
-@property (strong, nonatomic) NSArray *orderedKeys;
+/// All the features pooled together sorted by version number.
+@property (strong, nonatomic) NSArray *allFeatures;
 
 ///	The collection view to display all the new features.
 @property (strong, nonatomic) MTZCollectionView *collectionView;
@@ -154,9 +154,16 @@ static const NSString *kIconName = @"icon";
 {
 	[super setFeatures:features];
 	
-	_orderedKeys = [[self.features allKeys] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+	NSArray *orderedKeys = [[self.features allKeys] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
 		return [obj2 compare:obj1 options:NSNumericSearch];
 	}];
+	
+	
+	NSMutableArray *allFeatures = [[NSMutableArray alloc] init];
+	for ( NSString *versionKey in orderedKeys ) {
+		[allFeatures addObjectsFromArray:self.features[versionKey]];
+	}
+	self.allFeatures = allFeatures;
 	
 	// Reload the collection view's data.
 	[self.collectionView reloadData];
@@ -215,13 +222,12 @@ static const NSString *kIconName = @"icon";
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-	return [self.features count];
+	return 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-	NSString *key = self.orderedKeys[section];
-	return [self.features[key] count];
+	return [self.allFeatures count];
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
@@ -267,7 +273,7 @@ static const NSString *kIconName = @"icon";
 {
 	MTZWhatsNewFeatureCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"feature" forIndexPath:indexPath];
 	
-	NSDictionary *feature = self.features[self.orderedKeys[indexPath.section]][indexPath.row];
+	NSDictionary *feature = self.allFeatures[indexPath.row];
 	
 	cell.title = feature[kTitle];
 	cell.detail = feature[kDetail];
