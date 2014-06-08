@@ -241,6 +241,7 @@ static const NSString *kIconName = @"icon";
 	[view addSubview:label];
 	label.translatesAutoresizingMaskIntoConstraints = NO;
 	[view addConstraints:[NSLayoutConstraint constraintsToStretchHorizontallyToSuperview:label]];
+	[view addConstraints:[NSLayoutConstraint constraintsToStretchVerticallyToSuperview:label]];
 	label.text = NSLocalizedString(@"What’s New", nil);
 	label.textColor = [self contentColor];
 	label.textAlignment = NSTextAlignmentCenter;
