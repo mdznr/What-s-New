@@ -10,7 +10,6 @@
 
 #import "MTZCollectionView.h"
 #import "MTZWhatsNewFeatureCollectionViewCell.h"
-#import "MTZCollectionViewFlowLayout.h"
 
 #import "NSLayoutConstraint+Common.h"
 
