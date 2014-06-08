@@ -82,9 +82,6 @@ static const NSString *kIconName = @"icon";
 	self.collectionView.contentInset = self.contentInset;
 	self.collectionView.scrollIndicatorInsets = self.contentInset;
 	[self calculateLayoutItemSize];
-	
-	// Defaults.
-	self.templatedIcons = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -166,12 +163,6 @@ static const NSString *kIconName = @"icon";
 	
 	// Reload the collection view's data.
 	[self.collectionView reloadData];
-}
-
-- (void)setTemplatedIcons:(BOOL)templatedIcons
-{
-	_templatedIcons = templatedIcons;
-	// TODO: reload icons.
 }
 
 
@@ -279,11 +270,7 @@ static const NSString *kIconName = @"icon";
 	cell.detail = feature[kDetail];
 	NSString *iconName = feature[kIconName];
 	if ( iconName ) {
-		if ( self.templatedIcons ) {
-			cell.icon = [[UIImage imageNamed:iconName] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-		} else {
-			cell.icon = [[UIImage imageNamed:iconName] imageWithRenderingMode:UIImageRenderingModeAutomatic];
-		}
+		cell.icon = [UIImage imageNamed:iconName];
 	}
 	cell.contentColor = [self contentColor];
 	cell.layoutStyle = [self shouldUseGridLayout] ? MTZWhatsNewFeatureCollectionViewCellLayoutStyleGrid : MTZWhatsNewFeatureCollectionViewCellLayoutStyleList;

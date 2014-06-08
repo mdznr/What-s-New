@@ -63,8 +63,4 @@
  */
 @interface MTZWhatsNewGridViewController : MTZWhatsNewViewController
 
-///	Whether or not the icons should be treated as templates.
-/// @discussion The default is @c YES.
-@property (nonatomic) BOOL templatedIcons;
-
 @end
