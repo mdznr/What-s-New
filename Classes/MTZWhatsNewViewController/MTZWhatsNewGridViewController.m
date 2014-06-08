@@ -27,7 +27,7 @@ static const NSString *kIconName = @"icon";
 @property (strong, nonatomic) MTZCollectionView *collectionView;
 
 ///	The layout for the collection view.
-@property (strong, nonatomic) MTZCollectionViewFlowLayout *flowLayout;
+@property (strong, nonatomic) UICollectionViewFlowLayout *flowLayout;
 
 @end
 
@@ -66,7 +66,7 @@ static const NSString *kIconName = @"icon";
 - (void)__MTZWhatsNewGridViewController_Setup
 {
 	// Feature collection view.
-	self.flowLayout = [[MTZCollectionViewFlowLayout alloc] init];
+	self.flowLayout = [[UICollectionViewFlowLayout alloc] init];
 	self.flowLayout.minimumLineSpacing = 2;
 	self.flowLayout.minimumInteritemSpacing = 0;
 	self.flowLayout.headerReferenceSize = self.flowLayout.footerReferenceSize = CGSizeZero;
