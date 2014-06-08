@@ -10,6 +10,7 @@
 
 #import "MTZCollectionView.h"
 #import "MTZWhatsNewFeatureCollectionViewCell.h"
+#import "MTZCollectionViewFlowLayout.h"
 
 #import "NSLayoutConstraint+Common.h"
 
@@ -19,8 +20,8 @@ static const NSString *kIconName = @"icon";
 
 @interface MTZWhatsNewGridViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
-///	An ordered list of the versions from newest to oldest.
-@property (strong, nonatomic) NSArray *orderedKeys;
+/// All the features pooled together sorted by version number.
+@property (strong, nonatomic) NSArray *allFeatures;
 
 ///	The collection view to display all the new features.
 @property (strong, nonatomic) MTZCollectionView *collectionView;
@@ -62,15 +63,6 @@ static const NSString *kIconName = @"icon";
 	return self;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-	if (self) {
-		[self __MTZWhatsNewGridViewController_Setup];
-	}
-	return self;
-}
-
 - (void)__MTZWhatsNewGridViewController_Setup
 {
 	// Feature collection view.
@@ -90,6 +82,7 @@ static const NSString *kIconName = @"icon";
 	self.collectionView.backgroundColor = [UIColor clearColor];
 	self.collectionView.contentInset = self.contentInset;
 	self.collectionView.scrollIndicatorInsets = self.contentInset;
+	[self calculateLayoutItemSize];
 	
 	// Defaults.
 	self.templatedIcons = YES;
@@ -99,6 +92,26 @@ static const NSString *kIconName = @"icon";
 {
 	[super viewDidAppear:animated];
 	[self.collectionView performSelector:@selector(flashScrollIndicators) withObject:nil afterDelay:0];
+}
+
+- (void)viewDidLayoutSubviews
+{
+	[super viewDidLayoutSubviews];
+	[self calculateLayoutItemSize];
+}
+
+- (void)calculateLayoutItemSize
+{
+	CGSize itemSize = [self shouldUseGridLayout] ? CGSizeMake(270, 187) : CGSizeMake(320, 108);
+	
+	if ( CGSizeEqualToSize(self.flowLayout.itemSize, itemSize) ) return;
+	
+	self.flowLayout.itemSize = itemSize;
+	
+	UICollectionViewFlowLayoutInvalidationContext *ctx = [[UICollectionViewFlowLayoutInvalidationContext alloc] init];
+	ctx.invalidateFlowLayoutAttributes = YES;
+	ctx.invalidateFlowLayoutDelegateMetrics = YES;
+	[self.flowLayout invalidateLayoutWithContext:ctx];
 }
 
 - (void)styleDidChange
@@ -141,9 +154,16 @@ static const NSString *kIconName = @"icon";
 {
 	[super setFeatures:features];
 	
-	_orderedKeys = [[self.features allKeys] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+	NSArray *orderedKeys = [[self.features allKeys] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
 		return [obj2 compare:obj1 options:NSNumericSearch];
 	}];
+	
+	
+	NSMutableArray *allFeatures = [[NSMutableArray alloc] init];
+	for ( NSString *versionKey in orderedKeys ) {
+		[allFeatures addObjectsFromArray:self.features[versionKey]];
+	}
+	self.allFeatures = allFeatures;
 	
 	// Reload the collection view's data.
 	[self.collectionView reloadData];
@@ -171,15 +191,6 @@ static const NSString *kIconName = @"icon";
 	
 	// No header for section.
 	return CGSizeZero;
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-	if ( [self shouldUseGridLayout] ) {
-		return CGSizeMake(270, 187);
-	} else {
-		return CGSizeMake(320, 108);
-	}
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView
@@ -211,13 +222,12 @@ static const NSString *kIconName = @"icon";
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-	return [self.features count];
+	return 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-	NSString *key = self.orderedKeys[section];
-	return [self.features[key] count];
+	return [self.allFeatures count];
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
@@ -231,6 +241,7 @@ static const NSString *kIconName = @"icon";
 	[view addSubview:label];
 	label.translatesAutoresizingMaskIntoConstraints = NO;
 	[view addConstraints:[NSLayoutConstraint constraintsToStretchHorizontallyToSuperview:label]];
+	[view addConstraints:[NSLayoutConstraint constraintsToStretchVerticallyToSuperview:label]];
 	label.text = NSLocalizedString(@"What’s New", nil);
 	label.textColor = [self contentColor];
 	label.textAlignment = NSTextAlignmentCenter;
@@ -263,7 +274,7 @@ static const NSString *kIconName = @"icon";
 {
 	MTZWhatsNewFeatureCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"feature" forIndexPath:indexPath];
 	
-	NSDictionary *feature = self.features[self.orderedKeys[indexPath.section]][indexPath.row];
+	NSDictionary *feature = self.allFeatures[indexPath.row];
 	
 	cell.title = feature[kTitle];
 	cell.detail = feature[kDetail];
@@ -288,7 +299,7 @@ static const NSString *kIconName = @"icon";
 {
 	// iPhone width = 320
 	// iPad's UIModalPresentationFormSheet width = 540
-	return self.collectionView.frame.size.width >= 540;
+	return self.collectionView.bounds.size.width >= 540;
 }
 
 @end
