@@ -249,7 +249,6 @@ static const NSString *kIconName = @"icon";
 	if ( [self shouldUseGridLayout] ) {
 		label.font = [UIFont fontWithName:@"HelveticaNeue-Ultralight" size:62];
 		label.translatesAutoresizingMaskIntoConstraints = NO;
-		[label addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:103 toView:label]];
 		[view addConstraints:[NSLayoutConstraint constraintsToStickView:label toEdges:UIRectEdgeLeft|UIRectEdgeTop|UIRectEdgeRight]];
 		
 		// Add a visual divider.
