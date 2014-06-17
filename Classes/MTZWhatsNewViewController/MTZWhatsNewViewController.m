@@ -92,7 +92,7 @@
 	self.dismissButton.translatesAutoresizingMaskIntoConstraints = NO;
 	[self.dismissButton addTarget:self action:@selector(didTapContinueButton:) forControlEvents:UIControlEventTouchUpInside];
 	
-	[self reloadButtonHeight];
+	[self updateLayoutForTraitCollection:self.traitCollection];
 	
 	// Defaults.
 	self.backgroundGradientTopColor = [UIColor whiteColor];
@@ -102,28 +102,41 @@
 	self.dismissButtonTitle = NSLocalizedString(@"Get Started", nil);
 }
 
-- (void)reloadButtonHeight
-{
-	UIFont *buttonFont = [self shouldUseLargeButton] ? [UIFont fontWithName:@"HelveticaNeue-Light" size:29.0f] : [UIFont fontWithName:@"HelveticaNeue" size:18.0f];
-	self.dismissButton.titleLabel.font = buttonFont;
-	
-	CGFloat buttonHeight = [self shouldUseLargeButton] ? 82.0f : 50.0f;
-	[self.buttonBackground removeConstraints:self.buttonBackground.constraints];
-	[self.buttonBackground addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:buttonHeight toView:self.buttonBackground]];
-	[self.buttonBackground addConstraints:[NSLayoutConstraint constraintsToFillToSuperview:self.dismissButton]];
-	
-	self.contentInset = UIEdgeInsetsMake(self.topLayoutGuide.length, 0, self.bottomLayoutGuide.length+buttonHeight, 0);
-}
-
 - (BOOL)prefersStatusBarHidden
 {
 	return YES;
 }
 
-- (void)viewWillLayoutSubviews
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
 {
-	[super viewWillLayoutSubviews];
-	[self reloadButtonHeight];
+	[super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+}
+
+- (void)willTransitionToTraitCollection:(UITraitCollection *)newCollection withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
+{
+	[super willTransitionToTraitCollection:newCollection withTransitionCoordinator:coordinator];
+	[coordinator animateAlongsideTransition:^(id <UIViewControllerTransitionCoordinatorContext> context) {
+		[self updateLayoutForTraitCollection:newCollection];
+		[self.view setNeedsLayout];
+	} completion:nil];
+}
+
+- (void)updateLayoutForTraitCollection:(UITraitCollection *)newCollection
+{
+	CGFloat buttonHeight;
+	if ( newCollection.horizontalSizeClass == UIUserInterfaceSizeClassRegular ) {
+		self.dismissButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:29.0f];
+		buttonHeight = 82.0f;
+	} else {
+		self.dismissButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:18.0f];
+		buttonHeight = 50.0f;
+	}
+	
+	[self.buttonBackground removeConstraints:self.buttonBackground.constraints];
+	[self.buttonBackground addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:buttonHeight toView:self.buttonBackground]];
+	[self.buttonBackground addConstraints:[NSLayoutConstraint constraintsToFillToSuperview:self.dismissButton]];
+	
+	self.contentInset = UIEdgeInsetsMake(self.topLayoutGuide.length, 0, self.bottomLayoutGuide.length+buttonHeight, 0);
 }
 
 

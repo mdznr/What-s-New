@@ -81,7 +81,7 @@ static const NSString *kIconName = @"icon";
 	self.collectionView.backgroundColor = [UIColor clearColor];
 	self.collectionView.contentInset = self.contentInset;
 	self.collectionView.scrollIndicatorInsets = self.contentInset;
-	[self calculateLayoutItemSize];
+	[self calculateLayoutItemSizeForTraitCollection:self.traitCollection];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -90,15 +90,23 @@ static const NSString *kIconName = @"icon";
 	[self.collectionView performSelector:@selector(flashScrollIndicators) withObject:nil afterDelay:0];
 }
 
-- (void)viewDidLayoutSubviews
+- (void)willTransitionToTraitCollection:(UITraitCollection *)newCollection withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
 {
-	[super viewDidLayoutSubviews];
-	[self calculateLayoutItemSize];
+	[super willTransitionToTraitCollection:newCollection withTransitionCoordinator:coordinator];
+	[coordinator animateAlongsideTransition:^(id <UIViewControllerTransitionCoordinatorContext> context) {
+		[self calculateLayoutItemSizeForTraitCollection:newCollection];
+		[self.view setNeedsLayout];
+	} completion:nil];
 }
 
-- (void)calculateLayoutItemSize
+- (void)calculateLayoutItemSizeForTraitCollection:(UITraitCollection *)traitCollection
 {
-	CGSize itemSize = [self shouldUseGridLayout] ? CGSizeMake(270, 187) : CGSizeMake(320, 108);
+	CGSize itemSize;
+	if ( traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassRegular ) {
+		itemSize = CGSizeMake(270, 187);
+	} else {
+		itemSize = CGSizeMake(320, 108);
+	}
 	
 	if ( CGSizeEqualToSize(self.flowLayout.itemSize, itemSize) ) return;
 	
@@ -108,6 +116,13 @@ static const NSString *kIconName = @"icon";
 	ctx.invalidateFlowLayoutAttributes = YES;
 	ctx.invalidateFlowLayoutDelegateMetrics = YES;
 	[self.flowLayout invalidateLayoutWithContext:ctx];
+}
+
+- (void)contentInsetDidChange
+{
+	[super contentInsetDidChange];
+	self.collectionView.contentInset = self.contentInset;
+	self.collectionView.scrollIndicatorInsets = self.contentInset;
 }
 
 - (void)styleDidChange
@@ -125,13 +140,6 @@ static const NSString *kIconName = @"icon";
 			self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
 			break;
 	}
-}
-
-- (void)contentInsetDidChange
-{
-	[super contentInsetDidChange];
-	self.collectionView.contentInset = self.contentInset;
-	self.collectionView.scrollIndicatorInsets = self.contentInset;
 }
 
 - (UIColor *)contentColor
