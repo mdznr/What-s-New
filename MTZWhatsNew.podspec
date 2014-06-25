@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "MTZWhatsNew"
-  s.version      = "1.0"
+  s.version      = "1.1"
   s.summary      = "Easily present the latest changes and features to your users on app updates."
 
   s.description  = <<-DESC
@@ -47,7 +47,7 @@ Pod::Spec.new do |s|
   #  Specify a social_media_url where others can refer to, for example a twitter
   #  profile URL.
   #
-  
+
   s.author             = { "Matt Zanchelli" => "matt@mdznr.com" }
   # Or just: s.author    = "Matt Zanchelli"
   # s.authors            = { "Matt Zanchelli" => "matt@mdznr.com" }
