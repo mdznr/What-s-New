@@ -16,6 +16,8 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerStyle) {
 	MTZWhatsNewViewControllerStyleDarkContent,
 };
 
+
+/// @c MTZWhatsNewViewController is an abstract base class for "What's New" view controller classes. Included in the project is a subclass of @c MTZWhatsNewViewController, @c MTZWhatsNewGridViewController, which presents features in a list or grid layout (depending on the context). Only subclass @c MTZWhatsNewViewController if you want a custom presentation, otherwise @c MTZwhatsNewGridViewController is recommended.
 @interface MTZWhatsNewViewController : UIViewController
 
 #pragma mark - Initialization
