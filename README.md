@@ -32,7 +32,7 @@ It's simple to get the changes and display them. In `application:didFinishLaunch
 
 ```objc
 [MTZWhatsNew handleWhatsNew:^(NSDictionary *whatsNew) {
-	MTZWhatsNewViewController *vc = [[MTZWhatsNewViewController alloc] initWithFeatures:whatsNew];
+	MTZWhatsNewGridViewController *vc = [[MTZWhatsNewGridViewController alloc] initWithFeatures:whatsNew];
 	[self.window.rootViewController presentViewController:vc animated:NO completion:nil];
 }];
 ```
