@@ -68,6 +68,7 @@
 
 	self.imageView = [[UIImageView alloc] init];
 	[self.contentView addSubview:self.imageView];
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
 	self.imageView.translatesAutoresizingMaskIntoConstraints = NO;
 	
 	// Default of no style.
