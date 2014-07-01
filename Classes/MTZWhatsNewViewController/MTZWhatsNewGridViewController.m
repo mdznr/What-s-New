@@ -272,10 +272,10 @@ static const NSString *kIconName = @"icon";
 {
 	MTZWhatsNewFeatureCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"feature" forIndexPath:indexPath];
 	
-	NSDictionary *feature = self.allFeatures[indexPath.row];
+	NSDictionary *feature = self.allFeatures[(NSUInteger) indexPath.row];
 	
-	cell.title = feature[kTitle];
-	cell.detail = feature[kDetail];
+	cell.title = NSLocalizedString(feature[kTitle], nil);
+	cell.detail = NSLocalizedString(feature[kDetail], nil);
 	NSString *iconName = feature[kIconName];
 	if ( iconName ) {
 		if ( self.templatedIcons ) {

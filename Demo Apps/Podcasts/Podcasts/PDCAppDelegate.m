@@ -40,6 +40,7 @@
 		// Creating the view controller with features.
 		MTZWhatsNewGridViewController *vc = [[MTZWhatsNewGridViewController alloc] initWithFeatures:whatsNew];
 		// Customizing the background gradient.
+        vc.style =
 		vc.backgroundGradientTopColor = [UIColor colorWithHue:0.77 saturation:0.77 brightness:0.76 alpha:1];
 		vc.backgroundGradientBottomColor = [UIColor colorWithHue:0.78 saturation:0.6 brightness:0.95 alpha:1];
 		// Presenting the what's new view controller.

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		331DA3773EAF72D6DAEE670C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 331DABF7F1A10A8D94D0E9C6 /* Localizable.strings */; };
 		C97860F219341B1E005BE797 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97860F119341B1E005BE797 /* Foundation.framework */; };
 		C97860F419341B1E005BE797 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97860F319341B1E005BE797 /* CoreGraphics.framework */; };
 		C97860F619341B1E005BE797 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97860F519341B1E005BE797 /* UIKit.framework */; };
@@ -42,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		331DAD3E5C55840619CDA315 /* fr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		331DAFEA9B98EB9E4E61B6CE /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B90387691962ED73000AA217 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B903876A1962ED73000AA217 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C97860EE19341B1E005BE797 /* Podcasts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podcasts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97860F119341B1E005BE797 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C97860F319341B1E005BE797 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -154,6 +159,7 @@
 				C97860FA19341B1E005BE797 /* InfoPlist.strings */,
 				C97860FD19341B1E005BE797 /* main.m */,
 				C97860FF19341B1E005BE797 /* Podcasts-Prefix.pch */,
+				331DABF7F1A10A8D94D0E9C6 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -283,6 +289,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = C97860E519341B1E005BE797;
 			productRefGroup = C97860EF19341B1E005BE797 /* Products */;
@@ -304,6 +311,7 @@
 				C978610D19341B1E005BE797 /* Images.xcassets in Resources */,
 				C978612A19341BCA005BE797 /* What's New.plist in Resources */,
 				C97860FC19341B1E005BE797 /* InfoPlist.strings in Resources */,
+				331DA3773EAF72D6DAEE670C /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,10 +362,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		331DABF7F1A10A8D94D0E9C6 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				331DAFEA9B98EB9E4E61B6CE /* en */,
+				331DAD3E5C55840619CDA315 /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		C97860FA19341B1E005BE797 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C97860FB19341B1E005BE797 /* en */,
+				B90387691962ED73000AA217 /* fr */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -366,6 +384,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C978611D19341B1E005BE797 /* en */,
+				B903876A1962ED73000AA217 /* fr */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
