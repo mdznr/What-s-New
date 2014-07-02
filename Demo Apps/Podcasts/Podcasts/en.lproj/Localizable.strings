@@ -1,8 +1,6 @@
 /****************************************************************************/
 /* Localization file */
 
-
-"Get Started" = "Get Started";
 "Unplayed Episodes" = "Unplayed Episodes";
 "Quickly find episodes you haven’t played yet." = "Quickly find episodes you haven’t played yet.";
 "Browse the Feed" = "Browse the Feed";
@@ -19,4 +17,3 @@
 "Create custom stations of your favorite podcasts." = "Create custom stations of your favorite podcasts.";
 "Pull to Refresh" = "Pull to Refresh";
 "More easily refresh a subscription or playlist." = "More easily refresh a subscription or playlist.";
-"What’s New" = "What’s New";
