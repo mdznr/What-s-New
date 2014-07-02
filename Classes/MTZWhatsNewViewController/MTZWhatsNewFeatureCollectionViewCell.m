@@ -64,11 +64,11 @@
 	self.detailTextLabel.textColor = [UIColor whiteColor];
 	self.detailTextLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:14.0f];
 	self.detailTextLabel.numberOfLines = 0;
-    self.detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
+	self.detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
 
 	self.imageView = [[UIImageView alloc] init];
 	[self.contentView addSubview:self.imageView];
-    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+	self.imageView.contentMode = UIViewContentModeScaleAspectFit;
 	self.imageView.translatesAutoresizingMaskIntoConstraints = NO;
 	
 	// Default of no style.
