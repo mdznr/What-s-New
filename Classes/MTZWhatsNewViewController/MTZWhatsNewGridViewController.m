@@ -241,7 +241,7 @@ static const NSString *kIconName = @"icon";
 	label.translatesAutoresizingMaskIntoConstraints = NO;
 	[view addConstraints:[NSLayoutConstraint constraintsToStretchHorizontallyToSuperview:label]];
 	[view addConstraints:[NSLayoutConstraint constraintsToStretchVerticallyToSuperview:label]];
-	label.text = NSLocalizedString(@"What’s New", nil);
+	label.text = NSLocalizedStringFromTable(@"What’s New", @"WhatsNew", nil);
 	label.textColor = [self contentColor];
 	label.textAlignment = NSTextAlignmentCenter;
 	
@@ -272,10 +272,10 @@ static const NSString *kIconName = @"icon";
 {
 	MTZWhatsNewFeatureCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"feature" forIndexPath:indexPath];
 	
-	NSDictionary *feature = self.allFeatures[indexPath.row];
+	NSDictionary *feature = self.allFeatures[(NSUInteger) indexPath.row];
 	
-	cell.title = feature[kTitle];
-	cell.detail = feature[kDetail];
+	cell.title = NSLocalizedString(feature[kTitle], nil);
+	cell.detail = NSLocalizedString(feature[kDetail], nil);
 	NSString *iconName = feature[kIconName];
 	if ( iconName ) {
 		if ( self.templatedIcons ) {

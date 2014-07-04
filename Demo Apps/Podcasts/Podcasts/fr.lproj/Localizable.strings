@@ -1,0 +1,19 @@
+/****************************************************************************/
+/* Localization file */
+
+"Unplayed Episodes" = "Episodes non-écoutés";
+"Quickly find episodes you haven’t played yet." = "Trouvez rapidement les épisodes que vous n'avez pas encore écoutés.";
+"Browse the Feed" = "Parcourir le flux";
+"Stream available episodes or download them to play later." = "Ecoutez les épisodes disponibles en live ou téléchargez-les pour les écouter plus tard.";
+"Saved Episodes" = "Episodes sauvegardés";
+"Save your favorite episodes to ensure you’ll always have them." = "Sauvegardez vos épisodes favoris pour être sûrs que vous les aurez toujours avec vous.";
+"Delete Played Episodes" = "Effacez les épisodes écoutés";
+"Episodes can be automatically deleted after they are played." = "Les épisodes peuvent être automatiquement effacés une fois qu'ils ont été écoutés.";
+"Designed for iOS 7" = "Conçu pour iOS 7";
+"Podcasts has a beautiful new look and feel designed for iOS 7." = "Podcasts a une toute nouvelle apparence conçue pour iOS 7.";
+"Stay up to date" = "Restez à jour";
+"Podcasts now automatically updates with new episodes." = "Podcasts se met maintenant automatiquement à jour avec les nouveaux épisodes.";
+"Custom Stations" = "Stations personnalisées";
+"Create custom stations of your favorite podcasts." = "Créez des stations personnalisées avec vos podcasts favoris.";
+"Pull to Refresh" = "Tirer pour rafraichir";
+"More easily refresh a subscription or playlist." = "Rafraichissez plus simplement un abonnement ou une liste de lecture.";

@@ -63,10 +63,12 @@
 	self.detailTextLabel.translatesAutoresizingMaskIntoConstraints = NO;
 	self.detailTextLabel.textColor = [UIColor whiteColor];
 	self.detailTextLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:14.0f];
-	self.detailTextLabel.numberOfLines = 2;
+	self.detailTextLabel.numberOfLines = 0;
+	self.detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
 
 	self.imageView = [[UIImageView alloc] init];
 	[self.contentView addSubview:self.imageView];
+	self.imageView.contentMode = UIViewContentModeScaleAspectFit;
 	self.imageView.translatesAutoresizingMaskIntoConstraints = NO;
 	
 	// Default of no style.
@@ -106,7 +108,7 @@
 	[self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(26)-[icon(64)]-(10)-[title(>=194)]-(26)-|" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:views]];
 	[self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(26)-[icon(64)]-(10)-[detail(>=194)]-(26)-|" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:views]];
 	// Vertically align labels.
-	[self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=0)-[title(20)]-(0)-[detail(34)]-(>=29)-|" options:0 metrics:nil views:views]];
+	[self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=0)-[title(20)]-(0)-[detail(>=34)]-(>=29)-|" options:0 metrics:nil views:views]];
 }
 
 - (void)layoutForGrid
