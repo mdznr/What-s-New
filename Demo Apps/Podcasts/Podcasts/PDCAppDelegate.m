@@ -10,8 +10,7 @@
 
 #import "PDCViewController.h"
 
-#import "MTZWhatsNew.h"
-#import "MTZWhatsNewGridViewController.h"
+#import <What's New/What's New.h>
 
 @implementation PDCAppDelegate
 

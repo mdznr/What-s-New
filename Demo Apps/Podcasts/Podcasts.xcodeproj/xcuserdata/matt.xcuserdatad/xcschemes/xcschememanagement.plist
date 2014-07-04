@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>What's New.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +23,16 @@
 			<true/>
 		</dict>
 		<key>C978611119341B1E005BE797</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C9F43A9419664C0A00C01692</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C9F43A9E19664C0A00C01692</key>
 		<dict>
 			<key>primary</key>
 			<true/>

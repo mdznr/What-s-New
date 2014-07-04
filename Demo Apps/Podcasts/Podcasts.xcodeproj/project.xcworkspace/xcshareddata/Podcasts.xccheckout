@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>50EB2F35-0A43-4FE6-AF1E-3D426DE58852</string>
+	<string>909C2E2D-29BB-4140-B250-22D22799879C</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Podcasts</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>85B2DC01-FD15-4B43-9633-0C932422B127</key>
-		<string>https://github.com/instaply/What-s-New.git</string>
+		<key>D56ACB6F-6051-4F7B-8E56-3F1539161A61</key>
+		<string>https://github.com/mdznr/What-s-New.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Demo Apps/Podcasts/Podcasts.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>85B2DC01-FD15-4B43-9633-0C932422B127</key>
+		<key>D56ACB6F-6051-4F7B-8E56-3F1539161A61</key>
 		<string>../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/instaply/What-s-New.git</string>
+	<string>https://github.com/mdznr/What-s-New.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>85B2DC01-FD15-4B43-9633-0C932422B127</string>
+	<string>D56ACB6F-6051-4F7B-8E56-3F1539161A61</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>85B2DC01-FD15-4B43-9633-0C932422B127</string>
+			<string>D56ACB6F-6051-4F7B-8E56-3F1539161A61</string>
 			<key>IDESourceControlWCCName</key>
-			<string>What-s-New</string>
+			<string>What's New</string>
 		</dict>
 	</array>
 </dict>

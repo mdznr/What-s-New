@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		331DA3773EAF72D6DAEE670C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 331DABF7F1A10A8D94D0E9C6 /* Localizable.strings */; };
-		B91C58CC1963FA0200924B86 /* WhatsNew.strings in Resources */ = {isa = PBXBuildFile; fileRef = B91C58CE1963FA0200924B86 /* WhatsNew.strings */; };
 		C97860F219341B1E005BE797 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97860F119341B1E005BE797 /* Foundation.framework */; };
 		C97860F419341B1E005BE797 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97860F319341B1E005BE797 /* CoreGraphics.framework */; };
 		C97860F619341B1E005BE797 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97860F519341B1E005BE797 /* UIKit.framework */; };
@@ -23,14 +22,27 @@
 		C978611E19341B1E005BE797 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C978611C19341B1E005BE797 /* InfoPlist.strings */; };
 		C978612019341B1E005BE797 /* PodcastsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C978611F19341B1E005BE797 /* PodcastsTests.m */; };
 		C978612A19341BCA005BE797 /* What's New.plist in Resources */ = {isa = PBXBuildFile; fileRef = C978612919341BCA005BE797 /* What's New.plist */; };
-		C978613F19341BDB005BE797 /* MTZWhatsNew.m in Sources */ = {isa = PBXBuildFile; fileRef = C978612D19341BDB005BE797 /* MTZWhatsNew.m */; };
-		C978614019341BDB005BE797 /* MTZCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C978613019341BDB005BE797 /* MTZCollectionView.m */; };
-		C978614119341BDB005BE797 /* MTZWhatsNewFeatureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C978613219341BDB005BE797 /* MTZWhatsNewFeatureCollectionViewCell.m */; };
-		C978614219341BDB005BE797 /* MTZWhatsNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C978613419341BDB005BE797 /* MTZWhatsNewViewController.m */; };
-		C978614319341BDB005BE797 /* NSLayoutConstraint+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = C978613719341BDB005BE797 /* NSLayoutConstraint+Common.m */; };
 		C978614419341BDB005BE797 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = C978613919341BDB005BE797 /* LICENSE.txt */; };
-		C978614519341BDB005BE797 /* SAMGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = C978613B19341BDB005BE797 /* SAMGradientView.m */; };
-		C97861491934FEFF005BE797 /* MTZWhatsNewGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C97861481934FEFF005BE797 /* MTZWhatsNewGridViewController.m */; };
+		C9F43A9A19664C0A00C01692 /* What's New.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F43A9919664C0A00C01692 /* What's New.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C9F43AA019664C0A00C01692 /* What's New.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F43A9519664C0A00C01692 /* What's New.framework */; };
+		C9F43AA719664C0A00C01692 /* What_s_NewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F43AA619664C0A00C01692 /* What_s_NewTests.m */; };
+		C9F43AAA19664C0A00C01692 /* What's New.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F43A9519664C0A00C01692 /* What's New.framework */; };
+		C9F43AAC19664C0A00C01692 /* What's New.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9F43A9519664C0A00C01692 /* What's New.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		C9F43AB519664C1200C01692 /* MTZWhatsNew.h in Headers */ = {isa = PBXBuildFile; fileRef = C978612C19341BDB005BE797 /* MTZWhatsNew.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C9F43AB619664C1900C01692 /* MTZWhatsNew.m in Sources */ = {isa = PBXBuildFile; fileRef = C978612D19341BDB005BE797 /* MTZWhatsNew.m */; };
+		C9F43AB719664C1E00C01692 /* MTZWhatsNewViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C978613319341BDB005BE797 /* MTZWhatsNewViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C9F43AB819664C1E00C01692 /* MTZWhatsNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C978613419341BDB005BE797 /* MTZWhatsNewViewController.m */; };
+		C9F43AB919664C1E00C01692 /* MTZWhatsNewGridViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C97861471934FEFF005BE797 /* MTZWhatsNewGridViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C9F43ABA19664C1E00C01692 /* MTZWhatsNewGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C97861481934FEFF005BE797 /* MTZWhatsNewGridViewController.m */; };
+		C9F43ABB19664C1E00C01692 /* MTZWhatsNewFeatureCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = C978613119341BDB005BE797 /* MTZWhatsNewFeatureCollectionViewCell.h */; };
+		C9F43ABC19664C1E00C01692 /* MTZWhatsNewFeatureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C978613219341BDB005BE797 /* MTZWhatsNewFeatureCollectionViewCell.m */; };
+		C9F43ABD19664C1E00C01692 /* MTZCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = C978612F19341BDB005BE797 /* MTZCollectionView.h */; };
+		C9F43ABE19664C1E00C01692 /* MTZCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C978613019341BDB005BE797 /* MTZCollectionView.m */; };
+		C9F43ABF19664C4900C01692 /* NSLayoutConstraint+Common.h in Headers */ = {isa = PBXBuildFile; fileRef = C978613619341BDB005BE797 /* NSLayoutConstraint+Common.h */; };
+		C9F43AC019664C4D00C01692 /* NSLayoutConstraint+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = C978613719341BDB005BE797 /* NSLayoutConstraint+Common.m */; };
+		C9F43AC119664C5300C01692 /* SAMGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = C978613A19341BDB005BE797 /* SAMGradientView.h */; };
+		C9F43AC219664C5500C01692 /* SAMGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = C978613B19341BDB005BE797 /* SAMGradientView.m */; };
+		C9F43AC419664C5B00C01692 /* WhatsNew.strings in Resources */ = {isa = PBXBuildFile; fileRef = B91C58CE1963FA0200924B86 /* WhatsNew.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +53,42 @@
 			remoteGlobalIDString = C97860ED19341B1E005BE797;
 			remoteInfo = Podcasts;
 		};
+		C9F43AA119664C0A00C01692 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C97860E619341B1E005BE797 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C9F43A9419664C0A00C01692;
+			remoteInfo = "What's New";
+		};
+		C9F43AA819664C0A00C01692 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C97860E619341B1E005BE797 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C9F43A9419664C0A00C01692;
+			remoteInfo = "What's New";
+		};
+		C9F43AAD19664C0A00C01692 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C97860E619341B1E005BE797 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C9F43A9419664C0A00C01692;
+			remoteInfo = "What's New";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C9F43AAB19664C0A00C01692 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C9F43AAC19664C0A00C01692 /* What's New.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		331DAD3E5C55840619CDA315 /* fr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -49,7 +96,6 @@
 		B90387691962ED73000AA217 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B903876A1962ED73000AA217 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B91C58CD1963FA0200924B86 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/WhatsNew.strings; sourceTree = "<group>"; };
-		B91C58CF1963FA0600924B86 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/WhatsNew.strings; sourceTree = "<group>"; };
 		C97860EE19341B1E005BE797 /* Podcasts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podcasts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97860F119341B1E005BE797 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C97860F319341B1E005BE797 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -84,6 +130,13 @@
 		C978613B19341BDB005BE797 /* SAMGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMGradientView.m; sourceTree = "<group>"; };
 		C97861471934FEFF005BE797 /* MTZWhatsNewGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZWhatsNewGridViewController.h; sourceTree = "<group>"; };
 		C97861481934FEFF005BE797 /* MTZWhatsNewGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZWhatsNewGridViewController.m; sourceTree = "<group>"; };
+		C9F43A8D1966443200C01692 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/WhatsNew.strings; sourceTree = "<group>"; };
+		C9F43A9519664C0A00C01692 /* What's New.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "What's New.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9F43A9819664C0A00C01692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9F43A9919664C0A00C01692 /* What's New.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "What's New.h"; sourceTree = "<group>"; };
+		C9F43A9F19664C0A00C01692 /* What's NewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "What's NewTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9F43AA519664C0A00C01692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9F43AA619664C0A00C01692 /* What_s_NewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = What_s_NewTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9F43AAA19664C0A00C01692 /* What's New.framework in Frameworks */,
 				C97860F419341B1E005BE797 /* CoreGraphics.framework in Frameworks */,
 				C97860F619341B1E005BE797 /* UIKit.framework in Frameworks */,
 				C97860F219341B1E005BE797 /* Foundation.framework in Frameworks */,
@@ -107,6 +161,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C9F43A9119664C0A00C01692 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9F43A9C19664C0A00C01692 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9F43AA019664C0A00C01692 /* What's New.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -115,6 +184,8 @@
 			children = (
 				C97860F719341B1E005BE797 /* Podcasts */,
 				C978611919341B1E005BE797 /* PodcastsTests */,
+				C9F43A9619664C0A00C01692 /* What's New */,
+				C9F43AA319664C0A00C01692 /* What's NewTests */,
 				C97860F019341B1E005BE797 /* Frameworks */,
 				C97860EF19341B1E005BE797 /* Products */,
 			);
@@ -125,6 +196,8 @@
 			children = (
 				C97860EE19341B1E005BE797 /* Podcasts.app */,
 				C978611219341B1E005BE797 /* PodcastsTests.xctest */,
+				C9F43A9519664C0A00C01692 /* What's New.framework */,
+				C9F43A9F19664C0A00C01692 /* What's NewTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -233,7 +306,59 @@
 			path = SAMGradientView;
 			sourceTree = "<group>";
 		};
+		C9F43A9619664C0A00C01692 /* What's New */ = {
+			isa = PBXGroup;
+			children = (
+				C9F43A9919664C0A00C01692 /* What's New.h */,
+				C9F43A9719664C0A00C01692 /* Supporting Files */,
+			);
+			path = "What's New";
+			sourceTree = "<group>";
+		};
+		C9F43A9719664C0A00C01692 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C9F43A9819664C0A00C01692 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C9F43AA319664C0A00C01692 /* What's NewTests */ = {
+			isa = PBXGroup;
+			children = (
+				C9F43AA619664C0A00C01692 /* What_s_NewTests.m */,
+				C9F43AA419664C0A00C01692 /* Supporting Files */,
+			);
+			path = "What's NewTests";
+			sourceTree = "<group>";
+		};
+		C9F43AA419664C0A00C01692 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C9F43AA519664C0A00C01692 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C9F43A9219664C0A00C01692 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9F43AB719664C1E00C01692 /* MTZWhatsNewViewController.h in Headers */,
+				C9F43AC119664C5300C01692 /* SAMGradientView.h in Headers */,
+				C9F43ABD19664C1E00C01692 /* MTZCollectionView.h in Headers */,
+				C9F43ABB19664C1E00C01692 /* MTZWhatsNewFeatureCollectionViewCell.h in Headers */,
+				C9F43A9A19664C0A00C01692 /* What's New.h in Headers */,
+				C9F43AB919664C1E00C01692 /* MTZWhatsNewGridViewController.h in Headers */,
+				C9F43ABF19664C4900C01692 /* NSLayoutConstraint+Common.h in Headers */,
+				C9F43AB519664C1200C01692 /* MTZWhatsNew.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		C97860ED19341B1E005BE797 /* Podcasts */ = {
@@ -243,10 +368,13 @@
 				C97860EA19341B1E005BE797 /* Sources */,
 				C97860EB19341B1E005BE797 /* Frameworks */,
 				C97860EC19341B1E005BE797 /* Resources */,
+				C9F43AAB19664C0A00C01692 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C9F43AA919664C0A00C01692 /* PBXTargetDependency */,
+				C9F43AAE19664C0A00C01692 /* PBXTargetDependency */,
 			);
 			name = Podcasts;
 			productName = Podcasts;
@@ -271,6 +399,42 @@
 			productReference = C978611219341B1E005BE797 /* PodcastsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		C9F43A9419664C0A00C01692 /* What's New */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9F43AB319664C0A00C01692 /* Build configuration list for PBXNativeTarget "What's New" */;
+			buildPhases = (
+				C9F43A9019664C0A00C01692 /* Sources */,
+				C9F43A9119664C0A00C01692 /* Frameworks */,
+				C9F43A9219664C0A00C01692 /* Headers */,
+				C9F43A9319664C0A00C01692 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "What's New";
+			productName = "What's New";
+			productReference = C9F43A9519664C0A00C01692 /* What's New.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C9F43A9E19664C0A00C01692 /* What's NewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9F43AB419664C0A00C01692 /* Build configuration list for PBXNativeTarget "What's NewTests" */;
+			buildPhases = (
+				C9F43A9B19664C0A00C01692 /* Sources */,
+				C9F43A9C19664C0A00C01692 /* Frameworks */,
+				C9F43A9D19664C0A00C01692 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C9F43AA219664C0A00C01692 /* PBXTargetDependency */,
+			);
+			name = "What's NewTests";
+			productName = "What's NewTests";
+			productReference = C9F43A9F19664C0A00C01692 /* What's NewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -283,6 +447,13 @@
 				TargetAttributes = {
 					C978611119341B1E005BE797 = {
 						TestTargetID = C97860ED19341B1E005BE797;
+					};
+					C9F43A9419664C0A00C01692 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					C9F43A9E19664C0A00C01692 = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = C9F43A9419664C0A00C01692;
 					};
 				};
 			};
@@ -302,6 +473,8 @@
 			targets = (
 				C97860ED19341B1E005BE797 /* Podcasts */,
 				C978611119341B1E005BE797 /* PodcastsTests */,
+				C9F43A9419664C0A00C01692 /* What's New */,
+				C9F43A9E19664C0A00C01692 /* What's NewTests */,
 			);
 		};
 /* End PBXProject section */
@@ -316,7 +489,6 @@
 				C978612A19341BCA005BE797 /* What's New.plist in Resources */,
 				C97860FC19341B1E005BE797 /* InfoPlist.strings in Resources */,
 				331DA3773EAF72D6DAEE670C /* Localizable.strings in Resources */,
-				B91C58CC1963FA0200924B86 /* WhatsNew.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +500,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C9F43A9319664C0A00C01692 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9F43AC419664C5B00C01692 /* WhatsNew.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9F43A9D19664C0A00C01692 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -335,16 +522,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C978614119341BDB005BE797 /* MTZWhatsNewFeatureCollectionViewCell.m in Sources */,
-				C978614019341BDB005BE797 /* MTZCollectionView.m in Sources */,
-				C978614219341BDB005BE797 /* MTZWhatsNewViewController.m in Sources */,
-				C978613F19341BDB005BE797 /* MTZWhatsNew.m in Sources */,
 				C978610219341B1E005BE797 /* PDCAppDelegate.m in Sources */,
-				C97861491934FEFF005BE797 /* MTZWhatsNewGridViewController.m in Sources */,
 				C978610B19341B1E005BE797 /* PDCViewController.m in Sources */,
-				C978614319341BDB005BE797 /* NSLayoutConstraint+Common.m in Sources */,
 				C97860FE19341B1E005BE797 /* main.m in Sources */,
-				C978614519341BDB005BE797 /* SAMGradientView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +536,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C9F43A9019664C0A00C01692 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9F43ABE19664C1E00C01692 /* MTZCollectionView.m in Sources */,
+				C9F43ABC19664C1E00C01692 /* MTZWhatsNewFeatureCollectionViewCell.m in Sources */,
+				C9F43AC019664C4D00C01692 /* NSLayoutConstraint+Common.m in Sources */,
+				C9F43ABA19664C1E00C01692 /* MTZWhatsNewGridViewController.m in Sources */,
+				C9F43AC219664C5500C01692 /* SAMGradientView.m in Sources */,
+				C9F43AB619664C1900C01692 /* MTZWhatsNew.m in Sources */,
+				C9F43AB819664C1E00C01692 /* MTZWhatsNewViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9F43A9B19664C0A00C01692 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9F43AA719664C0A00C01692 /* What_s_NewTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -363,6 +565,21 @@
 			isa = PBXTargetDependency;
 			target = C97860ED19341B1E005BE797 /* Podcasts */;
 			targetProxy = C978611719341B1E005BE797 /* PBXContainerItemProxy */;
+		};
+		C9F43AA219664C0A00C01692 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C9F43A9419664C0A00C01692 /* What's New */;
+			targetProxy = C9F43AA119664C0A00C01692 /* PBXContainerItemProxy */;
+		};
+		C9F43AA919664C0A00C01692 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C9F43A9419664C0A00C01692 /* What's New */;
+			targetProxy = C9F43AA819664C0A00C01692 /* PBXContainerItemProxy */;
+		};
+		C9F43AAE19664C0A00C01692 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C9F43A9419664C0A00C01692 /* What's New */;
+			targetProxy = C9F43AAD19664C0A00C01692 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -380,7 +597,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				B91C58CD1963FA0200924B86 /* en */,
-				B91C58CF1963FA0600924B86 /* fr */,
+				C9F43A8D1966443200C01692 /* fr */,
 			);
 			name = WhatsNew.strings;
 			sourceTree = "<group>";
@@ -486,6 +703,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Podcasts/Podcasts-Prefix.pch";
 				INFOPLIST_FILE = "Podcasts/Podcasts-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -499,6 +717,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Podcasts/Podcasts-Prefix.pch";
 				INFOPLIST_FILE = "Podcasts/Podcasts-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -544,6 +763,92 @@
 			};
 			name = Release;
 		};
+		C9F43AAF19664C0A00C01692 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "What's New/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C9F43AB019664C0A00C01692 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "What's New/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C9F43AB119664C0A00C01692 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "What's NewTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C9F43AB219664C0A00C01692 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "What's NewTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -570,6 +875,24 @@
 			buildConfigurations = (
 				C978612719341B1E005BE797 /* Debug */,
 				C978612819341B1E005BE797 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9F43AB319664C0A00C01692 /* Build configuration list for PBXNativeTarget "What's New" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9F43AAF19664C0A00C01692 /* Debug */,
+				C9F43AB019664C0A00C01692 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9F43AB419664C0A00C01692 /* Build configuration list for PBXNativeTarget "What's NewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9F43AB119664C0A00C01692 /* Debug */,
+				C9F43AB219664C0A00C01692 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
