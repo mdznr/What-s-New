@@ -48,7 +48,7 @@ static NSString * const MTZWhatsNewLastAppVersionKey = @"MTZWhatsNew.lastAppVers
 	NSDictionary *newFeatures = [self whatsNew];
 	
 	// Only call handler if there's any new features.
-	if ( [newFeatures count] ) {
+	if ([newFeatures count]) {
 		whatsNewHandler(newFeatures);
 	}
 	
@@ -87,15 +87,20 @@ static NSString * const MTZWhatsNewLastAppVersionKey = @"MTZWhatsNew.lastAppVers
 + (NSDictionary *)whatsNew
 {
 	// Nothing's new if this hasn't been registered before. (Shouldn't work on first launch).
-	if ( ![self lastAppVersion] ) {
+	if (![self lastAppVersion]) {
 		return nil;
 	}
 	
+	return [self whatsNewSinceVersion:[self lastAppVersion]];
+}
+
++ (NSDictionary *)whatsNewSinceVersion:(NSString *)versionString
+{
 	NSMutableDictionary *whatsNew = [[NSMutableDictionary alloc] init];
 	NSDictionary *allFeatures = [self allFeatures];
-	for ( NSString *version in [allFeatures allKeys] ) {
-		if ( [version compare:[self lastAppVersion] options:NSNumericSearch] == NSOrderedDescending &&
-			 [version compare:[self appVersion]     options:NSNumericSearch] != NSOrderedDescending ) {
+	for (NSString *version in [allFeatures allKeys]) {
+		if ([version compare:versionString     options:NSNumericSearch] == NSOrderedDescending &&
+			[version compare:[self appVersion] options:NSNumericSearch] != NSOrderedDescending) {
 			[whatsNew setObject:allFeatures[version] forKey:version];
 		}
 	}
