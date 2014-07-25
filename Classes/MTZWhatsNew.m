@@ -55,6 +55,18 @@ static NSString * const MTZWhatsNewLastAppVersionKey = @"MTZWhatsNew.lastAppVers
 	[self updateLastAppVersion];
 }
 
++ (void)handleWhatsNew:(MTZWhatsNewHandler)whatsNewHandler sinceVersion:(NSString *)versionString
+{
+	NSDictionary *newFeatures = [self whatsNewSinceVersion:versionString];
+	
+	// Only call handler if there's any new features.
+	if ([newFeatures count]) {
+		whatsNewHandler(newFeatures);
+	}
+	
+	[self updateLastAppVersion];
+}
+
 + (void)reset
 {
     [self setLastAppVersion:nil];
