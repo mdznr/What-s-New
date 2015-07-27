@@ -13,52 +13,52 @@
 /*
  Example:
  {
- "1.1" = (
- {
- icon = "Pull to Refresh";
- title = "Pull to Refresh";
- detail = "More easily refresh a subscription or playlist.";
- },
- {
- icon = Stations;
- title = "Custom Stations";
- detail = "Create custom stations of your favorite podcasts.";
- }
- );
- "2.0" = (
- {
- icon = "iOS 7";
- title = "Designed for iOS 7";
- detail = "Podcasts has a beautiful new look and feel that fits right in with iOS 7.";
- },
- {
- icon = "Up To Date";
- title = "Stay up to date";
- detail = "Podcasts now automatically updates with new episodes.";
- }
- );
- "3.0" = (
- {
- icon = Podcast;
- title = "Unplayed Episodes";
- detail = "Quickly find episodes you haven\U2019t played yet.";
- },
- {
- icon = Feed;
- title = "Browse the Feed";
- detail = "Stream available episodes or download them to play later.";
- },
- {
- icon = Saved;
- title = "Saved Episodes";
- detail = "Save your favorite episodes to ensure you\U2019ll always have them.";
- },
- {
- icon = Delete;
- title = "Delete Played Episodes";
- detail = "Episodes can be automatically deleted after they are played.";
- }
- );
+	 "1.1" = (
+		 {
+			 icon = "Pull to Refresh";
+			 title = "Pull to Refresh";
+			 detail = "More easily refresh a subscription or playlist.";
+		 },
+		 {
+			 icon = Stations;
+			 title = "Custom Stations";
+			 detail = "Create custom stations of your favorite podcasts.";
+		 }
+	 );
+	 "2.0" = (
+		 {
+			 icon = "iOS 7";
+			 title = "Designed for iOS 7";
+			 detail = "Podcasts has a beautiful new look and feel that fits right in with iOS 7.";
+		 },
+		 {
+			 icon = "Up To Date";
+			 title = "Stay up to date";
+			 detail = "Podcasts now automatically updates with new episodes.";
+		 }
+	 );
+	 "3.0" = (
+		 {
+			 icon = Podcast;
+			 title = "Unplayed Episodes";
+			 detail = "Quickly find episodes you haven\U2019t played yet.";
+		 },
+		 {
+			 icon = Feed;
+			 title = "Browse the Feed";
+			 detail = "Stream available episodes or download them to play later.";
+		 },
+		 {
+			 icon = Saved;
+			 title = "Saved Episodes";
+			 detail = "Save your favorite episodes to ensure you\U2019ll always have them.";
+		 },
+		 {
+			 icon = Delete;
+			 title = "Delete Played Episodes";
+			 detail = "Episodes can be automatically deleted after they are played.";
+		 }
+	 );
  }
  */
 @interface MTZWhatsNewGridViewController : MTZWhatsNewViewController
