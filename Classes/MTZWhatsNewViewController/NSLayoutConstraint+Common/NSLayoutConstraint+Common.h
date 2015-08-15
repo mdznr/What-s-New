@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Matt Zanchelli. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 @interface NSLayoutConstraint (Common)
 
