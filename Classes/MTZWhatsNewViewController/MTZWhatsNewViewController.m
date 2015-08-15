@@ -26,6 +26,8 @@
 ///	The background behind the dismiss button.
 @property (strong, nonatomic) UIToolbar *buttonBackground;
 
+@property BOOL statusBarWasInitiallyHidden;
+
 @end
 
 
@@ -35,7 +37,7 @@
 {
 	self = [super init];
 	if (self) {
-		[self __MTZWhatsNewViewController_SetUp];
+		[self commonInit];
 		self.features = features;
 	}
 	return self;
@@ -45,7 +47,7 @@
 {
 	self = [super init];
 	if (self) {
-		[self __MTZWhatsNewViewController_SetUp];
+		[self commonInit];
 	}
 	return self;
 }
@@ -54,17 +56,29 @@
 {
 	self = [super initWithCoder:aDecoder];
 	if (self) {
-		[self __MTZWhatsNewViewController_SetUp];
+		[self commonInit];
 	}
 	return self;
 }
 
-- (void)__MTZWhatsNewViewController_SetUp
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+	if (self) {
+		[self commonInit];
+	}
+	return self;
+}
+
+- (void)commonInit
 {
 	// Default modal transition and presentation styles.
 	self.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
 	self.modalPresentationStyle = UIModalPresentationFormSheet;
-	
+
+    self.showsStatusBar = YES;
+    _statusBarWasInitiallyHidden = [UIApplication sharedApplication].statusBarHidden;
+
 	// Background View.
 	SAMGradientView *gradientView = [[SAMGradientView alloc] init];
 	self.backgroundView = gradientView;
@@ -99,7 +113,7 @@
 	self.backgroundGradientBottomColor = [UIColor whiteColor];
 	_style = MTZWhatsNewViewControllerStyleDarkContent;
 	_automaticallySetStyle = YES;
-	self.dismissButtonTitle = NSLocalizedStringFromTable(@"Get Started", @"WhatsNew", nil);
+	self.dismissButtonTitle = NSLocalizedString(@"Get Started", nil);
 }
 
 - (void)reloadButtonHeight
@@ -117,7 +131,7 @@
 
 - (BOOL)prefersStatusBarHidden
 {
-	return YES;
+    return !self.showsStatusBar;
 }
 
 - (void)viewWillLayoutSubviews
@@ -131,6 +145,10 @@
 
 - (IBAction)didTapContinueButton:(id)sender
 {
+    [UIView animateWithDuration:0.4f animations:^{
+        [[UIApplication sharedApplication] setStatusBarHidden:self.statusBarWasInitiallyHidden withAnimation:YES];
+    }];
+
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -178,6 +196,14 @@
 {
 	_dismissButtonTitle = dismissButtonText;
 	[self.dismissButton setTitle:_dismissButtonTitle forState:UIControlStateNormal];
+}
+
+- (void)setShowsStatusBar:(BOOL)showsStatusBar
+{
+    _showsStatusBar = showsStatusBar;
+    [UIView animateWithDuration:0.4f animations:^{
+        [[UIApplication sharedApplication] setStatusBarHidden:!_showsStatusBar withAnimation:YES];
+    }];
 }
 
 - (void)setContentInset:(UIEdgeInsets)contentInset

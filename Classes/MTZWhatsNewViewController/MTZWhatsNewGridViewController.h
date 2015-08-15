@@ -67,4 +67,8 @@
 /// @discussion The default is @c YES.
 @property (nonatomic) BOOL templatedIcons;
 
+/// Whether or not the icons should be laid out in a grid. On the iPad it automatically uses a grid.
+/// The default is NO.
+@property (nonatomic) BOOL shouldUseGridLayout;
+
 @end
