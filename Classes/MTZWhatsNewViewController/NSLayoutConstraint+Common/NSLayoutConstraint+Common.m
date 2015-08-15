@@ -1,6 +1,6 @@
 //
 //  NSLayoutConstraint+Common.m
-//  What's New
+//  What’s New
 //
 //  Created by Matt Zanchelli on 5/25/14.
 //  Copyright (c) 2014 Matt Zanchelli. All rights reserved.
@@ -28,8 +28,8 @@
 	return [self constraintsToStretchToSuperview:view horizontallyOrVertically:@"V"];
 }
 
-///	Create constraints to fill a particular view to it's superview in one dimension.
-///	@param view The subview to stretch fill to it's superview in one dimension.
+///	Create constraints to fill a particular view to it’s superview in one dimension.
+///	@param view The subview to stretch fill to it’s superview in one dimension.
 ///	@param horizontallyOrVertically @c @"H" or @c @"V" to signify horizontal or vertical stretch to superview.
 ///	@return An array of constraints to add to the superview to fill @c view to itself in one dimension.
 + (NSArray *)constraintsToStretchToSuperview:(UIView *)view horizontallyOrVertically:(NSString *)horizontallyOrVertically

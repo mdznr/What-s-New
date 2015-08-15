@@ -1,6 +1,6 @@
 //
 //  MTZWhatsNewViewController.h
-//  What's New
+//  What’s New
 //
 //  Created by Matt Zanchelli on 5/17/14.
 //  Copyright (c) 2014 Matt Zanchelli. All rights reserved.
@@ -17,12 +17,12 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerStyle) {
 };
 
 
-/// @c MTZWhatsNewViewController is an abstract base class for "What's New" view controller classes. Included in the project is a subclass of @c MTZWhatsNewViewController, @c MTZWhatsNewGridViewController, which presents features in a list or grid layout (depending on the context). Only subclass @c MTZWhatsNewViewController if you want a custom presentation, otherwise @c MTZwhatsNewGridViewController is recommended.
+/// @c MTZWhatsNewViewController is an abstract base class for "What’s New" view controller classes. Included in the project is a subclass of @c MTZWhatsNewViewController, @c MTZWhatsNewGridViewController, which presents features in a list or grid layout (depending on the context). Only subclass @c MTZWhatsNewViewController if you want a custom presentation, otherwise @c MTZwhatsNewGridViewController is recommended.
 @interface MTZWhatsNewViewController : UIViewController
 
 #pragma mark - Initialization
 
-///	Initializes and returns a What's new view controller object having the given features.
+///	Initializes and returns a What’s new view controller object having the given features.
 ///	@param features The features to display.
 ///	@return Returns an initialized @c MTZWhatsNewViewController object or @c nil if the object could not be successfully initialized.
 /// @discussion See the documentation for @c features to see the expected format.
@@ -48,7 +48,7 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerStyle) {
 
 #pragma mark - Appearance Customization
 
-///	The style of what's new view controller.
+///	The style of what’s new view controller.
 /// @discussion Setting this turns @c automaticallySetStyle to @c NO . When @c automaticallySetStyle is set to @c YES , do not expect this value to be constant.
 @property (nonatomic) MTZWhatsNewViewControllerStyle style;
 
@@ -70,7 +70,7 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerStyle) {
 #pragma mark - Responding to Style Change
 
 ///	Notifies the view controller that the effective style has been changed.
-/// @discussion This method is called when the style has been changed. You should override this method to perform custom tasks associated with changing the style. If you override this method, you must call super at some point in your implementation. Note that this can be called when the receiver's @c automaticallySetStyle is set to @c YES and not only after changes are made directly to the @c style property.
+/// @discussion This method is called when the style has been changed. You should override this method to perform custom tasks associated with changing the style. If you override this method, you must call super at some point in your implementation. Note that this can be called when the receiver’s @c automaticallySetStyle is set to @c YES and not only after changes are made directly to the @c style property.
 - (void)styleDidChange __attribute__((objc_requires_super));
 
 ///	The content inset to use in a subclss.

@@ -164,7 +164,7 @@ static const NSString *kIconName = @"icon";
 	}
 	self.allFeatures = allFeatures;
 	
-	// Reload the collection view's data.
+	// Reload the collection view’s data.
 	[self.collectionView reloadData];
 }
 
@@ -179,7 +179,7 @@ static const NSString *kIconName = @"icon";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-	// "What's New"
+	// "What’s New"
 	if ( section == 0 ) {
 		if ( [self shouldUseGridLayout] ) {
 			return CGSizeMake(collectionView.bounds.size.width, 115);
@@ -235,7 +235,7 @@ static const NSString *kIconName = @"icon";
 {
 	UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"whatsnew" forIndexPath:indexPath];
 	
-	// Create label for "What's New" title.
+	// Create label for "What’s New" title.
 	UILabel *label = [[UILabel alloc] initWithFrame:view.bounds];
 	[view addSubview:label];
 	label.translatesAutoresizingMaskIntoConstraints = NO;
@@ -296,7 +296,7 @@ static const NSString *kIconName = @"icon";
 - (BOOL)shouldUseGridLayout
 {
 	// iPhone width = 320
-	// iPad's UIModalPresentationFormSheet width = 540
+	// iPad’s UIModalPresentationFormSheet width = 540
 	return self.collectionView.bounds.size.width >= 540;
 }
 
