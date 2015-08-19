@@ -8,6 +8,15 @@
 
 #import "MTZCollectionView.h"
 
+@implementation UIScrollView (ScrollingAbility)
+
+- (void)determineScrollingAbility
+{
+	self.scrollEnabled = self.contentSize.height > self.frame.size.height || self.contentSize.width > self.frame.size.width;
+}
+
+@end
+
 @implementation MTZCollectionView
 
 - (void)setContentSize:(CGSize)contentSize
@@ -20,11 +29,6 @@
 {
 	[super setFrame:frame];
 	[self determineScrollingAbility];
-}
-
-- (void)determineScrollingAbility
-{
-	self.scrollEnabled = self.contentSize.height > self.frame.size.height || self.contentSize.width > self.frame.size.width;
 }
 
 @end
