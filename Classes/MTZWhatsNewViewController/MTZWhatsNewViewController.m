@@ -21,10 +21,10 @@
 @property (readwrite) UIEdgeInsets contentInset;
 
 ///	The button to dismiss the view controller.
-@property (strong, nonatomic) UIButton *dismissButton;
+@property (nonatomic, strong) UIButton *dismissButton;
 
 ///	The background behind the dismiss button.
-@property (strong, nonatomic) UIToolbar *buttonBackground;
+@property (nonatomic, strong) UIToolbar *buttonBackground;
 
 @end
 

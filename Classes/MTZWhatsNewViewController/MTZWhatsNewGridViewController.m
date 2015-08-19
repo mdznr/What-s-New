@@ -20,13 +20,13 @@ static const NSString *kIconName = @"icon";
 @interface MTZWhatsNewGridViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
 /// All the features pooled together sorted by version number.
-@property (strong, nonatomic) NSArray *allFeatures;
+@property (nonatomic, strong) NSArray *allFeatures;
 
 ///	The collection view to display all the new features.
-@property (strong, nonatomic) MTZCollectionView *collectionView;
+@property (nonatomic, strong) MTZCollectionView *collectionView;
 
 ///	The layout for the collection view.
-@property (strong, nonatomic) UICollectionViewFlowLayout *flowLayout;
+@property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
 
 @end
 
