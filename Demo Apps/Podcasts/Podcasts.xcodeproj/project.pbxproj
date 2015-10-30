@@ -114,6 +114,7 @@
 		C9C367C91B7FE03800B171C9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C9E3C5751B7FEB29009C9AF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C9F02B731BE32C29007DE290 /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/WhatsNew.strings; sourceTree = "<group>"; };
+		C9F02B741BE32F5C007DE290 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/WhatsNew.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -335,6 +336,7 @@
 				"pt-PT",
 				ru,
 				ca,
+				da,
 			);
 			mainGroup = C97860E519341B1E005BE797;
 			productRefGroup = C97860EF19341B1E005BE797 /* Products */;
@@ -443,6 +445,7 @@
 				C9C367C21B7FE02F00B171C9 /* pt-PT */,
 				C9C367C61B7FE03800B171C9 /* ru */,
 				C9F02B731BE32C29007DE290 /* ca */,
+				C9F02B741BE32F5C007DE290 /* da */,
 			);
 			name = WhatsNew.strings;
 			sourceTree = "<group>";
