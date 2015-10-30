@@ -1,9 +1,9 @@
 //
-//  MTZWhatsNewViewController.m
-//  What’s New
+// MTZWhatsNewViewController.m
+// What’s New
 //
-//  Created by Matt Zanchelli on 5/17/14.
-//  Copyright (c) 2014 Matt Zanchelli. All rights reserved.
+// Created by Matt Zanchelli on 5/17/14.
+// Copyright (c) 2014 Matt Zanchelli. All rights reserved.
 //
 
 #import "MTZWhatsNewViewController.h"
@@ -84,7 +84,7 @@
 	self.buttonBackground = [[UIToolbar alloc] init];
 	[self.view addSubview:self.buttonBackground];
 	self.buttonBackground.translatesAutoresizingMaskIntoConstraints = NO;
-	[self.view addConstraints:[NSLayoutConstraint constraintsToStickView:self.buttonBackground toEdges:UIRectEdgeLeft|UIRectEdgeBottom|UIRectEdgeRight]];
+	[self.view addConstraints:[NSLayoutConstraint constraintsToStickView:self.buttonBackground toEdges:UIRectEdgeLeft | UIRectEdgeBottom | UIRectEdgeRight]];
 	
 	self.dismissButton = [[UIButton alloc] init];
 	self.dismissButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -112,7 +112,7 @@
 	[self.buttonBackground addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:buttonHeight toView:self.buttonBackground]];
 	[self.buttonBackground addConstraints:[NSLayoutConstraint constraintsToFillToSuperview:self.dismissButton]];
 	
-	self.contentInset = UIEdgeInsetsMake(self.topLayoutGuide.length, 0, self.bottomLayoutGuide.length+buttonHeight, 0);
+	self.contentInset = UIEdgeInsetsMake(self.topLayoutGuide.length, 0, self.bottomLayoutGuide.length + buttonHeight, 0);
 }
 
 - (BOOL)prefersStatusBarHidden
@@ -191,9 +191,9 @@
 
 - (void)reloadAutomaticStyle
 {
-	if ( [self automaticallySetsStyle] ) {
+	if ([self automaticallySetsStyle]) {
 		MTZWhatsNewViewControllerStyle newStyle = [self appropriateStyleForBackgroundOfColor:[self backgroundGradientTopColor]];
-		if ( _style != newStyle ) {
+		if (_style != newStyle) {
 			_style = newStyle;
 			[self styleDidChange];
 		}
@@ -206,9 +206,9 @@
 	[color getRed:&r green:&g blue:&b alpha:&a];
 	
 	// Equation from http://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color/596243#596243
-    CGFloat perception = 1.0f - ((0.299f * r) + (0.587f * g) + (0.114f * b));
+	CGFloat perception = 1.0f - ((0.299f * r) + (0.587f * g) + (0.114f * b));
 	
-    if ( perception < 0.5 ) {
+	if (perception < 0.5) {
 		return MTZWhatsNewViewControllerStyleDarkContent;
 	} else {
 		return MTZWhatsNewViewControllerStyleLightContent;

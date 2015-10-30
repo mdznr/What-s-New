@@ -1,9 +1,9 @@
 //
-//  MTZWhatsNewGridViewController.m
-//  Podcasts
+// MTZWhatsNewGridViewController.m
+// Podcasts
 //
-//  Created by Matt Zanchelli on 5/27/14.
-//  Copyright (c) 2014 Matt Zanchelli. All rights reserved.
+// Created by Matt Zanchelli on 5/27/14.
+// Copyright (c) 2014 Matt Zanchelli. All rights reserved.
 //
 
 #import "MTZWhatsNewGridViewController.h"
@@ -103,7 +103,9 @@ static const NSString *kIconName = @"icon";
 {
 	CGSize itemSize = [self shouldUseGridLayout] ? CGSizeMake(270, 187) : CGSizeMake(320, 108);
 	
-	if ( CGSizeEqualToSize(self.flowLayout.itemSize, itemSize) ) return;
+	if (CGSizeEqualToSize(self.flowLayout.itemSize, itemSize) ) {
+		return;
+	}
 	
 	self.flowLayout.itemSize = itemSize;
 	
@@ -124,6 +126,7 @@ static const NSString *kIconName = @"icon";
 		case MTZWhatsNewViewControllerStyleDarkContent:
 			self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleBlack;
 			break;
+			
 		case MTZWhatsNewViewControllerStyleLightContent:
 			self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
 			break;
@@ -139,9 +142,11 @@ static const NSString *kIconName = @"icon";
 
 - (UIColor *)contentColor
 {
-	switch ( self.style ) {
+	switch (self.style) {
 		case MTZWhatsNewViewControllerStyleLightContent: return [UIColor whiteColor];
+			
 		case MTZWhatsNewViewControllerStyleDarkContent:  return [UIColor blackColor];
+			
 		default: return nil;
 	}
 }
@@ -153,13 +158,13 @@ static const NSString *kIconName = @"icon";
 {
 	[super setFeatures:features];
 	
-	NSArray *orderedKeys = [[self.features allKeys] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+	NSArray *orderedKeys = [[self.features allKeys] sortedArrayUsingComparator:^NSComparisonResult (id obj1, id obj2) {
 		return [obj2 compare:obj1 options:NSNumericSearch];
 	}];
 	
 	
 	NSMutableArray *allFeatures = [[NSMutableArray alloc] init];
-	for ( NSString *versionKey in orderedKeys ) {
+	for (NSString *versionKey in orderedKeys) {
 		[allFeatures addObjectsFromArray:self.features[versionKey]];
 	}
 	self.allFeatures = allFeatures;
@@ -180,8 +185,8 @@ static const NSString *kIconName = @"icon";
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
 	// "What’s New"
-	if ( section == 0 ) {
-		if ( [self shouldUseGridLayout] ) {
+	if (section == 0) {
+		if ([self shouldUseGridLayout]) {
 			return CGSizeMake(collectionView.bounds.size.width, 115);
 		} else {
 			return CGSizeMake(collectionView.bounds.size.width, 70);
@@ -196,7 +201,7 @@ static const NSString *kIconName = @"icon";
 						layout:(UICollectionViewLayout *)collectionViewLayout
 		insetForSectionAtIndex:(NSInteger)section
 {
-	if ( section == 0 && [self shouldUseGridLayout] && [collectionView numberOfSections] <= 1 && [collectionView numberOfItemsInSection:section] <= 4 ) {
+	if (section == 0 && [self shouldUseGridLayout] && [collectionView numberOfSections] <= 1 && [collectionView numberOfItemsInSection:section] <= 4) {
 		return UIEdgeInsetsMake(16, 0, 0, 0);
 	}
 	
@@ -246,10 +251,10 @@ static const NSString *kIconName = @"icon";
 	label.textAlignment = NSTextAlignmentCenter;
 	
 	// Larger font and divider.
-	if ( [self shouldUseGridLayout] ) {
+	if ([self shouldUseGridLayout]) {
 		label.font = [UIFont fontWithName:@"HelveticaNeue-Ultralight" size:62];
 		label.translatesAutoresizingMaskIntoConstraints = NO;
-		[view addConstraints:[NSLayoutConstraint constraintsToStickView:label toEdges:UIRectEdgeLeft|UIRectEdgeTop|UIRectEdgeRight]];
+		[view addConstraints:[NSLayoutConstraint constraintsToStickView:label toEdges:UIRectEdgeLeft | UIRectEdgeTop | UIRectEdgeRight]];
 		
 		// Add a visual divider.
 		UIView *divider = [[UIView alloc] init];
@@ -258,7 +263,7 @@ static const NSString *kIconName = @"icon";
 		[divider addConstraint:[NSLayoutConstraint constraintToSetStaticWidth:296 toView:divider]];
 		[divider addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:0.5 toView:divider]];
 		[view addConstraint:[NSLayoutConstraint constraintWithItem:divider attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:label attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0]];
-		[view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[label][divider]" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:@{@"label": label, @"divider": divider}]];
+		[view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[label][divider]" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:@{@"label" : label, @"divider" : divider}]];
 		divider.backgroundColor = [[self contentColor] colorWithAlphaComponent:0.75f];
 	} else {
 		label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:30];
@@ -277,8 +282,8 @@ static const NSString *kIconName = @"icon";
 	cell.title = NSLocalizedString(feature[kTitle], nil);
 	cell.detail = NSLocalizedString(feature[kDetail], nil);
 	NSString *iconName = feature[kIconName];
-	if ( iconName ) {
-		if ( self.templatedIcons ) {
+	if (iconName) {
+		if (self.templatedIcons) {
 			cell.icon = [[UIImage imageNamed:iconName] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
 		} else {
 			cell.icon = [[UIImage imageNamed:iconName] imageWithRenderingMode:UIImageRenderingModeAutomatic];

@@ -1,15 +1,15 @@
 //
-//  MTZWhatsNewFeatureCollectionViewCell.h
-//  What’s New
+// MTZWhatsNewFeatureCollectionViewCell.h
+// What’s New
 //
-//  Created by Matt Zanchelli on 5/23/14.
-//  Copyright (c) 2014 Matt Zanchelli. All rights reserved.
+// Created by Matt Zanchelli on 5/23/14.
+// Copyright (c) 2014 Matt Zanchelli. All rights reserved.
 //
 
 @import UIKit;
 
 ///	Describes the kind of layout of the cell.
-typedef NS_ENUM(NSUInteger, MTZWhatsNewFeatureCollectionViewCellLayoutStyle){
+typedef NS_ENUM(NSUInteger, MTZWhatsNewFeatureCollectionViewCellLayoutStyle) {
 	///	For use in a list. The image appears on the left and the left-align text appears stacked to the right of the image.
 	MTZWhatsNewFeatureCollectionViewCellLayoutStyleList,
 	///	For use in a grid. The image appears above the text and everything is center aligned.

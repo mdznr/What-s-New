@@ -1,9 +1,9 @@
 //
-//  NSLayoutConstraint+Common.m
-//  What’s New
+// NSLayoutConstraint+Common.m
+// What’s New
 //
-//  Created by Matt Zanchelli on 5/25/14.
-//  Copyright (c) 2014 Matt Zanchelli. All rights reserved.
+// Created by Matt Zanchelli on 5/25/14.
+// Copyright (c) 2014 Matt Zanchelli. All rights reserved.
 //
 
 #import "NSLayoutConstraint+Common.h"
@@ -34,7 +34,7 @@
 ///	@return An array of constraints to add to the superview to fill @c view to itself in one dimension.
 + (NSArray *)constraintsToStretchToSuperview:(UIView *)view horizontallyOrVertically:(NSString *)horizontallyOrVertically
 {
-	return [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"%@:|-0-[view]-0-|", horizontallyOrVertically] options:NSLayoutFormatDirectionLeadingToTrailing metrics:nil views:@{@"view": view}];
+	return [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"%@:|-0-[view]-0-|", horizontallyOrVertically] options:NSLayoutFormatDirectionLeadingToTrailing metrics:nil views:@{@"view" : view}];
 }
 
 
@@ -44,20 +44,20 @@
 {
 	NSArray *top, *left, *bottom, *right;
 	
-	if ( edges & UIRectEdgeTop ) {
-		top = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[view]" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:@{@"view": view}];
+	if (edges & UIRectEdgeTop) {
+		top = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[view]" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:@{@"view" : view}];
 	}
 	
-	if ( edges & UIRectEdgeLeft ) {
-		left = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(0)-[view]" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:@{@"view": view}];
+	if (edges & UIRectEdgeLeft) {
+		left = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(0)-[view]" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:@{@"view" : view}];
 	}
 	
-	if ( edges & UIRectEdgeBottom ) {
-		bottom = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[view]-(0)-|" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:@{@"view": view}];
+	if (edges & UIRectEdgeBottom) {
+		bottom = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[view]-(0)-|" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:@{@"view" : view}];
 	}
 	
-	if ( edges & UIRectEdgeRight ) {
-		right = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[view]-(0)-|" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:@{@"view": view}];
+	if (edges & UIRectEdgeRight) {
+		right = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[view]-(0)-|" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:@{@"view" : view}];
 	}
 	
 	// Add all the constraints together and return them.

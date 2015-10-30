@@ -1,13 +1,13 @@
 //
-//  MTZWhatsNew.m
+// MTZWhatsNew.m
 //
-//  Created by Matt Zanchelli on 5/16/14.
-//  Copyright (c) 2014 Matt Zanchelli. All rights reserved.
+// Created by Matt Zanchelli on 5/16/14.
+// Copyright (c) 2014 Matt Zanchelli. All rights reserved.
 //
 
 //
-//  Based off of MTMigration created by Parker Wightman on 2/7/13.
-//  Copyright (c) 2013 Mysterious Trousers. All rights reserved.
+// Based off of MTMigration created by Parker Wightman on 2/7/13.
+// Copyright (c) 2013 Mysterious Trousers. All rights reserved.
 //
 
 /*
@@ -33,7 +33,7 @@
  OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
  OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*/
+ */
 
 #import "MTZWhatsNew.h"
 
@@ -69,7 +69,7 @@ static NSString * const MTZWhatsNewLastAppVersionKey = @"MTZWhatsNew.lastAppVers
 
 + (void)reset
 {
-    [self setLastAppVersion:nil];
+	[self setLastAppVersion:nil];
 }
 
 
@@ -77,7 +77,7 @@ static NSString * const MTZWhatsNewLastAppVersionKey = @"MTZWhatsNew.lastAppVers
 
 + (NSString *)appVersion
 {
-    return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+	return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
 }
 
 + (void)updateLastAppVersion
@@ -87,8 +87,8 @@ static NSString * const MTZWhatsNewLastAppVersionKey = @"MTZWhatsNew.lastAppVers
 
 + (void)setLastAppVersion:(NSString *)version
 {
-    [[NSUserDefaults standardUserDefaults] setValue:version forKey:MTZWhatsNewLastAppVersionKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+	[[NSUserDefaults standardUserDefaults] setValue:version forKey:MTZWhatsNewLastAppVersionKey];
+	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 + (NSString *)lastAppVersion
@@ -111,8 +111,9 @@ static NSString * const MTZWhatsNewLastAppVersionKey = @"MTZWhatsNew.lastAppVers
 	NSMutableDictionary *whatsNew = [[NSMutableDictionary alloc] init];
 	NSDictionary *allFeatures = [self allFeatures];
 	for (NSString *version in [allFeatures allKeys]) {
-		if ([version compare:versionString     options:NSNumericSearch] == NSOrderedDescending &&
-			[version compare:[self appVersion] options:NSNumericSearch] != NSOrderedDescending) {
+		if ([version compare:versionString options:NSNumericSearch] == NSOrderedDescending &&
+			[version compare:[self appVersion] options:NSNumericSearch] != NSOrderedDescending)
+		{
 			[whatsNew setObject:allFeatures[version] forKey:version];
 		}
 	}
