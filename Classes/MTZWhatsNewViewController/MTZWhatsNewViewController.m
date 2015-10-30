@@ -104,7 +104,7 @@
 
 - (void)reloadButtonHeight
 {
-	UIFont *buttonFont = [self shouldUseLargeButton] ? [UIFont fontWithName:@"HelveticaNeue-Light" size:29.0f] : [UIFont fontWithName:@"HelveticaNeue" size:18.0f];
+	UIFont *buttonFont = [self shouldUseLargeButton] ? [UIFont systemFontOfSize:29.0f weight:UIFontWeightLight] : [UIFont systemFontOfSize:18.0f weight:UIFontWeightRegular];
 	self.dismissButton.titleLabel.font = buttonFont;
 	
 	CGFloat buttonHeight = [self shouldUseLargeButton] ? 82.0f : 50.0f;
