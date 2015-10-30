@@ -30,6 +30,7 @@
 		C978614419341BDB005BE797 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = C978613919341BDB005BE797 /* LICENSE.txt */; };
 		C978614519341BDB005BE797 /* SAMGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = C978613B19341BDB005BE797 /* SAMGradientView.m */; };
 		C97861491934FEFF005BE797 /* MTZWhatsNewGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C97861481934FEFF005BE797 /* MTZWhatsNewGridViewController.m */; };
+		C9F02B761BE33163007DE290 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9F02B751BE33163007DE290 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		C9E3C5751B7FEB29009C9AF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C9F02B731BE32C29007DE290 /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/WhatsNew.strings; sourceTree = "<group>"; };
 		C9F02B741BE32F5C007DE290 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/WhatsNew.strings; sourceTree = "<group>"; };
+		C9F02B751BE33163007DE290 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 				C978610A19341B1E005BE797 /* PDCViewController.m */,
 				C978612B19341BDB005BE797 /* What's New */,
 				C978610C19341B1E005BE797 /* Images.xcassets */,
+				C9F02B751BE33163007DE290 /* Launch Screen.storyboard */,
 				C97860F819341B1E005BE797 /* Supporting Files */,
 			);
 			path = Podcasts;
@@ -329,6 +332,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9F02B761BE33163007DE290 /* Launch Screen.storyboard in Resources */,
 				C978614419341BDB005BE797 /* LICENSE.txt in Resources */,
 				C978610D19341B1E005BE797 /* Images.xcassets in Resources */,
 				C978612A19341BCA005BE797 /* What's New.plist in Resources */,
@@ -501,7 +505,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Podcasts/Podcasts-Prefix.pch";
 				INFOPLIST_FILE = "Podcasts/Podcasts-Info.plist";
@@ -515,7 +518,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Podcasts/Podcasts-Prefix.pch";
 				INFOPLIST_FILE = "Podcasts/Podcasts-Info.plist";
