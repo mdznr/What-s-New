@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "MTZWhatsNew"
-  s.version      = "1.1"
+  s.version      = "1.1.1"
   s.summary      = "Easily present the latest changes and features to your users on app updates."
 
   s.description  = <<-DESC
