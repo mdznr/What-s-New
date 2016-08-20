@@ -12,7 +12,19 @@
 
 - (void)determineScrollingAbility
 {
-	self.scrollEnabled = self.contentSize.height > self.frame.size.height || self.contentSize.width > self.frame.size.width;
+    int buttonHeight;
+    if(self.frame.size.height >= 620 && self.frame.size.width >= 540) {
+        buttonHeight = 82;
+    } else {
+        buttonHeight = 50;
+    }
+    
+    if (self.contentSize.height <= self.frame.size.height - buttonHeight &&
+        self.contentSize.width <= self.frame.size.width) {
+        self.scrollEnabled = NO;
+    } else {
+        self.scrollEnabled = YES;
+    }
 }
 
 @end
