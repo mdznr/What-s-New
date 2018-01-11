@@ -82,12 +82,17 @@
 	
     // Dismiss Button.
     self.buttonBackground = [[UIView alloc] init];
-    self.buttonBackground.backgroundColor = [UIColor colorWithWhite:0.97f alpha:0.9f];
     [self.view addSubview:self.buttonBackground];
     self.buttonBackground.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addConstraints:[NSLayoutConstraint constraintsToStickView:self.buttonBackground toEdges:UIRectEdgeLeft | UIRectEdgeBottom | UIRectEdgeRight]];
     
-    {//add hairline
+    {//add blur effect & hairline
+        UIVisualEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
+        UIVisualEffectView *blurView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+        [self.buttonBackground addSubview:blurView];
+        blurView.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.view addConstraints:[NSLayoutConstraint constraintsToFillToSuperview:blurView]];
+        
         UIView *hair = [[UIView alloc] init];
         hair.backgroundColor = [UIColor colorWithWhite:0.87f alpha:1];
         [self.buttonBackground addSubview:hair];
