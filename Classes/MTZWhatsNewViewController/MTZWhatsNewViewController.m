@@ -24,7 +24,7 @@
 @property (nonatomic, strong) UIButton *dismissButton;
 
 ///	The background behind the dismiss button.
-@property (nonatomic, strong) UIToolbar *buttonBackground;
+@property (nonatomic, strong) UIView *buttonBackground;
 
 @end
 
@@ -80,11 +80,21 @@
 	self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
 	[self.view addConstraints:[NSLayoutConstraint constraintsToFillToSuperview:self.contentView]];
 	
-	// Dismiss Button.
-	self.buttonBackground = [[UIToolbar alloc] init];
-	[self.view addSubview:self.buttonBackground];
-	self.buttonBackground.translatesAutoresizingMaskIntoConstraints = NO;
-	[self.view addConstraints:[NSLayoutConstraint constraintsToStickView:self.buttonBackground toEdges:UIRectEdgeLeft | UIRectEdgeBottom | UIRectEdgeRight]];
+    // Dismiss Button.
+    self.buttonBackground = [[UIView alloc] init];
+    self.buttonBackground.backgroundColor = [UIColor colorWithWhite:0.97f alpha:0.9f];
+    [self.view addSubview:self.buttonBackground];
+    self.buttonBackground.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addConstraints:[NSLayoutConstraint constraintsToStickView:self.buttonBackground toEdges:UIRectEdgeLeft | UIRectEdgeBottom | UIRectEdgeRight]];
+    
+    {//add hairline
+        UIView *hair = [[UIView alloc] init];
+        hair.backgroundColor = [UIColor colorWithWhite:0.87f alpha:1];
+        [self.buttonBackground addSubview:hair];
+        hair.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.view addConstraints:[NSLayoutConstraint constraintsToStickView:hair toEdges:UIRectEdgeTop | UIRectEdgeLeft | UIRectEdgeRight]];
+        [hair addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:1.f toView:hair]];
+    }
 	
 	self.dismissButton = [[UIButton alloc] init];
 	self.dismissButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
