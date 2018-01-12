@@ -107,12 +107,22 @@
 	UIFont *buttonFont = [self shouldUseLargeButton] ? [UIFont systemFontOfSize:29.0f weight:UIFontWeightLight] : [UIFont systemFontOfSize:18.0f weight:UIFontWeightRegular];
 	self.dismissButton.titleLabel.font = buttonFont;
 	
+    CGFloat pushUp = 0.f;
+    if (@available(iOS 11.0, *))
+    {
+        CGFloat layoutY = CGRectGetMaxY(self.view.frame);
+        CGFloat safeAreaY = CGRectGetMaxY(self.view.safeAreaLayoutGuide.layoutFrame);
+        pushUp = layoutY - safeAreaY;
+        self.dismissButton.contentEdgeInsets = UIEdgeInsetsMake(0, 0, pushUp, 0);
+    }
+    
 	CGFloat buttonHeight = [self shouldUseLargeButton] ? 82.0f : 50.0f;
+    buttonHeight += pushUp;
 	[self.buttonBackground removeConstraints:self.buttonBackground.constraints];
 	[self.buttonBackground addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:buttonHeight toView:self.buttonBackground]];
 	[self.buttonBackground addConstraints:[NSLayoutConstraint constraintsToFillToSuperview:self.dismissButton]];
 	
-	self.contentInset = UIEdgeInsetsMake(self.topLayoutGuide.length, 0, self.bottomLayoutGuide.length + buttonHeight, 0);
+	self.contentInset = UIEdgeInsetsMake(self.topLayoutGuide.length, 0, self.bottomLayoutGuide.length + buttonHeight - pushUp, 0);
 }
 
 - (BOOL)prefersStatusBarHidden
