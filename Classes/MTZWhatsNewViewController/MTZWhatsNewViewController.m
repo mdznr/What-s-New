@@ -86,7 +86,7 @@
     self.buttonBackground.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addConstraints:[NSLayoutConstraint constraintsToStickView:self.buttonBackground toEdges:UIRectEdgeLeft | UIRectEdgeBottom | UIRectEdgeRight]];
     
-    {//add blur effect & hairline
+    /* Blur Effect & Hairline */ {
         UIVisualEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
         UIVisualEffectView *blurView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
         [self.buttonBackground addSubview:blurView];
@@ -98,7 +98,8 @@
         [self.buttonBackground addSubview:hair];
         hair.translatesAutoresizingMaskIntoConstraints = NO;
         [self.view addConstraints:[NSLayoutConstraint constraintsToStickView:hair toEdges:UIRectEdgeTop | UIRectEdgeLeft | UIRectEdgeRight]];
-        [hair addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:1.f toView:hair]];
+        CGFloat lineThickness = 1.f / [[UIScreen mainScreen] scale];
+        [hair addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:lineThickness toView:hair]];
     }
 	
 	self.dismissButton = [[UIButton alloc] init];
