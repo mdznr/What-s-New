@@ -107,7 +107,13 @@
 	UIFont *buttonFont = [self shouldUseLargeButton] ? [UIFont systemFontOfSize:29.0f weight:UIFontWeightLight] : [UIFont systemFontOfSize:18.0f weight:UIFontWeightRegular];
 	self.dismissButton.titleLabel.font = buttonFont;
 	
+    CGFloat safeY = CGRectGetMaxY(self.view.safeAreaLayoutGuide.layoutFrame);
+    CGFloat layoutY = CGRectGetMaxY(self.view.frame);
+    CGFloat pushUp = layoutY - safeY;
+    self.dismissButton.contentEdgeInsets = UIEdgeInsetsMake(0, 0, pushUp, 0);
+    
 	CGFloat buttonHeight = [self shouldUseLargeButton] ? 82.0f : 50.0f;
+    buttonHeight += pushUp;
 	[self.buttonBackground removeConstraints:self.buttonBackground.constraints];
 	[self.buttonBackground addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:buttonHeight toView:self.buttonBackground]];
 	[self.buttonBackground addConstraints:[NSLayoutConstraint constraintsToFillToSuperview:self.dismissButton]];
