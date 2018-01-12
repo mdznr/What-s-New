@@ -107,7 +107,7 @@
 	UIFont *buttonFont = [self shouldUseLargeButton] ? [UIFont systemFontOfSize:29.0f weight:UIFontWeightLight] : [UIFont systemFontOfSize:18.0f weight:UIFontWeightRegular];
 	self.dismissButton.titleLabel.font = buttonFont;
 	
-    CGFloat pushUp = 0;
+    CGFloat pushUp = 0.f;
     if (@available(iOS 11.0, *))
     {
         CGFloat layoutY = CGRectGetMaxY(self.view.frame);
