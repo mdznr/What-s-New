@@ -27,7 +27,7 @@
 @property (nonatomic, strong) UIView *buttonBackground;
 
 // Reference to button height constraint
-@property (nonatomic, weak) NSLayoutConstraint *buttonHeightConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *buttonHeightConstraint;
 
 @end
 
@@ -113,6 +113,9 @@
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.dismissButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.bottomLayoutGuide attribute:NSLayoutAttributeTop  multiplier:1.0 constant:0]];
     [self.view addConstraints:[NSLayoutConstraint constraintsToStickView:self.dismissButton toEdges:UIRectEdgeLeft|UIRectEdgeRight]];
 	
+    self.buttonHeightConstraint = [NSLayoutConstraint constraintWithItem:self.dismissButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1.0f constant:50];
+    [self.view addConstraint:self.buttonHeightConstraint];
+    
 	[self reloadButtonHeight];
 	
 	// Defaults.
@@ -128,12 +131,8 @@
 	UIFont *buttonFont = [self shouldUseLargeButton] ? [UIFont systemFontOfSize:29.0f weight:UIFontWeightLight] : [UIFont systemFontOfSize:18.0f weight:UIFontWeightRegular];
 	self.dismissButton.titleLabel.font = buttonFont;
 	
-    [self.view removeConstraint:self.buttonHeightConstraint];
     CGFloat buttonHeight = [self shouldUseLargeButton] ? 82.0f : 50.0f;
-    
-    NSLayoutConstraint *buttonHeightConstraint = [NSLayoutConstraint constraintWithItem:self.dismissButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1.0f constant:buttonHeight];
-    [self.view addConstraint:buttonHeightConstraint];
-    self.buttonHeightConstraint = buttonHeightConstraint;
+    self.buttonHeightConstraint.constant = buttonHeight;
 	
 	self.contentInset = UIEdgeInsetsMake(self.topLayoutGuide.length, 0, self.bottomLayoutGuide.length + buttonHeight, 0);
 }
