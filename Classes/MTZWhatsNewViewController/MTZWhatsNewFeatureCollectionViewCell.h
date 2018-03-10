@@ -21,13 +21,13 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewFeatureCollectionViewCellLayoutStyle) {
 @interface MTZWhatsNewFeatureCollectionViewCell : UICollectionViewCell
 
 ///	The title of the feature.
-@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy, nullable) NSString *title;
 
 ///	A short description of the feature.
-@property (nonatomic, copy) NSString *detail;
+@property (nonatomic, copy, nullable) NSString *detail;
 
 /// An image represeting the feature.
-@property (nonatomic, copy) UIImage *icon;
+@property (nonatomic, copy, nullable) UIImage *icon;
 
 ///	The color to use for the content.
 @property (nonatomic, copy) UIColor *contentColor;

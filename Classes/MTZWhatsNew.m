@@ -87,13 +87,13 @@ static NSString * const MTZWhatsNewLastAppVersionKey = @"MTZWhatsNew.lastAppVers
 	[self setLastAppVersion:[self appVersion]];
 }
 
-+ (void)setLastAppVersion:(NSString *)version
++ (void)setLastAppVersion:(nullable NSString *)version
 {
 	[[NSUserDefaults standardUserDefaults] setValue:version forKey:MTZWhatsNewLastAppVersionKey];
 	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-+ (NSString *)lastAppVersion
++ (nullable NSString *)lastAppVersion
 {
 	return [[NSUserDefaults standardUserDefaults] valueForKey:MTZWhatsNewLastAppVersionKey];
 }

@@ -167,32 +167,32 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Properties
 
-- (void)setTitle:(NSString *)title
+- (void)setTitle:(nullable NSString *)title
 {
 	self.textLabel.text = [title copy];
 }
 
-- (NSString *)title
+- (nullable NSString *)title
 {
 	return self.textLabel.text;
 }
 
-- (void)setDetail:(NSString *)detail
+- (void)setDetail:(nullable NSString *)detail
 {
 	self.detailTextLabel.text = [detail copy];
 }
 
-- (NSString *)detail
+- (nullable NSString *)detail
 {
 	return self.detailTextLabel.text;
 }
 
-- (void)setIcon:(UIImage *)icon
+- (void)setIcon:(nullable UIImage *)icon
 {
 	self.imageView.image = [icon copy];
 }
 
-- (UIImage *)icon
+- (nullable UIImage *)icon
 {
 	return self.imageView.image;
 }
