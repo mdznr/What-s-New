@@ -17,17 +17,17 @@ NS_ASSUME_NONNULL_BEGIN
 ///	Create constraints to fill a particular view to its superview.
 ///	@param view The subview to fill to its superview.
 ///	@return An array of constraints to add to the superview to fill @c view to itself.
-+ (NSArray *)constraintsToFillToSuperview:(UIView *)view;
++ (NSArray<NSLayoutConstraint *> *)constraintsToFillToSuperview:(UIView *)view;
 
 ///	Create constraints to horizontally stretch a particular view to its superview.
 ///	@param view The subview to fill to its superview.
 ///	@return An array of constraints to add to the superview to stretch @c view horizontally to itself.
-+ (NSArray *)constraintsToStretchHorizontallyToSuperview:(UIView *)view;
++ (NSArray<NSLayoutConstraint *> *)constraintsToStretchHorizontallyToSuperview:(UIView *)view;
 
 ///	Create constraints to vertically stretch a particular view to its superview.
 ///	@param view The subview to fill to its superview.
 ///	@return An array of constraints to add to the superview to stretch @c view vertically to itself.
-+ (NSArray *)constraintsToStretchVerticallyToSuperview:(UIView *)view;
++ (NSArray<NSLayoutConstraint *> *)constraintsToStretchVerticallyToSuperview:(UIView *)view;
 
 
 #pragma mark - Centering to superview

@@ -14,17 +14,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Stretching to fill dimensions
 
-+ (NSArray *)constraintsToFillToSuperview:(UIView *)view
++ (NSArray<NSLayoutConstraint *> *)constraintsToFillToSuperview:(UIView *)view
 {
 	return [[self constraintsToStretchHorizontallyToSuperview:view] arrayByAddingObjectsFromArray:[self constraintsToStretchVerticallyToSuperview:view]];
 }
 
-+ (NSArray *)constraintsToStretchHorizontallyToSuperview:(UIView *)view;
++ (NSArray<NSLayoutConstraint *> *)constraintsToStretchHorizontallyToSuperview:(UIView *)view;
 {
 	return [self constraintsToStretchToSuperview:view horizontallyOrVertically:@"H"];
 }
 
-+ (NSArray *)constraintsToStretchVerticallyToSuperview:(UIView *)view
++ (NSArray<NSLayoutConstraint *> *)constraintsToStretchVerticallyToSuperview:(UIView *)view
 {
 	return [self constraintsToStretchToSuperview:view horizontallyOrVertically:@"V"];
 }
@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///	@param view The subview to stretch fill to it’s superview in one dimension.
 ///	@param horizontallyOrVertically @c @"H" or @c @"V" to signify horizontal or vertical stretch to superview.
 ///	@return An array of constraints to add to the superview to fill @c view to itself in one dimension.
-+ (NSArray *)constraintsToStretchToSuperview:(UIView *)view horizontallyOrVertically:(NSString *)horizontallyOrVertically
++ (NSArray<NSLayoutConstraint *> *)constraintsToStretchToSuperview:(UIView *)view horizontallyOrVertically:(NSString *)horizontallyOrVertically
 {
 	return [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"%@:|-0-[view]-0-|", horizontallyOrVertically] options:NSLayoutFormatDirectionLeadingToTrailing metrics:nil views:@{@"view" : view}];
 }
@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Sticking to edges
 
-+ (NSArray *)constraintsToStickView:(UIView *)view toEdges:(UIRectEdge)edges;
++ (NSArray<NSLayoutConstraint *> *)constraintsToStickView:(UIView *)view toEdges:(UIRectEdge)edges;
 {
 	NSArray *top, *left, *bottom, *right;
 	
