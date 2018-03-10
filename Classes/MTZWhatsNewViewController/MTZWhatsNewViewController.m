@@ -130,10 +130,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)reloadButtonHeight
 {
-	UIFont *buttonFont = [self shouldUseLargeButton] ? [UIFont systemFontOfSize:29.0f weight:UIFontWeightLight] : [UIFont systemFontOfSize:18.0f weight:UIFontWeightRegular];
+	UIFont *buttonFont = [UIFont systemFontOfSize:18.0f weight:UIFontWeightRegular];
 	self.dismissButton.titleLabel.font = buttonFont;
 	
-	CGFloat buttonHeight = [self shouldUseLargeButton] ? 82.0f : 50.0f;
+	CGFloat buttonHeight = 50.0f;
 	self.buttonHeightConstraint.constant = buttonHeight;
 	
 	self.contentInset = UIEdgeInsetsMake(self.topLayoutGuide.length, 0, self.bottomLayoutGuide.length + buttonHeight, 0);
@@ -248,12 +248,6 @@ NS_ASSUME_NONNULL_BEGIN
 {
 	// An empty implementation.
 }
-
-- (BOOL)shouldUseLargeButton
-{
-	return self.view.frame.size.height >= 620 && self.view.frame.size.width >= 540;
-}
-
 @end
 
 NS_ASSUME_NONNULL_END
