@@ -111,7 +111,7 @@
 	[self.dismissButton addTarget:self action:@selector(didTapContinueButton:) forControlEvents:UIControlEventTouchUpInside];
 	[self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.buttonBackground attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.dismissButton attribute:NSLayoutAttributeTop  multiplier:1.0 constant:0]];
 	[self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.dismissButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.bottomLayoutGuide attribute:NSLayoutAttributeTop  multiplier:1.0 constant:0]];
-	[self.view addConstraints:[NSLayoutConstraint constraintsToStickView:self.dismissButton toEdges:UIRectEdgeLeft|UIRectEdgeRight]];
+	[self.view addConstraints:[NSLayoutConstraint constraintsToStickView:self.dismissButton toEdges:UIRectEdgeLeft | UIRectEdgeRight]];
 	
 	self.buttonHeightConstraint = [NSLayoutConstraint constraintWithItem:self.dismissButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1.0f constant:50];
 	[self.view addConstraint:self.buttonHeightConstraint];
