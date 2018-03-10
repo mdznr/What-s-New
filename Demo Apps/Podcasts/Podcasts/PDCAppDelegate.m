@@ -8,6 +8,8 @@
 
 #import "PDCAppDelegate.h"
 
+#import "UIColor+AppColors.h"
+
 #import "PDCViewController.h"
 
 #import "MTZWhatsNew.h"
@@ -23,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 	self.window.backgroundColor = [UIColor whiteColor];
 	[self.window makeKeyAndVisible];
 	self.window.rootViewController = [[PDCViewController alloc] init];
-	self.window.tintColor = [UIColor colorWithHue:0.77 saturation:0.77 brightness:0.76 alpha:1];
+	self.window.tintColor = [UIColor appTintColor];
 	
 #ifdef DEBUG
 #pragma clang diagnostic push
@@ -39,12 +41,8 @@ NS_ASSUME_NONNULL_BEGIN
 	[MTZWhatsNew handleWhatsNew:^(NSDictionary *whatsNew) {
 		// Creating the view controller with features.
 		MTZWhatsNewGridViewController *vc = [[MTZWhatsNewGridViewController alloc] initWithFeatures:whatsNew];
-		// Customizing the background gradient.
-		vc.backgroundGradientTopColor = [UIColor colorWithHue:0.77 saturation:0.77 brightness:0.76 alpha:1];
-		vc.backgroundGradientBottomColor = [UIColor colorWithHue:0.78 saturation:0.6 brightness:0.95 alpha:1];
 		// Presenting the what’s new view controller.
 		[self.window.rootViewController presentViewController:vc animated:NO completion:nil];
-		// vc.view.superview.frame = CGRectMake(40, 40, 320, 568);
 	}];
 	
 	return YES;

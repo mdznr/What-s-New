@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B91C58CC1963FA0200924B86 /* WhatsNew.strings in Resources */ = {isa = PBXBuildFile; fileRef = B91C58CE1963FA0200924B86 /* WhatsNew.strings */; };
+		C90ED4B620549AAE00A66D47 /* UIColor+AppColors.m in Sources */ = {isa = PBXBuildFile; fileRef = C90ED4B520549AAE00A66D47 /* UIColor+AppColors.m */; };
 		C97860F219341B1E005BE797 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97860F119341B1E005BE797 /* Foundation.framework */; };
 		C97860F419341B1E005BE797 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97860F319341B1E005BE797 /* CoreGraphics.framework */; };
 		C97860F619341B1E005BE797 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97860F519341B1E005BE797 /* UIKit.framework */; };
@@ -46,6 +47,8 @@
 /* Begin PBXFileReference section */
 		B91C58CD1963FA0200924B86 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/WhatsNew.strings; sourceTree = "<group>"; };
 		B91C58CF1963FA0600924B86 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/WhatsNew.strings; sourceTree = "<group>"; };
+		C90ED4B420549AAE00A66D47 /* UIColor+AppColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+AppColors.h"; sourceTree = "<group>"; };
+		C90ED4B520549AAE00A66D47 /* UIColor+AppColors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AppColors.m"; sourceTree = "<group>"; };
 		C97860EE19341B1E005BE797 /* Podcasts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podcasts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97860F119341B1E005BE797 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C97860F319341B1E005BE797 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -156,6 +159,8 @@
 				C978610119341B1E005BE797 /* PDCAppDelegate.m */,
 				C978610919341B1E005BE797 /* PDCViewController.h */,
 				C978610A19341B1E005BE797 /* PDCViewController.m */,
+				C90ED4B420549AAE00A66D47 /* UIColor+AppColors.h */,
+				C90ED4B520549AAE00A66D47 /* UIColor+AppColors.m */,
 				C978612B19341BDB005BE797 /* What's New */,
 				C978610C19341B1E005BE797 /* Images.xcassets */,
 				C9F02B751BE33163007DE290 /* Launch Screen.storyboard */,
@@ -364,6 +369,7 @@
 				C97861491934FEFF005BE797 /* MTZWhatsNewGridViewController.m in Sources */,
 				C978610B19341B1E005BE797 /* PDCViewController.m in Sources */,
 				C978614319341BDB005BE797 /* NSLayoutConstraint+Common.m in Sources */,
+				C90ED4B620549AAE00A66D47 /* UIColor+AppColors.m in Sources */,
 				C97860FE19341B1E005BE797 /* main.m in Sources */,
 				C978614519341BDB005BE797 /* SAMGradientView.m in Sources */,
 			);
