@@ -8,6 +8,8 @@
 
 @import UIKit;
 
+NS_ASSUME_NONNULL_BEGIN
+
 ///	Describes the kind of layout of the cell.
 typedef NS_ENUM(NSUInteger, MTZWhatsNewFeatureCollectionViewCellLayoutStyle) {
 	///	For use in a list. The image appears on the left and the left-align text appears stacked to the right of the image.
@@ -34,3 +36,5 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewFeatureCollectionViewCellLayoutStyle) {
 @property (nonatomic) MTZWhatsNewFeatureCollectionViewCellLayoutStyle layoutStyle;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -37,6 +37,8 @@
 
 #import "MTZWhatsNew.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 static NSString * const MTZWhatsNewLastAppVersionKey = @"MTZWhatsNew.lastAppVersion";
 
 @implementation MTZWhatsNew
@@ -128,3 +130,5 @@ static NSString * const MTZWhatsNewLastAppVersionKey = @"MTZWhatsNew.lastAppVers
 }
 
 @end
+
+NS_ASSUME_NONNULL_END

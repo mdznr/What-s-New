@@ -8,6 +8,8 @@
 
 @import UIKit;
 
+NS_ASSUME_NONNULL_BEGIN
+
 ///	Describes the style of the view controller.
 typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerStyle) {
 	///	Describes a view controller with light text and content.
@@ -80,3 +82,5 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerStyle) {
 - (void)contentInsetDidChange __attribute__((objc_requires_super));
 
 @end
+
+NS_ASSUME_NONNULL_END

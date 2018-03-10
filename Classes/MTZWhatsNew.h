@@ -39,6 +39,8 @@
 
 #import "MTZWhatsNewViewController.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /// A block that gets called when there’s new stuff to handle.
 /// @discussion At the root of the features dictionary should be strings representing the app versions. Corresponding to each version string should be an array of features. Each feature should be a dictionary containing string values for any and all of the following: "title", "detail", and "icon". The value of "title" will be displayed in larger/bolder type. The value of "detail" will be displayed below title. The value of "icon" will be used to find an image resource in the app’s bundle to use as a representation of the feature.
 /*
@@ -112,3 +114,5 @@ typedef void (^MTZWhatsNewHandler)(NSDictionary<NSString *, id> *whatsNew);
 + (void)reset;
 
 @end
+
+NS_ASSUME_NONNULL_END

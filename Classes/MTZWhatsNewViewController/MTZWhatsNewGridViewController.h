@@ -8,6 +8,8 @@
 
 #import "MTZWhatsNewViewController.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /// A What’s New View Controller subclass that presents the features in a list or grid.
 @interface MTZWhatsNewGridViewController : MTZWhatsNewViewController
 
@@ -16,3 +18,5 @@
 @property (nonatomic) BOOL templatedIcons;
 
 @end
+
+NS_ASSUME_NONNULL_END

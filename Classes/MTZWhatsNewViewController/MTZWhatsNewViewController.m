@@ -12,6 +12,8 @@
 
 #import "NSLayoutConstraint+Common.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface MTZWhatsNewViewController ()
 
 ///	A private read/write property of `contentView`.
@@ -253,3 +255,5 @@
 }
 
 @end
+
+NS_ASSUME_NONNULL_END
