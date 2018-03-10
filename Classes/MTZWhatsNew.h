@@ -94,6 +94,7 @@
  */
 typedef void (^MTZWhatsNewHandler)(NSDictionary<NSString *, id> *whatsNew);
 
+/// The class that manages what’s new in an application.
 @interface MTZWhatsNew : NSObject
 
 ///	Show what’s new in this update, if anything.
