@@ -237,9 +237,7 @@ static const NSString *kIconName = @"icon";
 	return [self.allFeatures count];
 }
 
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
-		   viewForSupplementaryElementOfKind:(NSString *)kind
-								 atIndexPath:(NSIndexPath *)indexPath
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
 	UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"whatsnew" forIndexPath:indexPath];
 	
