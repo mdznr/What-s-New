@@ -64,13 +64,13 @@ NS_ASSUME_NONNULL_BEGIN
 	[self.myContentView addSubview:self.textLabel];
 	self.textLabel.translatesAutoresizingMaskIntoConstraints = NO;
 	self.textLabel.textColor = [UIColor whiteColor];
-	self.textLabel.font = [UIFont systemFontOfSize:20.0f weight:UIFontWeightRegular];
+	self.textLabel.font = [UIFont systemFontOfSize:15.0f weight:UIFontWeightSemibold];
 	
 	self.detailTextLabel = [[UILabel alloc] init];
 	[self.myContentView addSubview:self.detailTextLabel];
 	self.detailTextLabel.translatesAutoresizingMaskIntoConstraints = NO;
 	self.detailTextLabel.textColor = [UIColor whiteColor];
-	self.detailTextLabel.font = [UIFont systemFontOfSize:14.0f weight:UIFontWeightLight];
+	self.detailTextLabel.font = [UIFont systemFontOfSize:15.0f weight:UIFontWeightRegular];
 	self.detailTextLabel.numberOfLines = 0;
 	self.detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
 	
