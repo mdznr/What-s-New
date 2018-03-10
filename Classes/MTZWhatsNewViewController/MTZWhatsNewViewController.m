@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///	The background behind the dismiss button.
 @property (nonatomic, strong) UIView *buttonBackground;
 
-/// The constraint responsible for setting the height of the “Get Started” button.
+/// The constraint responsible for setting the height of the “Continue” button.
 @property (nonatomic, strong) NSLayoutConstraint *buttonHeightConstraint;
 
 @end
@@ -125,7 +125,7 @@ NS_ASSUME_NONNULL_BEGIN
 	self.backgroundGradientBottomColor = [UIColor whiteColor];
 	_style = MTZWhatsNewViewControllerStyleDarkContent;
 	_automaticallySetStyle = YES;
-	self.dismissButtonTitle = NSLocalizedStringFromTable(@"Get Started", @"WhatsNew", nil);
+	self.dismissButtonTitle = NSLocalizedStringFromTable(@"MTZWhatsNewContinueButtonTitle", @"WhatsNew", nil);
 }
 
 - (void)reloadButtonHeight

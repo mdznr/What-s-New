@@ -242,13 +242,13 @@ static const NSString *kIconName = @"icon";
 {
 	UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"whatsnew" forIndexPath:indexPath];
 	
-	// Create label for "What’s New" title.
+	// Create label for “What’s New” title.
 	UILabel *label = [[UILabel alloc] initWithFrame:view.bounds];
+	label.text = NSLocalizedStringFromTable(@"MTZWhatsNewTitle", @"WhatsNew", nil);
 	[view addSubview:label];
 	label.translatesAutoresizingMaskIntoConstraints = NO;
 	[view addConstraints:[NSLayoutConstraint constraintsToStretchHorizontallyToSuperview:label]];
 	[view addConstraints:[NSLayoutConstraint constraintsToStretchVerticallyToSuperview:label]];
-	label.text = NSLocalizedStringFromTable(@"What’s New", @"WhatsNew", nil);
 	label.textColor = [self contentColor];
 	label.textAlignment = NSTextAlignmentCenter;
 	
