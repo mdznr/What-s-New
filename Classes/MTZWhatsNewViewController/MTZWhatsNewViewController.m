@@ -24,7 +24,10 @@
 @property (nonatomic, strong) UIButton *dismissButton;
 
 ///	The background behind the dismiss button.
-@property (nonatomic, strong) UIToolbar *buttonBackground;
+@property (nonatomic, strong) UIView *buttonBackground;
+
+// Reference to button height constraint
+@property (nonatomic, strong) NSLayoutConstraint *buttonHeightConstraint;
 
 @end
 
@@ -80,18 +83,39 @@
 	self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
 	[self.view addConstraints:[NSLayoutConstraint constraintsToFillToSuperview:self.contentView]];
 	
-	// Dismiss Button.
-	self.buttonBackground = [[UIToolbar alloc] init];
-	[self.view addSubview:self.buttonBackground];
-	self.buttonBackground.translatesAutoresizingMaskIntoConstraints = NO;
-	[self.view addConstraints:[NSLayoutConstraint constraintsToStickView:self.buttonBackground toEdges:UIRectEdgeLeft | UIRectEdgeBottom | UIRectEdgeRight]];
+    // Dismiss Button.
+    self.buttonBackground = [[UIView alloc] init];
+    [self.view addSubview:self.buttonBackground];
+    self.buttonBackground.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addConstraints:[NSLayoutConstraint constraintsToStickView:self.buttonBackground toEdges:UIRectEdgeLeft | UIRectEdgeBottom | UIRectEdgeRight]];
+    
+    /* Blur Effect & Hairline */ {
+        UIVisualEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
+        UIVisualEffectView *blurView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+        [self.buttonBackground addSubview:blurView];
+        blurView.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.view addConstraints:[NSLayoutConstraint constraintsToFillToSuperview:blurView]];
+        UIView *hair = [[UIView alloc] init];
+        hair.backgroundColor = [UIColor colorWithWhite:0.87f alpha:1];
+        [self.buttonBackground addSubview:hair];
+        hair.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.view addConstraints:[NSLayoutConstraint constraintsToStickView:hair toEdges:UIRectEdgeTop | UIRectEdgeLeft | UIRectEdgeRight]];
+        CGFloat lineThickness = 1.f / [[UIScreen mainScreen] scale];
+        [hair addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:lineThickness toView:hair]];
+    }
+    
+    self.dismissButton = [UIButton new];
+    self.dismissButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [self.buttonBackground addSubview:self.dismissButton];
+    self.dismissButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.dismissButton addTarget:self action:@selector(didTapContinueButton:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.buttonBackground attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.dismissButton attribute:NSLayoutAttributeTop  multiplier:1.0 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.dismissButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.bottomLayoutGuide attribute:NSLayoutAttributeTop  multiplier:1.0 constant:0]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsToStickView:self.dismissButton toEdges:UIRectEdgeLeft|UIRectEdgeRight]];
 	
-	self.dismissButton = [[UIButton alloc] init];
-	self.dismissButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-	[self.buttonBackground addSubview:self.dismissButton];
-	self.dismissButton.translatesAutoresizingMaskIntoConstraints = NO;
-	[self.dismissButton addTarget:self action:@selector(didTapContinueButton:) forControlEvents:UIControlEventTouchUpInside];
-	
+    self.buttonHeightConstraint = [NSLayoutConstraint constraintWithItem:self.dismissButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1.0f constant:50];
+    [self.view addConstraint:self.buttonHeightConstraint];
+    
 	[self reloadButtonHeight];
 	
 	// Defaults.
@@ -107,10 +131,8 @@
 	UIFont *buttonFont = [self shouldUseLargeButton] ? [UIFont systemFontOfSize:29.0f weight:UIFontWeightLight] : [UIFont systemFontOfSize:18.0f weight:UIFontWeightRegular];
 	self.dismissButton.titleLabel.font = buttonFont;
 	
-	CGFloat buttonHeight = [self shouldUseLargeButton] ? 82.0f : 50.0f;
-	[self.buttonBackground removeConstraints:self.buttonBackground.constraints];
-	[self.buttonBackground addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:buttonHeight toView:self.buttonBackground]];
-	[self.buttonBackground addConstraints:[NSLayoutConstraint constraintsToFillToSuperview:self.dismissButton]];
+    CGFloat buttonHeight = [self shouldUseLargeButton] ? 82.0f : 50.0f;
+    self.buttonHeightConstraint.constant = buttonHeight;
 	
 	self.contentInset = UIEdgeInsetsMake(self.topLayoutGuide.length, 0, self.bottomLayoutGuide.length + buttonHeight, 0);
 }
