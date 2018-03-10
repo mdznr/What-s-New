@@ -13,6 +13,8 @@
 
 #import "NSLayoutConstraint+Common.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 static const NSString *kTitle = @"title";
 static const NSString *kDetail = @"detail";
 static const NSString *kIconName = @"icon";
@@ -306,3 +308,5 @@ static const NSString *kIconName = @"icon";
 }
 
 @end
+
+NS_ASSUME_NONNULL_END
