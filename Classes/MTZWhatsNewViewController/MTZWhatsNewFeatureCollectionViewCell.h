@@ -13,7 +13,7 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewFeatureCollectionViewCellLayoutStyle) {
 	///	For use in a list. The image appears on the left and the left-align text appears stacked to the right of the image.
 	MTZWhatsNewFeatureCollectionViewCellLayoutStyleList,
 	///	For use in a grid. The image appears above the text and everything is center aligned.
-	MTZWhatsNewFeatureCollectionViewCellLayoutStyleGrid
+	MTZWhatsNewFeatureCollectionViewCellLayoutStyleGrid,
 };
 
 @interface MTZWhatsNewFeatureCollectionViewCell : UICollectionViewCell
