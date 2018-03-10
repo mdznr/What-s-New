@@ -100,7 +100,7 @@
 		[self.buttonBackground addSubview:hair];
 		hair.translatesAutoresizingMaskIntoConstraints = NO;
 		[self.view addConstraints:[NSLayoutConstraint constraintsToStickView:hair toEdges:UIRectEdgeTop | UIRectEdgeLeft | UIRectEdgeRight]];
-		CGFloat lineThickness = 1.f / [[UIScreen mainScreen] scale];
+		CGFloat lineThickness = 1.0f / [[UIScreen mainScreen] scale];
 		[hair addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:lineThickness toView:hair]];
 	}
 	
