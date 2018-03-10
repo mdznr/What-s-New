@@ -46,7 +46,7 @@ static const NSString *kIconName = @"icon";
 	return self;
 }
 
-- (id)init
+- (instancetype)init
 {
 	self = [super init];
 	if (self) {

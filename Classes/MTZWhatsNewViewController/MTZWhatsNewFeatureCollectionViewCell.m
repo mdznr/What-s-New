@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation MTZWhatsNewFeatureCollectionViewCell
 
-- (id)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame
 {
 	self = [super initWithFrame:frame];
 	if (self) {
@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 	return self;
 }
 
-- (id)initWithCoder:(NSCoder *)aDecoder
+- (nullable instancetype)initWithCoder:(NSCoder *)aDecoder
 {
 	self = [super initWithCoder:aDecoder];
 	if (self) {
@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 	return self;
 }
 
-- (id)init
+- (instancetype)init
 {
 	self = [super init];
 	if (self) {
