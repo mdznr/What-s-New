@@ -11,6 +11,10 @@
 /*
  A @c UICollectionView subclass that automatically enables and disables scrolling depending on whether or not the content fits within the scrollview’s frame.
  */
+NS_ASSUME_NONNULL_BEGIN
+
 @interface MTZCollectionView : UICollectionView
 
 @end
+
+NS_ASSUME_NONNULL_END
