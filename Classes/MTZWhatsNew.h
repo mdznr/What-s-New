@@ -39,7 +39,7 @@
 
 #import "MTZWhatsNewViewController.h"
 
-typedef void (^MTZWhatsNewHandler)(NSDictionary *whatsNew);
+typedef void (^MTZWhatsNewHandler)(NSDictionary<NSString *, id> *whatsNew);
 
 @interface MTZWhatsNew : NSObject
 

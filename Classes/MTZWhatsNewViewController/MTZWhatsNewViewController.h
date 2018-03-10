@@ -26,13 +26,13 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerStyle) {
 ///	@param features The features to display.
 ///	@return Returns an initialized @c MTZWhatsNewViewController object or @c nil if the object could not be successfully initialized.
 /// @discussion See the documentation for @c features to see the expected format.
-- (instancetype)initWithFeatures:(NSDictionary *)features;
+- (instancetype)initWithFeatures:(NSDictionary<NSString *, id> *)features;
 
 
 #pragma mark - Managing the Content
 
 ///	All the features to display in the view controller.
-@property (nonatomic, copy) NSDictionary *features;
+@property (nonatomic, copy) NSDictionary<NSString *, id> *features;
 
 
 #pragma mark - Accessing Views

@@ -37,7 +37,7 @@ static const NSString *kIconName = @"icon";
 
 #pragma mark - Initialization
 
-- (instancetype)initWithFeatures:(NSDictionary *)features
+- (instancetype)initWithFeatures:(NSDictionary<NSString *, id> *)features
 {
 	self = [super initWithFeatures:features];
 	if (self) {
@@ -156,7 +156,7 @@ static const NSString *kIconName = @"icon";
 
 #pragma mark - Properties
 
-- (void)setFeatures:(NSDictionary *)features
+- (void)setFeatures:(NSDictionary<NSString *, id> *)features
 {
 	[super setFeatures:features];
 	

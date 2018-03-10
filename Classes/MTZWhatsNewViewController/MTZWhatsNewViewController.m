@@ -34,7 +34,7 @@
 
 @implementation MTZWhatsNewViewController
 
-- (instancetype)initWithFeatures:(NSDictionary *)features
+- (instancetype)initWithFeatures:(NSDictionary<NSString *, id> *)features
 {
 	self = [super init];
 	if (self) {
@@ -54,7 +54,7 @@
 	return self;
 }
 
-- (id)initWithCoder:(NSCoder *)aDecoder
+- (nullable instancetype)initWithCoder:(NSCoder *)aDecoder
 {
 	self = [super initWithCoder:aDecoder];
 	if (self) {
