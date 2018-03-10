@@ -10,14 +10,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-///	Describes the kind of layout of the cell.
-typedef NS_ENUM(NSUInteger, MTZWhatsNewFeatureCollectionViewCellLayoutStyle) {
-	///	For use in a list. The image appears on the left and the left-align text appears stacked to the right of the image.
-	MTZWhatsNewFeatureCollectionViewCellLayoutStyleList,
-	///	For use in a grid. The image appears above the text and everything is center aligned.
-	MTZWhatsNewFeatureCollectionViewCellLayoutStyleGrid,
-};
-
 @interface MTZWhatsNewFeatureCollectionViewCell : UICollectionViewCell
 
 ///	The title of the feature.
@@ -31,9 +23,6 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewFeatureCollectionViewCellLayoutStyle) {
 
 ///	The color to use for the content.
 @property (nonatomic, copy) UIColor *contentColor;
-
-///	The style of the layout.
-@property (nonatomic) MTZWhatsNewFeatureCollectionViewCellLayoutStyle layoutStyle;
 
 @end
 

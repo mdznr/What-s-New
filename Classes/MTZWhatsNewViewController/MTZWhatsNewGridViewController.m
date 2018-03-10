@@ -104,7 +104,7 @@ static const NSString *kIconName = @"icon";
 
 - (void)calculateLayoutItemSize
 {
-	CGSize itemSize = [self shouldUseGridLayout] ? CGSizeMake(270, 187) : CGSizeMake(320, 108);
+	CGSize itemSize = CGSizeMake(320, 108);
 	
 	if (CGSizeEqualToSize(self.flowLayout.itemSize, itemSize) ) {
 		return;
@@ -192,11 +192,7 @@ static const NSString *kIconName = @"icon";
 {
 	// "What’s New"
 	if (section == 0) {
-		if ([self shouldUseGridLayout]) {
-			return CGSizeMake(collectionView.bounds.size.width, 115);
-		} else {
-			return CGSizeMake(collectionView.bounds.size.width, 70);
-		}
+		return CGSizeMake(collectionView.bounds.size.width, 70.0f);
 	}
 	
 	// No header for section.
@@ -207,10 +203,6 @@ static const NSString *kIconName = @"icon";
 						layout:(UICollectionViewLayout *)collectionViewLayout
 		insetForSectionAtIndex:(NSInteger)section
 {
-	if (section == 0 && [self shouldUseGridLayout] && [collectionView numberOfSections] <= 1 && [collectionView numberOfItemsInSection:section] <= 4) {
-		return UIEdgeInsetsMake(16, 0, 0, 0);
-	}
-	
 	return UIEdgeInsetsZero;
 }
 
@@ -246,32 +238,14 @@ static const NSString *kIconName = @"icon";
 	
 	// Create label for “What’s New” title.
 	UILabel *label = [[UILabel alloc] initWithFrame:view.bounds];
+	label.font = [UIFont systemFontOfSize:34.0f weight:UIFontWeightBold];
+	label.textColor = [self contentColor];
+	label.textAlignment = NSTextAlignmentCenter;
 	label.text = NSLocalizedStringFromTable(@"MTZWhatsNewTitle", @"WhatsNew", nil);
 	[view addSubview:label];
 	label.translatesAutoresizingMaskIntoConstraints = NO;
 	[view addConstraints:[NSLayoutConstraint constraintsToStretchHorizontallyToSuperview:label]];
 	[view addConstraints:[NSLayoutConstraint constraintsToStretchVerticallyToSuperview:label]];
-	label.textColor = [self contentColor];
-	label.textAlignment = NSTextAlignmentCenter;
-	
-	// Larger font and divider.
-	if ([self shouldUseGridLayout]) {
-		label.font = [UIFont systemFontOfSize:62.0f weight:UIFontWeightUltraLight];
-		label.translatesAutoresizingMaskIntoConstraints = NO;
-		[view addConstraints:[NSLayoutConstraint constraintsToStickView:label toEdges:UIRectEdgeLeft | UIRectEdgeTop | UIRectEdgeRight]];
-		
-		// Add a visual divider.
-		UIView *divider = [[UIView alloc] init];
-		[view addSubview:divider];
-		divider.translatesAutoresizingMaskIntoConstraints = NO;
-		[divider addConstraint:[NSLayoutConstraint constraintToSetStaticWidth:296 toView:divider]];
-		[divider addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:0.5 toView:divider]];
-		[view addConstraint:[NSLayoutConstraint constraintWithItem:divider attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:label attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0]];
-		[view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[label][divider]" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:@{@"label" : label, @"divider" : divider}]];
-		divider.backgroundColor = [[self contentColor] colorWithAlphaComponent:0.75f];
-	} else {
-		label.font = [UIFont systemFontOfSize:30.0f weight:UIFontWeightThin];
-	}
 	
 	return view;
 }
@@ -293,19 +267,8 @@ static const NSString *kIconName = @"icon";
 		}
 	}
 	cell.contentColor = [self contentColor];
-	cell.layoutStyle = [self shouldUseGridLayout] ? MTZWhatsNewFeatureCollectionViewCellLayoutStyleGrid : MTZWhatsNewFeatureCollectionViewCellLayoutStyleList;
 	
 	return cell;
-}
-
-
-#pragma mark - Helpers
-
-- (BOOL)shouldUseGridLayout
-{
-	// iPhone width = 320
-	// iPad’s UIModalPresentationFormSheet width = 540
-	return self.collectionView.bounds.size.width >= 540;
 }
 
 @end

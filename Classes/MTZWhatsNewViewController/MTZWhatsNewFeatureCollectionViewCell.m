@@ -79,73 +79,31 @@ NS_ASSUME_NONNULL_BEGIN
 	self.imageView.contentMode = UIViewContentModeScaleAspectFit;
 	self.imageView.translatesAutoresizingMaskIntoConstraints = NO;
 	
-	// Default of no style.
-	_layoutStyle = -1;
-}
-
-- (void)setLayoutStyle:(MTZWhatsNewFeatureCollectionViewCellLayoutStyle)layoutStyle
-{
-	// Avoid reapplying layout, if it’s not necessary.
-	if (layoutStyle == _layoutStyle) {
-		return;
+	/* Layout */ {
+		self.textLabel.textAlignment = NSTextAlignmentLeft;
+		self.detailTextLabel.textAlignment = NSTextAlignmentLeft;
+		
+		// The views to be referencing in visual format.
+		NSDictionary<NSString *, UIView *> *views = @{
+			@"myContentView" : self.myContentView,
+			@"icon" : self.imageView,
+			@"title" : self.textLabel,
+			@"detail" : self.detailTextLabel,
+		};
+		
+		// Stretch myContentView to its parent.
+		[self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[myContentView]|" options:NSLayoutFormatDirectionLeadingToTrailing metrics:nil views:views]];
+		[self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[myContentView]|" options:NSLayoutFormatDirectionLeadingToTrailing metrics:nil views:views]];
+		
+		// Align the image view to the top.
+		[self.myContentView addConstraint:[NSLayoutConstraint constraintWithItem:self.imageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.myContentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0]];
+		
+		// Horizontally space icon and labels.
+		[self.myContentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(18)-[icon(47)]-(26)-[title(>=211)]-(18)-|" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:views]];
+		[self.myContentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(18)-[icon(47)]-(26)-[detail(>=211)]-(18)-|" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:views]];
+		// Vertically align labels.
+		[self.myContentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[title]-(0)-[detail]-(>=0)-|" options:0 metrics:nil views:views]];
 	}
-	
-	_layoutStyle = layoutStyle;
-	switch (_layoutStyle) {
-		case MTZWhatsNewFeatureCollectionViewCellLayoutStyleList:
-			[self layoutForList];
-			break;
-			
-		case MTZWhatsNewFeatureCollectionViewCellLayoutStyleGrid:
-			[self layoutForGrid];
-			break;
-	}
-}
-
-- (void)layoutForList
-{
-	[self removeAllConstraints];
-	
-	self.textLabel.textAlignment = NSTextAlignmentLeft;
-	self.detailTextLabel.textAlignment = NSTextAlignmentLeft;
-	
-	// The views to be referencing in visual format.
-	NSDictionary *views = @{@"myContentView" : self.myContentView, @"icon" : self.imageView, @"title" : self.textLabel, @"detail" : self.detailTextLabel};
-	
-	// Stretch myContentView to its parent.
-	[self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[myContentView]|" options:NSLayoutFormatDirectionLeadingToTrailing metrics:nil views:views]];
-	[self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[myContentView]|" options:NSLayoutFormatDirectionLeadingToTrailing metrics:nil views:views]];
-	
-	// Vertically center image view.
-	[self.myContentView addConstraint:[NSLayoutConstraint constraintWithItem:self.imageView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.myContentView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0]];
-	
-	// Horizontally space icon and labels.
-	[self.myContentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(26)-[icon(64)]-(10)-[title(>=194)]-(26)-|" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:views]];
-	[self.myContentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(26)-[icon(64)]-(10)-[detail(>=194)]-(26)-|" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:views]];
-	// Vertically align labels.
-	[self.myContentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=0)-[title(20)]-(0)-[detail(>=34)]-(>=29)-|" options:0 metrics:nil views:views]];
-}
-
-- (void)layoutForGrid
-{
-	[self removeAllConstraints];
-	
-	self.textLabel.textAlignment = NSTextAlignmentCenter;
-	self.detailTextLabel.textAlignment = NSTextAlignmentCenter;
-	
-	// The views to be referencing in visual format.
-	NSDictionary *views = @{@"myContentView" : self.myContentView, @"icon" : self.imageView, @"title" : self.textLabel, @"detail" : self.detailTextLabel};
-	
-	// Stretch myContentView to its parent.
-	[self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[myContentView]|" options:NSLayoutFormatDirectionLeadingToTrailing metrics:nil views:views]];
-	[self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=0)-[myContentView]-(>=0)-|" options:NSLayoutFormatDirectionLeadingToTrailing | NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
-	
-	// Horizontal alignment.
-	[self.myContentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(>=0)-[icon(64)]-(>=0)-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
-	[self.myContentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(32)-[title(>=206)]-(32)-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
-	[self.myContentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(32)-[detail(>=206)]-(32)-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
-	// Vertical alignment.
-	[self.myContentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=0)-[icon(64)]-10-[title(20)]-4-[detail(34)]-(>=28)-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
 }
 
 - (void)prepareForReuse
@@ -153,15 +111,6 @@ NS_ASSUME_NONNULL_BEGIN
 	self.title = nil;
 	self.detail = nil;
 	self.icon = nil;
-}
-
-- (void)removeAllConstraints
-{
-	// Remove all constraints. Start from a clean state.
-	[self.contentView removeConstraints:self.contentView.constraints];
-	[self.textLabel removeConstraints:self.textLabel.constraints];
-	[self.detailTextLabel removeConstraints:self.detailTextLabel.constraints];
-	[self.imageView removeConstraints:self.imageView.constraints];
 }
 
 
