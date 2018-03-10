@@ -26,7 +26,7 @@
 ///	The background behind the dismiss button.
 @property (nonatomic, strong) UIView *buttonBackground;
 
-// Reference to button height constraint
+/// The constraint responsible for setting the height of the “Get Started” button.
 @property (nonatomic, strong) NSLayoutConstraint *buttonHeightConstraint;
 
 @end
