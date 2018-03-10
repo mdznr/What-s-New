@@ -104,7 +104,7 @@
 		[hair addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:lineThickness toView:hair]];
 	}
 	
-	self.dismissButton = [UIButton new];
+	self.dismissButton = [[UIButton alloc] init];
 	self.dismissButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 	[self.buttonBackground addSubview:self.dismissButton];
 	self.dismissButton.translatesAutoresizingMaskIntoConstraints = NO;
