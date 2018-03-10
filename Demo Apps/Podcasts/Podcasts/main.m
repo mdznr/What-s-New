@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-int main(int argc, char * argv[]) {
+int main(int argc, char * _Nonnull argv[]) {
 	@autoreleasepool {
 	    return UIApplicationMain(argc, argv, nil, NSStringFromClass([PDCAppDelegate class]));
 	}
