@@ -10,6 +10,8 @@
 
 #import "NSLayoutConstraint+Common.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @implementation PDCViewController
 
 - (void)viewDidLoad
@@ -44,3 +46,5 @@
 }
 
 @end
+
+NS_ASSUME_NONNULL_END

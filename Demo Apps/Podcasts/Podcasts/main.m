@@ -10,8 +10,12 @@
 
 #import "PDCAppDelegate.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 int main(int argc, char * argv[]) {
 	@autoreleasepool {
 	    return UIApplicationMain(argc, argv, nil, NSStringFromClass([PDCAppDelegate class]));
 	}
 }
+
+NS_ASSUME_NONNULL_END

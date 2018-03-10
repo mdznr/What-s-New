@@ -8,8 +8,9 @@
 
 #import "NSLayoutConstraint+Common.h"
 
-@implementation NSLayoutConstraint (Common)
+NS_ASSUME_NONNULL_BEGIN
 
+@implementation NSLayoutConstraint (Common)
 
 #pragma mark - Stretching to fill dimensions
 
@@ -104,3 +105,5 @@
 }
 
 @end
+
+NS_ASSUME_NONNULL_END
