@@ -68,9 +68,10 @@ static const NSString *kIconName = @"icon";
 {
 	// Feature collection view.
 	self.flowLayout = [[UICollectionViewFlowLayout alloc] init];
-	self.flowLayout.minimumLineSpacing = 2;
-	self.flowLayout.minimumInteritemSpacing = 0;
-	self.flowLayout.headerReferenceSize = self.flowLayout.footerReferenceSize = CGSizeZero;
+	self.flowLayout.minimumLineSpacing = 2.0f;
+	self.flowLayout.minimumInteritemSpacing = 0.0f;
+	self.flowLayout.headerReferenceSize = CGSizeZero;
+	self.flowLayout.footerReferenceSize = CGSizeZero;
 	
 	self.collectionView = [[MTZCollectionView alloc] initWithFrame:self.contentView.bounds collectionViewLayout:self.flowLayout];
 	[self.contentView addSubview:self.collectionView];
