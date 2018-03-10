@@ -76,8 +76,8 @@ NS_ASSUME_NONNULL_BEGIN
 										relatedBy:NSLayoutRelationEqual
 										   toItem:view.superview
 										attribute:NSLayoutAttributeCenterX
-									   multiplier:1
-										 constant:0];
+									   multiplier:1.0f
+										 constant:0.0f];
 }
 
 + (NSLayoutConstraint *)constraintToCenterViewVerticallyToSuperview:(UIView *)view
@@ -87,8 +87,8 @@ NS_ASSUME_NONNULL_BEGIN
 										relatedBy:NSLayoutRelationEqual
 										   toItem:view.superview
 										attribute:NSLayoutAttributeCenterY
-									   multiplier:1
-										 constant:0];
+									   multiplier:1.0f
+										 constant:0.0f];
 }
 
 
