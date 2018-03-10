@@ -273,8 +273,7 @@ static const NSString *kIconName = @"icon";
 	return view;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
-				  cellForItemAtIndexPath:(NSIndexPath *)indexPath
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
 	MTZWhatsNewFeatureCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"feature" forIndexPath:indexPath];
 	
