@@ -146,11 +146,14 @@ static const NSString *kIconName = @"icon";
 - (UIColor *)contentColor
 {
 	switch (self.style) {
-		case MTZWhatsNewViewControllerStyleLightContent: return [UIColor whiteColor];
+		case MTZWhatsNewViewControllerStyleLightContent:
+			return [UIColor whiteColor];
 			
-		case MTZWhatsNewViewControllerStyleDarkContent:  return [UIColor blackColor];
+		case MTZWhatsNewViewControllerStyleDarkContent:
+			return [UIColor blackColor];
 			
-		default: return nil;
+		default:
+			return nil;
 	}
 }
 
