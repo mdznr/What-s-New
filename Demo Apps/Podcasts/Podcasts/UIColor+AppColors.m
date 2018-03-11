@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (UIColor *)appTintColor
 {
-	return [UIColor colorWithHue:0.77 saturation:0.77 brightness:0.76 alpha:1.0];
+	return [UIColor colorWithRed:0.4462 green:0.1423 blue:0.8474 alpha:1.0];
 }
 
 + (UIColor *)appGradientTopColor
