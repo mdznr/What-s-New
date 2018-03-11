@@ -71,7 +71,6 @@ NS_ASSUME_NONNULL_BEGIN
 	_contentColor = contentColor;
 	
 	self.titleDetailLabel.textColor = self.contentColor;
-	self.iconView.tintColor = self.contentColor;
 }
 
 #pragma mark - Private
