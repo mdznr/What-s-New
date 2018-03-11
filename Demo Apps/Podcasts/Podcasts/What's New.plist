@@ -2,80 +2,31 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>3.0</key>
-	<array>
-		<dict>
-			<key>title</key>
-			<string>Unplayed Episodes</string>
-			<key>detail</key>
-			<string>Quickly find episodes you haven’t played yet.</string>
-			<key>icon</key>
-			<string>Podcast</string>
-		</dict>
-		<dict>
-			<key>title</key>
-			<string>Browse the Feed</string>
-			<key>detail</key>
-			<string>Stream available episodes or download them to play later.</string>
-			<key>icon</key>
-			<string>Feed</string>
-		</dict>
-		<dict>
-			<key>title</key>
-			<string>Saved Episodes</string>
-			<key>detail</key>
-			<string>Save your favorite episodes to ensure you’ll always have them.</string>
-			<key>icon</key>
-			<string>Saved</string>
-		</dict>
-		<dict>
-			<key>title</key>
-			<string>Delete Played Episodes</string>
-			<key>detail</key>
-			<string>Episodes can be automatically deleted after they are played.</string>
-			<key>icon</key>
-			<string>Delete</string>
-		</dict>
-	</array>
 	<key>2.0</key>
 	<array>
 		<dict>
 			<key>title</key>
-			<string>Designed for iOS 7</string>
+			<string>Powerful Stories</string>
 			<key>detail</key>
-			<string>Podcasts has a beautiful new look and feel designed for iOS 7.</string>
+			<string>Discover free audio stories that entertain, inform, and inspire.</string>
 			<key>icon</key>
-			<string>iOS 7</string>
+			<string>Feature_Podcast</string>
 		</dict>
 		<dict>
 			<key>title</key>
-			<string>Stay up to date</string>
+			<string>Something for Everyone</string>
 			<key>detail</key>
-			<string>Podcasts now automatically updates with new episodes.</string>
+			<string>Explore shows you’ll love, from entertainment and comedy to news and sports.</string>
 			<key>icon</key>
-			<string>Up To Date</string>
+			<string>Feature_Catalog</string>
 		</dict>
-	</array>
-	<key>1.2</key>
-	<array>
 		<dict>
 			<key>title</key>
-			<string>Custom Stations</string>
+			<string>Listen Anytime, Anyplace</string>
 			<key>detail</key>
-			<string>Create custom stations of your favorite podcasts.</string>
+			<string>Listen now, download for later, and subscribe to get every new episode.</string>
 			<key>icon</key>
-			<string>Stations</string>
-		</dict>
-	</array>
-	<key>1.1</key>
-	<array>
-		<dict>
-			<key>title</key>
-			<string>Pull to Refresh</string>
-			<key>detail</key>
-			<string>More easily refresh a subscription or playlist.</string>
-			<key>icon</key>
-			<string>Pull to Refresh</string>
+			<string>Feature_Playback</string>
 		</dict>
 	</array>
 </dict>
