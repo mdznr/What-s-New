@@ -19,12 +19,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (UIColor *)appGradientTopColor
 {
-	return [UIColor colorWithHue:0.77 saturation:0.77 brightness:0.76 alpha:1.0];
+	return [UIColor colorWithRed:0.5166 green:0.1717 blue:0.7602 alpha:1.0];
 }
 
 + (UIColor *)appGradientBottomColor
 {
-	return [UIColor colorWithHue:0.78 saturation:0.60 brightness:0.95 alpha:1.0];
+	return [UIColor colorWithRed:0.8392 green:0.4353 blue:0.9961 alpha:1.0];
 }
 
 @end
