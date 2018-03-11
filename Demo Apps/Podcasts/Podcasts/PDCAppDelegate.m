@@ -13,7 +13,7 @@
 #import "PDCViewController.h"
 
 #import "MTZWhatsNew.h"
-#import "MTZWhatsNewGridViewController.h"
+#import "MTZWhatsNewListViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 	
 	[MTZWhatsNew handleWhatsNew:^(NSDictionary *whatsNew) {
 		// Creating the view controller with features.
-		MTZWhatsNewGridViewController *vc = [[MTZWhatsNewGridViewController alloc] initWithFeatures:whatsNew];
+		MTZWhatsNewListViewController *vc = [[MTZWhatsNewListViewController alloc] initWithFeatures:whatsNew];
 		// Presenting the what’s new view controller.
 		[self.window.rootViewController presentViewController:vc animated:NO completion:nil];
 	}];

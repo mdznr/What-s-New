@@ -1,12 +1,12 @@
 //
-//  MTZWhatsNewGridViewController.m
+//  MTZWhatsNewListViewController.m
 //  Podcasts
 //
 //  Created by Matt Zanchelli on 5/27/14.
 //  Copyright © 2014 Matt Zanchelli. All rights reserved.
 //
 
-#import "MTZWhatsNewGridViewController.h"
+#import "MTZWhatsNewListViewController.h"
 
 #import "MTZTableView.h"
 #import "MTZWhatsNewFeatureTableViewCell.h"
@@ -18,12 +18,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSUInteger, MTZWhatsNewGridViewControllerTitleStyle_Private) {
+typedef NS_ENUM(NSUInteger, MTZWhatsNewListViewControllerTitleStyle_Private) {
 	/// The title is “What’s New in <APP NAME>” where “<APP NAME>” is dispalyed in the view controller’s tint color.
-	MTZWhatsNewGridViewControllerTitleStyleColored = 3,
+	MTZWhatsNewListViewControllerTitleStyleColored = 3,
 };
 
-@interface MTZWhatsNewGridViewController ()
+@interface MTZWhatsNewListViewController ()
 
 /// All the features pooled together sorted by version number.
 @property (nonatomic, strong) NSArray *allFeatures;
@@ -35,16 +35,16 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewGridViewControllerTitleStyle_Private) {
 
 @end
 
-@interface MTZWhatsNewGridViewController (UITableViewDelegate) <UITableViewDelegate>
+@interface MTZWhatsNewListViewController (UITableViewDelegate) <UITableViewDelegate>
 
 @end
 
-@interface MTZWhatsNewGridViewController (UITableViewDataSource) <UITableViewDataSource>
+@interface MTZWhatsNewListViewController (UITableViewDataSource) <UITableViewDataSource>
 
 @end
 
 
-@implementation MTZWhatsNewGridViewController
+@implementation MTZWhatsNewListViewController
 
 #pragma mark - Initialization
 
@@ -52,7 +52,7 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewGridViewControllerTitleStyle_Private) {
 {
 	self = [super initWithFeatures:features];
 	if (self) {
-		[self __MTZWhatsNewGridViewController_Setup];
+		[self __MTZWhatsNewListViewController_Setup];
 	}
 	return self;
 }
@@ -61,7 +61,7 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewGridViewControllerTitleStyle_Private) {
 {
 	self = [super init];
 	if (self) {
-		[self __MTZWhatsNewGridViewController_Setup];
+		[self __MTZWhatsNewListViewController_Setup];
 	}
 	return self;
 }
@@ -70,12 +70,12 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewGridViewControllerTitleStyle_Private) {
 {
 	self = [super initWithCoder:aDecoder];
 	if (self) {
-		[self __MTZWhatsNewGridViewController_Setup];
+		[self __MTZWhatsNewListViewController_Setup];
 	}
 	return self;
 }
 
-- (void)__MTZWhatsNewGridViewController_Setup
+- (void)__MTZWhatsNewListViewController_Setup
 {
 	self.tableView = [[MTZTableView alloc] initWithFrame:self.contentView.bounds];
 	self.tableView.backgroundColor = [UIColor clearColor];
@@ -90,7 +90,7 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewGridViewControllerTitleStyle_Private) {
 	[self.tableView registerCellClass:[MTZWhatsNewFeatureTableViewCell class]];
 	
 	// Set default property values.
-	self.titleStyle = MTZWhatsNewGridViewControllerTitleStyleRegular;
+	self.titleStyle = MTZWhatsNewListViewControllerTitleStyleRegular;
 	
 	/* Table Header View (“What’s New”) */ {
 		CGRect frame = CGRectMake(0.0, 0.0, self.view.frame.size.width, 142.0);
@@ -196,7 +196,7 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewGridViewControllerTitleStyle_Private) {
 	[self.tableView reloadData];
 }
 
-- (void)setTitleStyle:(MTZWhatsNewGridViewControllerTitleStyle)titleStyle
+- (void)setTitleStyle:(MTZWhatsNewListViewControllerTitleStyle)titleStyle
 {
 	_titleStyle = titleStyle;
 	
@@ -206,7 +206,7 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewGridViewControllerTitleStyle_Private) {
 - (void)_reloadTitle
 {
 	switch (self.titleStyle) {
-		case MTZWhatsNewGridViewControllerTitleStyleRegular: {
+		case MTZWhatsNewListViewControllerTitleStyleRegular: {
 			NSString *displayName = NSBundle.mainBundle.displayName;
 			if (displayName) {
 				NSString *title = [NSString localizedStringWithFormat:NSLocalizedString(@"What’s New in %@", nil), displayName];
@@ -218,7 +218,7 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewGridViewControllerTitleStyle_Private) {
 			}
 		} break;
 			
-		case MTZWhatsNewGridViewControllerTitleStyleColored: {
+		case MTZWhatsNewListViewControllerTitleStyleColored: {
 			NSString *displayName = NSBundle.mainBundle.displayName;
 			if (displayName) {
 				NSString *title = [NSString localizedStringWithFormat:NSLocalizedString(@"What’s New in %@", nil), displayName];
@@ -238,7 +238,7 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewGridViewControllerTitleStyle_Private) {
 			}
 		} break;
 			
-		case MTZWhatsNewGridViewControllerTitleStyleSimple:
+		case MTZWhatsNewListViewControllerTitleStyleSimple:
 		default: {
 			self.titleLabel.text = NSLocalizedStringFromTable(@"MTZWhatsNewTitle", @"WhatsNew", nil);
 			self.title = NSLocalizedStringFromTable(@"MTZWhatsNewTitle", @"WhatsNew", nil);
@@ -248,7 +248,7 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewGridViewControllerTitleStyle_Private) {
 
 @end
 
-@implementation MTZWhatsNewGridViewController (UITableViewDelegate)
+@implementation MTZWhatsNewListViewController (UITableViewDelegate)
 
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -257,7 +257,7 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewGridViewControllerTitleStyle_Private) {
 
 @end
 
-@implementation MTZWhatsNewGridViewController (UITableViewDataSource)
+@implementation MTZWhatsNewListViewController (UITableViewDataSource)
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
