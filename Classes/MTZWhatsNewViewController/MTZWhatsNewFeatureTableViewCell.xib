@@ -23,7 +23,7 @@
                     <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rLP-wi-3hi">
                         <rect key="frame" x="36" y="14" width="303" height="71.5"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ4-de-gXb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ4-de-gXb">
                                 <rect key="frame" x="0.0" y="0.0" width="47" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ZJ4-de-gXb" secondAttribute="height" multiplier="1:1" id="JbW-UU-fbE"/>
