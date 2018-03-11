@@ -1,16 +1,16 @@
 //
-// MTZWhatsNewFeatureCollectionViewCell.h
-// What’s New
+//  MTZWhatsNewFeatureTableViewCell.h
+//  Podcasts
 //
-// Created by Matt Zanchelli on 5/23/14.
-// Copyright (c) 2014 Matt Zanchelli. All rights reserved.
+//  Created by Matt Zanchelli on 3/10/18.
+//  Copyright © 2018 Matt Zanchelli. All rights reserved.
 //
 
 @import UIKit;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MTZWhatsNewFeatureCollectionViewCell : UICollectionViewCell
+@interface MTZWhatsNewFeatureTableViewCell : UITableViewCell
 
 ///	The title of the feature.
 @property (nonatomic, copy, nullable) NSString *title;

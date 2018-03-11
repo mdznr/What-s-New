@@ -10,12 +10,20 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+///	Describes the style of the title in the Whats New Grid View Controller.
+typedef NS_ENUM(NSUInteger, MTZWhatsNewGridViewControllerTitleStyle) {
+	/// The title is simply “What’s New”.
+	MTZWhatsNewGridViewControllerTitleStyleSimple,
+	/// The title is “What’s New in <APP NAME>”.
+	MTZWhatsNewGridViewControllerTitleStyleRegular,
+};
+
 /// A What’s New View Controller subclass that presents the features in a list or grid.
 @interface MTZWhatsNewGridViewController : MTZWhatsNewViewController
 
-///	Whether or not the icons should be treated as templates.
-/// @discussion The default is @c YES.
-@property (nonatomic) BOOL templatedIcons;
+/// The style of the header of this view controller. See @c MTZWhatsNewGridViewControllerTitleStyle for more information.
+/// @discussion The default is @c MTZWhatsNewGridViewControllerTitleStyleRegular.
+@property (nonatomic, assign) MTZWhatsNewGridViewControllerTitleStyle titleStyle;
 
 @end
 

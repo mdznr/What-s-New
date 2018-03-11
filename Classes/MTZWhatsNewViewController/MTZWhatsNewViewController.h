@@ -56,7 +56,7 @@ typedef NS_ENUM(NSUInteger, MTZWhatsNewViewControllerStyle) {
 
 ///	Whether or not the style should be set automatically.
 /// Default is @c YES. When @c automaticallySetStyle is set to @c YES , do not expect the value of @c style to be constant.
-@property (nonatomic, getter = automaticallySetsStyle) BOOL automaticallySetStyle;
+@property (nonatomic, getter=automaticallySetsStyle) BOOL automaticallySetStyle;
 
 ///	The color to display on the top of the background gradient.
 @property (nonatomic, copy) UIColor *backgroundGradientTopColor;

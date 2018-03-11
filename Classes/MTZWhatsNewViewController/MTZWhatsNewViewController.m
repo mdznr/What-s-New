@@ -11,6 +11,9 @@
 #import "SAMGradientView.h"
 
 #import "NSLayoutConstraint+Common.h"
+#import "UIColor+PerceivedBrightness.h"
+
+#import "MTZButton.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -23,13 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (readwrite) UIEdgeInsets contentInset;
 
 ///	The button to dismiss the view controller.
-@property (nonatomic, strong) UIButton *dismissButton;
-
-///	The background behind the dismiss button.
-@property (nonatomic, strong) UIView *buttonBackground;
-
-/// The constraint responsible for setting the height of the “Continue” button.
-@property (nonatomic, strong) NSLayoutConstraint *buttonHeightConstraint;
+@property (nonatomic, strong) MTZButton *dismissButton;
 
 @end
 
@@ -83,42 +80,22 @@ NS_ASSUME_NONNULL_BEGIN
 	self.contentView = [[UIView alloc] initWithFrame:self.view.bounds];
 	[self.view addSubview:self.contentView];
 	self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
-	[self.view addConstraints:[NSLayoutConstraint constraintsToFillToSuperview:self.contentView]];
+	[NSLayoutConstraint activateConstraints:[NSLayoutConstraint constraintsToStickView:self.contentView toEdges:UIRectEdgeTop | UIRectEdgeLeft | UIRectEdgeRight]];
 	
 	// Dismiss Button.
-	self.buttonBackground = [[UIView alloc] init];
-	[self.view addSubview:self.buttonBackground];
-	self.buttonBackground.translatesAutoresizingMaskIntoConstraints = NO;
-	[self.view addConstraints:[NSLayoutConstraint constraintsToStickView:self.buttonBackground toEdges:UIRectEdgeLeft | UIRectEdgeBottom | UIRectEdgeRight]];
-	
-	/* Blur Effect & Hairline */ {
-		UIVisualEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
-		UIVisualEffectView *blurView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-		[self.buttonBackground addSubview:blurView];
-		blurView.translatesAutoresizingMaskIntoConstraints = NO;
-		[self.view addConstraints:[NSLayoutConstraint constraintsToFillToSuperview:blurView]];
-		UIView *hair = [[UIView alloc] init];
-		hair.backgroundColor = [UIColor colorWithWhite:0.87f alpha:1];
-		[self.buttonBackground addSubview:hair];
-		hair.translatesAutoresizingMaskIntoConstraints = NO;
-		[self.view addConstraints:[NSLayoutConstraint constraintsToStickView:hair toEdges:UIRectEdgeTop | UIRectEdgeLeft | UIRectEdgeRight]];
-		CGFloat lineThickness = 1.0f / [[UIScreen mainScreen] scale];
-		[hair addConstraint:[NSLayoutConstraint constraintToSetStaticHeight:lineThickness toView:hair]];
-	}
-	
-	self.dismissButton = [[UIButton alloc] init];
-	self.dismissButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-	[self.buttonBackground addSubview:self.dismissButton];
-	self.dismissButton.translatesAutoresizingMaskIntoConstraints = NO;
+	self.dismissButton = [[MTZButton alloc] init];
 	[self.dismissButton addTarget:self action:@selector(didTapContinueButton:) forControlEvents:UIControlEventTouchUpInside];
-	[self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.buttonBackground attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.dismissButton attribute:NSLayoutAttributeTop  multiplier:1.0 constant:0]];
-	[self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.dismissButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.bottomLayoutGuide attribute:NSLayoutAttributeTop  multiplier:1.0 constant:0]];
-	[self.view addConstraints:[NSLayoutConstraint constraintsToStickView:self.dismissButton toEdges:UIRectEdgeLeft | UIRectEdgeRight]];
+	[self.view addSubview:self.dismissButton];
+	self.dismissButton.translatesAutoresizingMaskIntoConstraints = NO;
+	[NSLayoutConstraint activateConstraints:@[
+		[NSLayoutConstraint constraintWithItem:self.dismissButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0f constant:50.0f],
+		[NSLayoutConstraint constraintWithItem:self.dismissButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0f constant:288.0f],
+		[NSLayoutConstraint constraintWithItem:self.dismissButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0f constant:0.0f],
+		[NSLayoutConstraint constraintWithItem:self.dismissButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottomMargin multiplier:1.0f constant:-10.0f],
+		[NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.dismissButton attribute:NSLayoutAttributeTop multiplier:1.0f constant:-10.0f],
+	]];
 	
-	self.buttonHeightConstraint = [NSLayoutConstraint constraintWithItem:self.dismissButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1.0f constant:50];
-	[self.view addConstraint:self.buttonHeightConstraint];
-	
-	[self reloadButtonHeight];
+	[self _refreshInsets];
 	
 	// Defaults.
 	self.backgroundGradientTopColor = [UIColor whiteColor];
@@ -128,26 +105,32 @@ NS_ASSUME_NONNULL_BEGIN
 	self.dismissButtonTitle = NSLocalizedStringFromTable(@"MTZWhatsNewContinueButtonTitle", @"WhatsNew", nil);
 }
 
-- (void)reloadButtonHeight
+- (UIStatusBarStyle)preferredStatusBarStyle
 {
-	UIFont *buttonFont = [UIFont systemFontOfSize:18.0f weight:UIFontWeightRegular];
-	self.dismissButton.titleLabel.font = buttonFont;
-	
-	CGFloat buttonHeight = 50.0f;
-	self.buttonHeightConstraint.constant = buttonHeight;
-	
-	self.contentInset = UIEdgeInsetsMake(self.topLayoutGuide.length, 0, self.bottomLayoutGuide.length + buttonHeight, 0);
-}
-
-- (BOOL)prefersStatusBarHidden
-{
-	return YES;
+	return (self.style == MTZWhatsNewViewControllerStyleLightContent) ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
 }
 
 - (void)viewWillLayoutSubviews
 {
 	[super viewWillLayoutSubviews];
-	[self reloadButtonHeight];
+	
+	[self _refreshInsets];
+}
+
+- (void)viewSafeAreaInsetsDidChange
+{
+	[super viewSafeAreaInsetsDidChange];
+
+	[self _refreshInsets];
+}
+
+- (void)_refreshInsets
+{
+	if (@available(iOS 11.0, *)) {
+		self.contentInset = UIEdgeInsetsMake(self.view.safeAreaInsets.top, self.view.safeAreaInsets.left, 0.0f, self.view.safeAreaInsets.right);
+	} else {
+		self.contentInset = UIEdgeInsetsMake(self.topLayoutGuide.length, 0.0, 0.0, 0.0);
+	}
 }
 
 
@@ -226,13 +209,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (MTZWhatsNewViewControllerStyle)appropriateStyleForBackgroundOfColor:(UIColor *)color
 {
-	CGFloat r, g, b, a;
-	[color getRed:&r green:&g blue:&b alpha:&a];
-	
-	// Equation from http://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color/596243#596243
-	CGFloat perception = 1.0f - ((0.299f * r) + (0.587f * g) + (0.114f * b));
-	
-	if (perception < 0.5) {
+	if (color.perceivedBrightness < 0.5) {
 		return MTZWhatsNewViewControllerStyleDarkContent;
 	} else {
 		return MTZWhatsNewViewControllerStyleLightContent;
@@ -246,8 +223,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)styleDidChange
 {
-	// An empty implementation.
+	[self setNeedsStatusBarAppearanceUpdate];
+	
+	self.dismissButton.inverted = (self.style == MTZWhatsNewViewControllerStyleLightContent);
 }
+
 @end
 
 NS_ASSUME_NONNULL_END

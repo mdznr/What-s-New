@@ -1,9 +1,9 @@
 //
-// NSLayoutConstraint+Common.m
-// What’s New
+//  NSLayoutConstraint+Common.m
+//  What’s New
 //
-// Created by Matt Zanchelli on 5/25/14.
-// Copyright (c) 2014 Matt Zanchelli. All rights reserved.
+//  Created by Matt Zanchelli on 5/25/14.
+//  Copyright © 2014 Matt Zanchelli. All rights reserved.
 //
 
 #import "NSLayoutConstraint+Common.h"

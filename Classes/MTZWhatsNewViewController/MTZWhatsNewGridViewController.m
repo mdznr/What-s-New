@@ -8,27 +8,38 @@
 
 #import "MTZWhatsNewGridViewController.h"
 
-#import "MTZCollectionView.h"
-#import "MTZWhatsNewFeatureCollectionViewCell.h"
+#import "MTZTableView.h"
+#import "MTZWhatsNewFeatureTableViewCell.h"
+#import "MTZWhatsNewFeatureTableViewCell+Feature.h"
 
+#import "NSBundle+DisplayName.h"
 #import "NSLayoutConstraint+Common.h"
+#import "UITableView+CellReuse.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-static const NSString *kTitle = @"title";
-static const NSString *kDetail = @"detail";
-static const NSString *kIconName = @"icon";
+typedef NS_ENUM(NSUInteger, MTZWhatsNewGridViewControllerTitleStyle_Private) {
+	/// The title is “What’s New in <APP NAME>” where “<APP NAME>” is dispalyed in the view controller’s tint color.
+	MTZWhatsNewGridViewControllerTitleStyleColored = 3,
+};
 
-@interface MTZWhatsNewGridViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface MTZWhatsNewGridViewController ()
 
 /// All the features pooled together sorted by version number.
 @property (nonatomic, strong) NSArray *allFeatures;
 
-///	The collection view to display all the new features.
-@property (nonatomic, strong) MTZCollectionView *collectionView;
+///	The table view to display all the new features.
+@property (nonatomic, strong) MTZTableView *tableView;
 
-///	The layout for the collection view.
-@property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
+@property (nonatomic, strong) UILabel *titleLabel;
+
+@end
+
+@interface MTZWhatsNewGridViewController (UITableViewDelegate) <UITableViewDelegate>
+
+@end
+
+@interface MTZWhatsNewGridViewController (UITableViewDataSource) <UITableViewDataSource>
 
 @end
 
@@ -66,81 +77,87 @@ static const NSString *kIconName = @"icon";
 
 - (void)__MTZWhatsNewGridViewController_Setup
 {
-	// Feature collection view.
-	self.flowLayout = [[UICollectionViewFlowLayout alloc] init];
-	self.flowLayout.minimumLineSpacing = 2.0f;
-	self.flowLayout.minimumInteritemSpacing = 0.0f;
-	self.flowLayout.headerReferenceSize = CGSizeZero;
-	self.flowLayout.footerReferenceSize = CGSizeZero;
+	self.tableView = [[MTZTableView alloc] initWithFrame:self.contentView.bounds];
+	self.tableView.backgroundColor = [UIColor clearColor];
+	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+	self.tableView.delegate = self;
+	self.tableView.dataSource = self;
 	
-	self.collectionView = [[MTZCollectionView alloc] initWithFrame:self.contentView.bounds collectionViewLayout:self.flowLayout];
-	[self.contentView addSubview:self.collectionView];
-	self.collectionView.translatesAutoresizingMaskIntoConstraints = NO;
-	[self.contentView addConstraints:[NSLayoutConstraint constraintsToFillToSuperview:self.collectionView]];
-	self.collectionView.delegate = self;
-	self.collectionView.dataSource = self;
-	[self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"whatsnew"];
-	[self.collectionView registerClass:[MTZWhatsNewFeatureCollectionViewCell class] forCellWithReuseIdentifier:@"feature"];
-	self.collectionView.backgroundColor = [UIColor clearColor];
-	self.collectionView.contentInset = self.contentInset;
-	self.collectionView.scrollIndicatorInsets = self.contentInset;
-	[self calculateLayoutItemSize];
+	[self.contentView addSubview:self.tableView];
+	self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
+	[self.contentView addConstraints:[NSLayoutConstraint constraintsToFillToSuperview:self.tableView]];
 	
-	// Defaults.
-	self.templatedIcons = YES;
+	[self.tableView registerCellClass:[MTZWhatsNewFeatureTableViewCell class]];
+	
+	// Set default property values.
+	self.titleStyle = MTZWhatsNewGridViewControllerTitleStyleRegular;
+	
+	/* Table Header View (“What’s New”) */ {
+		CGRect frame = CGRectMake(0.0, 0.0, self.view.frame.size.width, 142.0);
+		UIView *tableHeaderView = [[UIView alloc] initWithFrame:frame];
+		tableHeaderView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+		
+		UILabel *label = [[UILabel alloc] init];
+		label.numberOfLines = 0;
+		label.font = [UIFont systemFontOfSize:34.0f weight:UIFontWeightBold];
+		label.textColor = [self contentColor];
+		label.textAlignment = NSTextAlignmentCenter;
+		
+		[tableHeaderView addSubview:label];
+		label.translatesAutoresizingMaskIntoConstraints = NO;
+		[NSLayoutConstraint activateConstraints:@[
+			[NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:tableHeaderView attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0.0],
+			[NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:tableHeaderView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0.0],
+			[NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:tableHeaderView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-29.0],
+			[NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:tableHeaderView attribute:NSLayoutAttributeTop multiplier:1.0 constant:30.0],
+		]];
+		
+		self.tableView.tableHeaderView = tableHeaderView;
+		self.titleLabel = label;
+		
+		[self _reloadTitle];
+	}
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];
-	[self.collectionView performSelector:@selector(flashScrollIndicators) withObject:nil afterDelay:0];
+	
+	[self.tableView performSelector:@selector(flashScrollIndicators) withObject:nil afterDelay:0];
 }
 
-- (void)viewDidLayoutSubviews
+- (void)contentInsetDidChange
 {
-	[super viewDidLayoutSubviews];
-	[self calculateLayoutItemSize];
-}
-
-- (void)calculateLayoutItemSize
-{
-	CGSize itemSize = CGSizeMake(320, 108);
+	[super contentInsetDidChange];
 	
-	if (CGSizeEqualToSize(self.flowLayout.itemSize, itemSize) ) {
-		return;
-	}
-	
-	self.flowLayout.itemSize = itemSize;
-	
-	UICollectionViewFlowLayoutInvalidationContext *ctx = [[UICollectionViewFlowLayoutInvalidationContext alloc] init];
-	ctx.invalidateFlowLayoutAttributes = YES;
-	ctx.invalidateFlowLayoutDelegateMetrics = YES;
-	[self.flowLayout invalidateLayoutWithContext:ctx];
+	self.tableView.contentInset = self.contentInset;
 }
 
 - (void)styleDidChange
 {
 	[super styleDidChange];
 	
-	// Reload collection view to change styles.
-	[self.collectionView reloadData];
+	self.titleLabel.textColor = [self contentColor];
 	
+	// Reload table view to change styles for all the cells.
+	[self.tableView reloadData];
+	
+	// Set the scroll view indicator style based on our style.
+	UIScrollViewIndicatorStyle indicatorStyle;
 	switch (self.style) {
-		case MTZWhatsNewViewControllerStyleDarkContent:
-			self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleBlack;
-			break;
+		case MTZWhatsNewViewControllerStyleLightContent: {
+			indicatorStyle = UIScrollViewIndicatorStyleWhite;
+		} break;
 			
-		case MTZWhatsNewViewControllerStyleLightContent:
-			self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
-			break;
+		case MTZWhatsNewViewControllerStyleDarkContent: {
+			indicatorStyle = UIScrollViewIndicatorStyleBlack;
+		} break;
+			
+		default: {
+			indicatorStyle = UIScrollViewIndicatorStyleDefault;
+		} break;
 	}
-}
-
-- (void)contentInsetDidChange
-{
-	[super contentInsetDidChange];
-	self.collectionView.contentInset = self.contentInset;
-	self.collectionView.scrollIndicatorInsets = self.contentInset;
+	self.tableView.indicatorStyle = indicatorStyle;
 }
 
 - (UIColor *)contentColor
@@ -175,99 +192,96 @@ static const NSString *kIconName = @"icon";
 	}
 	self.allFeatures = allFeatures;
 	
-	// Reload the collection view’s data.
-	[self.collectionView reloadData];
+	// Reload the table view’s data.
+	[self.tableView reloadData];
 }
 
-- (void)setTemplatedIcons:(BOOL)templatedIcons
+- (void)setTitleStyle:(MTZWhatsNewGridViewControllerTitleStyle)titleStyle
 {
-	_templatedIcons = templatedIcons;
-	// TODO: reload icons.
-}
-
-
-#pragma mark - UICollectionViewDelegateFlowLayout
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
-{
-	// "What’s New"
-	if (section == 0) {
-		return CGSizeMake(collectionView.bounds.size.width, 70.0f);
-	}
+	_titleStyle = titleStyle;
 	
-	// No header for section.
-	return CGSizeZero;
+	[self _reloadTitle];
 }
 
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView
-						layout:(UICollectionViewLayout *)collectionViewLayout
-		insetForSectionAtIndex:(NSInteger)section
+- (void)_reloadTitle
 {
-	return UIEdgeInsetsZero;
+	switch (self.titleStyle) {
+		case MTZWhatsNewGridViewControllerTitleStyleRegular: {
+			NSString *displayName = NSBundle.mainBundle.displayName;
+			if (displayName) {
+				NSString *title = [NSString localizedStringWithFormat:NSLocalizedString(@"What’s New in %@", nil), displayName];
+				self.titleLabel.text = title;
+				self.title = title;
+			} else {
+				self.titleLabel.text = NSLocalizedStringFromTable(@"MTZWhatsNewTitle", @"WhatsNew", nil);
+				self.title = NSLocalizedStringFromTable(@"MTZWhatsNewTitle", @"WhatsNew", nil);
+			}
+		} break;
+			
+		case MTZWhatsNewGridViewControllerTitleStyleColored: {
+			NSString *displayName = NSBundle.mainBundle.displayName;
+			if (displayName) {
+				NSString *title = [NSString localizedStringWithFormat:NSLocalizedString(@"What’s New in %@", nil), displayName];
+				NSMutableAttributedString *attributedTitle = [[NSMutableAttributedString alloc] initWithString:title];
+				NSRange range = [title rangeOfString:displayName];
+				if (range.location != NSNotFound) {
+					// TODO: We need this text color to adjust dynamically based on the view’s tint color. This isn’t easily achievable from the view controller. We could subclass `UILabel` to refresh its attributed text when the tint color changes. And give some other attribute for tinted text.
+					[attributedTitle addAttribute:NSForegroundColorAttributeName value:self.view.tintColor range:range];
+					self.titleLabel.attributedText = attributedTitle;
+				} else {
+					self.titleLabel.text = title;
+				}
+				self.title = title;
+			} else {
+				self.titleLabel.text = NSLocalizedStringFromTable(@"MTZWhatsNewTitle", @"WhatsNew", nil);
+				self.title = NSLocalizedStringFromTable(@"MTZWhatsNewTitle", @"WhatsNew", nil);
+			}
+		} break;
+			
+		case MTZWhatsNewGridViewControllerTitleStyleSimple:
+		default: {
+			self.titleLabel.text = NSLocalizedStringFromTable(@"MTZWhatsNewTitle", @"WhatsNew", nil);
+			self.title = NSLocalizedStringFromTable(@"MTZWhatsNewTitle", @"WhatsNew", nil);
+		} break;
+	}
 }
 
+@end
 
-#pragma mark - UICollectionViewDelegate
+@implementation MTZWhatsNewGridViewController (UITableViewDelegate)
 
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	return NO;
 }
 
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath
-{
-	return NO;
-}
+@end
 
+@implementation MTZWhatsNewGridViewController (UITableViewDataSource)
 
-#pragma mark - UICollectionViewDataSource
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 	return 1;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return [self.allFeatures count];
-}
-
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-{
-	UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"whatsnew" forIndexPath:indexPath];
-	
-	// Create label for “What’s New” title.
-	UILabel *label = [[UILabel alloc] initWithFrame:view.bounds];
-	label.font = [UIFont systemFontOfSize:34.0f weight:UIFontWeightBold];
-	label.textColor = [self contentColor];
-	label.textAlignment = NSTextAlignmentCenter;
-	label.text = NSLocalizedStringFromTable(@"MTZWhatsNewTitle", @"WhatsNew", nil);
-	[view addSubview:label];
-	label.translatesAutoresizingMaskIntoConstraints = NO;
-	[view addConstraints:[NSLayoutConstraint constraintsToStretchHorizontallyToSuperview:label]];
-	[view addConstraints:[NSLayoutConstraint constraintsToStretchVerticallyToSuperview:label]];
-	
-	return view;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-	MTZWhatsNewFeatureCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"feature" forIndexPath:indexPath];
-	
-	NSDictionary *feature = self.allFeatures[(NSUInteger) indexPath.row];
-	
-	cell.title = NSLocalizedString(feature[kTitle], nil);
-	cell.detail = NSLocalizedString(feature[kDetail], nil);
-	NSString *iconName = feature[kIconName];
-	if (iconName) {
-		if (self.templatedIcons) {
-			cell.icon = [[UIImage imageNamed:iconName] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-		} else {
-			cell.icon = [[UIImage imageNamed:iconName] imageWithRenderingMode:UIImageRenderingModeAutomatic];
-		}
+	switch (section) {
+		case 0:
+			return self.allFeatures.count;
+			
+		default:
+			// This is some section we don’t know about.
+			return 0;
 	}
-	cell.contentColor = [self contentColor];
-	
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	NSDictionary *feature = self.allFeatures[(NSUInteger)indexPath.row];
+	MTZWhatsNewFeatureTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[MTZWhatsNewFeatureTableViewCell reuseIdentifier] forIndexPath:indexPath];
+	[cell configureForFeature:feature];
+	cell.contentColor = self.contentColor;
 	return cell;
 }
 

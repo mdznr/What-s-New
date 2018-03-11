@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		B91C58CC1963FA0200924B86 /* WhatsNew.strings in Resources */ = {isa = PBXBuildFile; fileRef = B91C58CE1963FA0200924B86 /* WhatsNew.strings */; };
 		C90ED4B620549AAE00A66D47 /* UIColor+AppColors.m in Sources */ = {isa = PBXBuildFile; fileRef = C90ED4B520549AAE00A66D47 /* UIColor+AppColors.m */; };
+		C90ED4BF2054A8DF00A66D47 /* MTZWhatsNewFeatureTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C90ED4BD2054A8DF00A66D47 /* MTZWhatsNewFeatureTableViewCell.m */; };
+		C90ED4C02054A8DF00A66D47 /* MTZWhatsNewFeatureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C90ED4BE2054A8DF00A66D47 /* MTZWhatsNewFeatureTableViewCell.xib */; };
+		C90ED4C32054AD4C00A66D47 /* UITableViewCell+CellReuse.m in Sources */ = {isa = PBXBuildFile; fileRef = C90ED4C22054AD4C00A66D47 /* UITableViewCell+CellReuse.m */; };
+		C90ED4C62054C03D00A66D47 /* MTZButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C90ED4C52054C03D00A66D47 /* MTZButton.m */; };
+		C920BAC12054DA2100BCA77F /* UIColor+PerceivedBrightness.m in Sources */ = {isa = PBXBuildFile; fileRef = C920BAC02054DA2100BCA77F /* UIColor+PerceivedBrightness.m */; };
+		C920BAC42054DA8400BCA77F /* NSBundle+DisplayName.m in Sources */ = {isa = PBXBuildFile; fileRef = C920BAC32054DA8400BCA77F /* NSBundle+DisplayName.m */; };
+		C920BAC72054DB2300BCA77F /* MTZWhatsNewFeatureTableViewCell+Feature.m in Sources */ = {isa = PBXBuildFile; fileRef = C920BAC62054DB2300BCA77F /* MTZWhatsNewFeatureTableViewCell+Feature.m */; };
+		C920BACA2054DCE500BCA77F /* UITableView+CellReuse.m in Sources */ = {isa = PBXBuildFile; fileRef = C920BAC92054DCE500BCA77F /* UITableView+CellReuse.m */; };
 		C97860F219341B1E005BE797 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97860F119341B1E005BE797 /* Foundation.framework */; };
 		C97860F419341B1E005BE797 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97860F319341B1E005BE797 /* CoreGraphics.framework */; };
 		C97860F619341B1E005BE797 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97860F519341B1E005BE797 /* UIKit.framework */; };
@@ -24,8 +32,7 @@
 		C978612019341B1E005BE797 /* PodcastsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C978611F19341B1E005BE797 /* PodcastsTests.m */; };
 		C978612A19341BCA005BE797 /* What's New.plist in Resources */ = {isa = PBXBuildFile; fileRef = C978612919341BCA005BE797 /* What's New.plist */; };
 		C978613F19341BDB005BE797 /* MTZWhatsNew.m in Sources */ = {isa = PBXBuildFile; fileRef = C978612D19341BDB005BE797 /* MTZWhatsNew.m */; };
-		C978614019341BDB005BE797 /* MTZCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C978613019341BDB005BE797 /* MTZCollectionView.m */; };
-		C978614119341BDB005BE797 /* MTZWhatsNewFeatureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C978613219341BDB005BE797 /* MTZWhatsNewFeatureCollectionViewCell.m */; };
+		C978614019341BDB005BE797 /* MTZTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C978613019341BDB005BE797 /* MTZTableView.m */; };
 		C978614219341BDB005BE797 /* MTZWhatsNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C978613419341BDB005BE797 /* MTZWhatsNewViewController.m */; };
 		C978614319341BDB005BE797 /* NSLayoutConstraint+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = C978613719341BDB005BE797 /* NSLayoutConstraint+Common.m */; };
 		C978614419341BDB005BE797 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = C978613919341BDB005BE797 /* LICENSE.txt */; };
@@ -49,6 +56,21 @@
 		B91C58CF1963FA0600924B86 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/WhatsNew.strings; sourceTree = "<group>"; };
 		C90ED4B420549AAE00A66D47 /* UIColor+AppColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+AppColors.h"; sourceTree = "<group>"; };
 		C90ED4B520549AAE00A66D47 /* UIColor+AppColors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AppColors.m"; sourceTree = "<group>"; };
+		C90ED4BC2054A8DF00A66D47 /* MTZWhatsNewFeatureTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTZWhatsNewFeatureTableViewCell.h; sourceTree = "<group>"; };
+		C90ED4BD2054A8DF00A66D47 /* MTZWhatsNewFeatureTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTZWhatsNewFeatureTableViewCell.m; sourceTree = "<group>"; };
+		C90ED4BE2054A8DF00A66D47 /* MTZWhatsNewFeatureTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MTZWhatsNewFeatureTableViewCell.xib; sourceTree = "<group>"; };
+		C90ED4C12054AD4C00A66D47 /* UITableViewCell+CellReuse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+CellReuse.h"; sourceTree = "<group>"; };
+		C90ED4C22054AD4C00A66D47 /* UITableViewCell+CellReuse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+CellReuse.m"; sourceTree = "<group>"; };
+		C90ED4C42054C03D00A66D47 /* MTZButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTZButton.h; sourceTree = "<group>"; };
+		C90ED4C52054C03D00A66D47 /* MTZButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTZButton.m; sourceTree = "<group>"; };
+		C920BABF2054DA2100BCA77F /* UIColor+PerceivedBrightness.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+PerceivedBrightness.h"; sourceTree = "<group>"; };
+		C920BAC02054DA2100BCA77F /* UIColor+PerceivedBrightness.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+PerceivedBrightness.m"; sourceTree = "<group>"; };
+		C920BAC22054DA8400BCA77F /* NSBundle+DisplayName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSBundle+DisplayName.h"; sourceTree = "<group>"; };
+		C920BAC32054DA8400BCA77F /* NSBundle+DisplayName.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+DisplayName.m"; sourceTree = "<group>"; };
+		C920BAC52054DB2300BCA77F /* MTZWhatsNewFeatureTableViewCell+Feature.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MTZWhatsNewFeatureTableViewCell+Feature.h"; sourceTree = "<group>"; };
+		C920BAC62054DB2300BCA77F /* MTZWhatsNewFeatureTableViewCell+Feature.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MTZWhatsNewFeatureTableViewCell+Feature.m"; sourceTree = "<group>"; };
+		C920BAC82054DCE500BCA77F /* UITableView+CellReuse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+CellReuse.h"; sourceTree = "<group>"; };
+		C920BAC92054DCE500BCA77F /* UITableView+CellReuse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+CellReuse.m"; sourceTree = "<group>"; };
 		C97860EE19341B1E005BE797 /* Podcasts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podcasts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97860F119341B1E005BE797 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C97860F319341B1E005BE797 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -69,10 +91,8 @@
 		C978612919341BCA005BE797 /* What's New.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "What's New.plist"; sourceTree = "<group>"; };
 		C978612C19341BDB005BE797 /* MTZWhatsNew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZWhatsNew.h; sourceTree = "<group>"; };
 		C978612D19341BDB005BE797 /* MTZWhatsNew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZWhatsNew.m; sourceTree = "<group>"; };
-		C978612F19341BDB005BE797 /* MTZCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZCollectionView.h; sourceTree = "<group>"; };
-		C978613019341BDB005BE797 /* MTZCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZCollectionView.m; sourceTree = "<group>"; };
-		C978613119341BDB005BE797 /* MTZWhatsNewFeatureCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZWhatsNewFeatureCollectionViewCell.h; sourceTree = "<group>"; };
-		C978613219341BDB005BE797 /* MTZWhatsNewFeatureCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZWhatsNewFeatureCollectionViewCell.m; sourceTree = "<group>"; };
+		C978612F19341BDB005BE797 /* MTZTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZTableView.h; sourceTree = "<group>"; };
+		C978613019341BDB005BE797 /* MTZTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZTableView.m; sourceTree = "<group>"; };
 		C978613319341BDB005BE797 /* MTZWhatsNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZWhatsNewViewController.h; sourceTree = "<group>"; };
 		C978613419341BDB005BE797 /* MTZWhatsNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZWhatsNewViewController.m; sourceTree = "<group>"; };
 		C978613619341BDB005BE797 /* NSLayoutConstraint+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+Common.h"; sourceTree = "<group>"; };
@@ -218,23 +238,36 @@
 				C978613419341BDB005BE797 /* MTZWhatsNewViewController.m */,
 				C97861471934FEFF005BE797 /* MTZWhatsNewGridViewController.h */,
 				C97861481934FEFF005BE797 /* MTZWhatsNewGridViewController.m */,
-				C978613119341BDB005BE797 /* MTZWhatsNewFeatureCollectionViewCell.h */,
-				C978613219341BDB005BE797 /* MTZWhatsNewFeatureCollectionViewCell.m */,
-				C978612F19341BDB005BE797 /* MTZCollectionView.h */,
-				C978613019341BDB005BE797 /* MTZCollectionView.m */,
-				C978613519341BDB005BE797 /* NSLayoutConstraint+Common */,
+				C90ED4BC2054A8DF00A66D47 /* MTZWhatsNewFeatureTableViewCell.h */,
+				C90ED4BD2054A8DF00A66D47 /* MTZWhatsNewFeatureTableViewCell.m */,
+				C90ED4BE2054A8DF00A66D47 /* MTZWhatsNewFeatureTableViewCell.xib */,
+				C920BAC52054DB2300BCA77F /* MTZWhatsNewFeatureTableViewCell+Feature.h */,
+				C920BAC62054DB2300BCA77F /* MTZWhatsNewFeatureTableViewCell+Feature.m */,
+				C90ED4C42054C03D00A66D47 /* MTZButton.h */,
+				C90ED4C52054C03D00A66D47 /* MTZButton.m */,
+				C978612F19341BDB005BE797 /* MTZTableView.h */,
+				C978613019341BDB005BE797 /* MTZTableView.m */,
+				C978613519341BDB005BE797 /* Categories */,
 				C978613819341BDB005BE797 /* SAMGradientView */,
 			);
 			path = MTZWhatsNewViewController;
 			sourceTree = "<group>";
 		};
-		C978613519341BDB005BE797 /* NSLayoutConstraint+Common */ = {
+		C978613519341BDB005BE797 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				C920BAC22054DA8400BCA77F /* NSBundle+DisplayName.h */,
+				C920BAC32054DA8400BCA77F /* NSBundle+DisplayName.m */,
 				C978613619341BDB005BE797 /* NSLayoutConstraint+Common.h */,
 				C978613719341BDB005BE797 /* NSLayoutConstraint+Common.m */,
+				C920BABF2054DA2100BCA77F /* UIColor+PerceivedBrightness.h */,
+				C920BAC02054DA2100BCA77F /* UIColor+PerceivedBrightness.m */,
+				C920BAC82054DCE500BCA77F /* UITableView+CellReuse.h */,
+				C920BAC92054DCE500BCA77F /* UITableView+CellReuse.m */,
+				C90ED4C12054AD4C00A66D47 /* UITableViewCell+CellReuse.h */,
+				C90ED4C22054AD4C00A66D47 /* UITableViewCell+CellReuse.m */,
 			);
-			path = "NSLayoutConstraint+Common";
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		C978613819341BDB005BE797 /* SAMGradientView */ = {
@@ -343,6 +376,7 @@
 				C978612A19341BCA005BE797 /* What's New.plist in Resources */,
 				C97860FC19341B1E005BE797 /* InfoPlist.strings in Resources */,
 				B91C58CC1963FA0200924B86 /* WhatsNew.strings in Resources */,
+				C90ED4C02054A8DF00A66D47 /* MTZWhatsNewFeatureTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,10 +395,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C978614119341BDB005BE797 /* MTZWhatsNewFeatureCollectionViewCell.m in Sources */,
-				C978614019341BDB005BE797 /* MTZCollectionView.m in Sources */,
+				C90ED4BF2054A8DF00A66D47 /* MTZWhatsNewFeatureTableViewCell.m in Sources */,
+				C920BACA2054DCE500BCA77F /* UITableView+CellReuse.m in Sources */,
+				C978614019341BDB005BE797 /* MTZTableView.m in Sources */,
+				C90ED4C62054C03D00A66D47 /* MTZButton.m in Sources */,
+				C90ED4C32054AD4C00A66D47 /* UITableViewCell+CellReuse.m in Sources */,
+				C920BAC12054DA2100BCA77F /* UIColor+PerceivedBrightness.m in Sources */,
 				C978614219341BDB005BE797 /* MTZWhatsNewViewController.m in Sources */,
+				C920BAC72054DB2300BCA77F /* MTZWhatsNewFeatureTableViewCell+Feature.m in Sources */,
 				C978613F19341BDB005BE797 /* MTZWhatsNew.m in Sources */,
+				C920BAC42054DA8400BCA77F /* NSBundle+DisplayName.m in Sources */,
 				C978610219341B1E005BE797 /* PDCAppDelegate.m in Sources */,
 				C97861491934FEFF005BE797 /* MTZWhatsNewGridViewController.m in Sources */,
 				C978610B19341B1E005BE797 /* PDCViewController.m in Sources */,
@@ -479,7 +519,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -524,7 +564,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
