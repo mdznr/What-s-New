@@ -1,8 +1,8 @@
 //
-// MTZWhatsNew.h
+//  MTZWhatsNew.h
 //
-// MTZWhatsNew created by Matt Zanchelli on 5/16/14.
-// Copyright (c) 2014 Matt Zanchelli. All rights reserved.
+//  MTZWhatsNew created by Matt Zanchelli on 5/16/14.
+//  Copyright © 2014 Matt Zanchelli. All rights reserved.
 //
 
 //
